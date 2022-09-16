@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [DWH_All_SuperAdmin]
+    WITH PASSWORD = N'OmoDdwqmLs=we|eAibppmqlWmsFT7_&#$!~<pqbratojvsh^', SID = 0x6249202F6C086F4F91E67735C24D7C38, DEFAULT_LANGUAGE = [русский], CHECK_POLICY = OFF;
+

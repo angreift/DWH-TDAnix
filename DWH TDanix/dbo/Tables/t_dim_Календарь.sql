@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[t_dim_Календарь] (
+    [ИД_дата]                     DATETIME      NOT NULL,
+    [ИД_год]                      INT           NOT NULL,
+    [Год_наименование]            NVARCHAR (8)  NOT NULL,
+    [ИД_квартал]                  INT           NOT NULL,
+    [Квартал_наименование]        NVARCHAR (10) NOT NULL,
+    [ИД_месяц]                    INT           NOT NULL,
+    [Месяц_наименование]          NVARCHAR (8)  NOT NULL,
+    [ИД_неделя]                   INT           NOT NULL,
+    [Неделя_наименование]         NVARCHAR (9)  NOT NULL,
+    [ИД_день_недели]              INT           NOT NULL,
+    [День_недели_наименование]    NVARCHAR (11) NOT NULL,
+    [ISO_неделя]                  INT           NOT NULL,
+    [ISO_неделя_наименование]     NVARCHAR (9)  NOT NULL,
+    [ISO_год]                     INT           NOT NULL,
+    [ISO_год_наименование]        NVARCHAR (8)  NOT NULL,
+    [ISO_неделя_год_наименование] NVARCHAR (19) NOT NULL,
+    [Месяц_год_наименование]      NVARCHAR (18) NOT NULL,
+    [День_месяц_год_наименование] NVARCHAR (21) NOT NULL,
+    [Полное_наименование]         NVARCHAR (34) NOT NULL,
+    [Месяц_год_кратко]            NVARCHAR (7)  NOT NULL,
+    [День_месяц_год_кратко]       NVARCHAR (10) NOT NULL,
+    CONSTRAINT [PK_t_dim_Календарь] PRIMARY KEY CLUSTERED ([ИД_дата] ASC) ON [DIMENTIONS]
+) ON [DIMENTIONS];
+

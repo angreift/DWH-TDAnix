@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [DWH_cass_owner]
+    WITH PASSWORD = N'Tmodwqmswe|ep5:pmAql4pbrmsFT7_&#$!~<to>jvsivpq|l', SID = 0xDDCF50F54B5BF34EB1D5FB4280AA49FD, DEFAULT_LANGUAGE = [русский], CHECK_POLICY = OFF;
+

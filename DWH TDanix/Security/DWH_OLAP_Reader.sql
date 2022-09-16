@@ -1,0 +1,2 @@
+﻿CREATE USER [DWH_OLAP_Reader] FOR LOGIN [DWH_OLAP_Reader];
+

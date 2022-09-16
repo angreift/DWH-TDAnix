@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[t_dim_Товары] (
+    [Код_товара]                    BIGINT       NOT NULL,
+    [Наименование]                  VARCHAR (55) NOT NULL,
+    [Акцизный_объём]                FLOAT (53)   NULL,
+    [Ассортимент]                   INT          NULL,
+    [Бренд]                         VARCHAR (45) NULL,
+    [Вид_упаковки]                  VARCHAR (50) NULL,
+    [Главный_код]                   BIGINT       NULL,
+    [Главный_аналог_для_автозаказа] BIGINT       NULL,
+    [Дней_годности]                 INT          NULL,
+    [Единиц_в_упаковке]             FLOAT (53)   NULL,
+    [Единица_измерения]             VARCHAR (10) NULL,
+    [Марка]                         VARCHAR (50) NULL,
+    [Собственная_торговая_марка]    BIT          NULL,
+    [Страна]                        VARCHAR (50) NULL,
+    [Страна_производитель]          VARCHAR (50) NULL,
+    [Маркировка]                    BIT          NULL,
+    [Период_грин]                   BIT          NULL,
+    [Гастрономия]                   BIT          NULL,
+    [Вид_маркированной_продукции]   VARCHAR (50) NULL,
+    [Код_группы]                    BIGINT       NOT NULL,
+    [Наименование_группы]           VARCHAR (50) NOT NULL,
+    [Код_подгруппы]                 BIGINT       NULL,
+    [Наименование_подгруппы]        VARCHAR (50) NULL,
+    CONSTRAINT [ix_cl_Код] PRIMARY KEY CLUSTERED ([Код_товара] ASC) ON [DIMENTIONS]
+) ON [DIMENTIONS];
+
