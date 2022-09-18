@@ -27,3 +27,12 @@ CREATE NONCLUSTERED INDEX [ix_uncl_ИД_смены]
     ON [cass].[t_fact_Чеки]([Составной_код_смены] ASC)
     ON [FACTS];
 
+GO
+
+CREATE INDEX [ix_uncl_Чеки_Дата] ON [cass].[t_fact_Чеки] ([Дата_время_закрытия_чека]) ON [FACTS];
+
+GO
+
+CREATE INDEX [ix_uncl_Чеки_Измерения] ON [cass].[t_fact_Чеки] (Код_кассы, Составной_код_смены) ON [FACTS];
+
+GO

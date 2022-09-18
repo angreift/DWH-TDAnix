@@ -28,3 +28,12 @@ CREATE CLUSTERED INDEX [ix_cl_ИД_док]
     ON [cass].[t_fact_Сторнированные_позиции]([Составной_код_документа] ASC)
     ON [FACTS];
 
+GO
+
+CREATE INDEX [ix_uncl_Сторно_Дата] ON [cass].[t_fact_Сторнированные_позиции] ([Дата_время_сторнирования_позиции]) ON [FACTS];
+
+GO
+
+CREATE INDEX [ix_uncl_Сторно_Измерения] ON [cass].[t_fact_Сторнированные_позиции] (Код_товара, Код_кассы) ON [FACTS];
+
+GO

@@ -26,3 +26,12 @@
     CONSTRAINT [PK_t_fact_Смены_на_кассах] PRIMARY KEY CLUSTERED ([Составной_код_смены] ASC) ON [FACTS]
 ) ON [FACTS];
 
+GO
+
+CREATE INDEX [ix_uncl_Смены_Дата] ON [cass].[t_fact_Смены_на_кассах] ([Дата_время_начала_смены]) ON [FACTS];
+
+GO
+
+CREATE INDEX [ix_uncl_Смены_Измерения] ON [cass].[t_fact_Смены_на_кассах] (Код_кассы) ON [FACTS];
+
+GO

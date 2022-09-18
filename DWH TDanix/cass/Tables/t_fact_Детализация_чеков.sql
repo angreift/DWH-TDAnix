@@ -35,3 +35,11 @@ CREATE NONCLUSTERED INDEX [ix_uncl_Ид_док]
     ON [cass].[t_fact_Детализация_чеков]([Составной_код_документа] ASC)
     ON [FACTS];
 
+
+GO
+
+CREATE INDEX [ix_uncl_Детализация_чеков_Дата] ON [cass].[t_fact_Детализация_чеков] ([Дата_время_добавления_позиции]) on [FACTS]
+
+GO
+
+CREATE INDEX [ix_uncl_Детализация_чеков_Измерения] ON [cass].[t_fact_Детализация_чеков] ([Код_товара], [Код_кассы]) on [FACTS]

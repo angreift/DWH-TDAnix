@@ -27,3 +27,11 @@ CREATE CLUSTERED INDEX [ix_cl_ИД_позиции]
     ON [cass].[t_fact_Скидки]([Составной_код_позиции] ASC)
     ON [FACTS];
 
+
+GO
+
+CREATE INDEX [ix_uncl_Скидки_Дата] ON [cass].[t_fact_Скидки] ([Дата_время_применения_скидки]) ON [FACTS];
+
+GO
+
+CREATE INDEX [ix_uncl_Скидки_Измерения] ON [cass].[t_fact_Скидки] (Код_товара, Код_кассы) ON [FACTS];

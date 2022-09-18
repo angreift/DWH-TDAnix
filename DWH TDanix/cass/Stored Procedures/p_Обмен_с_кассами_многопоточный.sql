@@ -28,6 +28,7 @@ BEGIN
 	declare @Код_магазина int;
 	declare @R            bit;
 	declare @str          nvarchar(max);
+	declare @rowcount     nvarchar(max);
 
 	-- Переменные для обхода смен по циклу
 	declare @ИД_смены                         int;
@@ -795,6 +796,17 @@ BEGIN
 				continue
 			end catch
 
+			-- Проверка на наличие данных
+			set @str = 'select count(*) from ##t_raw_Кассовые_документы_%ИД_обмена%';
+			set @str = REPLACE(@str, '%ИД_обмена%', @ИД_обмена);
+			exec sp_executesql @str, @rowcount output;
+			if cast(@rowcount as int) = 0 begin
+				rollback tran @TransactionName
+				set @msg = concat('Касса вернула 0 строк в таблицу t_raw_Кассовые_документы (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end
+
 			-- Добавление информации об оплатах
 
 			begin try
@@ -874,6 +886,17 @@ BEGIN
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
+
+			-- Проверка на наличие данных
+			set @str = 'select count(*) from ##t_raw_Оплаты_%ИД_обмена%';
+			set @str = REPLACE(@str, '%ИД_обмена%', @ИД_обмена);
+			exec sp_executesql @str, @rowcount output;
+			if cast(@rowcount as int) = 0 begin
+				rollback tran @TransactionName
+				set @msg = concat('Касса вернула 0 строк в таблицу t_raw_Оплаты (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end
 
 			-- Добавление информации о позициях документа
 
@@ -960,6 +983,17 @@ BEGIN
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
+
+			-- Проверка на наличие данных
+			set @str = 'select count(*) from ##t_raw_Позиции_документа_%ИД_обмена%';
+			set @str = REPLACE(@str, '%ИД_обмена%', @ИД_обмена);
+			exec sp_executesql @str, @rowcount output;
+			if cast(@rowcount as int) = 0 begin
+				rollback tran @TransactionName
+				set @msg = concat('Касса вернула 0 строк в таблицу t_raw_Позиции_документа (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end
 
 			-- Добавление информации о скидках
 
