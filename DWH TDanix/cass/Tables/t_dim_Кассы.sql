@@ -33,6 +33,10 @@ BEGIN
 	SET NOCOUNT ON;
 	declare @object_name  nvarchar(128);
 	declare @msg          nvarchar(max);
+	declare @Код_кассы    int;
+	declare @IP_адрес     nvarchar(15);
+	declare @R            bit;
+
 	set @object_name = object_schema_name(@@procid)+'.'+object_name(@@procid);
 
 	set @msg = concat(
@@ -47,6 +51,17 @@ BEGIN
 		(select UserBind from inserted)
 	);
 	exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
+
+	set @Код_кассы = (select Код_кассы from inserted);
+	set @IP_адрес  = (select IP_Адрес  from inserted);
+
+	exec [dbo].[p_Регистрация_ODBC_подключения] @Код_кассы, @IP_адрес, @R output;
+	if @R = 0
+	begin
+		set @msg = concat('Не удалось создать ODBC подключение к кассе! Код_кассы: ', @Код_кассы, ', IP: ', @IP_адрес);
+		exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+	end 
+
 
 END
 
@@ -65,6 +80,10 @@ BEGIN
 	declare @cur_cassid   int;
 	declare @object_name  nvarchar(128);
 	declare @msg          nvarchar(max);
+	declare @Код_кассы    int;
+	declare @IP_адрес     nvarchar(15);
+	declare @R            bit;
+
 	set @object_name = object_schema_name(@@procid)+'.'+object_name(@@procid);
 
 	declare cur cursor for
@@ -101,6 +120,17 @@ BEGIN
 			);
 			exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
 			fetch next from cur into @cur_cassid
+
+			set @Код_кассы = (select Код_кассы from inserted where Код_кассы = @cur_cassid);
+			set @IP_адрес  = (select IP_Адрес  from inserted where Код_кассы = @cur_cassid);
+
+			exec [dbo].[p_Регистрация_ODBC_подключения] @Код_кассы, @IP_адрес, @R output;
+			if @R = 0
+			begin
+				set @msg = concat('Не удалось создать ODBC подключение к кассе! Код_кассы: ', @Код_кассы, ', IP: ', @IP_адрес);
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+			end 
+
 		end
 
 	close cur
