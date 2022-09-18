@@ -1,0 +1,570 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Календарь</ID>
+  <Name>Календарь</Name>
+  <CreatedTimestamp>2022-09-05T03:41:58.31Z</CreatedTimestamp>
+  <LastSchemaUpdate>2022-09-06T08:03:56.936667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2096" scrolltop="-5900" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9895" y="16801" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="t_dim_Календарь" left="-192" top="-4577" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5662" height="13996" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00001e160000ac360000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_t_dim_Календарь" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2096</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5900</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-192</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-4577</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="140">
+            <Shape Id="ИД Дата" Expanded="false">
+              <Attributes>
+                <Attribute Id="ИД Дата" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="ИД Дата 1" Expanded="false">
+              <Attributes>
+                <Attribute Id="ИД Дата 1" />
+              </Attributes>
+              <Position x="200" y="20" />
+            </Shape>
+            <Shape Id="ИД Месяц 1" Expanded="true">
+              <Attributes>
+                <Attribute Id="ИД Месяц 1" />
+              </Attributes>
+              <Position x="380" y="20" />
+            </Shape>
+            <Shape Id="ИД Год 1" Expanded="false">
+              <Attributes>
+                <Attribute Id="ИД Год 1" />
+              </Attributes>
+              <Position x="560" y="20" />
+            </Shape>
+            <Shape Id="День Число" Expanded="false">
+              <Attributes>
+                <Attribute Id="День Число" />
+              </Attributes>
+              <Position x="200" y="68" />
+            </Shape>
+            <Shape Id="ISO Неделя" Expanded="false">
+              <Attributes>
+                <Attribute Id="ISO Неделя" />
+              </Attributes>
+              <Position x="380" y="68" />
+            </Shape>
+            <Shape Id="ISO Год" Expanded="false">
+              <Attributes>
+                <Attribute Id="ISO Год" />
+              </Attributes>
+              <Position x="560" y="68" />
+            </Shape>
+            <Shape Id="ИД Месяц" Expanded="false">
+              <Attributes>
+                <Attribute Id="ИД Месяц" />
+              </Attributes>
+              <Position x="380" y="116" />
+            </Shape>
+            <Shape Id="ИД Квартал" Expanded="false">
+              <Attributes>
+                <Attribute Id="ИД Квартал" />
+              </Attributes>
+              <Position x="560" y="116" />
+            </Shape>
+            <Shape Id="ИД Год" Expanded="false">
+              <Attributes>
+                <Attribute Id="ИД Год" />
+              </Attributes>
+              <Position x="740" y="116" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2022-09-05T07:39:39.87Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DWH</DataSourceViewID>
+  </Source>
+  <Type>Time</Type>
+  <ErrorConfiguration>
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1049</Language>
+  <Collation>Cyrillic_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>ИД Дата</ID>
+      <Name>День</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_дата</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>ИД_дата</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>День Число</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>День (Краткий)</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>ИД Дата 1</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>День (Полный)</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ИД Месяц</ID>
+      <Name>Месяц (Краткий)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_год</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_месяц</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>35</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>М-Г</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>ИД Квартал</AttributeID>
+          <Name>Квартал (Краткий)</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ИД Год</ID>
+      <Name>Год (Краткий)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_год</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>32</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>Г</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ИД Квартал</ID>
+      <Name>Квартал (Краткий)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_год</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_квартал</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>66</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>К-Г</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>ИД Год</AttributeID>
+          <Name>Год (Краткий)</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>День Число</ID>
+      <Name>День (Краткий)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_дата</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>38</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>Д-М-Г</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>ИД Месяц</AttributeID>
+          <Name>Месяц (Краткий)</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>ISO Неделя</AttributeID>
+          <Name>ISO Неделя</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ИД Год 1</ID>
+      <Name>Год (Полный)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_год</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>8</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>Год_наименование</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ИД Месяц 1</ID>
+      <Name>Месяц (Полный)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_год</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_месяц</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>18</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>Месяц_год_наименование</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>ИД Год 1</AttributeID>
+          <Name>Год (Полный)</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ИД Дата 1</ID>
+      <Name>День (Полный)</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ИД_дата</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>21</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>День_месяц_год_наименование</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>ИД Месяц 1</AttributeID>
+          <Name>Месяц (Полный)</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ISO Неделя</ID>
+      <Name>ISO Неделя</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ISO_год</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ISO_неделя</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>19</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>ISO_неделя_год_наименование</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>ISO Год</AttributeID>
+          <Name>ISO Год</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ISO Год</ID>
+      <Name>ISO Год</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>dbo_t_dim_Календарь</TableID>
+            <ColumnID>ISO_год</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>8</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_t_dim_Календарь</TableID>
+          <ColumnID>ISO_год_наименование</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Иерархия</ID>
+      <Name>Краткий Год-Квартал</Name>
+      <Levels>
+        <Level>
+          <ID>Год (Краткий)</ID>
+          <Name>Год (Краткий)</Name>
+          <SourceAttributeID>ИД Год</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Квартал (Краткий)</ID>
+          <Name>Квартал (Краткий)</Name>
+          <SourceAttributeID>ИД Квартал</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 1</ID>
+      <Name>Краткий День-Месяц-Год</Name>
+      <Levels>
+        <Level>
+          <ID>Год (Краткий)</ID>
+          <Name>Год (Краткий)</Name>
+          <SourceAttributeID>ИД Год</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Месяц (Краткий)</ID>
+          <Name>Месяц (Краткий)</Name>
+          <SourceAttributeID>ИД Месяц</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>День (Краткий)</ID>
+          <Name>День (Краткий)</Name>
+          <SourceAttributeID>День Число</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 2</ID>
+      <Name>Полный День-Месяц-год</Name>
+      <Levels>
+        <Level>
+          <ID>Год (Полный)</ID>
+          <Name>Год (Полный)</Name>
+          <SourceAttributeID>ИД Год 1</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Месяц (Полный)</ID>
+          <Name>Месяц (Полный)</Name>
+          <SourceAttributeID>ИД Месяц 1</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>День (Полный)</ID>
+          <Name>День (Полный)</Name>
+          <SourceAttributeID>ИД Дата 1</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 3</ID>
+      <Name>ISO День-Неделя-Год</Name>
+      <Levels>
+        <Level>
+          <ID>ISO Год</ID>
+          <Name>ISO Год</Name>
+          <SourceAttributeID>ISO Год</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>ISO Неделя</ID>
+          <Name>ISO Неделя</Name>
+          <SourceAttributeID>ISO Неделя</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>День (Краткий)</ID>
+          <Name>День (Краткий)</Name>
+          <SourceAttributeID>День Число</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,334 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Смены на кассах</ID>
+  <Name>Смены на кассах</Name>
+  <CreatedTimestamp>2022-09-06T07:22:56.493333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2022-09-13T04:39:05.846667Z</LastSchemaUpdate>
+  <LastProcessed>2022-09-18T12:53:34.16Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DWH</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration>
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1049</Language>
+  <Collation>Cyrillic_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>Составной Код Смены</ID>
+      <Name>Смена</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>61</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>cass_v_dim_Смены</TableID>
+            <ColumnID>Составной_код_смены</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>107</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>cass_v_dim_Смены</TableID>
+          <ColumnID>Наименование_смены</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Код Кассы</AttributeID>
+          <Name>Касса</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Составной Код Кассира</AttributeID>
+          <Name>Кассир</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Составной Код Кассира</ID>
+      <Name>Кассир</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>61</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>cass_v_dim_Смены</TableID>
+            <ColumnID>Составной_код_кассира</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>cass_v_dim_Смены</TableID>
+          <ColumnID>Имя_пользователя</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Имя Пользователя</AttributeID>
+          <Name>Имя пользователя</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Код</ID>
+      <Name>Магазин</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>cass_v_dim_Смены</TableID>
+            <ColumnID>Код</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>107</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>cass_v_dim_Смены</TableID>
+          <ColumnID>Код_наименование_магазина</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Группа</AttributeID>
+          <Name>Группа магазина</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Группа</ID>
+      <Name>Группа магазина</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>cass_v_dim_Смены</TableID>
+            <ColumnID>Группа</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>cass_v_dim_Смены</TableID>
+          <ColumnID>Группа</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Код Кассы</ID>
+      <Name>Касса</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>cass_v_dim_Смены</TableID>
+            <ColumnID>Код_кассы</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>cass_v_dim_Смены</TableID>
+          <ColumnID>Код_кассы</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Код</AttributeID>
+          <Name>Магазин</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Имя Пользователя</ID>
+      <Name>Имя пользователя</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>cass_v_dim_Смены</TableID>
+            <ColumnID>Имя_пользователя</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>cass_v_dim_Смены</TableID>
+          <ColumnID>Имя_пользователя</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Иерархия</ID>
+      <Name>Магазин-Касса-Кассир-Смена</Name>
+      <Levels>
+        <Level>
+          <ID>Группа магазина</ID>
+          <Name>Группа магазина</Name>
+          <SourceAttributeID>Группа</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Магазин</ID>
+          <Name>Магазин</Name>
+          <SourceAttributeID>Код</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Касса</ID>
+          <Name>Касса</Name>
+          <SourceAttributeID>Код Кассы</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Кассир</ID>
+          <Name>Кассир</Name>
+          <SourceAttributeID>Составной Код Кассира</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Смена</ID>
+          <Name>Смена</Name>
+          <SourceAttributeID>Составной Код Смены</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 1</ID>
+      <Name>Магазин-Касса-Смена</Name>
+      <Levels>
+        <Level>
+          <ID>Группа магазина</ID>
+          <Name>Группа магазина</Name>
+          <SourceAttributeID>Группа</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Магазин</ID>
+          <Name>Магазин</Name>
+          <SourceAttributeID>Код</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Касса</ID>
+          <Name>Касса</Name>
+          <SourceAttributeID>Код Кассы</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Смена</ID>
+          <Name>Смена</Name>
+          <SourceAttributeID>Составной Код Смены</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 2</ID>
+      <Name>Магазин-Кассир-Касса-Смена</Name>
+      <Levels>
+        <Level>
+          <ID>Группа магазина</ID>
+          <Name>Группа магазина</Name>
+          <SourceAttributeID>Группа</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Магазин</ID>
+          <Name>Магазин</Name>
+          <SourceAttributeID>Код</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Имя пользователя</ID>
+          <Name>Имя пользователя</Name>
+          <SourceAttributeID>Имя Пользователя</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Касса</ID>
+          <Name>Касса</Name>
+          <SourceAttributeID>Код Кассы</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Смена</ID>
+          <Name>Смена</Name>
+          <SourceAttributeID>Составной Код Смены</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 3</ID>
+      <Name>Магазин-Кассир-Смена</Name>
+      <Levels>
+        <Level>
+          <ID>Группа магазина</ID>
+          <Name>Группа магазина</Name>
+          <SourceAttributeID>Группа</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Магазин</ID>
+          <Name>Магазин</Name>
+          <SourceAttributeID>Код</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Имя пользователя</ID>
+          <Name>Имя пользователя</Name>
+          <SourceAttributeID>Имя Пользователя</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Смена</ID>
+          <Name>Смена</Name>
+          <SourceAttributeID>Составной Код Смены</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>Иерархия 4</ID>
+      <Name>Простой список</Name>
+      <Levels>
+        <Level>
+          <ID>Смена</ID>
+          <Name>Смена</Name>
+          <SourceAttributeID>Составной Код Смены</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

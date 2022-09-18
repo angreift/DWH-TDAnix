@@ -4,6 +4,7 @@
 -- Description:	Непосредственный обмен с кассами и кассовым сервером
 -- =============================================
 CREATE PROCEDURE [cass].[p_Обмен_с_кассами]
+@ТолькоРозница bit = 0
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -101,16 +102,33 @@ BEGIN
 		Код_магазина int not null,
 		Включена bit not null
 	)
-
-	insert into
-		@Список_касс
-	select
-		Код_кассы,
-		IP_адрес,
-		Код_магазина,
-		Включена
-	from
-		cass.t_dim_Кассы
+	
+	if @ТолькоРозница = 0 begin
+		insert into
+			@Список_касс
+		select
+			Код_кассы,
+			IP_адрес,
+			Код_магазина,
+			Включена
+		from
+			cass.t_dim_Кассы
+	end
+	if @ТолькоРозница = 1 begin
+		insert into
+			@Список_касс
+		select
+			Код_кассы,
+			IP_адрес,
+			Код_магазина,
+			Включена
+		from
+			cass.t_dim_Кассы
+		left join
+			dbo.t_dim_Магазины on cass.t_dim_Кассы.Код_магазина = dbo.t_dim_Магазины.Код
+		where
+			dbo.t_dim_Магазины.Группа in ('Розница', 'РС Закрытые')
+	end
 
 	while (select count(*) from @Список_касс) > 0
 	begin
