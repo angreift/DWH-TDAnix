@@ -313,7 +313,7 @@ BEGIN
 						from
 							`workshift`
 						where
-							`scode` is not null and (`countsale` + `countrefund`) > 0 and `firstchecktime` is not null
+							 `cashcode` = %cassnum% and `scode` is not null and (`countsale` + `countrefund`) > 0 and `firstchecktime` is not null
 							and time_beg >= ''''2022-07-01 00:00:00''''
 							''
 				)
