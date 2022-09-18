@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DWH", "DWH TDanix\DWH.sqlproj", "{12DA1078-8223-4301-A427-EE22A87375BF}"
 EndProject
-Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS_CASS", "CASS_Обмен_Обработка\SSIS_CASS.dtproj", "{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +21,6 @@ Global
 		{12DA1078-8223-4301-A427-EE22A87375BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12DA1078-8223-4301-A427-EE22A87375BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12DA1078-8223-4301-A427-EE22A87375BF}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}.Debug|Any CPU.ActiveCfg = Development
-		{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}.Debug|Any CPU.Build.0 = Development
-		{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}.Development|Any CPU.ActiveCfg = Development
-		{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}.Development|Any CPU.Build.0 = Development
-		{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}.Release|Any CPU.ActiveCfg = Development
-		{7199C9AC-5390-4273-9EA9-492BE7DE4A0D}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
