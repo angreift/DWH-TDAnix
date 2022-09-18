@@ -98,6 +98,2683 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>DWH</Id>
+            <Name>DWH</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=s19-olap;Persist Security Info=True;User ID=DWH_OLAP_Reader;Initial Catalog=DWH</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>DWH</Id>
+            <Name>DWH</Name>
+            <Value xsi:type="xsd:int">1</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <PartitionStorageLocations>
+          <ConfigurationSetting>
+            <Id>Холдинг ТД Аникс</Id>
+            <Name>Холдинг ТД Аникс</Name>
+            <Value xsi:type="ConfigurationSettingsCollection">
+              <ConfigurationSetting>
+                <Id>v Fact Детализация Чеков</Id>
+                <Name>v Fact Детализация Чеков</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2021_12_27</Id>
+                    <Name>Детализация_Чеков_2021_12_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_01_03</Id>
+                    <Name>Детализация_Чеков_2022_01_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_01_10</Id>
+                    <Name>Детализация_Чеков_2022_01_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_01_17</Id>
+                    <Name>Детализация_Чеков_2022_01_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_01_24</Id>
+                    <Name>Детализация_Чеков_2022_01_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_01_31</Id>
+                    <Name>Детализация_Чеков_2022_01_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_02_07</Id>
+                    <Name>Детализация_Чеков_2022_02_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_02_14</Id>
+                    <Name>Детализация_Чеков_2022_02_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_02_21</Id>
+                    <Name>Детализация_Чеков_2022_02_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_02_28</Id>
+                    <Name>Детализация_Чеков_2022_02_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_03_07</Id>
+                    <Name>Детализация_Чеков_2022_03_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_03_14</Id>
+                    <Name>Детализация_Чеков_2022_03_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_03_21</Id>
+                    <Name>Детализация_Чеков_2022_03_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_03_28</Id>
+                    <Name>Детализация_Чеков_2022_03_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_04_04</Id>
+                    <Name>Детализация_Чеков_2022_04_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_04_11</Id>
+                    <Name>Детализация_Чеков_2022_04_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_04_18</Id>
+                    <Name>Детализация_Чеков_2022_04_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_04_25</Id>
+                    <Name>Детализация_Чеков_2022_04_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_05_02</Id>
+                    <Name>Детализация_Чеков_2022_05_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_05_09</Id>
+                    <Name>Детализация_Чеков_2022_05_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_05_16</Id>
+                    <Name>Детализация_Чеков_2022_05_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_05_23</Id>
+                    <Name>Детализация_Чеков_2022_05_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_05_30</Id>
+                    <Name>Детализация_Чеков_2022_05_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_06_06</Id>
+                    <Name>Детализация_Чеков_2022_06_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_06_13</Id>
+                    <Name>Детализация_Чеков_2022_06_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_06_20</Id>
+                    <Name>Детализация_Чеков_2022_06_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_06_27</Id>
+                    <Name>Детализация_Чеков_2022_06_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_07_04</Id>
+                    <Name>Детализация_Чеков_2022_07_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_07_11</Id>
+                    <Name>Детализация_Чеков_2022_07_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_07_18</Id>
+                    <Name>Детализация_Чеков_2022_07_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_07_25</Id>
+                    <Name>Детализация_Чеков_2022_07_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_08_01</Id>
+                    <Name>Детализация_Чеков_2022_08_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_08_08</Id>
+                    <Name>Детализация_Чеков_2022_08_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_08_15</Id>
+                    <Name>Детализация_Чеков_2022_08_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_08_22</Id>
+                    <Name>Детализация_Чеков_2022_08_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_08_29</Id>
+                    <Name>Детализация_Чеков_2022_08_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_09_05</Id>
+                    <Name>Детализация_Чеков_2022_09_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_09_12</Id>
+                    <Name>Детализация_Чеков_2022_09_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_09_19</Id>
+                    <Name>Детализация_Чеков_2022_09_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_09_26</Id>
+                    <Name>Детализация_Чеков_2022_09_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_10_03</Id>
+                    <Name>Детализация_Чеков_2022_10_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_10_10</Id>
+                    <Name>Детализация_Чеков_2022_10_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_10_17</Id>
+                    <Name>Детализация_Чеков_2022_10_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_10_24</Id>
+                    <Name>Детализация_Чеков_2022_10_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_10_31</Id>
+                    <Name>Детализация_Чеков_2022_10_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_11_07</Id>
+                    <Name>Детализация_Чеков_2022_11_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_11_14</Id>
+                    <Name>Детализация_Чеков_2022_11_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_11_21</Id>
+                    <Name>Детализация_Чеков_2022_11_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_11_28</Id>
+                    <Name>Детализация_Чеков_2022_11_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_12_05</Id>
+                    <Name>Детализация_Чеков_2022_12_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_12_12</Id>
+                    <Name>Детализация_Чеков_2022_12_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_12_19</Id>
+                    <Name>Детализация_Чеков_2022_12_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2022_12_26</Id>
+                    <Name>Детализация_Чеков_2022_12_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_01_02</Id>
+                    <Name>Детализация_Чеков_2023_01_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_01_09</Id>
+                    <Name>Детализация_Чеков_2023_01_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_01_16</Id>
+                    <Name>Детализация_Чеков_2023_01_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_01_23</Id>
+                    <Name>Детализация_Чеков_2023_01_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_01_30</Id>
+                    <Name>Детализация_Чеков_2023_01_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_02_06</Id>
+                    <Name>Детализация_Чеков_2023_02_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_02_13</Id>
+                    <Name>Детализация_Чеков_2023_02_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_02_20</Id>
+                    <Name>Детализация_Чеков_2023_02_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_02_27</Id>
+                    <Name>Детализация_Чеков_2023_02_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_03_06</Id>
+                    <Name>Детализация_Чеков_2023_03_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_03_13</Id>
+                    <Name>Детализация_Чеков_2023_03_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_03_20</Id>
+                    <Name>Детализация_Чеков_2023_03_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_03_27</Id>
+                    <Name>Детализация_Чеков_2023_03_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_04_03</Id>
+                    <Name>Детализация_Чеков_2023_04_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_04_10</Id>
+                    <Name>Детализация_Чеков_2023_04_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_04_17</Id>
+                    <Name>Детализация_Чеков_2023_04_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_04_24</Id>
+                    <Name>Детализация_Чеков_2023_04_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_05_01</Id>
+                    <Name>Детализация_Чеков_2023_05_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_05_08</Id>
+                    <Name>Детализация_Чеков_2023_05_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_05_15</Id>
+                    <Name>Детализация_Чеков_2023_05_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_05_22</Id>
+                    <Name>Детализация_Чеков_2023_05_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_05_29</Id>
+                    <Name>Детализация_Чеков_2023_05_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_06_05</Id>
+                    <Name>Детализация_Чеков_2023_06_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_06_12</Id>
+                    <Name>Детализация_Чеков_2023_06_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_06_19</Id>
+                    <Name>Детализация_Чеков_2023_06_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_06_26</Id>
+                    <Name>Детализация_Чеков_2023_06_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_07_03</Id>
+                    <Name>Детализация_Чеков_2023_07_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_07_10</Id>
+                    <Name>Детализация_Чеков_2023_07_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_07_17</Id>
+                    <Name>Детализация_Чеков_2023_07_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_07_24</Id>
+                    <Name>Детализация_Чеков_2023_07_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_07_31</Id>
+                    <Name>Детализация_Чеков_2023_07_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_08_07</Id>
+                    <Name>Детализация_Чеков_2023_08_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_08_14</Id>
+                    <Name>Детализация_Чеков_2023_08_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_08_21</Id>
+                    <Name>Детализация_Чеков_2023_08_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_08_28</Id>
+                    <Name>Детализация_Чеков_2023_08_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_09_04</Id>
+                    <Name>Детализация_Чеков_2023_09_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_09_11</Id>
+                    <Name>Детализация_Чеков_2023_09_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_09_18</Id>
+                    <Name>Детализация_Чеков_2023_09_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_09_25</Id>
+                    <Name>Детализация_Чеков_2023_09_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_10_02</Id>
+                    <Name>Детализация_Чеков_2023_10_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_10_09</Id>
+                    <Name>Детализация_Чеков_2023_10_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_10_16</Id>
+                    <Name>Детализация_Чеков_2023_10_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_10_23</Id>
+                    <Name>Детализация_Чеков_2023_10_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_10_30</Id>
+                    <Name>Детализация_Чеков_2023_10_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_11_06</Id>
+                    <Name>Детализация_Чеков_2023_11_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_11_13</Id>
+                    <Name>Детализация_Чеков_2023_11_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_11_20</Id>
+                    <Name>Детализация_Чеков_2023_11_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_11_27</Id>
+                    <Name>Детализация_Чеков_2023_11_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_12_04</Id>
+                    <Name>Детализация_Чеков_2023_12_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_12_11</Id>
+                    <Name>Детализация_Чеков_2023_12_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_12_18</Id>
+                    <Name>Детализация_Чеков_2023_12_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Детализация_Чеков_2023_12_25</Id>
+                    <Name>Детализация_Чеков_2023_12_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+              <ConfigurationSetting>
+                <Id>v Fact Скидки</Id>
+                <Name>v Fact Скидки</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>Скидки_2021_12_27</Id>
+                    <Name>Скидки_2021_12_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_01_03</Id>
+                    <Name>Скидки_2022_01_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_01_10</Id>
+                    <Name>Скидки_2022_01_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_01_17</Id>
+                    <Name>Скидки_2022_01_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_01_24</Id>
+                    <Name>Скидки_2022_01_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_01_31</Id>
+                    <Name>Скидки_2022_01_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_02_07</Id>
+                    <Name>Скидки_2022_02_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_02_14</Id>
+                    <Name>Скидки_2022_02_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_02_21</Id>
+                    <Name>Скидки_2022_02_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_02_28</Id>
+                    <Name>Скидки_2022_02_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_03_07</Id>
+                    <Name>Скидки_2022_03_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_03_14</Id>
+                    <Name>Скидки_2022_03_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_03_21</Id>
+                    <Name>Скидки_2022_03_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_03_28</Id>
+                    <Name>Скидки_2022_03_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_04_04</Id>
+                    <Name>Скидки_2022_04_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_04_11</Id>
+                    <Name>Скидки_2022_04_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_04_18</Id>
+                    <Name>Скидки_2022_04_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_04_25</Id>
+                    <Name>Скидки_2022_04_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_05_02</Id>
+                    <Name>Скидки_2022_05_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_05_09</Id>
+                    <Name>Скидки_2022_05_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_05_16</Id>
+                    <Name>Скидки_2022_05_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_05_23</Id>
+                    <Name>Скидки_2022_05_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_05_30</Id>
+                    <Name>Скидки_2022_05_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_06_06</Id>
+                    <Name>Скидки_2022_06_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_06_13</Id>
+                    <Name>Скидки_2022_06_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_06_20</Id>
+                    <Name>Скидки_2022_06_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_06_27</Id>
+                    <Name>Скидки_2022_06_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_07_04</Id>
+                    <Name>Скидки_2022_07_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_07_11</Id>
+                    <Name>Скидки_2022_07_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_07_18</Id>
+                    <Name>Скидки_2022_07_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_07_25</Id>
+                    <Name>Скидки_2022_07_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_08_01</Id>
+                    <Name>Скидки_2022_08_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_08_08</Id>
+                    <Name>Скидки_2022_08_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_08_15</Id>
+                    <Name>Скидки_2022_08_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_08_22</Id>
+                    <Name>Скидки_2022_08_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_08_29</Id>
+                    <Name>Скидки_2022_08_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_09_05</Id>
+                    <Name>Скидки_2022_09_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_09_12</Id>
+                    <Name>Скидки_2022_09_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_09_19</Id>
+                    <Name>Скидки_2022_09_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_09_26</Id>
+                    <Name>Скидки_2022_09_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_10_03</Id>
+                    <Name>Скидки_2022_10_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_10_10</Id>
+                    <Name>Скидки_2022_10_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_10_17</Id>
+                    <Name>Скидки_2022_10_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_10_24</Id>
+                    <Name>Скидки_2022_10_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_10_31</Id>
+                    <Name>Скидки_2022_10_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_11_07</Id>
+                    <Name>Скидки_2022_11_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_11_14</Id>
+                    <Name>Скидки_2022_11_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_11_21</Id>
+                    <Name>Скидки_2022_11_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_11_28</Id>
+                    <Name>Скидки_2022_11_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_12_05</Id>
+                    <Name>Скидки_2022_12_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_12_12</Id>
+                    <Name>Скидки_2022_12_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_12_19</Id>
+                    <Name>Скидки_2022_12_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2022_12_26</Id>
+                    <Name>Скидки_2022_12_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_01_02</Id>
+                    <Name>Скидки_2023_01_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_01_09</Id>
+                    <Name>Скидки_2023_01_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_01_16</Id>
+                    <Name>Скидки_2023_01_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_01_23</Id>
+                    <Name>Скидки_2023_01_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_01_30</Id>
+                    <Name>Скидки_2023_01_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_02_06</Id>
+                    <Name>Скидки_2023_02_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_02_13</Id>
+                    <Name>Скидки_2023_02_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_02_20</Id>
+                    <Name>Скидки_2023_02_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_02_27</Id>
+                    <Name>Скидки_2023_02_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_03_06</Id>
+                    <Name>Скидки_2023_03_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_03_13</Id>
+                    <Name>Скидки_2023_03_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_03_20</Id>
+                    <Name>Скидки_2023_03_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_03_27</Id>
+                    <Name>Скидки_2023_03_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_04_03</Id>
+                    <Name>Скидки_2023_04_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_04_10</Id>
+                    <Name>Скидки_2023_04_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_04_17</Id>
+                    <Name>Скидки_2023_04_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_04_24</Id>
+                    <Name>Скидки_2023_04_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_05_01</Id>
+                    <Name>Скидки_2023_05_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_05_08</Id>
+                    <Name>Скидки_2023_05_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_05_15</Id>
+                    <Name>Скидки_2023_05_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_05_22</Id>
+                    <Name>Скидки_2023_05_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_05_29</Id>
+                    <Name>Скидки_2023_05_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_06_05</Id>
+                    <Name>Скидки_2023_06_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_06_12</Id>
+                    <Name>Скидки_2023_06_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_06_19</Id>
+                    <Name>Скидки_2023_06_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_06_26</Id>
+                    <Name>Скидки_2023_06_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_07_03</Id>
+                    <Name>Скидки_2023_07_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_07_10</Id>
+                    <Name>Скидки_2023_07_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_07_17</Id>
+                    <Name>Скидки_2023_07_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_07_24</Id>
+                    <Name>Скидки_2023_07_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_07_31</Id>
+                    <Name>Скидки_2023_07_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_08_07</Id>
+                    <Name>Скидки_2023_08_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_08_14</Id>
+                    <Name>Скидки_2023_08_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_08_21</Id>
+                    <Name>Скидки_2023_08_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_08_28</Id>
+                    <Name>Скидки_2023_08_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_09_04</Id>
+                    <Name>Скидки_2023_09_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_09_11</Id>
+                    <Name>Скидки_2023_09_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_09_18</Id>
+                    <Name>Скидки_2023_09_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_09_25</Id>
+                    <Name>Скидки_2023_09_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_10_02</Id>
+                    <Name>Скидки_2023_10_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_10_09</Id>
+                    <Name>Скидки_2023_10_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_10_16</Id>
+                    <Name>Скидки_2023_10_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_10_23</Id>
+                    <Name>Скидки_2023_10_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_10_30</Id>
+                    <Name>Скидки_2023_10_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_11_06</Id>
+                    <Name>Скидки_2023_11_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_11_13</Id>
+                    <Name>Скидки_2023_11_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_11_20</Id>
+                    <Name>Скидки_2023_11_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_11_27</Id>
+                    <Name>Скидки_2023_11_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_12_04</Id>
+                    <Name>Скидки_2023_12_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_12_11</Id>
+                    <Name>Скидки_2023_12_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_12_18</Id>
+                    <Name>Скидки_2023_12_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Скидки_2023_12_25</Id>
+                    <Name>Скидки_2023_12_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+              <ConfigurationSetting>
+                <Id>v Fact Смены На Кассах</Id>
+                <Name>v Fact Смены На Кассах</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2021_12_27</Id>
+                    <Name>Смены_На_Кассах_2021_12_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_01_03</Id>
+                    <Name>Смены_На_Кассах_2022_01_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_01_10</Id>
+                    <Name>Смены_На_Кассах_2022_01_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_01_17</Id>
+                    <Name>Смены_На_Кассах_2022_01_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_01_24</Id>
+                    <Name>Смены_На_Кассах_2022_01_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_01_31</Id>
+                    <Name>Смены_На_Кассах_2022_01_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_02_07</Id>
+                    <Name>Смены_На_Кассах_2022_02_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_02_14</Id>
+                    <Name>Смены_На_Кассах_2022_02_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_02_21</Id>
+                    <Name>Смены_На_Кассах_2022_02_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_02_28</Id>
+                    <Name>Смены_На_Кассах_2022_02_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_03_07</Id>
+                    <Name>Смены_На_Кассах_2022_03_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_03_14</Id>
+                    <Name>Смены_На_Кассах_2022_03_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_03_21</Id>
+                    <Name>Смены_На_Кассах_2022_03_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_03_28</Id>
+                    <Name>Смены_На_Кассах_2022_03_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_04_04</Id>
+                    <Name>Смены_На_Кассах_2022_04_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_04_11</Id>
+                    <Name>Смены_На_Кассах_2022_04_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_04_18</Id>
+                    <Name>Смены_На_Кассах_2022_04_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_04_25</Id>
+                    <Name>Смены_На_Кассах_2022_04_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_05_02</Id>
+                    <Name>Смены_На_Кассах_2022_05_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_05_09</Id>
+                    <Name>Смены_На_Кассах_2022_05_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_05_16</Id>
+                    <Name>Смены_На_Кассах_2022_05_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_05_23</Id>
+                    <Name>Смены_На_Кассах_2022_05_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_05_30</Id>
+                    <Name>Смены_На_Кассах_2022_05_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_06_06</Id>
+                    <Name>Смены_На_Кассах_2022_06_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_06_13</Id>
+                    <Name>Смены_На_Кассах_2022_06_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_06_20</Id>
+                    <Name>Смены_На_Кассах_2022_06_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_06_27</Id>
+                    <Name>Смены_На_Кассах_2022_06_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_07_04</Id>
+                    <Name>Смены_На_Кассах_2022_07_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_07_11</Id>
+                    <Name>Смены_На_Кассах_2022_07_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_07_18</Id>
+                    <Name>Смены_На_Кассах_2022_07_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_07_25</Id>
+                    <Name>Смены_На_Кассах_2022_07_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_08_01</Id>
+                    <Name>Смены_На_Кассах_2022_08_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_08_08</Id>
+                    <Name>Смены_На_Кассах_2022_08_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_08_15</Id>
+                    <Name>Смены_На_Кассах_2022_08_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_08_22</Id>
+                    <Name>Смены_На_Кассах_2022_08_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_08_29</Id>
+                    <Name>Смены_На_Кассах_2022_08_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_09_05</Id>
+                    <Name>Смены_На_Кассах_2022_09_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_09_12</Id>
+                    <Name>Смены_На_Кассах_2022_09_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_09_19</Id>
+                    <Name>Смены_На_Кассах_2022_09_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_09_26</Id>
+                    <Name>Смены_На_Кассах_2022_09_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_10_03</Id>
+                    <Name>Смены_На_Кассах_2022_10_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_10_10</Id>
+                    <Name>Смены_На_Кассах_2022_10_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_10_17</Id>
+                    <Name>Смены_На_Кассах_2022_10_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_10_24</Id>
+                    <Name>Смены_На_Кассах_2022_10_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_10_31</Id>
+                    <Name>Смены_На_Кассах_2022_10_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_11_07</Id>
+                    <Name>Смены_На_Кассах_2022_11_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_11_14</Id>
+                    <Name>Смены_На_Кассах_2022_11_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_11_21</Id>
+                    <Name>Смены_На_Кассах_2022_11_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_11_28</Id>
+                    <Name>Смены_На_Кассах_2022_11_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_12_05</Id>
+                    <Name>Смены_На_Кассах_2022_12_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_12_12</Id>
+                    <Name>Смены_На_Кассах_2022_12_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_12_19</Id>
+                    <Name>Смены_На_Кассах_2022_12_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2022_12_26</Id>
+                    <Name>Смены_На_Кассах_2022_12_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_01_02</Id>
+                    <Name>Смены_На_Кассах_2023_01_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_01_09</Id>
+                    <Name>Смены_На_Кассах_2023_01_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_01_16</Id>
+                    <Name>Смены_На_Кассах_2023_01_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_01_23</Id>
+                    <Name>Смены_На_Кассах_2023_01_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_01_30</Id>
+                    <Name>Смены_На_Кассах_2023_01_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_02_06</Id>
+                    <Name>Смены_На_Кассах_2023_02_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_02_13</Id>
+                    <Name>Смены_На_Кассах_2023_02_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_02_20</Id>
+                    <Name>Смены_На_Кассах_2023_02_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_02_27</Id>
+                    <Name>Смены_На_Кассах_2023_02_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_03_06</Id>
+                    <Name>Смены_На_Кассах_2023_03_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_03_13</Id>
+                    <Name>Смены_На_Кассах_2023_03_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_03_20</Id>
+                    <Name>Смены_На_Кассах_2023_03_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_03_27</Id>
+                    <Name>Смены_На_Кассах_2023_03_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_04_03</Id>
+                    <Name>Смены_На_Кассах_2023_04_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_04_10</Id>
+                    <Name>Смены_На_Кассах_2023_04_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_04_17</Id>
+                    <Name>Смены_На_Кассах_2023_04_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_04_24</Id>
+                    <Name>Смены_На_Кассах_2023_04_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_05_01</Id>
+                    <Name>Смены_На_Кассах_2023_05_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_05_08</Id>
+                    <Name>Смены_На_Кассах_2023_05_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_05_15</Id>
+                    <Name>Смены_На_Кассах_2023_05_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_05_22</Id>
+                    <Name>Смены_На_Кассах_2023_05_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_05_29</Id>
+                    <Name>Смены_На_Кассах_2023_05_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_06_05</Id>
+                    <Name>Смены_На_Кассах_2023_06_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_06_12</Id>
+                    <Name>Смены_На_Кассах_2023_06_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_06_19</Id>
+                    <Name>Смены_На_Кассах_2023_06_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_06_26</Id>
+                    <Name>Смены_На_Кассах_2023_06_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_07_03</Id>
+                    <Name>Смены_На_Кассах_2023_07_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_07_10</Id>
+                    <Name>Смены_На_Кассах_2023_07_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_07_17</Id>
+                    <Name>Смены_На_Кассах_2023_07_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_07_24</Id>
+                    <Name>Смены_На_Кассах_2023_07_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_07_31</Id>
+                    <Name>Смены_На_Кассах_2023_07_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_08_07</Id>
+                    <Name>Смены_На_Кассах_2023_08_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_08_14</Id>
+                    <Name>Смены_На_Кассах_2023_08_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_08_21</Id>
+                    <Name>Смены_На_Кассах_2023_08_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_08_28</Id>
+                    <Name>Смены_На_Кассах_2023_08_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_09_04</Id>
+                    <Name>Смены_На_Кассах_2023_09_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_09_11</Id>
+                    <Name>Смены_На_Кассах_2023_09_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_09_18</Id>
+                    <Name>Смены_На_Кассах_2023_09_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_09_25</Id>
+                    <Name>Смены_На_Кассах_2023_09_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_10_02</Id>
+                    <Name>Смены_На_Кассах_2023_10_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_10_09</Id>
+                    <Name>Смены_На_Кассах_2023_10_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_10_16</Id>
+                    <Name>Смены_На_Кассах_2023_10_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_10_23</Id>
+                    <Name>Смены_На_Кассах_2023_10_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_10_30</Id>
+                    <Name>Смены_На_Кассах_2023_10_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_11_06</Id>
+                    <Name>Смены_На_Кассах_2023_11_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_11_13</Id>
+                    <Name>Смены_На_Кассах_2023_11_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_11_20</Id>
+                    <Name>Смены_На_Кассах_2023_11_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_11_27</Id>
+                    <Name>Смены_На_Кассах_2023_11_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_12_04</Id>
+                    <Name>Смены_На_Кассах_2023_12_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_12_11</Id>
+                    <Name>Смены_На_Кассах_2023_12_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_12_18</Id>
+                    <Name>Смены_На_Кассах_2023_12_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Смены_На_Кассах_2023_12_25</Id>
+                    <Name>Смены_На_Кассах_2023_12_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+              <ConfigurationSetting>
+                <Id>v Fact Сторнированные Позиции</Id>
+                <Name>v Fact Сторнированные Позиции</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2021_12_27</Id>
+                    <Name>Сторнированные_Позиции_2021_12_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_01_03</Id>
+                    <Name>Сторнированные_Позиции_2022_01_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_01_10</Id>
+                    <Name>Сторнированные_Позиции_2022_01_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_01_17</Id>
+                    <Name>Сторнированные_Позиции_2022_01_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_01_24</Id>
+                    <Name>Сторнированные_Позиции_2022_01_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_01_31</Id>
+                    <Name>Сторнированные_Позиции_2022_01_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_02_07</Id>
+                    <Name>Сторнированные_Позиции_2022_02_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_02_14</Id>
+                    <Name>Сторнированные_Позиции_2022_02_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_02_21</Id>
+                    <Name>Сторнированные_Позиции_2022_02_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_02_28</Id>
+                    <Name>Сторнированные_Позиции_2022_02_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_03_07</Id>
+                    <Name>Сторнированные_Позиции_2022_03_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_03_14</Id>
+                    <Name>Сторнированные_Позиции_2022_03_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_03_21</Id>
+                    <Name>Сторнированные_Позиции_2022_03_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_03_28</Id>
+                    <Name>Сторнированные_Позиции_2022_03_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_04_04</Id>
+                    <Name>Сторнированные_Позиции_2022_04_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_04_11</Id>
+                    <Name>Сторнированные_Позиции_2022_04_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_04_18</Id>
+                    <Name>Сторнированные_Позиции_2022_04_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_04_25</Id>
+                    <Name>Сторнированные_Позиции_2022_04_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_05_02</Id>
+                    <Name>Сторнированные_Позиции_2022_05_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_05_09</Id>
+                    <Name>Сторнированные_Позиции_2022_05_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_05_16</Id>
+                    <Name>Сторнированные_Позиции_2022_05_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_05_23</Id>
+                    <Name>Сторнированные_Позиции_2022_05_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_05_30</Id>
+                    <Name>Сторнированные_Позиции_2022_05_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_06_06</Id>
+                    <Name>Сторнированные_Позиции_2022_06_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_06_13</Id>
+                    <Name>Сторнированные_Позиции_2022_06_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_06_20</Id>
+                    <Name>Сторнированные_Позиции_2022_06_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_06_27</Id>
+                    <Name>Сторнированные_Позиции_2022_06_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_07_04</Id>
+                    <Name>Сторнированные_Позиции_2022_07_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_07_11</Id>
+                    <Name>Сторнированные_Позиции_2022_07_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_07_18</Id>
+                    <Name>Сторнированные_Позиции_2022_07_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_07_25</Id>
+                    <Name>Сторнированные_Позиции_2022_07_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_08_01</Id>
+                    <Name>Сторнированные_Позиции_2022_08_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_08_08</Id>
+                    <Name>Сторнированные_Позиции_2022_08_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_08_15</Id>
+                    <Name>Сторнированные_Позиции_2022_08_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_08_22</Id>
+                    <Name>Сторнированные_Позиции_2022_08_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_08_29</Id>
+                    <Name>Сторнированные_Позиции_2022_08_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_09_05</Id>
+                    <Name>Сторнированные_Позиции_2022_09_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_09_12</Id>
+                    <Name>Сторнированные_Позиции_2022_09_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_09_19</Id>
+                    <Name>Сторнированные_Позиции_2022_09_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_09_26</Id>
+                    <Name>Сторнированные_Позиции_2022_09_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_10_03</Id>
+                    <Name>Сторнированные_Позиции_2022_10_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_10_10</Id>
+                    <Name>Сторнированные_Позиции_2022_10_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_10_17</Id>
+                    <Name>Сторнированные_Позиции_2022_10_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_10_24</Id>
+                    <Name>Сторнированные_Позиции_2022_10_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_10_31</Id>
+                    <Name>Сторнированные_Позиции_2022_10_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_11_07</Id>
+                    <Name>Сторнированные_Позиции_2022_11_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_11_14</Id>
+                    <Name>Сторнированные_Позиции_2022_11_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_11_21</Id>
+                    <Name>Сторнированные_Позиции_2022_11_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_11_28</Id>
+                    <Name>Сторнированные_Позиции_2022_11_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_12_05</Id>
+                    <Name>Сторнированные_Позиции_2022_12_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_12_12</Id>
+                    <Name>Сторнированные_Позиции_2022_12_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_12_19</Id>
+                    <Name>Сторнированные_Позиции_2022_12_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2022_12_26</Id>
+                    <Name>Сторнированные_Позиции_2022_12_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_01_02</Id>
+                    <Name>Сторнированные_Позиции_2023_01_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_01_09</Id>
+                    <Name>Сторнированные_Позиции_2023_01_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_01_16</Id>
+                    <Name>Сторнированные_Позиции_2023_01_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_01_23</Id>
+                    <Name>Сторнированные_Позиции_2023_01_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_01_30</Id>
+                    <Name>Сторнированные_Позиции_2023_01_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_02_06</Id>
+                    <Name>Сторнированные_Позиции_2023_02_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_02_13</Id>
+                    <Name>Сторнированные_Позиции_2023_02_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_02_20</Id>
+                    <Name>Сторнированные_Позиции_2023_02_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_02_27</Id>
+                    <Name>Сторнированные_Позиции_2023_02_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_03_06</Id>
+                    <Name>Сторнированные_Позиции_2023_03_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_03_13</Id>
+                    <Name>Сторнированные_Позиции_2023_03_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_03_20</Id>
+                    <Name>Сторнированные_Позиции_2023_03_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_03_27</Id>
+                    <Name>Сторнированные_Позиции_2023_03_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_04_03</Id>
+                    <Name>Сторнированные_Позиции_2023_04_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_04_10</Id>
+                    <Name>Сторнированные_Позиции_2023_04_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_04_17</Id>
+                    <Name>Сторнированные_Позиции_2023_04_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_04_24</Id>
+                    <Name>Сторнированные_Позиции_2023_04_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_05_01</Id>
+                    <Name>Сторнированные_Позиции_2023_05_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_05_08</Id>
+                    <Name>Сторнированные_Позиции_2023_05_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_05_15</Id>
+                    <Name>Сторнированные_Позиции_2023_05_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_05_22</Id>
+                    <Name>Сторнированные_Позиции_2023_05_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_05_29</Id>
+                    <Name>Сторнированные_Позиции_2023_05_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_06_05</Id>
+                    <Name>Сторнированные_Позиции_2023_06_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_06_12</Id>
+                    <Name>Сторнированные_Позиции_2023_06_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_06_19</Id>
+                    <Name>Сторнированные_Позиции_2023_06_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_06_26</Id>
+                    <Name>Сторнированные_Позиции_2023_06_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_07_03</Id>
+                    <Name>Сторнированные_Позиции_2023_07_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_07_10</Id>
+                    <Name>Сторнированные_Позиции_2023_07_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_07_17</Id>
+                    <Name>Сторнированные_Позиции_2023_07_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_07_24</Id>
+                    <Name>Сторнированные_Позиции_2023_07_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_07_31</Id>
+                    <Name>Сторнированные_Позиции_2023_07_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_08_07</Id>
+                    <Name>Сторнированные_Позиции_2023_08_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_08_14</Id>
+                    <Name>Сторнированные_Позиции_2023_08_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_08_21</Id>
+                    <Name>Сторнированные_Позиции_2023_08_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_08_28</Id>
+                    <Name>Сторнированные_Позиции_2023_08_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_09_04</Id>
+                    <Name>Сторнированные_Позиции_2023_09_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_09_11</Id>
+                    <Name>Сторнированные_Позиции_2023_09_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_09_18</Id>
+                    <Name>Сторнированные_Позиции_2023_09_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_09_25</Id>
+                    <Name>Сторнированные_Позиции_2023_09_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_10_02</Id>
+                    <Name>Сторнированные_Позиции_2023_10_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_10_09</Id>
+                    <Name>Сторнированные_Позиции_2023_10_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_10_16</Id>
+                    <Name>Сторнированные_Позиции_2023_10_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_10_23</Id>
+                    <Name>Сторнированные_Позиции_2023_10_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_10_30</Id>
+                    <Name>Сторнированные_Позиции_2023_10_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_11_06</Id>
+                    <Name>Сторнированные_Позиции_2023_11_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_11_13</Id>
+                    <Name>Сторнированные_Позиции_2023_11_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_11_20</Id>
+                    <Name>Сторнированные_Позиции_2023_11_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_11_27</Id>
+                    <Name>Сторнированные_Позиции_2023_11_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_12_04</Id>
+                    <Name>Сторнированные_Позиции_2023_12_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_12_11</Id>
+                    <Name>Сторнированные_Позиции_2023_12_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_12_18</Id>
+                    <Name>Сторнированные_Позиции_2023_12_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Сторнированные_Позиции_2023_12_25</Id>
+                    <Name>Сторнированные_Позиции_2023_12_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+              <ConfigurationSetting>
+                <Id>v Fact Чеки</Id>
+                <Name>v Fact Чеки</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>Чеки_2021_12_27</Id>
+                    <Name>Чеки_2021_12_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_01_03</Id>
+                    <Name>Чеки_2022_01_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_01_10</Id>
+                    <Name>Чеки_2022_01_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_01_17</Id>
+                    <Name>Чеки_2022_01_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_01_24</Id>
+                    <Name>Чеки_2022_01_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_01_31</Id>
+                    <Name>Чеки_2022_01_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_02_07</Id>
+                    <Name>Чеки_2022_02_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_02_14</Id>
+                    <Name>Чеки_2022_02_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_02_21</Id>
+                    <Name>Чеки_2022_02_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_02_28</Id>
+                    <Name>Чеки_2022_02_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_03_07</Id>
+                    <Name>Чеки_2022_03_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_03_14</Id>
+                    <Name>Чеки_2022_03_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_03_21</Id>
+                    <Name>Чеки_2022_03_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_03_28</Id>
+                    <Name>Чеки_2022_03_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_04_04</Id>
+                    <Name>Чеки_2022_04_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_04_11</Id>
+                    <Name>Чеки_2022_04_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_04_18</Id>
+                    <Name>Чеки_2022_04_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_04_25</Id>
+                    <Name>Чеки_2022_04_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_05_02</Id>
+                    <Name>Чеки_2022_05_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_05_09</Id>
+                    <Name>Чеки_2022_05_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_05_16</Id>
+                    <Name>Чеки_2022_05_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_05_23</Id>
+                    <Name>Чеки_2022_05_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_05_30</Id>
+                    <Name>Чеки_2022_05_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_06_06</Id>
+                    <Name>Чеки_2022_06_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_06_13</Id>
+                    <Name>Чеки_2022_06_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_06_20</Id>
+                    <Name>Чеки_2022_06_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_06_27</Id>
+                    <Name>Чеки_2022_06_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_07_04</Id>
+                    <Name>Чеки_2022_07_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_07_11</Id>
+                    <Name>Чеки_2022_07_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_07_18</Id>
+                    <Name>Чеки_2022_07_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_07_25</Id>
+                    <Name>Чеки_2022_07_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_08_01</Id>
+                    <Name>Чеки_2022_08_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_08_08</Id>
+                    <Name>Чеки_2022_08_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_08_15</Id>
+                    <Name>Чеки_2022_08_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_08_22</Id>
+                    <Name>Чеки_2022_08_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_08_29</Id>
+                    <Name>Чеки_2022_08_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_09_05</Id>
+                    <Name>Чеки_2022_09_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_09_12</Id>
+                    <Name>Чеки_2022_09_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_09_19</Id>
+                    <Name>Чеки_2022_09_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_09_26</Id>
+                    <Name>Чеки_2022_09_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_10_03</Id>
+                    <Name>Чеки_2022_10_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_10_10</Id>
+                    <Name>Чеки_2022_10_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_10_17</Id>
+                    <Name>Чеки_2022_10_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_10_24</Id>
+                    <Name>Чеки_2022_10_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_10_31</Id>
+                    <Name>Чеки_2022_10_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_11_07</Id>
+                    <Name>Чеки_2022_11_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_11_14</Id>
+                    <Name>Чеки_2022_11_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_11_21</Id>
+                    <Name>Чеки_2022_11_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_11_28</Id>
+                    <Name>Чеки_2022_11_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_12_05</Id>
+                    <Name>Чеки_2022_12_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_12_12</Id>
+                    <Name>Чеки_2022_12_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_12_19</Id>
+                    <Name>Чеки_2022_12_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2022_12_26</Id>
+                    <Name>Чеки_2022_12_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_01_02</Id>
+                    <Name>Чеки_2023_01_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_01_09</Id>
+                    <Name>Чеки_2023_01_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_01_16</Id>
+                    <Name>Чеки_2023_01_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_01_23</Id>
+                    <Name>Чеки_2023_01_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_01_30</Id>
+                    <Name>Чеки_2023_01_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_02_06</Id>
+                    <Name>Чеки_2023_02_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_02_13</Id>
+                    <Name>Чеки_2023_02_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_02_20</Id>
+                    <Name>Чеки_2023_02_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_02_27</Id>
+                    <Name>Чеки_2023_02_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_03_06</Id>
+                    <Name>Чеки_2023_03_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_03_13</Id>
+                    <Name>Чеки_2023_03_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_03_20</Id>
+                    <Name>Чеки_2023_03_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_03_27</Id>
+                    <Name>Чеки_2023_03_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_04_03</Id>
+                    <Name>Чеки_2023_04_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_04_10</Id>
+                    <Name>Чеки_2023_04_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_04_17</Id>
+                    <Name>Чеки_2023_04_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_04_24</Id>
+                    <Name>Чеки_2023_04_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_05_01</Id>
+                    <Name>Чеки_2023_05_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_05_08</Id>
+                    <Name>Чеки_2023_05_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_05_15</Id>
+                    <Name>Чеки_2023_05_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_05_22</Id>
+                    <Name>Чеки_2023_05_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_05_29</Id>
+                    <Name>Чеки_2023_05_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_06_05</Id>
+                    <Name>Чеки_2023_06_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_06_12</Id>
+                    <Name>Чеки_2023_06_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_06_19</Id>
+                    <Name>Чеки_2023_06_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_06_26</Id>
+                    <Name>Чеки_2023_06_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_07_03</Id>
+                    <Name>Чеки_2023_07_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_07_10</Id>
+                    <Name>Чеки_2023_07_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_07_17</Id>
+                    <Name>Чеки_2023_07_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_07_24</Id>
+                    <Name>Чеки_2023_07_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_07_31</Id>
+                    <Name>Чеки_2023_07_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_08_07</Id>
+                    <Name>Чеки_2023_08_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_08_14</Id>
+                    <Name>Чеки_2023_08_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_08_21</Id>
+                    <Name>Чеки_2023_08_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_08_28</Id>
+                    <Name>Чеки_2023_08_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_09_04</Id>
+                    <Name>Чеки_2023_09_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_09_11</Id>
+                    <Name>Чеки_2023_09_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_09_18</Id>
+                    <Name>Чеки_2023_09_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_09_25</Id>
+                    <Name>Чеки_2023_09_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_10_02</Id>
+                    <Name>Чеки_2023_10_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_10_09</Id>
+                    <Name>Чеки_2023_10_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_10_16</Id>
+                    <Name>Чеки_2023_10_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_10_23</Id>
+                    <Name>Чеки_2023_10_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_10_30</Id>
+                    <Name>Чеки_2023_10_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_11_06</Id>
+                    <Name>Чеки_2023_11_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_11_13</Id>
+                    <Name>Чеки_2023_11_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_11_20</Id>
+                    <Name>Чеки_2023_11_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_11_27</Id>
+                    <Name>Чеки_2023_11_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_12_04</Id>
+                    <Name>Чеки_2023_12_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_12_11</Id>
+                    <Name>Чеки_2023_12_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_12_18</Id>
+                    <Name>Чеки_2023_12_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Чеки_2023_12_25</Id>
+                    <Name>Чеки_2023_12_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+            </Value>
+          </ConfigurationSetting>
+        </PartitionStorageLocations>
         <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
       </Options>
     </Configuration>
