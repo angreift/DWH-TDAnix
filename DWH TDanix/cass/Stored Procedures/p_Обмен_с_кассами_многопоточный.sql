@@ -6,7 +6,8 @@
 -- =============================================
 CREATE PROCEDURE [cass].[p_Обмен_с_кассами_многопоточный]
 @НачалоДиапазона int = 0,
-@КонецДиапазона int = 1000000
+@КонецДиапазона int = 1000000,
+@НеУдалятьВременныеТаблицы bit = 0 -- Для отладки
 AS
 
 
@@ -18,7 +19,7 @@ BEGIN
 	-- Переменные для ведения журнала
 	declare @object_name  nvarchar(128);
 	declare @msg          nvarchar(max);
-	declare @ИД_обмена    nvarchar;
+	declare @ИД_обмена    bigint;
 
 	-- Переменные для обхода касс по циклу
 	declare @Код_кассы    int;
@@ -56,7 +57,11 @@ BEGIN
 	declare @TransactionName                  nvarchar(32);
 	declare @SeqNum	                          int;
 
-	set @ИД_обмена = cast(next value for cass.ИД_обмена as nvarchar);
+	set @ИД_обмена = next value for cass.ИД_обмена;
+
+	print (concat(
+		'ИД ПОТОКА: ', @ИД_обмена
+	));
 
 	set @object_name = object_schema_name(@@procid)+'.'+object_name(@@procid);
 
@@ -163,7 +168,7 @@ BEGIN
 			[Код_кассира] [nvarchar](30) NOT NULL,
 			[Логин_пользователя] [nvarchar](100) NOT NULL,
 			[Имя_пользователя] [nvarchar](50) NOT NULL,
-			[Запрещена_авторизация] [bit] NOT NULL,
+			[Запрещена_авторизация] [bit] NULL,
 			[Должность] [nvarchar](30) NULL,
 			[ИНН] [nvarchar](20) NULL
 		)
@@ -779,7 +784,9 @@ BEGIN
 				set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 				set @str = REPLACE(@str, '%workshiftid%', @ИД_смены);
 				set @str = REPLACE(@str, '%ИД_обмена%', @ИД_обмена);
+
 				exec(@str);
+
 			end try
 			begin catch
 				rollback tran @TransactionName
@@ -939,6 +946,8 @@ BEGIN
 						`documents`.`document`.`workshiftid` = %workshiftid%
 					''
 				)';
+
+
 
 				set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 				set @str = REPLACE(@str, '%workshiftid%', @ИД_смены);
@@ -1432,16 +1441,16 @@ BEGIN
 		end
 	end
 
-	set @str = '
-		drop table ##t_raw_Кассовые_документы_%ИД_обмена% 
-		drop table ##t_raw_Оплаты_%ИД_обмена% 
-		drop table ##t_raw_Позиции_документа_%ИД_обмена% 
-		drop table ##t_raw_Пользователи_%ИД_обмена% 
-		drop table ##t_raw_Скидки_%ИД_обмена% 
-		drop table ##t_raw_Смены_%ИД_обмена% 
-		drop table ##t_raw_Сторнированные_позиции_%ИД_обмена% 
-	';
-
-	set @str = replace(@str, '%ИД_обмена%', @ИД_обмена)
-
+	if (@НеУдалятьВременныеТаблицы = 0) BEGIN
+		set @str = '
+			drop table ##t_raw_Кассовые_документы_%ИД_обмена% 
+			drop table ##t_raw_Оплаты_%ИД_обмена% 
+			drop table ##t_raw_Позиции_документа_%ИД_обмена% 
+			drop table ##t_raw_Пользователи_%ИД_обмена% 
+			drop table ##t_raw_Скидки_%ИД_обмена% 
+			drop table ##t_raw_Смены_%ИД_обмена% 
+			drop table ##t_raw_Сторнированные_позиции_%ИД_обмена% 
+		';
+		set @str = replace(@str, '%ИД_обмена%', @ИД_обмена)
+	end;
 END

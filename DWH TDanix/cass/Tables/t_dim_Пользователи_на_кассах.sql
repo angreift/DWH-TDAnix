@@ -3,7 +3,7 @@
     [Код_кассира]           INT            NOT NULL,
     [Логин_пользователя]    NVARCHAR (100) NOT NULL,
     [Имя_пользователя]      NVARCHAR (50)  NOT NULL,
-    [Запрещена_авторизация] BIT            NOT NULL,
+    [Запрещена_авторизация] BIT            NULL,
     [Должность]             NVARCHAR (30)  NULL,
     [ИНН]                   NVARCHAR (20)  NULL
 ) ON [DIMENTIONS];
