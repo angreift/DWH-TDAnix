@@ -13,8 +13,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{19C3EF4D-8D5E-46C7-8A07-81583D4A0398}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{1798FFF2-5491-492F-B67D-7D26AB82C2C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -160,88 +160,105 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 0 - 10000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 0 - 5000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
               DTS:DTSID="{273a523b-9588-4ff6-88b0-050d2fa6475e}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 0 - 10000"
-              DTS:ThreadHint="5">
+              DTS:ObjectName="Обмен с кассами 0 - 5000"
+              DTS:ThreadHint="12">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 0, 10000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 0, 5000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 10001 - 20000"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Задача &quot;Выполнение SQL&quot;"
-              DTS:DTSID="{64141c82-60ce-4b3a-9b4e-8edd2140865e}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 10001 - 20000"
-              DTS:ThreadHint="8">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
-                  SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 10001, 20000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-            <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 20001 - 30000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 10001 - 15000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
               DTS:DTSID="{e59c5535-da0c-45d3-a97a-5e28493944f9}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 20001 - 30000"
-              DTS:ThreadHint="9">
+              DTS:ObjectName="Обмен с кассами 10001 - 15000"
+              DTS:ThreadHint="17">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 20001, 30000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 10001, 15000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 30001 - 40000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 15001 - 20000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
               DTS:DTSID="{b795cee8-9511-4d79-b732-93f88df02a7d}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 30001 - 40000"
-              DTS:ThreadHint="7">
+              DTS:ObjectName="Обмен с кассами 15001 - 20000"
+              DTS:ThreadHint="14">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 30001, 40000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 15001, 20000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 40001 - 50000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 20001 - 25000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
               DTS:DTSID="{63c9c37a-efa1-45ee-9fa9-f612faad6ef7}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 40001 - 50000"
-              DTS:ThreadHint="6">
+              DTS:ObjectName="Обмен с кассами 20001 - 25000"
+              DTS:ThreadHint="13">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 40001, 50000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 20001, 25000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 25001 - 30000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{1273b26d-321c-4ade-89bc-572bbb0d2ea3}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 25001 - 30000"
+              DTS:ThreadHint="15">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 25001, 30000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 5001 - 10000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{64141c82-60ce-4b3a-9b4e-8edd2140865e}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 5001 - 10000"
+              DTS:ThreadHint="16">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 5001, 10000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
@@ -258,88 +275,220 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 50001 - 60000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 30001 - 35000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
               DTS:DTSID="{97284b27-e027-4a3c-9237-aa0734b1e4e6}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 50001 - 60000"
+              DTS:ObjectName="Обмен с кассами 30001 - 35000"
+              DTS:ThreadHint="6">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 30001, 35000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 35001 - 40000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{6d9ff529-6053-4c65-8270-385ab3be7f39}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 35001 - 40000"
+              DTS:ThreadHint="10">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 35001, 40000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 40001 - 45000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{87c15874-9672-4796-b273-57ef8b422cf2}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 40001 - 45000"
+              DTS:ThreadHint="11">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 40001, 45000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 45001 - 50000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{45af8439-8f2c-43b8-859e-086f59ea670f}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 45001 - 50000"
+              DTS:ThreadHint="8">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 45001, 50000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 50001 - 55000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{a29be828-0c30-4cb0-b432-7e3b8b1de82e}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 50001 - 55000"
+              DTS:ThreadHint="7">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 50001, 45000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 55001 - 60000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{8125278c-cce5-4470-a0d5-78adce742e62}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 55001 - 60000"
+              DTS:ThreadHint="9">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 55001, 60000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Контейнер последовательности"
+          DTS:DTSID="{e69ceccf-ee1c-4e80-bd63-f8ddab76f1e5}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="Обмен с кассами 3">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 60001 - 65000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{1246adae-9c48-4ccd-acd8-44027a1d0e47}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 60001 - 65000"
               DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 50001, 60000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 60001, 65000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 60001 - 70000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 65001 - 70000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
-              DTS:DTSID="{6d9ff529-6053-4c65-8270-385ab3be7f39}"
+              DTS:DTSID="{d771ded6-4458-431e-943c-37da36132845}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 60001 - 70000"
-              DTS:ThreadHint="3">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
-                  SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 60001, 70000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-            <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 70001 - 80000"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Задача &quot;Выполнение SQL&quot;"
-              DTS:DTSID="{87c15874-9672-4796-b273-57ef8b422cf2}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 70001 - 80000"
+              DTS:ObjectName="Обмен с кассами 65001 - 70000"
               DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 70001, 80000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 65001, 70000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 80001 - 90000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 70001 - 75000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
-              DTS:DTSID="{45af8439-8f2c-43b8-859e-086f59ea670f}"
+              DTS:DTSID="{ed9e3de6-b8c2-4b9f-aa89-7e9696c73fff}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 80001 - 90000"
+              DTS:ObjectName="Обмен с кассами 70001 - 75000"
+              DTS:ThreadHint="5">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 70001, 75000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 75001 - 80000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{4ef23391-1edd-46e7-a8e6-3b791f807cda}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 75001 - 80000"
               DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 80001, 90000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 75001, 80000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 90001 - 100000"
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 80001 - 85000"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Задача &quot;Выполнение SQL&quot;"
-              DTS:DTSID="{a29be828-0c30-4cb0-b432-7e3b8b1de82e}"
+              DTS:DTSID="{45964461-4985-4e55-a74e-a271e0cfe196}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Обмен с кассами 90001 - 100000"
+              DTS:ObjectName="Обмен с кассами 80001 - 85000"
               DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
                   SQLTask:TimeOut="1800"
-                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 90001, 100000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 80001, 85000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 85001 - 90000"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Задача &quot;Выполнение SQL&quot;"
+              DTS:DTSID="{c625b5dd-3e10-4985-a9c6-82c87e344993}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Обмен с кассами 85001 - 90000"
+              DTS:ThreadHint="3">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{55CD1A89-2EDF-4FEB-9C58-D7B17E232C5F}"
+                  SQLTask:TimeOut="1800"
+                  SQLTask:SqlStatementSource="exec cass.p_Обмен_с_кассами_многопоточный 85001, 90000" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
@@ -379,83 +528,122 @@
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 50001 - 60000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 30001 - 35000"
           TopLeft="11,10" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 70001 - 80000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 40001 - 45000"
           TopLeft="11,114" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 60001 - 70000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 35001 - 40000"
           TopLeft="11,62" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 90001 - 100000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 55001 - 60000"
+          TopLeft="11,270" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 50001 - 55000"
           TopLeft="11,218" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 80001 - 90000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 2\Обмен с кассами 45001 - 50000"
           TopLeft="11,166" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="259,270"
-          Size="259,313"
+          PanelSize="259,324"
+          Size="259,367"
           Id="Package\Параллельный обмен с кассами\Обмен с кассами 2"
           TopLeft="282.5,8" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 0 - 10000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 0 - 5000"
           TopLeft="11,10" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 10001 - 20000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 5001 - 10000"
           TopLeft="11,62" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 20001 - 30000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 10001 - 15000"
           TopLeft="11,114" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 30001 - 40000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 15001 - 20000"
           TopLeft="11,166" />
         <NodeLayout
           Size="237,42"
-          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 40001 - 50000"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 20001 - 25000"
           TopLeft="11,218" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 1\Обмен с кассами 25001 - 30000"
+          TopLeft="11,270" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="259,271"
-          Size="259,314"
+          PanelSize="259,324"
+          Size="259,367"
           Id="Package\Параллельный обмен с кассами\Обмен с кассами 1"
           TopLeft="9.5,8" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 60001 - 65000"
+          TopLeft="11,10" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 70001 - 75000"
+          TopLeft="11,114" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 75001 - 80000"
+          TopLeft="11,166" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 80001 - 85000"
+          TopLeft="11,218" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 85001 - 90000"
+          TopLeft="11,270" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3\Обмен с кассами 65001 - 70000"
+          TopLeft="11,62" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="547,336"
-          Size="547,379"
+          PanelSize="259,324"
+          Size="259,367"
+          Id="Package\Параллельный обмен с кассами\Обмен с кассами 3"
+          TopLeft="553.5,7" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="828,386"
+          Size="828,429"
           Id="Package\Параллельный обмен с кассами"
-          TopLeft="281,50" />
+          TopLeft="90,50" />
         <NodeLayout
           Size="188,42"
           Id="Package\Обработка измерений"
-          TopLeft="454,470" />
+          TopLeft="410,518" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="551.25,429">
+          TopLeft="504,479">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="0,39"
               Start="0,0"
-              End="0,33.5">
+              End="0,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -486,10 +674,10 @@
           PanelSize="198,201"
           Size="198,245"
           Id="Package\Обработка групп мер CASS"
-          TopLeft="451.5,548.5" />
+          TopLeft="407.5,596.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="549.25,512">
+          TopLeft="505.25,560">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
