@@ -4,22 +4,23 @@
 -- Description:	Непосредственный обмен с кассами и кассовым сервером
 -- =============================================
 CREATE PROCEDURE [cass].[p_Обмен_с_кассами]
-@ТолькоРозница bit = 0
+@ТолькоРозница              bit = 0,
+@Номер_кассы_для_переснятия int = 0
 AS
 BEGIN
 	SET NOCOUNT ON;
 
 	-- Переменные для ведения журнала
-	declare @object_name  nvarchar(128);
-	declare @msg          nvarchar(max);
+	declare @object_name  nvarchar(128);                              -- Наименование данной хранимки для заиписи в журнал
+	declare @msg          nvarchar(max);                              -- Переменная для хранения текста, которое будет записано в журнал
 
 	-- Переменные для обхода касс по циклу
 	declare @Код_кассы    int;
 	declare @IP_адрес     nvarchar(15);
 	declare @Включена     bit;
 	declare @Код_магазина int;
-	declare @R            bit;
-	declare @str          nvarchar(max);
+	declare @R            bit;                                        -- Результат создания/обновления ODBC подключения
+	declare @str          nvarchar(max);                              -- Для хранения текста динамического запроса
 
 	-- Переменные для обхода смен по циклу
 	declare @ИД_смены                         int;
@@ -46,11 +47,12 @@ BEGIN
 	declare @Количество_чеков_возврата        money;
 	declare @Флаг_загрузки_смены              bit;
 
-	declare @TransactionName                  nvarchar(32);
-	declare @SeqNum	                          int;
+	declare @TransactionName                  nvarchar(32);           -- Уникальное имя транзакции (чтобы по нему делать rollback)
+	declare @SeqNum	                          int;                    -- Код события в журнале загрузки смен
 
-	set @object_name = object_schema_name(@@procid)+'.'+object_name(@@procid);
+	set @object_name = object_schema_name(@@procid)+'.'+object_name(@@procid); -- Получаем название данной процедуры
 
+	-- Поиск уже запущенных обменов с кассами
 	declare @Tran table (
 		[tran_elapsed_time_seconds] int, 
 		[session_id] int, 
@@ -78,6 +80,7 @@ BEGIN
 		sys.dm_exec_sql_text(conn.most_recent_sql_handle) AS [txt]
 	where name like 'CassLoader%' --kill 66
 
+	-- Выход из процедуры, если обмен уже запущен
 	if (select count(*) from @Tran) > 0
 	begin
 		set @msg = concat(
@@ -95,7 +98,8 @@ BEGIN
 		raiserror(@msg, 13, 1) with nowait;
 		return;
 	end
-
+	
+	-- Заполнение табличной переменной кассами, которые нужно будет опросить
 	declare @Список_касс table (
 		Код_кассы int not null,
 		IP_адрес nvarchar(15) not null,
@@ -103,43 +107,42 @@ BEGIN
 		Включена bit not null
 	)
 	
-	if @ТолькоРозница = 0 begin
-		insert into
-			@Список_касс
-		select
-			Код_кассы,
-			IP_адрес,
-			Код_магазина,
-			Включена
-		from
-			cass.t_dim_Кассы
-	end
+	insert into
+		@Список_касс
+	select
+		Код_кассы,
+		IP_адрес,
+		Код_магазина,
+		Включена
+	from
+		cass.t_dim_Кассы
+
+	-- Оставляем только розницу, если передан такой параметр
 	if @ТолькоРозница = 1 begin
-		insert into
-			@Список_касс
-		select
-			Код_кассы,
-			IP_адрес,
-			Код_магазина,
-			Включена
-		from
-			cass.t_dim_Кассы
-		left join
-			dbo.t_dim_Магазины on cass.t_dim_Кассы.Код_магазина = dbo.t_dim_Магазины.Код
-		where
-			dbo.t_dim_Магазины.Группа in ('Розница', 'РС Закрытые')
+		delete from @Список_касс where Код_кассы in (
+			select Код_магазина from dbo.t_dim_Магазины where dbo.t_dim_Магазины.Группа in ('Розница', 'РС Закрытые')
+		)
 	end
 
+	-- Оставляем конкретную кассу, если передан такой параметр
+	if @Номер_кассы_для_переснятия > 0 begin
+		delete from @Список_касс where Код_кассы <> @Номер_кассы_для_переснятия
+	end
+
+	-- Обход по циклу выбранные кассы
 	while (select count(*) from @Список_касс) > 0
 	begin
+		
+		-- Заполнение основных переменных по кассам
 		set @Код_кассы = (select top 1 Код_кассы from @Список_касс);
-
 		set @IP_адрес     = (select IP_адрес     from @Список_касс where Код_кассы = @Код_кассы)
 		set @Код_магазина = (select Код_магазина from @Список_касс where Код_кассы = @Код_кассы)
 		set @Включена     = (select Включена     from @Список_касс where Код_кассы = @Код_кассы)
 
+		-- Удаление кассы из табличной переменной, чтобы больше не опрашивать ее в данном сеансе
 		delete from @Список_касс where Код_кассы = @Код_кассы;
 
+		-- Журналирование
 		set @msg = concat('Начало выгрузки с кассы. Код_кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина);
 		exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
 
@@ -165,7 +168,7 @@ BEGIN
 
 		*/
 
-		--2. Заполнение таблиц RAW
+		--2. Заполнение таблиц RAW (сырые данные)
 
 		--Пользователи
 		truncate table cass.t_raw_Пользователи
