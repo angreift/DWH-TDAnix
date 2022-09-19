@@ -603,7 +603,7 @@ BEGIN
 					) as cte70 on 
 						`documents`.`moneyitem`.`documentid` = cte70.`documentid` and 
 						`documents`.`moneyitem`.`valcode` = cte70.`valcode` and 
-						cte70.opcode = 70
+						cte70.opcode in (70, 74)
 					left join (
 						select
 							`moneyitem`.`documentid`,
