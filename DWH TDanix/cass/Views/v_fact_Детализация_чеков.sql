@@ -1,13 +1,12 @@
-﻿CREATE VIEW cass.v_fact_Детализация_чеков
+﻿CREATE VIEW [cass].[v_fact_Детализация_чеков]
 AS
 SELECT        cass.t_fact_Детализация_чеков.Код_кассы, cass.t_fact_Детализация_чеков.Код_кассира, cass.t_fact_Детализация_чеков.ИД_позиции, cass.t_fact_Детализация_чеков.ИД_документа, 
-                         cass.t_fact_Детализация_чеков.Код_товара, cass.t_fact_Детализация_чеков.Дата_время_добавления_позиции, cass.t_fact_Детализация_чеков.Способ_добавления_позиции, 
-                         cass.t_fact_Детализация_чеков.Количество, cass.t_fact_Детализация_чеков.Способ_ввода_количества, cass.t_fact_Детализация_чеков.Цена, cass.t_fact_Детализация_чеков.Минимальная_цена, 
-                         cass.t_fact_Детализация_чеков.Цена_позиции, cass.t_fact_Детализация_чеков.Способ_ввода_цены, cass.t_fact_Детализация_чеков.Сумма_скидки, 
-                         cass.t_fact_Детализация_чеков.Начальная_сумма_до_применения_скидок, cass.t_fact_Детализация_чеков.Итоговая_сумма_после_применения_скидок, cass.t_fact_Детализация_чеков.Номер_позиции_в_чеке, 
-                         cass.t_fact_Детализация_чеков.Сумма_Наличные, cass.t_fact_Детализация_чеков.Сумма_Терминал, cass.t_fact_Детализация_чеков.Сумма_СБП_Сбербанк, 
-                         cass.t_fact_Детализация_чеков.Сумма_оплаты_Неинтегрированный_терминал_СБ, cass.t_fact_Детализация_чеков.Сумма_оплаты_Накопительные_карты, cass.t_fact_Детализация_чеков.Возврат, 
-                         cass.t_fact_Детализация_чеков.Итоговая_сумма_всего_чека, 
+                         cass.t_fact_Детализация_чеков.Дата_время_добавления_позиции, cass.t_fact_Детализация_чеков.Способ_добавления_позиции, cass.t_fact_Детализация_чеков.Количество, 
+                         cass.t_fact_Детализация_чеков.Способ_ввода_количества, cass.t_fact_Детализация_чеков.Цена, cass.t_fact_Детализация_чеков.Минимальная_цена, cass.t_fact_Детализация_чеков.Цена_позиции, 
+                         cass.t_fact_Детализация_чеков.Способ_ввода_цены, cass.t_fact_Детализация_чеков.Сумма_скидки, cass.t_fact_Детализация_чеков.Начальная_сумма_до_применения_скидок, 
+                         cass.t_fact_Детализация_чеков.Итоговая_сумма_после_применения_скидок, cass.t_fact_Детализация_чеков.Номер_позиции_в_чеке, cass.t_fact_Детализация_чеков.Сумма_Наличные, 
+                         cass.t_fact_Детализация_чеков.Сумма_Терминал, cass.t_fact_Детализация_чеков.Сумма_СБП_Сбербанк, cass.t_fact_Детализация_чеков.Сумма_оплаты_Неинтегрированный_терминал_СБ, 
+                         cass.t_fact_Детализация_чеков.Сумма_оплаты_Накопительные_карты, cass.t_fact_Детализация_чеков.Возврат, cass.t_fact_Детализация_чеков.Итоговая_сумма_всего_чека, 
                          CASE WHEN cass.t_fact_Детализация_чеков.Возврат = 1 THEN cass.t_fact_Детализация_чеков.Количество * - 1 ELSE cass.t_fact_Детализация_чеков.Количество END AS Количество_с_учетом_возвратов, 
                          CASE WHEN cass.t_fact_Детализация_чеков.Возврат = 1 THEN cass.t_fact_Детализация_чеков.Сумма_скидки * - 1 ELSE cass.t_fact_Детализация_чеков.Сумма_скидки END AS Сумма_скидки_с_учетом_возвратов, 
                          CASE WHEN cass.t_fact_Детализация_чеков.Возврат = 1 THEN cass.t_fact_Детализация_чеков.Начальная_сумма_до_применения_скидок * - 1 ELSE cass.t_fact_Детализация_чеков.Начальная_сумма_до_применения_скидок
@@ -22,13 +21,15 @@ SELECT        cass.t_fact_Детализация_чеков.Код_кассы, c
                          CASE WHEN cass.t_fact_Детализация_чеков.Возврат = 1 THEN cass.t_fact_Детализация_чеков.Сумма_оплаты_Накопительные_карты * - 1 ELSE cass.t_fact_Детализация_чеков.Сумма_оплаты_Накопительные_карты END
                           AS Сумма_оплаты_Накопительные_карты_с_учетом_возвратов, CAST(cass.t_fact_Детализация_чеков.Код_кассы AS nvarchar) + '~' + CAST(cass.t_fact_Детализация_чеков.Код_кассира AS nvarchar) 
                          AS Составной_код_кассира, CAST(CAST(cass.t_fact_Детализация_чеков.Дата_время_добавления_позиции AS date) AS datetime) AS Дата_добавления_позиции, cass.t_dim_Кассы.Код_магазина, 
-                         cass.t_fact_Детализация_чеков.Составной_код_документа, CAST(cass.t_fact_Детализация_чеков.Код_кассы AS nvarchar) + '~' + CAST(cass.t_fact_Чеки.ИД_смены AS nvarchar) AS Составной_код_смены
+                         cass.t_fact_Детализация_чеков.Составной_код_документа, CAST(cass.t_fact_Детализация_чеков.Код_кассы AS nvarchar) + '~' + CAST(cass.t_fact_Чеки.ИД_смены AS nvarchar) AS Составной_код_смены, 
+                         dbo.t_dim_Товары.Код_товара
 FROM            cass.t_fact_Детализация_чеков INNER JOIN
                          cass.t_dim_Кассы ON cass.t_fact_Детализация_чеков.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
-                         cass.t_fact_Чеки ON cass.t_fact_Детализация_чеков.Составной_код_документа = cass.t_fact_Чеки.Составной_код_документа
-
+                         cass.t_fact_Чеки ON cass.t_fact_Детализация_чеков.Составной_код_документа = cass.t_fact_Чеки.Составной_код_документа LEFT OUTER JOIN
+                         dbo.t_dim_Товары ON cass.t_fact_Детализация_чеков.Код_товара = dbo.t_dim_Товары.Код_товара
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
@@ -107,27 +108,37 @@ Begin DesignProperties =
                Right = 410
             End
             DisplayFlags = 280
-            TopColumn = 11
+            TopColumn = 0
          End
          Begin Table = "t_dim_Кассы (cass)"
             Begin Extent = 
-               Top = 142
-               Left = 716
-               Bottom = 272
-               Right = 890
+               Top = 11
+               Left = 535
+               Bottom = 141
+               Right = 709
             End
             DisplayFlags = 280
             TopColumn = 1
          End
          Begin Table = "t_fact_Чеки (cass)"
             Begin Extent = 
-               Top = 83
-               Left = 966
-               Bottom = 213
-               Right = 1338
+               Top = 160
+               Left = 526
+               Bottom = 290
+               Right = 898
             End
             DisplayFlags = 280
             TopColumn = 1
+         End
+         Begin Table = "t_dim_Товары"
+            Begin Extent = 
+               Top = 42
+               Left = 1067
+               Bottom = 172
+               Right = 1335
+            End
+            DisplayFlags = 280
+            TopColumn = 0
          End
       End
    End
@@ -160,7 +171,10 @@ Begin DesignProperties =
          NewValue = 1170
          SortType = 1350
          SortOrder = 1410
-         GroupBy = 1350
+         GroupBy = 13' , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Детализация_чеков'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'50
          Filter = 1350
          Or = 1350
          Or = 1350
@@ -168,9 +182,10 @@ Begin DesignProperties =
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_fact_Детализация_чеков';
-
-
+' , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Детализация_чеков'
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_fact_Детализация_чеков';
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Детализация_чеков'
+GO
+
 

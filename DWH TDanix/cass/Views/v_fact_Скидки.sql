@@ -1,17 +1,18 @@
-﻿CREATE VIEW cass.v_fact_Скидки
+﻿CREATE VIEW [cass].[v_fact_Скидки]
 AS
 SELECT        cass.t_fact_Скидки.Код_кассы, cass.t_fact_Скидки.ИД_скидки, cass.t_fact_Скидки.ИД_позиции, cass.t_fact_Скидки.Номер_позиции, cass.t_fact_Скидки.Код_кассира, 
                          cass.t_fact_Скидки.Дата_время_применения_скидки, cass.t_fact_Скидки.Объект_скидки, cass.t_fact_Скидки.Номер_скидки, cass.t_fact_Скидки.Режим_скидки, cass.t_fact_Скидки.Тип_скидки, 
                          cass.t_fact_Скидки.Ставка_скидки, cass.t_fact_Скидки.Сумма_скидки, cass.t_fact_Скидки.Сумма_чека, cass.t_fact_Скидки.Номер_дисконтной_карты, cass.t_fact_Скидки.Название_дисконтной_карты, 
-                         cass.t_fact_Скидки.ИД_кнопки, cass.t_fact_Скидки.ИД_карты, cass.t_fact_Скидки.Код_товара, CAST(cass.t_fact_Скидки.Код_кассы AS nvarchar) + N'~' + CAST(cass.t_fact_Скидки.Код_кассира AS nvarchar) 
-                         AS Составной_код_кассира, CAST(CAST(cass.t_fact_Скидки.Дата_время_применения_скидки AS date) AS datetime) AS Дата_применения_скидки, cass.t_dim_Кассы.Код_магазина, 
-                         cass.t_fact_Детализация_чеков.Составной_код_документа
+                         cass.t_fact_Скидки.ИД_кнопки, cass.t_fact_Скидки.ИД_карты, CAST(cass.t_fact_Скидки.Код_кассы AS nvarchar) + N'~' + CAST(cass.t_fact_Скидки.Код_кассира AS nvarchar) AS Составной_код_кассира, 
+                         CAST(CAST(cass.t_fact_Скидки.Дата_время_применения_скидки AS date) AS datetime) AS Дата_применения_скидки, cass.t_dim_Кассы.Код_магазина, cass.t_fact_Детализация_чеков.Составной_код_документа, 
+                         dbo.t_dim_Товары.Код_товара
 FROM            cass.t_fact_Скидки INNER JOIN
                          cass.t_dim_Кассы ON cass.t_fact_Скидки.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
-                         cass.t_fact_Детализация_чеков ON cass.t_fact_Скидки.Составной_код_позиции = cass.t_fact_Детализация_чеков.Составной_код_позиции
-
+                         cass.t_fact_Детализация_чеков ON cass.t_fact_Скидки.Составной_код_позиции = cass.t_fact_Детализация_чеков.Составной_код_позиции LEFT OUTER JOIN
+                         dbo.t_dim_Товары ON cass.t_fact_Скидки.Код_товара = dbo.t_dim_Товары.Код_товара
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
@@ -112,6 +113,16 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 22
          End
+         Begin Table = "t_dim_Товары"
+            Begin Extent = 
+               Top = 12
+               Left = 958
+               Bottom = 142
+               Right = 1226
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
       End
    End
    Begin SQLPane = 
@@ -143,15 +154,19 @@ Begin DesignProperties =
          SortOrder = 1410
          GroupBy = 1350
          Filter = 1350
-         Or = 1350
+         Or = 13' , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Скидки'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'50
          Or = 1350
          Or = 1350
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_fact_Скидки';
-
-
+' , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Скидки'
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_fact_Скидки';
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Скидки'
+GO
+
 

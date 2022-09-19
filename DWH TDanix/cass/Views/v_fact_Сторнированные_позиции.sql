@@ -1,21 +1,21 @@
-﻿CREATE VIEW cass.v_fact_Сторнированные_позиции
+﻿CREATE VIEW [cass].[v_fact_Сторнированные_позиции]
 AS
-SELECT        cass.t_fact_Сторнированные_позиции.Код_кассы, cass.t_fact_Сторнированные_позиции.ИД_сторнированной_позиции, cass.t_fact_Сторнированные_позиции.ИД_документа, 
-                         cass.t_fact_Сторнированные_позиции.Код_кассира, cass.t_fact_Сторнированные_позиции.Дата_время_добавления_сторнированной_позиции, 
-                         cass.t_fact_Сторнированные_позиции.Дата_время_сторнирования_позиции, cass.t_fact_Сторнированные_позиции.Способ_добавления_позиции, cass.t_fact_Сторнированные_позиции.Количество, 
-                         cass.t_fact_Сторнированные_позиции.Способ_ввода_количества, cass.t_fact_Сторнированные_позиции.Цена, cass.t_fact_Сторнированные_позиции.Минимальная_цена, 
-                         cass.t_fact_Сторнированные_позиции.Цена_позиции, cass.t_fact_Сторнированные_позиции.Способ_ввода_цены, cass.t_fact_Сторнированные_позиции.Сумма_скидки, 
-                         cass.t_fact_Сторнированные_позиции.Начальная_сумма_до_применения_скидок, cass.t_fact_Сторнированные_позиции.Итоговая_сумма_после_применения_скидок, cass.t_fact_Сторнированные_позиции.Код_товара, 
-                         cass.t_fact_Сторнированные_позиции.Номер_сторнированной_позиции, cass.t_fact_Сторнированные_позиции.Пользователь_подтвердивший_операцию, 
-                         CAST(CAST(cass.t_fact_Сторнированные_позиции.Дата_время_сторнирования_позиции AS date) AS datetime) AS Дата_сторнирования_позиции, CAST(cass.t_fact_Сторнированные_позиции.Код_кассы AS nvarchar) 
-                         + '~' + CAST(cass.t_fact_Сторнированные_позиции.Код_кассира AS nvarchar) AS Составной_код_кассира, CAST(cass.t_fact_Сторнированные_позиции.Код_кассы AS nvarchar) 
-                         + '~' + CAST(cass.t_fact_Сторнированные_позиции.Пользователь_подтвердивший_операцию AS nvarchar) AS Составной_код_пользователя_подтвердившего_операцию, cass.v_dim_Кассы.Код_магазина, 
-                         cass.t_fact_Сторнированные_позиции.Составной_код_документа
+SELECT        cass.t_fact_Сторнированные_позиции.ИД_сторнированной_позиции, cass.t_fact_Сторнированные_позиции.ИД_документа, cass.t_fact_Сторнированные_позиции.Код_кассира, 
+                         cass.t_fact_Сторнированные_позиции.Дата_время_добавления_сторнированной_позиции, cass.t_fact_Сторнированные_позиции.Дата_время_сторнирования_позиции, 
+                         cass.t_fact_Сторнированные_позиции.Способ_добавления_позиции, cass.t_fact_Сторнированные_позиции.Количество, cass.t_fact_Сторнированные_позиции.Способ_ввода_количества, 
+                         cass.t_fact_Сторнированные_позиции.Цена, cass.t_fact_Сторнированные_позиции.Минимальная_цена, cass.t_fact_Сторнированные_позиции.Цена_позиции, cass.t_fact_Сторнированные_позиции.Способ_ввода_цены, 
+                         cass.t_fact_Сторнированные_позиции.Сумма_скидки, cass.t_fact_Сторнированные_позиции.Начальная_сумма_до_применения_скидок, 
+                         cass.t_fact_Сторнированные_позиции.Итоговая_сумма_после_применения_скидок, cass.t_fact_Сторнированные_позиции.Код_товара, cass.t_fact_Сторнированные_позиции.Номер_сторнированной_позиции, 
+                         cass.t_fact_Сторнированные_позиции.Пользователь_подтвердивший_операцию, CAST(CAST(cass.t_fact_Сторнированные_позиции.Дата_время_сторнирования_позиции AS date) AS datetime) 
+                         AS Дата_сторнирования_позиции, CAST(cass.t_fact_Сторнированные_позиции.Код_кассы AS nvarchar) + '~' + CAST(cass.t_fact_Сторнированные_позиции.Код_кассира AS nvarchar) AS Составной_код_кассира, 
+                         CAST(cass.t_fact_Сторнированные_позиции.Код_кассы AS nvarchar) + '~' + CAST(cass.t_fact_Сторнированные_позиции.Пользователь_подтвердивший_операцию AS nvarchar) 
+                         AS Составной_код_пользователя_подтвердившего_операцию, cass.v_dim_Кассы.Код_магазина, cass.t_fact_Сторнированные_позиции.Составной_код_документа, dbo.t_dim_Товары.Код_товара AS Expr1
 FROM            cass.t_fact_Сторнированные_позиции INNER JOIN
-                         cass.v_dim_Кассы ON cass.t_fact_Сторнированные_позиции.Код_кассы = cass.v_dim_Кассы.Код_кассы
-
+                         cass.v_dim_Кассы ON cass.t_fact_Сторнированные_позиции.Код_кассы = cass.v_dim_Кассы.Код_кассы LEFT OUTER JOIN
+                         dbo.t_dim_Товары ON cass.t_fact_Сторнированные_позиции.Код_товара = dbo.t_dim_Товары.Код_товара
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
@@ -94,7 +94,7 @@ Begin DesignProperties =
                Right = 411
             End
             DisplayFlags = 280
-            TopColumn = 9
+            TopColumn = 0
          End
          Begin Table = "v_dim_Кассы (cass)"
             Begin Extent = 
@@ -102,6 +102,16 @@ Begin DesignProperties =
                Left = 500
                Bottom = 168
                Right = 728
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "t_dim_Товары"
+            Begin Extent = 
+               Top = 229
+               Left = 627
+               Bottom = 359
+               Right = 895
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -149,7 +159,10 @@ Begin DesignProperties =
          NewValue = 1170
          SortType = 1350
          SortOrder = 1410
-         GroupBy = 1350
+         GroupB' , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Сторнированные_позиции'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'y = 1350
          Filter = 1350
          Or = 1350
          Or = 1350
@@ -157,9 +170,10 @@ Begin DesignProperties =
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_fact_Сторнированные_позиции';
-
-
+' , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Сторнированные_позиции'
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_fact_Сторнированные_позиции';
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'cass', @level1type=N'VIEW',@level1name=N'v_fact_Сторнированные_позиции'
+GO
+
 
