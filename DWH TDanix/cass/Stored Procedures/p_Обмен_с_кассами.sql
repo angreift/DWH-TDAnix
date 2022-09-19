@@ -215,6 +215,7 @@ BEGIN
 			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 		end catch
 
+		-- Слияние таблиц, чтобы удаленные на кассе пользователи не удалялись из базы
 		begin try
 			merge cass.t_dim_Пользователи_на_кассах
 			using cass.t_raw_Пользователи
@@ -399,12 +400,14 @@ BEGIN
 				exec [dbo].[p_Сообщить_в_общий_журнал] 2, @object_name, @msg;
 			end
 
+			-- Если смена существует и данные не изменились, то не загружаем
 			if @Флаг_загрузки_смены = 0 continue;
 
 			set @SeqNum = next value for cass.s_Код_загрузки_смены;
 
 			set @TransactionName = left('CassLoader_' + cast(@Код_кассы as nvarchar) + '_' + cast(@Номер_смены as nvarchar), 32);
 
+			-- Журнал загрузки смен
 			insert into cass.t_j_История_загрузки_смен_на_кассе (
 				Код_события,
 				Код_кассы,
@@ -1081,7 +1084,7 @@ BEGIN
 						Пользователь_подтвердивший_операцию,
 						cast(@Код_кассы as nvarchar) + '~' + CAST(ИД_документа as nvarchar)
 					from
-						t_raw_Сторнированные_позиции
+						[cass].t_raw_Сторнированные_позиции
 			end try
 			begin catch
 				rollback tran @TransactionName
