@@ -14,25 +14,25 @@ BEGIN
 	drop table if exists #dwh_temp_магазины
 
 	create table #dwh_temp_магазины (
-		Код int NOT NULL, 
-		Группа nvarchar(50) NOT NULL,
-		Наименование nvarchar(100) NOT NULL, 
-		Адрес nvarchar(300) NULL,
-		Город nvarchar(50) NULL, 
-		График_ПРАЙД tinyint NULL,
-		Дата_Закрытия datetime NULL, 
-		Дата_Открытия datetime NULL,
-		ИНН nvarchar(30) NULL, 
-		Категория_По_Площади tinyint NULL,
-		КПП nvarchar(30) NULL, 
-		Куст nvarchar(50) NULL,
-		Ответственный nvarchar(50) NULL,
-		Отчёт bit NULL,
-		Регион nvarchar(50) NULL,
-		Дата_Начала_Реконструкции datetime NULL,
-		Дата_Конца_Реконструкции datetime NULL, 
-		Бренд_Магазина nvarchar(50) NULL,
-		Технолог_СП nvarchar(50) NULL
+		Код                       int           NOT NULL, 
+		Группа                    nvarchar(50)  NOT NULL,
+		Наименование              nvarchar(100) NOT NULL, 
+		Адрес                     nvarchar(300) NULL,
+		Город                     nvarchar(50)  NULL, 
+		График_ПРАЙД              tinyint       NULL,
+		Дата_Закрытия             datetime      NULL, 
+		Дата_Открытия             datetime      NULL,
+		ИНН                       nvarchar(30)  NULL, 
+		Категория_По_Площади      tinyint       NULL,
+		КПП                       nvarchar(30)  NULL, 
+		Куст                      nvarchar(50)  NULL,
+		Ответственный             nvarchar(50)  NULL,
+		Отчёт                     bit           NULL,
+		Регион                    nvarchar(50)  NULL,
+		Дата_Начала_Реконструкции datetime      NULL,
+		Дата_Конца_Реконструкции  datetime      NULL, 
+		Бренд_Магазина            nvarchar(50)  NULL,
+		Технолог_СП               nvarchar(50)  NULL
 );
 
 
@@ -41,35 +41,35 @@ BEGIN
 		Код, Группа, Наименование, Адрес, Город, График_ПРАЙД, Дата_Закрытия, Дата_Открытия, ИНН, Категория_По_Площади, КПП, Куст, Ответственный, Отчёт,
 		Регион, Дата_Начала_Реконструкции, Дата_Конца_Реконструкции, Бренд_Магазина, Технолог_СП
 	) select
-		Магазины.[CODE] as Код,
-		Магазины_2.[DESCR] as Группа,
-		Магазины.[DESCR] as Наименование,
+		Магазины.[CODE]         as Код,
+		Магазины_2.[DESCR]      as Группа,
+		Магазины.[DESCR]        as Наименование,
 		case when ltrim(rtrim(Магазины.[SP40])) = '' then NULL else Магазины.[SP40] end as Адрес,
-		Города.[DESCR] as Город,
-		Магазины.[SP2009] as График_ПРАЙД,
-		Магазины.[SP4225] as Дата_Закрытия,
-		Магазины.[SP2843] as Дата_Открытия,
-		Магазины.[SP44] as ИНН,
-		Магазины.[SP2424] as Категория_По_Площади,
+		Города.[DESCR]          as Город,
+		Магазины.[SP2009]       as График_ПРАЙД,
+		Магазины.[SP4225]       as Дата_Закрытия,
+		Магазины.[SP2843]       as Дата_Открытия,
+		Магазины.[SP44]         as ИНН,
+		Магазины.[SP2424]       as Категория_По_Площади,
 		case when cast(Магазины.[SP2160] as int) = 0 then NULL else cast(Магазины.[SP2160] as int) end as КПП,
-		Кусты.[DESCR] as Куст,
-		Магазины.[SP38] as Ответственный,
-		Магазины.[SP1155] as Отчёт,
-		Регионы.[DESCR] as Регион,
-		Магазины.[SP4570] as Дата_Начала_Реконструкции,
-		Магазины.[SP4571] as Дата_Конца_Реконструкции,
+		Кусты.[DESCR]           as Куст,
+		Магазины.[SP38]         as Ответственный,
+		Магазины.[SP1155]       as Отчёт,
+		Регионы.[DESCR]         as Регион,
+		Магазины.[SP4570]       as Дата_Начала_Реконструкции,
+		Магазины.[SP4571]       as Дата_Конца_Реконструкции,
 		Брэнды_Магазина.[DESCR] as Бренд_Магазина,
 		case when ltrim(rtrim(Магазины.[SP6401])) = '' then NULL else Магазины.[SP6401] end as Технолог_СП
 	FROM 
-		[Rozn].[rozn].[dbo].[SC36] as Магазины (nolock)
+		[Rozn].[rozn].[dbo].[SC36]   as Магазины        (nolock)
 	left join 
-		[Rozn].[rozn].[dbo].[SC36] as Магазины_2 (nolock) on Магазины_2.[ID] = Магазины.[PARENTID]
+		[Rozn].[rozn].[dbo].[SC36]   as Магазины_2      (nolock) on Магазины_2.[ID]      = Магазины.[PARENTID]
 	left join 
-		[Rozn].[rozn].[dbo].[SC26] as Города (nolock) on Магазины.[SP39] = Города.[ID]
+		[Rozn].[rozn].[dbo].[SC26]   as Города          (nolock) on Магазины.[SP39]      = Города.[ID]
 	left join 
-		[Rozn].[rozn].[dbo].[SC3651] as Кусты (nolock) on Кусты.[ID] = Магазины.[SP3654]
+		[Rozn].[rozn].[dbo].[SC3651] as Кусты           (nolock) on Кусты.[ID]           = Магазины.[SP3654]
 	left join 
-		[Rozn].[rozn].[dbo].[SC2400] as Регионы (nolock) on Регионы.[ID] = Магазины.[SP2222]
+		[Rozn].[rozn].[dbo].[SC2400] as Регионы         (nolock) on Регионы.[ID]         = Магазины.[SP2222]
 	left join 
 		[Rozn].[rozn].[dbo].[SC4948] as Брэнды_Магазина (nolock) on Брэнды_Магазина.[ID] = Магазины.[SP4935]
 	where 
