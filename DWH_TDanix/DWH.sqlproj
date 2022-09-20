@@ -386,5 +386,9 @@
     <Build Include="cass\Sequences\s_Код_загрузки_смены.sql" />
     <Build Include="cass\Sequences\ИД_обмена.sql" />
     <Build Include="Security\Permissions.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_товаров.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
   </ItemGroup>
 </Project>
