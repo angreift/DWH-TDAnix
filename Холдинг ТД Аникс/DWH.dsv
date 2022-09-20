@@ -140,7 +140,7 @@
             <Name>Cass</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="26267" scrolltop="-1602" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="63976" y="27675" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="26267" scrolltop="-11562" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="67707" y="27675" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
                   </font>
@@ -299,7 +299,7 @@
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
             <DiagramViewPortLeft>26267</DiagramViewPortLeft>
-            <DiagramViewPortTop>-1602</DiagramViewPortTop>
+            <DiagramViewPortTop>-11562</DiagramViewPortTop>
             <DiagramBoundingLeft>31267</DiagramBoundingLeft>
             <DiagramBoundingTop>-6562</DiagramBoundingTop>
             <DiagramZoom>100</DiagramZoom>
@@ -314,7 +314,7 @@
       <xs:element name="DWH" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="2ad518ab-b7a1-419d-9143-5787b21430ac">
         <xs:complexType>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="dbo_t_dim_Магазины" msprop:design-time-name="a5425fb8-edf2-41eb-b98a-a8665abfb113" msprop:DbTableName="t_dim_Магазины" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:FriendlyName="t_dim_Магазины">
+            <xs:element name="dbo_t_dim_Магазины" msprop:design-time-name="a5425fb8-edf2-41eb-b98a-a8665abfb113" msprop:FriendlyName="t_dim_Магазины" msprop:DbSchemaName="dbo" msprop:DbTableName="t_dim_Магазины" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код" msprop:design-time-name="63107949-92c7-47f6-81ac-b7b9b427e93f" msprop:DbColumnName="Код" msprop:FriendlyName="Код" type="xs:int" />
@@ -390,7 +390,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код_Наименование" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" msprop:IsLogical="True" msprop:design-time-name="096649bb-1391-4179-b8ba-e451831cf454" msprop:DbColumnName="Код_Наименование" minOccurs="0">
+                  <xs:element name="Код_Наименование" msdata:ReadOnly="true" msprop:design-time-name="096649bb-1391-4179-b8ba-e451831cf454" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_Наименование" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="107" />
@@ -400,7 +400,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_t_dim_Товары" msprop:design-time-name="9bdf9796-d753-4914-a240-2a5496b086b5" msprop:DbTableName="t_dim_Товары" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:FriendlyName="t_dim_Товары">
+            <xs:element name="dbo_t_dim_Товары" msprop:design-time-name="9bdf9796-d753-4914-a240-2a5496b086b5" msprop:FriendlyName="t_dim_Товары" msprop:DbSchemaName="dbo" msprop:DbTableName="t_dim_Товары" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_товара" msprop:design-time-name="e1ba1440-1113-4038-aa92-23ef98e21887" msprop:DbColumnName="Код_товара" msprop:FriendlyName="Код_товара" type="xs:long" />
@@ -486,14 +486,14 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Товар_Код_Наименование" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('                   ' + cast(Код_товара as nvarchar), 12) + '] ' + Наименование" msprop:IsLogical="True" msprop:design-time-name="67131a0a-dfea-4d53-a552-cfc9583856cb" msprop:DbColumnName="Товар_Код_Наименование" minOccurs="0">
+                  <xs:element name="Товар_Код_Наименование" msdata:ReadOnly="true" msprop:design-time-name="67131a0a-dfea-4d53-a552-cfc9583856cb" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Товар_Код_Наименование" msprop:ComputedColumnExpression="'[' + right('                   ' + cast(Код_товара as nvarchar), 12) + '] ' + Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="70" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Группа_Код_наименование" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('                      ' + cast(Код_группы as nvarchar),12) + '] ' + Наименование_группы" msprop:IsLogical="True" msprop:design-time-name="29673863-4263-4a9f-ba82-fc3974adb327" msprop:DbColumnName="Группа_Код_наименование" minOccurs="0">
+                  <xs:element name="Группа_Код_наименование" msdata:ReadOnly="true" msprop:design-time-name="29673863-4263-4a9f-ba82-fc3974adb327" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Группа_Код_наименование" msprop:ComputedColumnExpression="'[' + right('                      ' + cast(Код_группы as nvarchar),12) + '] ' + Наименование_группы" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="65" />
@@ -503,7 +503,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_v_fact_Скидки" msprop:design-time-name="4d63aa23-8509-4f5b-bd2e-2bc500176af6" msprop:DbTableName="v_fact_Скидки" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_fact_Скидки">
+            <xs:element name="dbo_v_fact_Скидки" msprop:design-time-name="4d63aa23-8509-4f5b-bd2e-2bc500176af6" msprop:FriendlyName="v_fact_Скидки" msprop:DbSchemaName="cass" msprop:DbTableName="v_fact_Скидки" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="a5435e9d-4256-4544-bb04-4735f69ebbd3" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -535,17 +535,17 @@
                   </xs:element>
                   <xs:element name="ИД_кнопки" msprop:design-time-name="0bc653f5-1dcc-4888-9b22-fc06fae8e9ea" msprop:DbColumnName="ИД_кнопки" msprop:FriendlyName="ИД_кнопки" type="xs:int" minOccurs="0" />
                   <xs:element name="ИД_карты" msprop:design-time-name="789ce861-1d7f-424f-9c90-c8c88191f16e" msprop:DbColumnName="ИД_карты" msprop:FriendlyName="ИД_карты" type="xs:int" minOccurs="0" />
-                  <xs:element name="Код_товара" msprop:DbColumnName="Код_товара" msprop:design-time-name="d5272b58-b90b-4e0d-9a4c-acea9f86ef56" type="xs:long" />
-                  <xs:element name="Составной_код_кассира" msprop:DbColumnName="Составной_код_кассира" msprop:design-time-name="9f1996ad-1513-4002-92ee-40d3d659a9ef" minOccurs="0">
+                  <xs:element name="Код_товара" msprop:design-time-name="d5272b58-b90b-4e0d-9a4c-acea9f86ef56" msprop:DbColumnName="Код_товара" type="xs:long" />
+                  <xs:element name="Составной_код_кассира" msprop:design-time-name="9f1996ad-1513-4002-92ee-40d3d659a9ef" msprop:DbColumnName="Составной_код_кассира" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Дата_применения_скидки" msprop:DbColumnName="Дата_применения_скидки" msprop:design-time-name="0ee2f886-12f6-483d-afb3-9324edfdf0d4" type="xs:dateTime" minOccurs="0" />
-                  <xs:element name="Код_магазина" msprop:DbColumnName="Код_магазина" msprop:design-time-name="94e612fb-a302-443f-b744-0a1c6f5d6df9" type="xs:int" minOccurs="0" />
-                  <xs:element name="Составной_код_документа" msprop:DbColumnName="Составной_код_документа" msprop:design-time-name="8bbe8b47-3c93-4a74-9532-5f7b28d4c33c" minOccurs="0">
+                  <xs:element name="Дата_применения_скидки" msprop:design-time-name="0ee2f886-12f6-483d-afb3-9324edfdf0d4" msprop:DbColumnName="Дата_применения_скидки" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Код_магазина" msprop:design-time-name="94e612fb-a302-443f-b744-0a1c6f5d6df9" msprop:DbColumnName="Код_магазина" type="xs:int" minOccurs="0" />
+                  <xs:element name="Составной_код_документа" msprop:design-time-name="8bbe8b47-3c93-4a74-9532-5f7b28d4c33c" msprop:DbColumnName="Составной_код_документа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
@@ -555,7 +555,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_v_fact_Смены_на_кассах" msprop:design-time-name="9f95b9fe-e7f4-437a-9a35-a9180d81b7c3" msprop:DbTableName="v_fact_Смены_на_кассах" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_fact_Смены_на_кассах">
+            <xs:element name="dbo_v_fact_Смены_на_кассах" msprop:design-time-name="9f95b9fe-e7f4-437a-9a35-a9180d81b7c3" msprop:FriendlyName="v_fact_Смены_на_кассах" msprop:DbSchemaName="cass" msprop:DbTableName="v_fact_Смены_на_кассах" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="747c4d7e-cfc8-44dd-9aaa-1891d51f05fe" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -581,33 +581,33 @@
                   <xs:element name="Сумма_возвратов_безналичные" msprop:design-time-name="f3981878-49d7-4b37-8fb7-e47430dee7ef" msprop:DbColumnName="Сумма_возвратов_безналичные" msprop:FriendlyName="Сумма_возвратов_безналичные" type="xs:decimal" />
                   <xs:element name="Количество_чеков_продажи" msprop:design-time-name="51255ccd-d7fc-481f-98e1-d30d0abbf6b4" msprop:DbColumnName="Количество_чеков_продажи" msprop:FriendlyName="Количество_чеков_продажи" type="xs:int" />
                   <xs:element name="Количество_чеков_возврата" msprop:design-time-name="127b2900-d8b4-4236-aaeb-267944844d4d" msprop:DbColumnName="Количество_чеков_возврата" msprop:FriendlyName="Количество_чеков_возврата" type="xs:int" />
-                  <xs:element name="Составной_код_Смены" msprop:DbColumnName="Составной_код_Смены" msprop:design-time-name="e7574c44-b0d4-4e69-a9e1-8ab32f16636d" minOccurs="0">
+                  <xs:element name="Составной_код_Смены" msprop:design-time-name="e7574c44-b0d4-4e69-a9e1-8ab32f16636d" msprop:DbColumnName="Составной_код_Смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Составной_код_кассира" msprop:DbColumnName="Составной_код_кассира" msprop:design-time-name="1d16b483-32bf-4fd3-ae0e-77c37da29b3b" minOccurs="0">
+                  <xs:element name="Составной_код_кассира" msprop:design-time-name="1d16b483-32bf-4fd3-ae0e-77c37da29b3b" msprop:DbColumnName="Составной_код_кассира" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код" msprop:DbColumnName="Код" msprop:design-time-name="4445b685-992e-49c9-8ad6-e9508d2afd56" type="xs:int" minOccurs="0" />
-                  <xs:element name="Наименование" msprop:DbColumnName="Наименование" msprop:design-time-name="0c95b75c-da4f-44b2-ac0b-34df4ed84bc0" minOccurs="0">
+                  <xs:element name="Код" msprop:design-time-name="4445b685-992e-49c9-8ad6-e9508d2afd56" msprop:DbColumnName="Код" type="xs:int" minOccurs="0" />
+                  <xs:element name="Наименование" msprop:design-time-name="0c95b75c-da4f-44b2-ac0b-34df4ed84bc0" msprop:DbColumnName="Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="100" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Дата_открытия_Смены" msprop:DbColumnName="Дата_открытия_Смены" msprop:design-time-name="4a6593f6-3761-46d0-a887-346af8cf17e2" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Дата_открытия_Смены" msprop:design-time-name="4a6593f6-3761-46d0-a887-346af8cf17e2" msprop:DbColumnName="Дата_открытия_Смены" type="xs:dateTime" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_v_fact_Сторнированные_позиции" msprop:design-time-name="018b1b64-ee38-4e6e-b378-e8abb15a38d3" msprop:DbTableName="v_fact_Сторнированные_позиции" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_fact_Сторнированные_позиции">
+            <xs:element name="dbo_v_fact_Сторнированные_позиции" msprop:design-time-name="018b1b64-ee38-4e6e-b378-e8abb15a38d3" msprop:FriendlyName="v_fact_Сторнированные_позиции" msprop:DbSchemaName="cass" msprop:DbTableName="v_fact_Сторнированные_позиции" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="8ce60253-9615-450f-866c-23f3e1e26c7c" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -629,23 +629,23 @@
                   <xs:element name="Код_товара" msprop:design-time-name="4f119483-98a0-4be6-9337-b3980c3442c9" msprop:DbColumnName="Код_товара" msprop:FriendlyName="Код_товара" type="xs:long" />
                   <xs:element name="Номер_сторнированной_позиции" msprop:design-time-name="4190f626-9215-4795-be1c-d04eb7a5eae3" msprop:DbColumnName="Номер_сторнированной_позиции" msprop:FriendlyName="Номер_сторнированной_позиции" type="xs:int" />
                   <xs:element name="Пользователь_подтвердивший_операцию" msprop:design-time-name="e6e949e4-34d1-4589-92f1-d99cb1b0cf99" msprop:DbColumnName="Пользователь_подтвердивший_операцию" msprop:FriendlyName="Пользователь_подтвердивший_операцию" type="xs:int" minOccurs="0" />
-                  <xs:element name="Дата_сторнирования_позиции" msprop:DbColumnName="Дата_сторнирования_позиции" msprop:design-time-name="837a9935-995a-497f-b0dc-c689b34e5ade" type="xs:dateTime" minOccurs="0" />
-                  <xs:element name="Составной_код_кассира" msprop:DbColumnName="Составной_код_кассира" msprop:design-time-name="c480a0a2-a5ec-4666-ac97-6fe44f79d5c0" minOccurs="0">
+                  <xs:element name="Дата_сторнирования_позиции" msprop:design-time-name="837a9935-995a-497f-b0dc-c689b34e5ade" msprop:DbColumnName="Дата_сторнирования_позиции" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Составной_код_кассира" msprop:design-time-name="c480a0a2-a5ec-4666-ac97-6fe44f79d5c0" msprop:DbColumnName="Составной_код_кассира" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Составной_код_пользователя_подтвердившего_операцию" msprop:DbColumnName="Составной_код_пользователя_подтвердившего_операцию" msprop:design-time-name="ba47df71-9419-43fb-82d4-f82da76ff0e3" minOccurs="0">
+                  <xs:element name="Составной_код_пользователя_подтвердившего_операцию" msprop:design-time-name="ba47df71-9419-43fb-82d4-f82da76ff0e3" msprop:DbColumnName="Составной_код_пользователя_подтвердившего_операцию" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код_магазина" msprop:DbColumnName="Код_магазина" msprop:design-time-name="742f6d28-1026-4400-b9ce-e3020e5a1de3" type="xs:int" minOccurs="0" />
-                  <xs:element name="Составной_код_документа" msprop:DbColumnName="Составной_код_документа" msprop:design-time-name="1579ebbe-9c27-49f9-a6d5-98700506e7ea" minOccurs="0">
+                  <xs:element name="Код_магазина" msprop:design-time-name="742f6d28-1026-4400-b9ce-e3020e5a1de3" msprop:DbColumnName="Код_магазина" type="xs:int" minOccurs="0" />
+                  <xs:element name="Составной_код_документа" msprop:design-time-name="1579ebbe-9c27-49f9-a6d5-98700506e7ea" msprop:DbColumnName="Составной_код_документа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
@@ -655,7 +655,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_v_fact_Чеки" msprop:design-time-name="9e8cf5cc-9d0f-46cb-abd2-00c2b2e0b80e" msprop:DbTableName="v_fact_Чеки" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_fact_Чеки">
+            <xs:element name="dbo_v_fact_Чеки" msprop:design-time-name="9e8cf5cc-9d0f-46cb-abd2-00c2b2e0b80e" msprop:FriendlyName="v_fact_Чеки" msprop:DbSchemaName="cass" msprop:DbTableName="v_fact_Чеки" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="37bfc550-4af1-4f89-8141-7c3fe0c6a180" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -674,205 +674,205 @@
                   <xs:element name="Сумма_оплаты_СБП_Сбербанк" msprop:design-time-name="b12eeae0-c199-4281-9cdb-afa0c7529f0e" msprop:DbColumnName="Сумма_оплаты_СБП_Сбербанк" msprop:FriendlyName="Сумма_оплаты_СБП_Сбербанк" type="xs:decimal" />
                   <xs:element name="Сумма_оплаты_Неинтегрированный_терминал_СБ" msprop:design-time-name="02a73177-5216-4e9f-b722-cdf5a71a3a47" msprop:DbColumnName="Сумма_оплаты_Неинтегрированный_терминал_СБ" msprop:FriendlyName="Сумма_оплаты_Неинтегрированный_терминал_СБ" type="xs:decimal" />
                   <xs:element name="Сумма_оплаты_Накопительные_карты" msprop:design-time-name="5de09b82-3367-43e0-8295-1425baa34c81" msprop:DbColumnName="Сумма_оплаты_Накопительные_карты" msprop:FriendlyName="Сумма_оплаты_Накопительные_карты" type="xs:decimal" />
-                  <xs:element name="Код_магазина" msprop:DbColumnName="Код_магазина" msprop:design-time-name="1a0141c1-651d-46bc-bcd0-96d4acdce7db" type="xs:int" minOccurs="0" />
-                  <xs:element name="Составной_код_кассира" msprop:DbColumnName="Составной_код_кассира" msprop:design-time-name="3769e6c5-ce84-402e-9ab0-1457e30ccc1e" minOccurs="0">
+                  <xs:element name="Код_магазина" msprop:design-time-name="1a0141c1-651d-46bc-bcd0-96d4acdce7db" msprop:DbColumnName="Код_магазина" type="xs:int" minOccurs="0" />
+                  <xs:element name="Составной_код_кассира" msprop:design-time-name="3769e6c5-ce84-402e-9ab0-1457e30ccc1e" msprop:DbColumnName="Составной_код_кассира" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Составной_код_смены" msprop:DbColumnName="Составной_код_смены" msprop:design-time-name="8d78b85c-8211-464a-832e-f8e97fd16989" minOccurs="0">
+                  <xs:element name="Составной_код_смены" msprop:design-time-name="8d78b85c-8211-464a-832e-f8e97fd16989" msprop:DbColumnName="Составной_код_смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="дата_закрытия_чека" msprop:DbColumnName="дата_закрытия_чека" msprop:design-time-name="99592868-ff8a-4875-b68b-55db857a930f" type="xs:dateTime" minOccurs="0" />
-                  <xs:element name="Количество_групп" msprop:DbColumnName="Количество_групп" msprop:design-time-name="021dd5ae-dcb7-4570-be1b-ab9ba6d5271f" type="xs:int" minOccurs="0" />
-                  <xs:element name="Итоговая_сумма_со_скидками_с_учетом_возвратов" msprop:DbColumnName="Итоговая_сумма_со_скидками_с_учетом_возвратов" msprop:design-time-name="f42272d0-d4f2-4c62-b893-932de184152c" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Сумма_оплаты_Наличные_с_учетом_возвратов" msprop:DbColumnName="Сумма_оплаты_Наличные_с_учетом_возвратов" msprop:design-time-name="7861c5e1-5d76-4e9b-84e0-c5f89c8d31e7" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Сумма_оплаты_Терминал_с_учетом_возвратов" msprop:DbColumnName="Сумма_оплаты_Терминал_с_учетом_возвратов" msprop:design-time-name="46877e0f-957d-4146-8b31-5879595286d3" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Сумма_оплаты_СБП_Сбербанк_с_учетом_возвратов" msprop:DbColumnName="Сумма_оплаты_СБП_Сбербанк_с_учетом_возвратов" msprop:design-time-name="5d29d808-0a2e-4164-8422-9aedfc355068" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов" msprop:DbColumnName="Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов" msprop:design-time-name="fd97e52a-ef58-42ef-a334-2a3564b88360" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Сумма_оплаты_Накопительные_карты_с_учетом_возвратов" msprop:DbColumnName="Сумма_оплаты_Накопительные_карты_с_учетом_возвратов" msprop:design-time-name="1552f655-7509-4274-922e-49c22ae8f36b" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Составной_код_документа" msprop:DbColumnName="Составной_код_документа" msprop:design-time-name="98ae6f52-b09d-4981-a781-f14d0a44d4fb" minOccurs="0">
+                  <xs:element name="дата_закрытия_чека" msprop:design-time-name="99592868-ff8a-4875-b68b-55db857a930f" msprop:DbColumnName="дата_закрытия_чека" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Количество_групп" msprop:design-time-name="021dd5ae-dcb7-4570-be1b-ab9ba6d5271f" msprop:DbColumnName="Количество_групп" type="xs:int" minOccurs="0" />
+                  <xs:element name="Итоговая_сумма_со_скидками_с_учетом_возвратов" msprop:design-time-name="f42272d0-d4f2-4c62-b893-932de184152c" msprop:DbColumnName="Итоговая_сумма_со_скидками_с_учетом_возвратов" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Сумма_оплаты_Наличные_с_учетом_возвратов" msprop:design-time-name="7861c5e1-5d76-4e9b-84e0-c5f89c8d31e7" msprop:DbColumnName="Сумма_оплаты_Наличные_с_учетом_возвратов" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Сумма_оплаты_Терминал_с_учетом_возвратов" msprop:design-time-name="46877e0f-957d-4146-8b31-5879595286d3" msprop:DbColumnName="Сумма_оплаты_Терминал_с_учетом_возвратов" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Сумма_оплаты_СБП_Сбербанк_с_учетом_возвратов" msprop:design-time-name="5d29d808-0a2e-4164-8422-9aedfc355068" msprop:DbColumnName="Сумма_оплаты_СБП_Сбербанк_с_учетом_возвратов" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов" msprop:design-time-name="fd97e52a-ef58-42ef-a334-2a3564b88360" msprop:DbColumnName="Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Сумма_оплаты_Накопительные_карты_с_учетом_возвратов" msprop:design-time-name="1552f655-7509-4274-922e-49c22ae8f36b" msprop:DbColumnName="Сумма_оплаты_Накопительные_карты_с_учетом_возвратов" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Составной_код_документа" msprop:design-time-name="98ae6f52-b09d-4981-a781-f14d0a44d4fb" msprop:DbColumnName="Составной_код_документа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Количество_чеков_оплата_наличными" msprop:DbColumnName="Количество_чеков_оплата_наличными" msprop:design-time-name="812db9b8-b17f-459f-a162-530c738e51b5" type="xs:int" minOccurs="0" />
-                  <xs:element name="Количество_чеков_оплата_по_терминалу" msprop:DbColumnName="Количество_чеков_оплата_по_терминалу" msprop:design-time-name="4df303a0-0021-4eff-a48f-176e7ff36366" type="xs:int" minOccurs="0" />
-                  <xs:element name="Количество_чеков_оплата_по_СБП_Сбербанк" msprop:DbColumnName="Количество_чеков_оплата_по_СБП_Сбербанк" msprop:design-time-name="bffb3735-87c5-45be-9865-b30c0d1c56e3" type="xs:int" minOccurs="0" />
-                  <xs:element name="Количество_чеков_оплата_по_неинтегрированному_терминалу_СБ" msprop:DbColumnName="Количество_чеков_оплата_по_неинтегрированному_терминалу_СБ" msprop:design-time-name="1e4e8621-98bd-454c-83a3-bef85087d6fd" type="xs:int" minOccurs="0" />
-                  <xs:element name="Количество_чеков_оплата_по_накопительным_картам" msprop:DbColumnName="Количество_чеков_оплата_по_накопительным_картам" msprop:design-time-name="a8abdc10-0d84-43ad-be96-401f07fb6033" type="xs:int" minOccurs="0" />
-                  <xs:element name="Сумма_скидки" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="Сумма_без_скидок - Итоговая_сумма_со_скидками" msprop:IsLogical="True" msprop:design-time-name="52db0287-3770-432d-be7d-d39d5e082197" msprop:DbColumnName="Сумма_скидки" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Количество_чеков_оплата_наличными" msprop:design-time-name="812db9b8-b17f-459f-a162-530c738e51b5" msprop:DbColumnName="Количество_чеков_оплата_наличными" type="xs:int" minOccurs="0" />
+                  <xs:element name="Количество_чеков_оплата_по_терминалу" msprop:design-time-name="4df303a0-0021-4eff-a48f-176e7ff36366" msprop:DbColumnName="Количество_чеков_оплата_по_терминалу" type="xs:int" minOccurs="0" />
+                  <xs:element name="Количество_чеков_оплата_по_СБП_Сбербанк" msprop:design-time-name="bffb3735-87c5-45be-9865-b30c0d1c56e3" msprop:DbColumnName="Количество_чеков_оплата_по_СБП_Сбербанк" type="xs:int" minOccurs="0" />
+                  <xs:element name="Количество_чеков_оплата_по_неинтегрированному_терминалу_СБ" msprop:design-time-name="1e4e8621-98bd-454c-83a3-bef85087d6fd" msprop:DbColumnName="Количество_чеков_оплата_по_неинтегрированному_терминалу_СБ" type="xs:int" minOccurs="0" />
+                  <xs:element name="Количество_чеков_оплата_по_накопительным_картам" msprop:design-time-name="a8abdc10-0d84-43ad-be96-401f07fb6033" msprop:DbColumnName="Количество_чеков_оплата_по_накопительным_картам" type="xs:int" minOccurs="0" />
+                  <xs:element name="Сумма_скидки" msdata:ReadOnly="true" msprop:design-time-name="52db0287-3770-432d-be7d-d39d5e082197" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Сумма_скидки" msprop:ComputedColumnExpression="Сумма_без_скидок - Итоговая_сумма_со_скидками" type="xs:decimal" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_t_dim_Календарь" msprop:design-time-name="dc749423-d1d1-4068-93bd-341ff545f148" msprop:DbTableName="v_dim_Календарь" msprop:TableType="View" msprop:DbSchemaName="dbo" msprop:FriendlyName="v_dim_Календарь">
+            <xs:element name="dbo_t_dim_Календарь" msprop:design-time-name="dc749423-d1d1-4068-93bd-341ff545f148" msprop:FriendlyName="v_dim_Календарь" msprop:DbSchemaName="dbo" msprop:DbTableName="v_dim_Календарь" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="День_число" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="datepart(day, ИД_Дата)" msprop:IsLogical="True" msprop:design-time-name="5fe9bf17-a082-4b60-b1cd-07039ca4e8ac" msprop:DbColumnName="День_число" type="xs:int" minOccurs="0" />
-                  <xs:element name="ИД_дата" msprop:DbColumnName="ИД_дата" msprop:design-time-name="0da4482e-be0c-4234-9e18-0a91b59df186" type="xs:dateTime" />
-                  <xs:element name="ИД_год" msprop:DbColumnName="ИД_год" msprop:design-time-name="f6d605ed-f599-48de-88d2-2eb9b4847de3" type="xs:int" minOccurs="0" />
-                  <xs:element name="Год_наименование" msprop:DbColumnName="Год_наименование" msprop:design-time-name="e2ec2b19-443c-47aa-bdf6-6970c466548b" minOccurs="0">
+                  <xs:element name="День_число" msdata:ReadOnly="true" msprop:design-time-name="5fe9bf17-a082-4b60-b1cd-07039ca4e8ac" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="День_число" msprop:ComputedColumnExpression="datepart(day, ИД_Дата)" type="xs:int" minOccurs="0" />
+                  <xs:element name="ИД_дата" msprop:design-time-name="0da4482e-be0c-4234-9e18-0a91b59df186" msprop:DbColumnName="ИД_дата" type="xs:dateTime" />
+                  <xs:element name="ИД_год" msprop:design-time-name="f6d605ed-f599-48de-88d2-2eb9b4847de3" msprop:DbColumnName="ИД_год" type="xs:int" minOccurs="0" />
+                  <xs:element name="Год_наименование" msprop:design-time-name="e2ec2b19-443c-47aa-bdf6-6970c466548b" msprop:DbColumnName="Год_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="8" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ИД_квартал" msprop:DbColumnName="ИД_квартал" msprop:design-time-name="29f2ccb2-47f4-46a6-b134-c44718f2fb72" type="xs:int" minOccurs="0" />
-                  <xs:element name="Квартал_наименование" msprop:DbColumnName="Квартал_наименование" msprop:design-time-name="d9df985e-e9fc-40bb-b8e7-cda4bdf2f4fa" minOccurs="0">
+                  <xs:element name="ИД_квартал" msprop:design-time-name="29f2ccb2-47f4-46a6-b134-c44718f2fb72" msprop:DbColumnName="ИД_квартал" type="xs:int" minOccurs="0" />
+                  <xs:element name="Квартал_наименование" msprop:design-time-name="d9df985e-e9fc-40bb-b8e7-cda4bdf2f4fa" msprop:DbColumnName="Квартал_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="10" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ИД_месяц" msprop:DbColumnName="ИД_месяц" msprop:design-time-name="01d4a0ea-dd08-4d6c-80d4-c30e56eeaf67" type="xs:int" minOccurs="0" />
-                  <xs:element name="Месяц_наименование" msprop:DbColumnName="Месяц_наименование" msprop:design-time-name="0b478000-ac10-451c-9b5e-761880b08e86" minOccurs="0">
+                  <xs:element name="ИД_месяц" msprop:design-time-name="01d4a0ea-dd08-4d6c-80d4-c30e56eeaf67" msprop:DbColumnName="ИД_месяц" type="xs:int" minOccurs="0" />
+                  <xs:element name="Месяц_наименование" msprop:design-time-name="0b478000-ac10-451c-9b5e-761880b08e86" msprop:DbColumnName="Месяц_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="8" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ИД_неделя" msprop:DbColumnName="ИД_неделя" msprop:design-time-name="9e177165-aae9-4122-bcbb-6592a05eda86" type="xs:int" minOccurs="0" />
-                  <xs:element name="Неделя_наименование" msprop:DbColumnName="Неделя_наименование" msprop:design-time-name="953f1288-1595-4954-9ae8-883022994613" minOccurs="0">
+                  <xs:element name="ИД_неделя" msprop:design-time-name="9e177165-aae9-4122-bcbb-6592a05eda86" msprop:DbColumnName="ИД_неделя" type="xs:int" minOccurs="0" />
+                  <xs:element name="Неделя_наименование" msprop:design-time-name="953f1288-1595-4954-9ae8-883022994613" msprop:DbColumnName="Неделя_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="9" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ИД_день_недели" msprop:DbColumnName="ИД_день_недели" msprop:design-time-name="49e9ba09-f83e-449a-9ef8-d7a907b10eba" type="xs:int" minOccurs="0" />
-                  <xs:element name="День_недели_наименование" msprop:DbColumnName="День_недели_наименование" msprop:design-time-name="82e3f371-1242-494b-bf5e-126003978e03" minOccurs="0">
+                  <xs:element name="ИД_день_недели" msprop:design-time-name="49e9ba09-f83e-449a-9ef8-d7a907b10eba" msprop:DbColumnName="ИД_день_недели" type="xs:int" minOccurs="0" />
+                  <xs:element name="День_недели_наименование" msprop:design-time-name="82e3f371-1242-494b-bf5e-126003978e03" msprop:DbColumnName="День_недели_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="11" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ISO_неделя" msprop:DbColumnName="ISO_неделя" msprop:design-time-name="4dc43c73-786e-4348-8e70-486b322c6e5d" type="xs:int" minOccurs="0" />
-                  <xs:element name="ISO_неделя_наименование" msprop:DbColumnName="ISO_неделя_наименование" msprop:design-time-name="0d1fe409-5c62-47b3-82d2-740a45524814" minOccurs="0">
+                  <xs:element name="ISO_неделя" msprop:design-time-name="4dc43c73-786e-4348-8e70-486b322c6e5d" msprop:DbColumnName="ISO_неделя" type="xs:int" minOccurs="0" />
+                  <xs:element name="ISO_неделя_наименование" msprop:design-time-name="0d1fe409-5c62-47b3-82d2-740a45524814" msprop:DbColumnName="ISO_неделя_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="9" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ISO_год" msprop:DbColumnName="ISO_год" msprop:design-time-name="657f7cfa-25ef-46cf-9853-8c829a2f50e4" type="xs:int" minOccurs="0" />
-                  <xs:element name="ISO_год_наименование" msprop:DbColumnName="ISO_год_наименование" msprop:design-time-name="7ebf2a0f-930c-4307-be06-6ba2f7661313" minOccurs="0">
+                  <xs:element name="ISO_год" msprop:design-time-name="657f7cfa-25ef-46cf-9853-8c829a2f50e4" msprop:DbColumnName="ISO_год" type="xs:int" minOccurs="0" />
+                  <xs:element name="ISO_год_наименование" msprop:design-time-name="7ebf2a0f-930c-4307-be06-6ba2f7661313" msprop:DbColumnName="ISO_год_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="8" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ISO_неделя_год_наименование" msprop:DbColumnName="ISO_неделя_год_наименование" msprop:design-time-name="7988509b-d381-4758-929e-6a144e46fece" minOccurs="0">
+                  <xs:element name="ISO_неделя_год_наименование" msprop:design-time-name="7988509b-d381-4758-929e-6a144e46fece" msprop:DbColumnName="ISO_неделя_год_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="19" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Месяц_год_наименование" msprop:DbColumnName="Месяц_год_наименование" msprop:design-time-name="8f137e24-aed5-4961-ba87-25503c0ce733" minOccurs="0">
+                  <xs:element name="Месяц_год_наименование" msprop:design-time-name="8f137e24-aed5-4961-ba87-25503c0ce733" msprop:DbColumnName="Месяц_год_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="18" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="День_месяц_год_наименование" msprop:DbColumnName="День_месяц_год_наименование" msprop:design-time-name="945da214-0b90-49e9-9949-10309255023c" minOccurs="0">
+                  <xs:element name="День_месяц_год_наименование" msprop:design-time-name="945da214-0b90-49e9-9949-10309255023c" msprop:DbColumnName="День_месяц_год_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="21" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Полное_наименование" msprop:DbColumnName="Полное_наименование" msprop:design-time-name="4bc5b96b-d4bc-4f6c-8008-36ce19c43ccd" minOccurs="0">
+                  <xs:element name="Полное_наименование" msprop:design-time-name="4bc5b96b-d4bc-4f6c-8008-36ce19c43ccd" msprop:DbColumnName="Полное_наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="34" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Месяц_год_кратко" msprop:DbColumnName="Месяц_год_кратко" msprop:design-time-name="8b3094d3-009f-4589-833f-82eb294f5923" minOccurs="0">
+                  <xs:element name="Месяц_год_кратко" msprop:design-time-name="8b3094d3-009f-4589-833f-82eb294f5923" msprop:DbColumnName="Месяц_год_кратко" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="7" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="День_месяц_год_кратко" msprop:DbColumnName="День_месяц_год_кратко" msprop:design-time-name="e8f616ec-8c76-4951-9c95-905fb512eb24" minOccurs="0">
+                  <xs:element name="День_месяц_год_кратко" msprop:design-time-name="e8f616ec-8c76-4951-9c95-905fb512eb24" msprop:DbColumnName="День_месяц_год_кратко" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="10" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Г" msprop:DbColumnName="Г" msprop:design-time-name="e7acfb99-1f4b-4dcf-8096-c04d3b53b875" minOccurs="0">
+                  <xs:element name="Г" msprop:design-time-name="e7acfb99-1f4b-4dcf-8096-c04d3b53b875" msprop:DbColumnName="Г" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="32" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="КВ" msprop:DbColumnName="КВ" msprop:design-time-name="3ad69ee9-5935-4697-b0d6-e3406cfb7762" minOccurs="0">
+                  <xs:element name="КВ" msprop:design-time-name="3ad69ee9-5935-4697-b0d6-e3406cfb7762" msprop:DbColumnName="КВ" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="33" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="М" msprop:DbColumnName="М" msprop:design-time-name="084823f2-f4b0-490b-99dc-fc4a5ea71248" minOccurs="0">
+                  <xs:element name="М" msprop:design-time-name="084823f2-f4b0-490b-99dc-fc4a5ea71248" msprop:DbColumnName="М" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="30" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Д" msprop:DbColumnName="Д" msprop:design-time-name="d97dd889-d58c-46b3-b9d0-49ee2571e451" minOccurs="0">
+                  <xs:element name="Д" msprop:design-time-name="d97dd889-d58c-46b3-b9d0-49ee2571e451" msprop:DbColumnName="Д" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="30" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="М-Г" msprop:DbColumnName="М-Г" msprop:design-time-name="1036a7d6-a78b-4aa4-a6a9-9c29b827cbc3" minOccurs="0">
+                  <xs:element name="М-Г" msprop:design-time-name="1036a7d6-a78b-4aa4-a6a9-9c29b827cbc3" msprop:DbColumnName="М-Г" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="35" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Д-М-Г" msprop:DbColumnName="Д-М-Г" msprop:design-time-name="4cb20a6a-00f0-4152-9dce-90734b47977c" minOccurs="0">
+                  <xs:element name="Д-М-Г" msprop:design-time-name="4cb20a6a-00f0-4152-9dce-90734b47977c" msprop:DbColumnName="Д-М-Г" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="38" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="К-Г" msprop:DbColumnName="К-Г" msprop:design-time-name="6c62d0ff-c0dc-4d8d-9085-b411e1648dca" minOccurs="0">
+                  <xs:element name="К-Г" msprop:design-time-name="6c62d0ff-c0dc-4d8d-9085-b411e1648dca" msprop:DbColumnName="К-Г" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="66" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="М-К-Г" msprop:DbColumnName="М-К-Г" msprop:design-time-name="9be41d2d-1772-4326-a414-df6ead6de374" minOccurs="0">
+                  <xs:element name="М-К-Г" msprop:design-time-name="9be41d2d-1772-4326-a414-df6ead6de374" msprop:DbColumnName="М-К-Г" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="69" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Д-М-К-Г" msprop:DbColumnName="Д-М-К-Г" msprop:design-time-name="5a2371f6-6fad-4c83-bd61-33356c8dd28c" minOccurs="0">
+                  <xs:element name="Д-М-К-Г" msprop:design-time-name="5a2371f6-6fad-4c83-bd61-33356c8dd28c" msprop:DbColumnName="Д-М-К-Г" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="72" />
@@ -882,7 +882,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_t_dim_Способы_добавления_позиции" msprop:design-time-name="62191302-40df-41cd-8b4e-93181f2fc9ec" msprop:DbTableName="t_dim_Способы_добавления_позиции" msprop:TableType="Table" msprop:DbSchemaName="cass" msprop:FriendlyName="t_dim_Способы_добавления_позиции">
+            <xs:element name="cass_t_dim_Способы_добавления_позиции" msprop:design-time-name="62191302-40df-41cd-8b4e-93181f2fc9ec" msprop:FriendlyName="t_dim_Способы_добавления_позиции" msprop:DbSchemaName="cass" msprop:DbTableName="t_dim_Способы_добавления_позиции" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="ИД_способа_добавления_позиции" msprop:design-time-name="3631af8b-6de2-46af-9c9d-bbdf276955f4" msprop:DbColumnName="ИД_способа_добавления_позиции" msprop:FriendlyName="ИД_способа_добавления_позиции" type="xs:unsignedByte" />
@@ -896,7 +896,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_v_dim_Кассы" msprop:design-time-name="a7257d46-a204-411a-a8ed-519bec99388d" msprop:DbTableName="v_dim_Кассы" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_dim_Кассы">
+            <xs:element name="cass_v_dim_Кассы" msprop:design-time-name="a7257d46-a204-411a-a8ed-519bec99388d" msprop:FriendlyName="v_dim_Кассы" msprop:DbSchemaName="cass" msprop:DbTableName="v_dim_Кассы" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="039b659b-f410-45f2-9c08-0e519b6e7614" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -923,7 +923,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код_наименования_магазина" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код_магазина as nvarchar), 4) + '] ' + Наименование_магазина" msprop:IsLogical="True" msprop:design-time-name="b0b9d593-32b3-41b5-ac7c-cc337e5b6b1e" msprop:DbColumnName="Код_наименования_магазина" minOccurs="0">
+                  <xs:element name="Код_наименования_магазина" msdata:ReadOnly="true" msprop:design-time-name="b0b9d593-32b3-41b5-ac7c-cc337e5b6b1e" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_наименования_магазина" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код_магазина as nvarchar), 4) + '] ' + Наименование_магазина" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="107" />
@@ -933,7 +933,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_v_dim_Пользователи_на_кассах" msprop:design-time-name="52e5020c-1216-4fd4-9fb8-bdc0bd538b70" msprop:DbTableName="v_dim_Пользователи_на_кассах" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_dim_Пользователи_на_кассах">
+            <xs:element name="dbo_v_dim_Пользователи_на_кассах" msprop:design-time-name="52e5020c-1216-4fd4-9fb8-bdc0bd538b70" msprop:FriendlyName="v_dim_Пользователи_на_кассах" msprop:DbSchemaName="cass" msprop:DbTableName="v_dim_Пользователи_на_кассах" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="4d540281-dcc1-42e8-a93e-190c4e7c2e72" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -989,7 +989,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код_магазина as nvarchar), 4) + '] ' + Наименование_магазина" msprop:IsLogical="True" msprop:design-time-name="4be3ac7d-f4e0-42bd-9d39-43fee8af9724" msprop:DbColumnName="Код_наименование_магазина" minOccurs="0">
+                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:design-time-name="4be3ac7d-f4e0-42bd-9d39-43fee8af9724" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_наименование_магазина" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код_магазина as nvarchar), 4) + '] ' + Наименование_магазина" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="107" />
@@ -999,7 +999,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_t_dim_Способы_ввода_количества" msprop:design-time-name="4597fa3a-1d7a-46c2-8018-e37813f63f30" msprop:DbTableName="t_dim_Способы_ввода_количества" msprop:TableType="Table" msprop:DbSchemaName="cass" msprop:FriendlyName="t_dim_Способы_ввода_количества">
+            <xs:element name="cass_t_dim_Способы_ввода_количества" msprop:design-time-name="4597fa3a-1d7a-46c2-8018-e37813f63f30" msprop:FriendlyName="t_dim_Способы_ввода_количества" msprop:DbSchemaName="cass" msprop:DbTableName="t_dim_Способы_ввода_количества" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="ИД_способа_ввода_количества" msprop:design-time-name="6fac0901-a511-4c92-8c66-13af59d42418" msprop:DbColumnName="ИД_способа_ввода_количества" msprop:FriendlyName="ИД_способа_ввода_количества" type="xs:unsignedByte" />
@@ -1013,14 +1013,14 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_t_dim_Тип_позиции_документа" msprop:design-time-name="3326a73c-9f95-4ef2-9454-08cf00aff347" msprop:DbTableName="t_dim_Тип_позиции_документа" msprop:TableType="Table" msprop:DbSchemaName="cass" msprop:FriendlyName="t_dim_Тип_позиции_документа">
+            <xs:element name="cass_t_dim_Тип_позиции_документа" msprop:design-time-name="3326a73c-9f95-4ef2-9454-08cf00aff347" msprop:FriendlyName="t_dim_Тип_позиции_документа" msprop:DbSchemaName="cass" msprop:DbTableName="t_dim_Тип_позиции_документа" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="bit" msprop:design-time-name="c1def7bc-5674-4326-be8a-570e88b63632" msprop:DbColumnName="bit" msprop:FriendlyName="bit" type="xs:boolean" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_v_fact_Детализация_чеков" msprop:design-time-name="4a56ee34-609c-45d9-a6b6-2406c16d59bf" msprop:DbTableName="v_fact_Детализация_чеков" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_fact_Детализация_чеков">
+            <xs:element name="dbo_v_fact_Детализация_чеков" msprop:design-time-name="4a56ee34-609c-45d9-a6b6-2406c16d59bf" msprop:FriendlyName="v_fact_Детализация_чеков" msprop:DbSchemaName="cass" msprop:DbTableName="v_fact_Детализация_чеков" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="ad1dfb8b-f861-4fe1-9d2b-110051dc5bee" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
@@ -1063,16 +1063,16 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Дата_добавления_позиции" msprop:DbColumnName="Дата_добавления_позиции" msprop:design-time-name="86eb6150-69a9-489e-ac67-6a75ad214900" type="xs:dateTime" minOccurs="0" />
-                  <xs:element name="Код_магазина" msprop:DbColumnName="Код_магазина" msprop:design-time-name="487cf02c-f4e4-43f0-9e11-c52bbf925ab8" type="xs:int" minOccurs="0" />
-                  <xs:element name="Составной_код_документа" msprop:DbColumnName="Составной_код_документа" msprop:design-time-name="3c802e71-f2a0-4dd1-906a-90affffd74b0" minOccurs="0">
+                  <xs:element name="Дата_добавления_позиции" msprop:design-time-name="86eb6150-69a9-489e-ac67-6a75ad214900" msprop:DbColumnName="Дата_добавления_позиции" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Код_магазина" msprop:design-time-name="487cf02c-f4e4-43f0-9e11-c52bbf925ab8" msprop:DbColumnName="Код_магазина" type="xs:int" minOccurs="0" />
+                  <xs:element name="Составной_код_документа" msprop:design-time-name="3c802e71-f2a0-4dd1-906a-90affffd74b0" msprop:DbColumnName="Составной_код_документа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Составной_код_смены" msprop:DbColumnName="Составной_код_смены" msprop:design-time-name="a0fd3ad7-ef7e-469f-9b54-ae617a68525e" minOccurs="0">
+                  <xs:element name="Составной_код_смены" msprop:design-time-name="a0fd3ad7-ef7e-469f-9b54-ae617a68525e" msprop:DbColumnName="Составной_код_смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
@@ -1082,7 +1082,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_t_dim_Объект_скидки" msprop:design-time-name="39a3a9a0-ac14-4a54-b2cf-8191a61e1cf2" msprop:DbTableName="t_dim_Объект_скидки" msprop:TableType="Table" msprop:DbSchemaName="cass" msprop:FriendlyName="t_dim_Объект_скидки">
+            <xs:element name="cass_t_dim_Объект_скидки" msprop:design-time-name="39a3a9a0-ac14-4a54-b2cf-8191a61e1cf2" msprop:FriendlyName="t_dim_Объект_скидки" msprop:DbSchemaName="cass" msprop:DbTableName="t_dim_Объект_скидки" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="ИД_объекта_скидки" msprop:design-time-name="9453ffa1-b6da-4765-a53e-3496e9b2a6da" msprop:DbColumnName="ИД_объекта_скидки" msprop:FriendlyName="ИД_объекта_скидки" type="xs:boolean" />
@@ -1096,7 +1096,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_t_dim_Режимы_скидки" msprop:design-time-name="4cc45728-42f2-4927-a871-de4f1bc2af1f" msprop:DbTableName="t_dim_Режимы_скидки" msprop:TableType="Table" msprop:DbSchemaName="cass" msprop:FriendlyName="t_dim_Режимы_скидки">
+            <xs:element name="cass_t_dim_Режимы_скидки" msprop:design-time-name="4cc45728-42f2-4927-a871-de4f1bc2af1f" msprop:FriendlyName="t_dim_Режимы_скидки" msprop:DbSchemaName="cass" msprop:DbTableName="t_dim_Режимы_скидки" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="ИД_режима_скидки" msprop:design-time-name="aa4b1f58-20c6-4595-a43d-ea276c13da26" msprop:DbColumnName="ИД_режима_скидки" msprop:FriendlyName="ИД_режима_скидки" type="xs:unsignedByte" />
@@ -1110,7 +1110,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_t_dim_Типы_скидки" msprop:design-time-name="09a6e2dc-7c10-4c22-bf6e-2e07eb5e2cc6" msprop:DbTableName="t_dim_Типы_скидки" msprop:TableType="Table" msprop:DbSchemaName="cass" msprop:FriendlyName="t_dim_Типы_скидки">
+            <xs:element name="cass_t_dim_Типы_скидки" msprop:design-time-name="09a6e2dc-7c10-4c22-bf6e-2e07eb5e2cc6" msprop:FriendlyName="t_dim_Типы_скидки" msprop:DbSchemaName="cass" msprop:DbTableName="t_dim_Типы_скидки" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="ИД_типа_скидки" msprop:design-time-name="4610087f-96af-4089-aa67-fd442da470b4" msprop:DbColumnName="ИД_типа_скидки" msprop:FriendlyName="ИД_типа_скидки" type="xs:unsignedByte" />
@@ -1124,57 +1124,57 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_v_dim_Смены" msprop:design-time-name="e3cc8275-0edb-4b52-8713-822138c0830d" msprop:DbTableName="v_dim_Смены" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_dim_Смены">
+            <xs:element name="cass_v_dim_Смены" msprop:design-time-name="e3cc8275-0edb-4b52-8713-822138c0830d" msprop:FriendlyName="v_dim_Смены" msprop:DbSchemaName="cass" msprop:DbTableName="v_dim_Смены" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="b0e6385b-6c4c-4c5e-9b6e-dcc0dd84c84e" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
                   <xs:element name="ИД_смены" msprop:design-time-name="e022681b-28d7-4c2c-838e-538c4b4d274e" msprop:DbColumnName="ИД_смены" msprop:FriendlyName="ИД_смены" type="xs:int" />
                   <xs:element name="Номер_смены" msprop:design-time-name="2b31c8f2-9b78-4a29-8fcd-a9e36d75db9b" msprop:DbColumnName="Номер_смены" msprop:FriendlyName="Номер_смены" type="xs:int" minOccurs="0" />
                   <xs:element name="Код_кассира" msprop:design-time-name="3df9c2fd-dcd7-4c58-9601-7cfe4eeb6702" msprop:DbColumnName="Код_кассира" msprop:FriendlyName="Код_кассира" type="xs:int" />
-                  <xs:element name="Составной_код_смены" msprop:DbColumnName="Составной_код_смены" msprop:design-time-name="5e51afa6-a81e-4d16-be4a-76f3a3c7e65f" minOccurs="0">
+                  <xs:element name="Составной_код_смены" msprop:design-time-name="5e51afa6-a81e-4d16-be4a-76f3a3c7e65f" msprop:DbColumnName="Составной_код_смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Группа" msprop:DbColumnName="Группа" msprop:design-time-name="9c2a8b52-dc84-4da4-a493-7d05c5e69647" minOccurs="0">
+                  <xs:element name="Группа" msprop:design-time-name="9c2a8b52-dc84-4da4-a493-7d05c5e69647" msprop:DbColumnName="Группа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование" msprop:DbColumnName="Наименование" msprop:design-time-name="187e81be-a7ce-4b41-9e6d-a628f02f1a0a" minOccurs="0">
+                  <xs:element name="Наименование" msprop:design-time-name="187e81be-a7ce-4b41-9e6d-a628f02f1a0a" msprop:DbColumnName="Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="100" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код" msprop:DbColumnName="Код" msprop:design-time-name="4a593f9a-ce09-46c0-9282-5bbe34784ba2" type="xs:int" minOccurs="0" />
-                  <xs:element name="Составной_код_кассира" msprop:DbColumnName="Составной_код_кассира" msprop:design-time-name="f750ebff-17a9-4bf5-b81c-2a2d9c858435" minOccurs="0">
+                  <xs:element name="Код" msprop:design-time-name="4a593f9a-ce09-46c0-9282-5bbe34784ba2" msprop:DbColumnName="Код" type="xs:int" minOccurs="0" />
+                  <xs:element name="Составной_код_кассира" msprop:design-time-name="f750ebff-17a9-4bf5-b81c-2a2d9c858435" msprop:DbColumnName="Составной_код_кассира" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="61" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Имя_пользователя" msprop:DbColumnName="Имя_пользователя" msprop:design-time-name="5a5111e9-731a-4ddb-8b16-8cfcbf2fbb73" minOccurs="0">
+                  <xs:element name="Имя_пользователя" msprop:design-time-name="5a5111e9-731a-4ddb-8b16-8cfcbf2fbb73" msprop:DbColumnName="Имя_пользователя" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" msprop:IsLogical="True" msprop:design-time-name="0dce1b8b-9b11-4d92-9748-b4c52cb8585c" msprop:DbColumnName="Код_наименование_магазина" minOccurs="0">
+                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:design-time-name="0dce1b8b-9b11-4d92-9748-b4c52cb8585c" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_наименование_магазина" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="107" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование_смены" msprop:DbColumnName="Наименование_смены" msprop:design-time-name="43af2739-a461-4738-a45a-1b62897f6f7c" minOccurs="0">
+                  <xs:element name="Наименование_смены" msprop:design-time-name="43af2739-a461-4738-a45a-1b62897f6f7c" msprop:DbColumnName="Наименование_смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="107" />
@@ -1184,7 +1184,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_v_dim_Чеки" msprop:design-time-name="7e178eaf-e72f-4503-b1f0-1e7e13c1478e" msprop:DbTableName="v_dim_Чеки" msprop:TableType="View" msprop:DbSchemaName="cass" msprop:FriendlyName="v_dim_Чеки">
+            <xs:element name="cass_v_dim_Чеки" msprop:design-time-name="7e178eaf-e72f-4503-b1f0-1e7e13c1478e" msprop:FriendlyName="v_dim_Чеки" msprop:DbSchemaName="cass" msprop:DbTableName="v_dim_Чеки" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Составной_код_документа" msprop:design-time-name="fd87e4e9-67a7-47c3-91e2-1df3c7ad1a44" msprop:DbColumnName="Составной_код_документа" msprop:FriendlyName="Составной_код_документа">
@@ -1212,24 +1212,38 @@
                   </xs:element>
                   <xs:element name="Код" msprop:design-time-name="19458a4b-c183-4cf9-8218-decc5c489642" msprop:DbColumnName="Код" msprop:FriendlyName="Код" type="xs:int" />
                   <xs:element name="Код_кассы" msprop:design-time-name="c0b73b9e-8e25-4aaf-8fe4-6ee9e3f5a207" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
-                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" msprop:IsLogical="True" msprop:design-time-name="7a6a2cef-578d-4b4c-9598-eef01d334422" msprop:DbColumnName="Код_наименование_магазина" minOccurs="0">
+                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:design-time-name="7a6a2cef-578d-4b4c-9598-eef01d334422" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_наименование_магазина" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="107" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Составной_код_смены" msprop:DbColumnName="Составной_код_смены" msprop:design-time-name="0abce646-273b-4261-b07b-5e9669177882" minOccurs="0">
+                  <xs:element name="Составной_код_смены" msprop:design-time-name="0abce646-273b-4261-b07b-5e9669177882" msprop:DbColumnName="Составной_код_смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование_x0020_чека" msprop:DbColumnName="Наименование чека" msprop:design-time-name="dd03429e-a9d4-4bfb-9f71-f3f32c38e1d1" minOccurs="0">
+                  <xs:element name="Наименование_x0020_чека" msprop:design-time-name="dd03429e-a9d4-4bfb-9f71-f3f32c38e1d1" msprop:DbColumnName="Наименование чека" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="69" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Наименование_x0020_кассы" msdata:ReadOnly="true" msprop:design-time-name="bfe69caa-cf67-4898-a433-354dd74116fc" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Наименование кассы" msprop:ComputedColumnExpression="'Касса ' + cast(Код_кассы as nvarchar)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="36" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Наименование_смены" msdata:ReadOnly="true" msprop:design-time-name="f64e1d16-0d21-4fb8-b95a-28b3cf2de1b6" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Наименование_смены" msprop:ComputedColumnExpression="'Касса ' + cast(Код_кассы as nvarchar) + ' Смена №' + cast(Номер_смены as nvarchar)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="74" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>

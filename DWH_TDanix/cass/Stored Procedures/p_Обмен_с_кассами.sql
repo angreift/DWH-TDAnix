@@ -153,7 +153,7 @@ BEGIN
 			continue;
 		end
 
-		/*
+		
 
 		-- 1. Создадим/обновим подключение для драйвера ODBC
 		exec [dbo].[p_Регистрация_ODBC_подключения] @Код_кассы, @IP_адрес, @R output;
@@ -163,10 +163,6 @@ BEGIN
 			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 			continue;
 		end 
-		
-		Слишком долго! Перенесено в добавление/обновление измерения касс!
-
-		*/
 
 		--2. Заполнение таблиц RAW (сырые данные)
 
@@ -201,10 +197,8 @@ BEGIN
 						`rank`,
 						`inn`
 					from
-						`dictionaries`.`mol`
-					where
-						`code` is not null''
-				)
+						`dictionaries`.`mol`''
+				) where code is not null
 		';
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 		begin try
@@ -313,16 +307,13 @@ BEGIN
 							`sumrefundcash`,
 							`sumrefundnoncash`,
 							`countsale`,
-							`countrefund`
+							`countrefund`,
+							`cashcode`
 						from
-							`workshift`
-						where
-							 `cashcode` = %cassnum% and `scode` is not null and (`countsale` + `countrefund`) > 0 and `firstchecktime` is not null
-							and time_beg >= ''''2022-07-01 00:00:00''''
-							''
-				)
+							`workshift`''
+				) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 and firstchecktime is not null 
 		'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
-		-- Берем данные с 08.2022
+		-- Берем данные за предыдущие 60 дней
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 		begin try
 			exec (@str);
@@ -333,6 +324,7 @@ BEGIN
 			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 			continue;
 		end catch
+
 		while (select count(*) from cass.t_raw_Смены) > 0 begin
 			-- Проверка на существование/изменение данных в каждой смене. Если в хранилище смена отсутствует,
 			-- или будут обнаружены расхождения, то данные будут перезагружены заново
@@ -543,15 +535,14 @@ BEGIN
 						`document`.`doctype`,
 						`document`.`sum1`,
 						`document`.`sumb`,
-						`document`.`closewithoutprint`
+						`document`.`closewithoutprint`,
+						`document`.`closed`
 					from
 						`documents`.`document`
 					where
-						`documents`.`document`.`doctype` in (1, 2, 25) and
-						`documents`.`document`.`closed` in (1, 2) and 
 						`documents`.`document`.`workshiftid` = %workshiftid%
 					''
-				)';
+				) where doctype in (1, 2, 25) and closed in (1, 2)';
 
 				set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 				set @str = REPLACE(@str, '%workshiftid%', @ИД_смены);
@@ -559,7 +550,7 @@ BEGIN
 			end try
 			begin catch
 				rollback tran @TransactionName
-				set @msg = concat('Не удалось извлечь данные о дукументах из кассы в таблицу t_raw_Кассовые_документы (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
+				set @msg = concat('Не удалось извлечь данные о документах из кассы в таблицу t_raw_Кассовые_документы (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
@@ -710,10 +701,9 @@ BEGIN
 					left join
 						`documents`.`document` on `documents`.`goodsitem`.`documentid` = `documents`.`document`.`documentid`
 					where
-						`documents`.`goodsitem`.`opcode` in (50, 58) and
 						`documents`.`document`.`workshiftid` = %workshiftid%
 					''
-				)';
+				) where opcode in (50, 58)';
 
 				set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 				set @str = REPLACE(@str, '%workshiftid%', @ИД_смены);
@@ -871,16 +861,16 @@ BEGIN
 						`stornogoodsitem`.`sumb`,
 						`stornogoodsitem`.`code`,
 						`stornogoodsitem`.`posnum`,
-						`stornogoodsitem`.`opid`
+						`stornogoodsitem`.`opid`,
+						`stornogoodsitem`.`opcode`
 					from
 						`documents`.`stornogoodsitem`
 					left join
 						`documents`.`document` on `documents`.`stornogoodsitem`.`documentid` = `documents`.`document`.`documentid`
 					where
-						`stornogoodsitem`.`opcode` = 50 and
 						`document`.`workshiftid` = %workshiftid%
 					''
-				)';
+				) where opcode = 50';
 
 				set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 				set @str = REPLACE(@str, '%workshiftid%', @ИД_смены);
