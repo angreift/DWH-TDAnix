@@ -121,8 +121,8 @@ BEGIN
 
 	-- Оставляем только розницу, если передан такой параметр
 	if @ТолькоРозница = 1 begin
-		delete from @Список_касс where Код_кассы in (
-			select Код_магазина from dbo.t_dim_Магазины where dbo.t_dim_Магазины.Группа in ('Розница', 'РС Закрытые')
+		delete from @Список_касс where Код_кассы not in (
+			select Код_кассы from cass.v_dim_Кассы where cass.v_dim_Кассы.Группа_магазина in ('Розница', 'РС Закрытые')
 		)
 	end
 
