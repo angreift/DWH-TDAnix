@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ANIXMAN</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="t3tYKjdzmtU=" SSIS:IV="D3xiFcB6MDEPqX03uq94Og==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">4Ah9d3Pq3sR0cb7VcWxFTyZ5xSuMbA3YzG3esd0xfuUKjOPkiuUE58o6+8bUKRgSaN7iL8Q9UHTTMAyl4WjEEVRjFQEhEoxuSyC0uW0HTjc5ZEPfLHYyxInTUdZwvmgglsLXBisOuHLFbx8VMLaojPZLrMdJxGe3ctYOOaO0RXPCwsu5bxW8Sf2sVfF5AHP1</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="VcEyFFnmOYw=" SSIS:IV="wC9zgGZx3Etv+ycqoybS/w==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">N2VMrsjRHH3xLD1UyZg9GeKbLqLwqo8cbG/EKQyHSzrmXnb23hWppXMi4VCw2SHRDHmTeH/1PKhc82xv/oAzcSTOuf5C+MLcSFRdsMtoxuB8y/+41EmyphaJGsILwCbN8FF/XMYcbwbsZpe73DWTeYp04klf2o8Jjc6SAZk+cgePFFJDYTCbT7Uk95A32oer</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">КПТ по причинам</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">80</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">81</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{3B1D617A-88D5-4A44-BA9F-C6BA58CD2AB3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E6655DF4-D7AF-447E-8C46-EAE47701FAC9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -837,7 +837,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=S19-STORAGE-SQL;User ID=reader;Initial Catalog=CS;Persist Security Info=True;Application Name=SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=S19-STORAGE-SQL;User ID=reader;Initial Catalog=CS;Persist Security Info=True;Application Name="SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

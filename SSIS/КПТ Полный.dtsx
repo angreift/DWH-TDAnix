@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="80"
-  DTS:VersionGUID="{3B1D617A-88D5-4A44-BA9F-C6BA58CD2AB3}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{E6655DF4-D7AF-447E-8C46-EAE47701FAC9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,12 +29,12 @@
           DTS:ConnectionString="Data Source=S12-1C-RSC;User ID=rsc-sql-reader1;Initial Catalog=RSC;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-KTP-{A8A37771-7EAD-4A9A-B00E-A72D7DE99C5F}RSC;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="g2KPeVHN+1s="
-            IV="zCg9tyc2NLCHWYc0NIfSQw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="eo/jOb8jYHI="
+            IV="66qjjkVysf3wQcFo2JY9CA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>zCg9tyc2NLCHWYc0NIfSQ8a/lhPelPZnkEfjWQqPTrdumq31TQ4gSOaFk8HAz8BHzFhw51ibnBl9gJiF3LBOiOcyqYgInRcif+UJFF95xfrb2iOhmXHKS+3nPMnCEy8wtECQCslSMJBcVsjBmWCYane+5EaELZJjRZ8bmCA54Y23eldcH2x4zBWrwnxnb1/v</CipherValue>
+              <CipherValue>66qjjkVysf3wQcFo2JY9COJJ6WsuYw0eg51BlalJcPnexWldAKLalEnv2pBoDcOifbdrhHKgtW0fL1X0QYCfJ7x6KCYPaTPyZGTK/TXmgXWNhYw02uXneO4+SQnvdizTsiP3VEWbCw9r/0Pm4jvmHTtTmWbMJe0jCYErXdAD+aLIpobvp0sQLvqPobzBX2eE</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -52,12 +52,12 @@
           DTS:ConnectionString="Data Source=s19-bi-db;User ID=tdanix\power-bi;Initial Catalog=KPT_prod;Provider=MSOLAP.8;Persist Security Info=True;Impersonation Level=Impersonate;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="0D1r2UBkgLQ="
-            IV="HM1wmcmmnfUbuH+sFWKRIg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="w2L05Ru+O68="
+            IV="9dC6xswwvKi264HAV/wTgg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>HM1wmcmmnfUbuH+sFWKRIhNyiJG1MQcb71eIt0vA80D5hp3OVG2XFPPSm9j7iR4v1Mqux8u0FLDQ8MiTNeCbh523jZysRJAvUoL2i5N7cPg/Hx3XHXYyaRt9bjAp+UwCsTrURBSVoRVMTppblVDy+/aDuPJW2sQLvssHJZU0wUnHnYj/T9baUPMm3jwuKLSR</CipherValue>
+              <CipherValue>9dC6xswwvKi264HAV/wTgtzYZNMtKNYPt3jh8QMjgoau4EgUMuqbFueV3YoZLlVqFS6kd3nhdX1eEV5eJ8X0LEMmOFQPtAtfy8MPLnGrmeS/M9+JbcmZ/9AJqdLpqDaXVDiXfo2qjUBn2g28imLSmWleYnMA9jR1v8KE5I+HMKiFwyKWAfAiKuqrd7/TkmY2</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -75,12 +75,12 @@
           DTS:ConnectionString="Data Source=s19-olap;User ID=reader;Initial Catalog=KPT;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{BCB3CCD2-699D-4E69-9DA7-22A6E3EBC056}s8-olap-test.KPT.reader;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DD43iyqKm9s="
-            IV="4wLG8tDdKX7piqt4imk8cQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="YG648aJc/pE="
+            IV="hmFcZAZOvvKKfH4OFZDrjQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>4wLG8tDdKX7piqt4imk8cedB+qS4TpOdY88W96mJzFkRRv69mbKwL0DX1rM+qoyeHBXSZMWSb9Tq+xanpVjWNOcvfNMtNajb7K0n7Ft5Dz25xlVQAQAE8njieRYR/ZVcJ1iYTAT4JrrI3Ck8Y347oolFJo83lxBPluaeExOfWv1An1gGHgCKxJvQQK6da9UE</CipherValue>
+              <CipherValue>hmFcZAZOvvKKfH4OFZDrjTVXc36vu4htQcX2T0ehtPgVAkRUUWK8mUj36gduWuEBEkHqIijwBdTgLk2qPP5gS9rPfiY7s8cacMgB95z563D34U+bNCP8z1FbwprOeeGT2zS7RwoOUl/D2/Mms5eLCuD4/kINhdA+gyu/HDQ3yrYK9z/DbaBuUa2XVouEy3Nb</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -96,12 +96,12 @@
           DTS:ConnectionString="Data Source=s19-olap;User ID=reader;Initial Catalog=KPT;Persist Security Info=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{686704F0-2D2D-48DF-81AE-AE4CE10BBA5F}s8-olap-test.KPT.reader1&quot;;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="6gaA+eJYH7M="
-            IV="7+PkEa4jxJW9d0f56Abz2g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="stJwDRDWtZE="
+            IV="ItAqLFp/DGb/PGcTQQfOZg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>7+PkEa4jxJW9d0f56Abz2roRNH4U4g0gAFjh1GCYSUSfSWRBZOAuhFa2Pcx+ZbNWyUEqtL0wNVc7cQ2yDJBLKIjbbuLmyT6CISG/EWb/8GzZlTV0XePosUnzA2OsNaOdbryVMnYzKG/2CfzXJ6LVbHnDv3w2CFYBoOv/GuFHFfB5X3jiI+4H2PhrGkdOlPx2</CipherValue>
+              <CipherValue>ItAqLFp/DGb/PGcTQQfOZm0BDcvQduegX3zJp4ncz5a+gUqhC/LMjTCQi81z2lRmCjlxuyjKMD2It1O6Su/fEKf9/+calU7tR5pQdIouQt7J7C8PXkTePT1r8nI/OXNWcSAe04A9pLehJ6MBGqObLz6+fIj0KBDpiWq8sOnlHcoxJRg+l0AqE9JIVnGsBTAl</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -117,12 +117,12 @@
           DTS:ConnectionString="Data Source=s19-olap;User ID=reader;Initial Catalog=olap-rozn;Persist Security Info=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{4C625875-9659-45B8-82E6-F37A229E7DC5}s8-olap-test.olap-rozn.reader&quot;;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="yR6TpK/beTo="
-            IV="aHEYSRAo9WXeGwI6+w5nVw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="OBiRHKfONk4="
+            IV="BuVpjku1FVyRG5ZxUcpcMA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>aHEYSRAo9WXeGwI6+w5nVwxvvGV3ZK/1iui5BMfJpJS3ZMzxAveSYG2SdO7p43L7ZKru4shU6aX89ubKfIKiLjkzXlwHOc5xAa+uECTsg2+Gw8DKHAE2rcm1tWj6BIrLvhOShxEEqTPXruGkE7tfh2xa9XltTql3EXQVdfyLh8wqvCDXA6RaRjxIqmKPdCZ/</CipherValue>
+              <CipherValue>BuVpjku1FVyRG5ZxUcpcMKSmHtEDm4conKuzwj/RmRNrhzb0b9LYWyM3LVl1MAHt2ExdxB3kj7VdPhimyOZEanoiz3lwhoZnXbcHrbfRWZ/lvyQZDf758EdtdEJt8BdbDWQjPRS0XD2kF1fw+grwXM8mCv44H97ewqAtRNpmcX22e3+REweggatEADKYf9jY</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -138,12 +138,12 @@
           DTS:ConnectionString="Data Source=S19-RDSAPP-RSC;User ID=rsc-sql-reader;Initial Catalog=rsc;Persist Security Info=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{88B1643F-C04B-4D9E-860C-BB85B9F7A731}S19-RDSAPP-RSC.rsc.rsc-sql-reader&quot;;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DfaVYhvdKRQ="
-            IV="l6stDMVeEIbK8miF3Of2aw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="NP1uQJoYB/c="
+            IV="XcF7UAnU6oCda+A84Kexrg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>l6stDMVeEIbK8miF3Of2ayOXshIwp10c1lMCKJNprNf4N4BZPvUdXXhumWa3M39D8TXl2URrCzdUrHRgdJW5Y5QGBM7qdWPDnYbnySziyKilGi7GlYpu/5n4ATvNjbsXhptcESKjl8h3zHq66GMjpT39uzYDxEsZrp4W3P/+KukqQysd96e6buu9Ek4Islbn</CipherValue>
+              <CipherValue>XcF7UAnU6oCda+A84KexrtXrtrquPXgw4SENypJvmkW+nMi09K6aGST7g+IjrjlNhwgcs898M0wDIKIEAdfLqidDC1+VeaiNzhr/Gt2RLtP6Ie5zFNmE8r4PyMpEKy6RqYcdi8dThyxzP5bMh3j1HcviTrsUCIYNIc6k1AcjFTqT9oJUGEtVHPnfGWGdESWq</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -156,15 +156,15 @@
       DTS:ObjectName="S19-STORAGE-SQL.CS.reader">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=S19-STORAGE-SQL;User ID=reader;Initial Catalog=CS;Persist Security Info=True;Application Name=SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader;">
+          DTS:ConnectionString="Data Source=S19-STORAGE-SQL;User ID=reader;Initial Catalog=CS;Persist Security Info=True;Application Name=&quot;SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader&quot;;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="331ZRJxi+rA="
-            IV="a46yu2DZFOXMSaYid+Cecw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="hg0cTRSFE4g="
+            IV="36cnEG39PcPDSv+AMbpBMA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>a46yu2DZFOXMSaYid+Cec3Wwqbw7tnQWuAt7nMv04kUM7ky13SrdNsRkFtBLi6AU1S0/YUHvERdb3dcuZPaeaYBJ86o5KOYoTJDC3/BLHGKsJEhg6UElfIqnjf1xYL3n7WjnKJindca/Yrap0rHAZmtOZDevx5yASGYJWDufeaLdLN9/NjHzeZJXMsRn2drI</CipherValue>
+              <CipherValue>36cnEG39PcPDSv+AMbpBME1YbenuEKztaHavDRewFApU4OYwcRZwREYgV89KCbw/LNcxZwLqRpljohLgY+Vz/0KfdU/xyTacNjDB6IkTyJ2OoFzTkM6GjsWYTaPS6Pbqp9FHL3ciMcciSr7hllfbu1Vvdj2EL8MD8eND831yICeTFZbysI1rR3f8FJsNk+B0</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -180,12 +180,12 @@
           DTS:ConnectionString="Data Source=serv-term;User ID=reader;Initial Catalog=rozn;Persist Security Info=True;Asynchronous Processing=True;Connect Timeout=0;Application Name=&quot;SSIS-КПТ по причинам-{C7F87DD9-79DD-4BBD-BC4E-4A57F9EF2791}serv-term.rozn.reader1&quot;;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="pesc/I2+ckY="
-            IV="1AHtcocCGtwmJqwcmkKPjg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="vBTv984Sbfw="
+            IV="o0ML73yYiAqlF7Z3PTEP6Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>1AHtcocCGtwmJqwcmkKPjiwXsrhSvwoE3XeuNNLt42cDg2BVuN6+UzCaIWjeCXX+A5Vb/h1cu1ZbNH+77A5nBKRMsm9mJTrv0+g9Ot4jEwgjn90vzYQVWhcoHD7bHjMKVV9h+kbyIhnbv2V+11jfOG0YVxHm2F2xHsC0fz4KV/kmpNk1rlbEiIYdZYCpUDF2</CipherValue>
+              <CipherValue>o0ML73yYiAqlF7Z3PTEP6Zad+MnnxIIJYPCSlipdIEpY8kD0n1SZe+Kz9+5bv1qGvkxjD6U701PEn82+X9f8qH+jGM9WMrYA9ixOQfoN9hCHSjbIJAkBvRmIpQvBcX0LPg9vYViHQct00acMHOEqKg5vOPFSDQLLNg5LMXkjewX4liH+0HllPnmiu2UYjZYU</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -26068,7 +26068,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка приказов из ОТБРС (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка приказов из ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_приказы"
@@ -26100,7 +26100,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
