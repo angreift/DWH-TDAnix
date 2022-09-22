@@ -1,11 +1,13 @@
 ﻿CREATE VIEW cass.v_dim_Смены
 AS
-SELECT        с.Код_кассы, с.ИД_смены, с.Номер_смены, с.Код_кассира, CAST(с.Код_кассы AS nvarchar) + '~' + CAST(с.ИД_смены AS nvarchar) AS Составной_код_смены, dbo.t_dim_Магазины.Группа, 
-                         dbo.t_dim_Магазины.Наименование, dbo.t_dim_Магазины.Код, CAST(с.Код_кассы AS nvarchar) + '~' + CAST(с.Код_кассира AS nvarchar) AS Составной_код_кассира, 
+SELECT        с.Код_кассы, с.Номер_смены, с.Составной_код_смены, dbo.t_dim_Магазины.Группа, 
+                         dbo.t_dim_Магазины.Наименование, dbo.t_dim_Магазины.Код, с.Составной_код_кассира, 
                          cass.v_dim_Пользователи_на_кассах.Имя_пользователя, 'Касса ' + CAST(с.Код_кассы AS nvarchar) + ' Смена ' + CAST(с.Номер_смены AS nvarchar) + ' от ' + CONVERT(nvarchar, с.Дата_время_начала_смены, 104) 
-                         AS Наименование_смены
+                         AS Наименование_смены,
+                         null as Код_кассира,
+                         null as ИД_смены
 FROM            cass.v_dim_Пользователи_на_кассах INNER JOIN
-                         cass.t_fact_Смены_на_кассах AS с ON cass.v_dim_Пользователи_на_кассах.Составной_код = CAST(с.Код_кассы AS nvarchar) + '~' + CAST(с.Код_кассира AS nvarchar) LEFT OUTER JOIN
+                         cass.t_fact_Смены_на_кассах AS с ON cass.v_dim_Пользователи_на_кассах.Составной_код_кассира = с.Составной_код_кассира LEFT OUTER JOIN
                          cass.t_dim_Кассы AS к INNER JOIN
                          dbo.t_dim_Магазины ON к.Код_магазина = dbo.t_dim_Магазины.Код ON с.Код_кассы = к.Код_кассы
 
@@ -153,7 +155,8 @@ Begin DesignProperties =
          NewValue = 1170
          SortType = 1350
          SortOrder = 1410
-         GroupBy = 1350', @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_dim_Смены';
+         GroupBy = 1350
+', @level0type = N'SCHEMA', @level0name = N'cass', @level1type = N'VIEW', @level1name = N'v_dim_Смены';
 
 
 GO

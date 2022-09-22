@@ -1,9 +1,9 @@
 ﻿CREATE VIEW [cass].[v_fact_Скидки]
 AS
-SELECT        cass.t_fact_Скидки.Код_кассы, cass.t_fact_Скидки.ИД_скидки, cass.t_fact_Скидки.ИД_позиции, cass.t_fact_Скидки.Номер_позиции, cass.t_fact_Скидки.Код_кассира, 
+SELECT        cass.t_fact_Скидки.Код_кассы, cass.t_fact_Скидки.ИД_скидки, cass.t_fact_Скидки.Номер_позиции,
                          cass.t_fact_Скидки.Дата_время_применения_скидки, cass.t_fact_Скидки.Объект_скидки, cass.t_fact_Скидки.Номер_скидки, cass.t_fact_Скидки.Режим_скидки, cass.t_fact_Скидки.Тип_скидки, 
                          cass.t_fact_Скидки.Ставка_скидки, cass.t_fact_Скидки.Сумма_скидки, cass.t_fact_Скидки.Сумма_чека, cass.t_fact_Скидки.Номер_дисконтной_карты, cass.t_fact_Скидки.Название_дисконтной_карты, 
-                         cass.t_fact_Скидки.ИД_кнопки, cass.t_fact_Скидки.ИД_карты, CAST(cass.t_fact_Скидки.Код_кассы AS nvarchar) + N'~' + CAST(cass.t_fact_Скидки.Код_кассира AS nvarchar) AS Составной_код_кассира, 
+                         cass.t_fact_Скидки.ИД_карты, t_fact_Скидки.Составной_код_кассира, 
                          CAST(CAST(cass.t_fact_Скидки.Дата_время_применения_скидки AS date) AS datetime) AS Дата_применения_скидки, cass.t_dim_Кассы.Код_магазина, cass.t_fact_Детализация_чеков.Составной_код_документа, 
                          dbo.t_dim_Товары.Код_товара
 FROM            cass.t_fact_Скидки INNER JOIN

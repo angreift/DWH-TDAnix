@@ -374,14 +374,6 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="cass\Stored Procedures\p_Обмен_с_кассами_многопоточный.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="cass\Stored Procedures\p_Перезагрузка_смены.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="Security\cass.sql" />
     <Build Include="cass\Sequences\s_Код_загрузки_смены.sql" />
     <Build Include="cass\Sequences\ИД_обмена.sql" />

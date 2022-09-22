@@ -1,24 +1,24 @@
 ﻿CREATE TABLE [cass].[t_fact_Сторнированные_позиции] (
-    [Код_кассы]                                    INT             NOT NULL,
-    [ИД_сторнированной_позиции]                    INT             NOT NULL,
-    [ИД_документа]                                 INT             NOT NULL,
-    [Код_кассира]                                  INT             NOT NULL,
-    [Дата_время_добавления_сторнированной_позиции] DATETIME        NOT NULL,
-    [Дата_время_сторнирования_позиции]             DATETIME        NOT NULL,
-    [Способ_добавления_позиции]                    INT             NOT NULL,
-    [Количество]                                   DECIMAL (13, 3) NOT NULL,
-    [Способ_ввода_количества]                      INT             NOT NULL,
-    [Цена]                                         MONEY           NOT NULL,
-    [Минимальная_цена]                             MONEY           NOT NULL,
-    [Цена_позиции]                                 MONEY           NOT NULL,
-    [Способ_ввода_цены]                            INT             NOT NULL,
-    [Сумма_скидки]                                 MONEY           NOT NULL,
-    [Начальная_сумма_до_применения_скидок]         MONEY           NOT NULL,
-    [Итоговая_сумма_после_применения_скидок]       MONEY           NOT NULL,
-    [Код_товара]                                   BIGINT          NOT NULL,
-    [Номер_сторнированной_позиции]                 INT             NOT NULL,
-    [Пользователь_подтвердивший_операцию]          INT             NULL,
-    [Составной_код_документа]                      NVARCHAR (20)   NOT NULL,
+	[Код_кассы] [int] NOT NULL,
+	[ИД_сторнированной_позиции] [int] NOT NULL,
+	[Дата_время_добавления_сторнированной_позиции] [datetime] NOT NULL,
+	[Дата_сторнирования_позиции] [date] NOT NULL,
+	[Дата_время_сторнирования_позиции] [datetime] NOT NULL,
+	[Способ_добавления_позиции] [tinyint] NOT NULL,
+	[Количество] [decimal](13, 3) NOT NULL,
+	[Способ_ввода_количества] [tinyint] NOT NULL,
+	[Цена] [decimal](14, 2) NOT NULL,
+	[Минимальная_цена] [decimal](14, 2) NOT NULL,
+	[Цена_позиции] [decimal](14, 2) NOT NULL,
+	[Способ_ввода_цены] [int] NOT NULL,
+	[Сумма_скидки] [decimal](14, 2) NOT NULL,
+	[Начальная_сумма_до_применения_скидок] [decimal](14, 2) NOT NULL,
+	[Итоговая_сумма_после_применения_скидок] [decimal](14, 2) NOT NULL,
+	[Код_товара] [bigint] NOT NULL,
+	[Номер_сторнированной_позиции] [int] NOT NULL,
+	[Составной_код_документа] [nvarchar](20) NOT NULL,
+	[Составной_код_кассира] [nvarchar](20) NOT NULL,
+	[Составной_код_кассира_подтвердившего_сторно] [nvarchar](20) NOT NULL
     CONSTRAINT [FK_t_fact_Сторнированные_позиции_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE
 ) ON [FACTS];
 
@@ -30,7 +30,7 @@ CREATE CLUSTERED INDEX [ix_cl_ИД_док]
 
 GO
 
-CREATE INDEX [ix_uncl_Сторно_Дата] ON [cass].[t_fact_Сторнированные_позиции] ([Дата_время_сторнирования_позиции]) ON [FACTS];
+CREATE INDEX [ix_uncl_Сторно_Дата] ON [cass].[t_fact_Сторнированные_позиции] ([Дата_сторнирования_позиции]) ON [FACTS];
 
 GO
 

@@ -1,30 +1,28 @@
 ﻿CREATE TABLE [cass].[t_fact_Детализация_чеков] (
-    [Код_кассы]                                  INT             NOT NULL,
-    [Код_кассира]                                INT             NOT NULL,
-    [ИД_позиции]                                 INT             NOT NULL,
-    [ИД_документа]                               INT             NOT NULL,
-    [Код_товара]                                 BIGINT          NOT NULL,
-    [Дата_время_добавления_позиции]              DATETIME        NOT NULL,
-    [Способ_добавления_позиции]                  TINYINT         NULL,
-    [Количество]                                 DECIMAL (13, 3) NOT NULL,
-    [Способ_ввода_количества]                    TINYINT         NOT NULL,
-    [Цена]                                       MONEY           NOT NULL,
-    [Минимальная_цена]                           MONEY           NOT NULL,
-    [Цена_позиции]                               MONEY           NOT NULL,
-    [Способ_ввода_цены]                          TINYINT         NOT NULL,
-    [Сумма_скидки]                               MONEY           NOT NULL,
-    [Начальная_сумма_до_применения_скидок]       MONEY           NOT NULL,
-    [Итоговая_сумма_после_применения_скидок]     MONEY           NOT NULL,
-    [Номер_позиции_в_чеке]                       TINYINT         NOT NULL,
-    [Сумма_Наличные]                             MONEY           NULL,
-    [Сумма_Терминал]                             MONEY           NULL,
-    [Сумма_СБП_Сбербанк]                         MONEY           NULL,
-    [Сумма_оплаты_Неинтегрированный_терминал_СБ] MONEY           NULL,
-    [Сумма_оплаты_Накопительные_карты]           MONEY           NULL,
-    [Возврат]                                    BIT             NOT NULL,
-    [Итоговая_сумма_всего_чека]                  MONEY           NULL,
-    [Составной_код_позиции]                      NVARCHAR (20)   NOT NULL,
-    [Составной_код_документа]                    NVARCHAR (20)   NOT NULL,
+	[Код_кассы] [int] NOT NULL,
+	[Код_товара] [bigint] NOT NULL,
+	[Дата_добавления_позиции] [date] NOT NULL,
+	[Дата_время_добавления_позиции] [datetime] NOT NULL,
+	[Способ_добавления_позиции] [tinyint] NULL,
+	[Количество] [decimal](13, 3) NOT NULL,
+	[Способ_ввода_количества] [tinyint] NOT NULL,
+	[Цена] [decimal](14, 2) NOT NULL,
+	[Минимальная_цена] [decimal](14, 2) NOT NULL,
+	[Цена_позиции] [decimal](14, 2) NOT NULL,
+	[Способ_ввода_цены] [tinyint] NOT NULL,
+	[Сумма_скидки] [decimal](14, 2) NOT NULL,
+	[Начальная_сумма_до_применения_скидок] [decimal](14, 2) NOT NULL,
+	[Итоговая_сумма_после_применения_скидок] [decimal](14, 2) NOT NULL,
+	[Номер_позиции_в_чеке] [tinyint] NOT NULL,
+	[Сумма_Наличные] [decimal](14, 2) NULL,
+	[Сумма_Терминал] [decimal](14, 2) NULL,
+	[Сумма_СБП_Сбербанк] [decimal](14, 2) NULL,
+	[Сумма_оплаты_Неинтегрированный_терминал_СБ] [decimal](14, 2) NULL,
+	[Сумма_оплаты_Накопительные_карты] [decimal](14, 2) NULL,
+	[Возврат] [bit] NOT NULL,
+	[Составной_код_позиции] [nvarchar](20) NOT NULL,
+	[Составной_код_документа] [nvarchar](20) NOT NULL,
+	[Составной_код_кассира] [nvarchar](20) NOT NULL,
     CONSTRAINT [PK_t_fact_Детализация_чеков] PRIMARY KEY CLUSTERED ([Составной_код_позиции] ASC) ON [FACTS],
     CONSTRAINT [FK_t_fact_Детализация_чеков_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE
 ) ON [FACTS];
@@ -38,7 +36,7 @@ CREATE NONCLUSTERED INDEX [ix_uncl_Ид_док]
 
 GO
 
-CREATE INDEX [ix_uncl_Детализация_чеков_Дата] ON [cass].[t_fact_Детализация_чеков] ([Дата_время_добавления_позиции]) on [FACTS]
+CREATE INDEX [ix_uncl_Детализация_чеков_Дата] ON [cass].[t_fact_Детализация_чеков] ([Дата_добавления_позиции]) on [FACTS]
 
 GO
 
