@@ -382,5 +382,13 @@
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
+    <Build Include="cass\Stored Procedures\p_Отчет_об_обмене_с_кассами.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="cass\Stored Procedures\p_Актуализировать_список_касс_из_CS.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
   </ItemGroup>
 </Project>
