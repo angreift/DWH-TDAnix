@@ -11,9 +11,9 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
-  DTS:ProtectionLevel="2"
-  DTS:VersionBuild="81"
-  DTS:VersionGUID="{E6655DF4-D7AF-447E-8C46-EAE47701FAC9}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{981995B0-56DE-4A3A-818E-CC8D62CF33BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,18 +26,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=S12-1C-RSC;User ID=rsc-sql-reader1;Initial Catalog=RSC;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-KTP-{A8A37771-7EAD-4A9A-B00E-A72D7DE99C5F}RSC;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="eo/jOb8jYHI="
-            IV="66qjjkVysf3wQcFo2JY9CA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>66qjjkVysf3wQcFo2JY9COJJ6WsuYw0eg51BlalJcPnexWldAKLalEnv2pBoDcOifbdrhHKgtW0fL1X0QYCfJ7x6KCYPaTPyZGTK/TXmgXWNhYw02uXneO4+SQnvdizTsiP3VEWbCw9r/0Pm4jvmHTtTmWbMJe0jCYErXdAD+aLIpobvp0sQLvqPobzBX2eE</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=S12-1C-RSC;Initial Catalog=RSC;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-KTP-{A8A37771-7EAD-4A9A-B00E-A72D7DE99C5F}RSC;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -49,18 +38,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Data Source=s19-bi-db;User ID=tdanix\power-bi;Initial Catalog=KPT_prod;Provider=MSOLAP.8;Persist Security Info=True;Impersonation Level=Impersonate;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="w2L05Ru+O68="
-            IV="9dC6xswwvKi264HAV/wTgg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>9dC6xswwvKi264HAV/wTgtzYZNMtKNYPt3jh8QMjgoau4EgUMuqbFueV3YoZLlVqFS6kd3nhdX1eEV5eJ8X0LEMmOFQPtAtfy8MPLnGrmeS/M9+JbcmZ/9AJqdLpqDaXVDiXfo2qjUBn2g28imLSmWleYnMA9jR1v8KE5I+HMKiFwyKWAfAiKuqrd7/TkmY2</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=s19-bi-db;Initial Catalog=KPT_prod;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -72,18 +50,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=s19-olap;User ID=reader;Initial Catalog=KPT;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{BCB3CCD2-699D-4E69-9DA7-22A6E3EBC056}s8-olap-test.KPT.reader;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="YG648aJc/pE="
-            IV="hmFcZAZOvvKKfH4OFZDrjQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>hmFcZAZOvvKKfH4OFZDrjTVXc36vu4htQcX2T0ehtPgVAkRUUWK8mUj36gduWuEBEkHqIijwBdTgLk2qPP5gS9rPfiY7s8cacMgB95z563D34U+bNCP8z1FbwprOeeGT2zS7RwoOUl/D2/Mms5eLCuD4/kINhdA+gyu/HDQ3yrYK9z/DbaBuUa2XVouEy3Nb</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=s19-olap;Initial Catalog=KPT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{BCB3CCD2-699D-4E69-9DA7-22A6E3EBC056}s8-olap-test.KPT.reader;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -93,18 +60,7 @@
       DTS:ObjectName="s19-olap.KPT.reader ADO .net">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=s19-olap;User ID=reader;Initial Catalog=KPT;Persist Security Info=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{686704F0-2D2D-48DF-81AE-AE4CE10BBA5F}s8-olap-test.KPT.reader1&quot;;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="stJwDRDWtZE="
-            IV="ItAqLFp/DGb/PGcTQQfOZg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>ItAqLFp/DGb/PGcTQQfOZm0BDcvQduegX3zJp4ncz5a+gUqhC/LMjTCQi81z2lRmCjlxuyjKMD2It1O6Su/fEKf9/+calU7tR5pQdIouQt7J7C8PXkTePT1r8nI/OXNWcSAe04A9pLehJ6MBGqObLz6+fIj0KBDpiWq8sOnlHcoxJRg+l0AqE9JIVnGsBTAl</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=s19-olap;Initial Catalog=KPT;Integrated Security=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{686704F0-2D2D-48DF-81AE-AE4CE10BBA5F}s8-olap-test.KPT.reader1&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -114,18 +70,7 @@
       DTS:ObjectName="s19-olap.olap-rozn.reader ADO .net">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=s19-olap;User ID=reader;Initial Catalog=olap-rozn;Persist Security Info=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{4C625875-9659-45B8-82E6-F37A229E7DC5}s8-olap-test.olap-rozn.reader&quot;;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="OBiRHKfONk4="
-            IV="BuVpjku1FVyRG5ZxUcpcMA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>BuVpjku1FVyRG5ZxUcpcMKSmHtEDm4conKuzwj/RmRNrhzb0b9LYWyM3LVl1MAHt2ExdxB3kj7VdPhimyOZEanoiz3lwhoZnXbcHrbfRWZ/lvyQZDf758EdtdEJt8BdbDWQjPRS0XD2kF1fw+grwXM8mCv44H97ewqAtRNpmcX22e3+REweggatEADKYf9jY</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=s19-olap;Initial Catalog=olap-rozn;Integrated Security=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{4C625875-9659-45B8-82E6-F37A229E7DC5}s8-olap-test.olap-rozn.reader&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -135,18 +80,7 @@
       DTS:ObjectName="S19-RDSAPP-RSC.rsc.rsc-sql-reader ADO .net">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=S19-RDSAPP-RSC;User ID=rsc-sql-reader;Initial Catalog=rsc;Persist Security Info=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{88B1643F-C04B-4D9E-860C-BB85B9F7A731}S19-RDSAPP-RSC.rsc.rsc-sql-reader&quot;;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="NP1uQJoYB/c="
-            IV="XcF7UAnU6oCda+A84Kexrg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>XcF7UAnU6oCda+A84KexrtXrtrquPXgw4SENypJvmkW+nMi09K6aGST7g+IjrjlNhwgcs898M0wDIKIEAdfLqidDC1+VeaiNzhr/Gt2RLtP6Ie5zFNmE8r4PyMpEKy6RqYcdi8dThyxzP5bMh3j1HcviTrsUCIYNIc6k1AcjFTqT9oJUGEtVHPnfGWGdESWq</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=S19-RDSAPP-RSC;Initial Catalog=rsc;Integrated Security=True;Connect Timeout=1200;Application Name=&quot;SSIS-КПТ по причинам-{88B1643F-C04B-4D9E-860C-BB85B9F7A731}S19-RDSAPP-RSC.rsc.rsc-sql-reader&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -156,18 +90,7 @@
       DTS:ObjectName="S19-STORAGE-SQL.CS.reader">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=S19-STORAGE-SQL;User ID=reader;Initial Catalog=CS;Persist Security Info=True;Application Name=&quot;SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader&quot;;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="hg0cTRSFE4g="
-            IV="36cnEG39PcPDSv+AMbpBMA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>36cnEG39PcPDSv+AMbpBME1YbenuEKztaHavDRewFApU4OYwcRZwREYgV89KCbw/LNcxZwLqRpljohLgY+Vz/0KfdU/xyTacNjDB6IkTyJ2OoFzTkM6GjsWYTaPS6Pbqp9FHL3ciMcciSr7hllfbu1Vvdj2EL8MD8eND831yICeTFZbysI1rR3f8FJsNk+B0</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=S19-STORAGE-SQL;Initial Catalog=CS;Integrated Security=True;Application Name=&quot;SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -177,18 +100,7 @@
       DTS:ObjectName="serv-term.rozn.reader ADO .net">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=serv-term;User ID=reader;Initial Catalog=rozn;Persist Security Info=True;Asynchronous Processing=True;Connect Timeout=0;Application Name=&quot;SSIS-КПТ по причинам-{C7F87DD9-79DD-4BBD-BC4E-4A57F9EF2791}serv-term.rozn.reader1&quot;;">
-          <EncryptedData
-            Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="vBTv984Sbfw="
-            IV="o0ML73yYiAqlF7Z3PTEP6Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
-            <EncryptionMethod
-              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
-            <CipherData>
-              <CipherValue>o0ML73yYiAqlF7Z3PTEP6Zad+MnnxIIJYPCSlipdIEpY8kD0n1SZe+Kz9+5bv1qGvkxjD6U701PEn82+X9f8qH+jGM9WMrYA9ixOQfoN9hCHSjbIJAkBvRmIpQvBcX0LPg9vYViHQct00acMHOEqKg5vOPFSDQLLNg5LMXkjewX4liH+0HllPnmiu2UYjZYU</CipherValue>
-            </CipherData>
-          </EncryptedData>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=serv-term;Initial Catalog=rozn;Integrated Security=True;Asynchronous Processing=True;Connect Timeout=0;Application Name=&quot;SSIS-КПТ по причинам-{C7F87DD9-79DD-4BBD-BC4E-4A57F9EF2791}serv-term.rozn.reader1&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -554,7 +466,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -2860,7 +2772,7 @@ where  dateadd(yyyy,-2000,   РегистрНТ._Period) between @dateN and @dat
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы RSC Незаказанный товар по причинам"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="8">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3280,7 +3192,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Статусы не заказывать"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3331,7 +3243,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3872,7 +3784,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3921,7 +3833,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="9">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4802,7 +4714,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5367,7 +5279,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="8">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5409,7 +5321,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6186,7 +6098,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6498,7 +6410,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -9904,7 +9816,7 @@ WHERE
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить свод за период"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -15448,7 +15360,7 @@ Left JOIN Свод_временный3 Свод (nolock) ON Свод.Дата = 
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы Увеличение средневных продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -15922,7 +15834,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Определение причин Этап 3 Приоритеты причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16366,7 +16278,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_временный2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22021,6 +21933,48 @@ Left Join
                           errorRowDisposition="FailComponent"
                           hasSideEffects="true"
                           name="ADO NET Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].Columns[Дата]"
+                              cachedDataType="dbDate"
+                              cachedName="Дата"
+                              externalMetadataColumnId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                              lineageId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки.Outputs[ADO NET Source Output].Columns[Дата]" />
+                            <inputColumn
+                              refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].Columns[КодТовара]"
+                              cachedDataType="i8"
+                              cachedName="КодТовара"
+                              externalMetadataColumnId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                              lineageId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки.Outputs[ADO NET Source Output].Columns[КодТовара]" />
+                            <inputColumn
+                              refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].Columns[КодМагазина]"
+                              cachedDataType="i8"
+                              cachedName="КодМагазина"
+                              externalMetadataColumnId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                              lineageId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки.Outputs[ADO NET Source Output].Columns[КодМагазина]" />
+                            <inputColumn
+                              refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].Columns[ОстатокНаКонец]"
+                              cachedDataType="numeric"
+                              cachedName="ОстатокНаКонец"
+                              cachedPrecision="11"
+                              cachedScale="3"
+                              externalMetadataColumnId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаКонец]"
+                              lineageId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки.Outputs[ADO NET Source Output].Columns[ОстатокНаКонец]" />
+                            <inputColumn
+                              refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].Columns[ДатаПоложительногоОстатка]"
+                              cachedDataType="dbDate"
+                              cachedName="ДатаПоложительногоОстатка"
+                              externalMetadataColumnId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[ДатаПоложительногоОстатка]"
+                              lineageId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки.Outputs[ADO NET Source Output].Columns[ДатаПоложительногоОстатка]" />
+                            <inputColumn
+                              refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].Columns[КолСписаноПослеПоложительногоОстатка]"
+                              cachedDataType="numeric"
+                              cachedName="КолСписаноПослеПоложительногоОстатка"
+                              cachedPrecision="38"
+                              cachedScale="3"
+                              externalMetadataColumnId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[КолСписаноПослеПоложительногоОстатка]"
+                              lineageId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки.Outputs[ADO NET Source Output].Columns[КолСписаноПослеПоложительногоОстатка]" />
+                          </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
@@ -22039,7 +21993,7 @@ Left Join
                               refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаКонец]"
                               dataType="numeric"
                               name="ОстатокНаКонец"
-                              precision="9"
+                              precision="10"
                               scale="3" />
                             <externalMetadataColumn
                               refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[ДатаПоложительногоОстатка]"
@@ -22049,7 +22003,7 @@ Left Join
                               refId="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный.Inputs[ADO NET Destination Input].ExternalColumns[КолСписаноПослеПоложительногоОстатка]"
                               dataType="numeric"
                               name="КолСписаноПослеПоложительногоОстатка"
-                              precision="9"
+                              precision="10"
                               scale="3" />
                           </externalMetadataColumns>
                         </input>
@@ -24246,7 +24200,7 @@ Left Join
     design-time-name="Package\КПТ\OLAP\Приход RSC (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\OLAP\Приход RSC (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_приход"
@@ -24278,9 +24232,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24288,6 +24240,14 @@ Left Join
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\OLAP\Приход RSC (ОТБОР ПО ДАТЕ)\RSC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\OLAP\Приход RSC (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_приход">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -26232,7 +26192,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="174,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки"
@@ -26264,13 +26224,27 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\Нулевые_Остатки_временный">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

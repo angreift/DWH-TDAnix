@@ -12,7 +12,7 @@
   <DataSourceViews />
   <DeploymentModelSpecificContent>
     <Manifest>
-      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithPassword" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
+      <SSIS:Project SSIS:ProtectionLevel="DontSaveSensitive" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{ab75f6c4-ed92-4079-bb30-39c7131cce8c}</SSIS:Property>
           <SSIS:Property SSIS:Name="Name">SSIS</SSIS:Property>
@@ -26,7 +26,6 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ANIXMAN</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="VcEyFFnmOYw=" SSIS:IV="wC9zgGZx3Etv+ycqoybS/w==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">N2VMrsjRHH3xLD1UyZg9GeKbLqLwqo8cbG/EKQyHSzrmXnb23hWppXMi4VCw2SHRDHmTeH/1PKhc82xv/oAzcSTOuf5C+MLcSFRdsMtoxuB8y/+41EmyphaJGsILwCbN8FF/XMYcbwbsZpe73DWTeYp04klf2o8Jjc6SAZk+cgePFFJDYTCbT7Uk95A32oer</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,14 +41,14 @@
                 <SSIS:Property SSIS:Name="Name">КПТ по причинам</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">81</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">88</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E6655DF4-D7AF-447E-8C46-EAE47701FAC9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{981995B0-56DE-4A3A-818E-CC8D62CF33BF}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
                 <SSIS:Parameter SSIS:Name="CM.RSC.ConnectByProxy">
@@ -78,7 +77,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=S12-1C-RSC;User ID=rsc-sql-reader1;Initial Catalog=RSC;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-KTP-{A8A37771-7EAD-4A9A-B00E-A72D7DE99C5F}RSC;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=S12-1C-RSC;Initial Catalog=RSC;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-KTP-{A8A37771-7EAD-4A9A-B00E-A72D7DE99C5F}RSC;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -197,7 +196,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">rsc-sql-reader1</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -227,7 +225,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=s19-bi-db;User ID=tdanix\power-bi;Initial Catalog=KPT_prod;Provider=MSOLAP.8;Persist Security Info=True;Impersonation Level=Impersonate;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=s19-bi-db;Initial Catalog=KPT_prod;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -301,7 +299,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">tdanix\power-bi</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -331,7 +328,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=s19-olap;User ID=reader;Initial Catalog=KPT;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{BCB3CCD2-699D-4E69-9DA7-22A6E3EBC056}s8-olap-test.KPT.reader;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=s19-olap;Initial Catalog=KPT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{BCB3CCD2-699D-4E69-9DA7-22A6E3EBC056}s8-olap-test.KPT.reader;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -450,7 +447,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">reader</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -480,7 +476,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=s19-olap;User ID=reader;Initial Catalog=KPT;Persist Security Info=True;Connect Timeout=1200;Application Name="SSIS-КПТ по причинам-{686704F0-2D2D-48DF-81AE-AE4CE10BBA5F}s8-olap-test.KPT.reader1";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=s19-olap;Initial Catalog=KPT;Integrated Security=True;Connect Timeout=1200;Application Name="SSIS-КПТ по причинам-{686704F0-2D2D-48DF-81AE-AE4CE10BBA5F}s8-olap-test.KPT.reader1";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -569,7 +565,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">reader</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -599,7 +594,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=s19-olap;User ID=reader;Initial Catalog=olap-rozn;Persist Security Info=True;Connect Timeout=1200;Application Name="SSIS-КПТ по причинам-{4C625875-9659-45B8-82E6-F37A229E7DC5}s8-olap-test.olap-rozn.reader";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=s19-olap;Initial Catalog=olap-rozn;Integrated Security=True;Connect Timeout=1200;Application Name="SSIS-КПТ по причинам-{4C625875-9659-45B8-82E6-F37A229E7DC5}s8-olap-test.olap-rozn.reader";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -688,7 +683,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">reader</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -718,7 +712,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=S19-RDSAPP-RSC;User ID=rsc-sql-reader;Initial Catalog=rsc;Persist Security Info=True;Connect Timeout=1200;Application Name="SSIS-КПТ по причинам-{88B1643F-C04B-4D9E-860C-BB85B9F7A731}S19-RDSAPP-RSC.rsc.rsc-sql-reader";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=S19-RDSAPP-RSC;Initial Catalog=rsc;Integrated Security=True;Connect Timeout=1200;Application Name="SSIS-КПТ по причинам-{88B1643F-C04B-4D9E-860C-BB85B9F7A731}S19-RDSAPP-RSC.rsc.rsc-sql-reader";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -807,7 +801,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">rsc-sql-reader</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -837,7 +830,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=S19-STORAGE-SQL;User ID=reader;Initial Catalog=CS;Persist Security Info=True;Application Name="SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=S19-STORAGE-SQL;Initial Catalog=CS;Integrated Security=True;Application Name="SSIS-КПТ по причинам-{9BBC010B-81BB-49ED-B079-50E45CEBFF43}S19-STORAGE-SQL.CS.reader";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -926,7 +919,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">reader</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -956,7 +948,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=serv-term;User ID=reader;Initial Catalog=rozn;Persist Security Info=True;Asynchronous Processing=True;Connect Timeout=0;Application Name="SSIS-КПТ по причинам-{C7F87DD9-79DD-4BBD-BC4E-4A57F9EF2791}serv-term.rozn.reader1";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=serv-term;Initial Catalog=rozn;Integrated Security=True;Asynchronous Processing=True;Connect Timeout=0;Application Name="SSIS-КПТ по причинам-{C7F87DD9-79DD-4BBD-BC4E-4A57F9EF2791}serv-term.rozn.reader1";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1045,7 +1037,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">reader</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
