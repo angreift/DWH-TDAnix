@@ -1,13 +1,90 @@
-﻿-- =============================================
+﻿USE [DWH]
+GO
+/****** Object:  StoredProcedure [cass].[p_Отчет_об_обмене_с_кассами]    Script Date: 26.09.2022 11:06:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
 -- Author:		kma1860
 -- Create date: 23/09/2022
 -- Description:	Отчет об обмене с кассами
 -- =============================================
-CREATE PROCEDURE [cass].[p_Отчет_об_обмене_с_кассами]
+ALTER PROCEDURE [cass].[p_Отчет_об_обмене_с_кассами]
 AS
 BEGIN
+	set nocount on
 	declare @letter_body nvarchar(max);
+	set @letter_body = '';
 	declare @letter_subject nvarchar(255);
+
+	drop table if exists #Неправильные_номера_касс
+
+
+	declare @cid int;
+	declare @str nvarchar(max);
+	declare @cid_cass int;
+	declare cur cursor local for
+	select
+		Код_кассы	
+	from 
+		cass.t_dim_Кассы
+	where
+		cass.t_dim_Кассы.Включена = 1
+
+	drop table if exists ##cass 
+
+	create table ##cass (
+		code int,
+		code_in_cass int
+	)
+
+	open cur
+	fetch next from cur into @cid
+	while @@FETCH_STATUS = 0 begin
+
+		set @str = '
+		insert into ##cass (code, code_in_cass)
+		select
+			null,
+			cashcode
+		from openquery(
+			[pos_%cid%], ''
+				select cashcode from workshift order by time_beg desc limit 1;
+			''
+		)';
+		set @str = replace(@str, '%cid%', @cid);
+		begin try
+			exec(@str);
+		end try
+		begin catch
+			print('Нет связи: ' + cast(@cid as nvarchar))
+		end catch
+	
+		update ##cass set code = @cid where code is null
+
+		fetch next from cur into @cid
+
+	end
+
+	delete from ##cass where code = code_in_cass
+	
+	if (select count(*) from ##cass) > 0 begin
+		set @letter_body = @letter_body + 'На следующих кассах установлен неправильный код! Поправьте код на кассе, а так же в таблице documents.workshift' + char(10) + '   ' + char(10);
+		set @letter_body = @letter_body + (		
+			select 
+				string_agg(
+					concat(
+						'Код на кассе: ', k1.code_in_cass, ', Касса №', k2.Код_кассы,  ' (ip ', k2.IP_Адрес, '); Магазин ', k2.Код_магазина, ' ', trim(k2.Наименование_магазина), ' (', trim(k2.Группа_магазина), ')'
+					), '   ' + char(10)
+				)
+			from 
+				##cass k1
+			left join
+				cass.v_dim_Кассы k2 on k1.code = k2.Код_кассы
+		)
+		set @letter_body = @letter_body + CHAR(10) + '   ' + char(10);
+	end
 
 	drop table if exists #Неопрошенные_кассы
 
@@ -48,7 +125,7 @@ BEGIN
 
 	if (select count(*) from #Неопрошенные_кассы) > 0 begin
 	
-		set @letter_body = 'За предыдущие сутки не удалось опросить следующие кассы:   ' + char(10) + '   ' + char(10);
+		set @letter_body = @letter_body + 'За предыдущие сутки не удалось опросить следующие кассы:   ' + char(10) + '   ' + char(10);
 
 		set @letter_body = @letter_body + (
 			select
