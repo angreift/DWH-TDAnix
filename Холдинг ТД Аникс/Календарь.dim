@@ -154,6 +154,7 @@
     <Attribute dwd:design-time-name="06b13611-de6a-4ace-84b2-e4b35c4762a5">
       <ID>ИД Дата</ID>
       <Name>День</Name>
+      <Type>Date</Type>
       <Usage>Key</Usage>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="0fdde339-c8b8-43e1-a216-e08268521852">
@@ -191,6 +192,7 @@
     <Attribute dwd:design-time-name="0b3e8f0d-1723-438d-8b7f-b13840f6f72d">
       <ID>ИД Месяц</ID>
       <Name>Месяц (Краткий)</Name>
+      <Type>MonthOfYear</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="a62a1a72-743a-409b-b75d-27c9483f9623">
           <DataType>Integer</DataType>
@@ -228,6 +230,7 @@
     <Attribute dwd:design-time-name="d8ea3e6f-ad5a-4ffd-a90c-2f81ee1a4762">
       <ID>ИД Год</ID>
       <Name>Год (Краткий)</Name>
+      <Type>Years</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="d3b48ccf-7b10-4b54-b82c-66560593452b">
           <DataType>Integer</DataType>
@@ -252,6 +255,7 @@
     <Attribute dwd:design-time-name="e1e3452d-40af-4f96-a880-f4a19f4bbcb1">
       <ID>ИД Квартал</ID>
       <Name>Квартал (Краткий)</Name>
+      <Type>QuarterOfYear</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="8276cdb6-d147-4cdc-a24f-d2ac102be864">
           <DataType>Integer</DataType>
@@ -289,6 +293,7 @@
     <Attribute dwd:design-time-name="f36a961d-4724-42b2-beb1-e23ca1a52b8f">
       <ID>День Число</ID>
       <Name>День (Краткий)</Name>
+      <Type>Date</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="d45bffd7-28c9-4427-b31f-fd592bea25d3">
           <DataType>Date</DataType>
@@ -323,6 +328,7 @@
     <Attribute dwd:design-time-name="23c2a92f-78a1-4856-aee5-38dc8002754f">
       <ID>ИД Год 1</ID>
       <Name>Год (Полный)</Name>
+      <Type>Years</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="20703386-71be-4532-a0f4-1f24638f80ee">
           <DataType>Integer</DataType>
@@ -348,6 +354,7 @@
     <Attribute dwd:design-time-name="a0deec27-0b1a-4da9-8af5-6f6d2856c3a6">
       <ID>ИД Месяц 1</ID>
       <Name>Месяц (Полный)</Name>
+      <Type>MonthOfYear</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="4997a931-5913-430d-9d6c-00180d9cbdfa">
           <DataType>Integer</DataType>
@@ -386,6 +393,7 @@
     <Attribute dwd:design-time-name="2c504e3d-1c6c-4994-9d60-9d991d836750">
       <ID>ИД Дата 1</ID>
       <Name>День (Полный)</Name>
+      <Type>Date</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="37aac9a8-0ed7-4979-b67e-71d33c9f83f3">
           <DataType>Date</DataType>
@@ -417,6 +425,7 @@
     <Attribute dwd:design-time-name="cca2aeda-b7df-4d95-8a44-7daf14288857">
       <ID>ISO Неделя</ID>
       <Name>ISO Неделя</Name>
+      <Type>Iso8601Weeks</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="e58c1387-8b14-4968-9f43-ddfbac53b329">
           <DataType>Integer</DataType>
@@ -455,6 +464,7 @@
     <Attribute dwd:design-time-name="9f3573e3-2b38-498d-9487-20ef6268c160">
       <ID>ISO Год</ID>
       <Name>ISO Год</Name>
+      <Type>Iso8601Years</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="a368a268-574d-4da4-81aa-ccbe77bc70ba">
           <DataType>Integer</DataType>
