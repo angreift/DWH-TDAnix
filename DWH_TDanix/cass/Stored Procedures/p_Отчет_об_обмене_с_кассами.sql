@@ -1,16 +1,9 @@
-﻿USE [DWH]
-GO
-/****** Object:  StoredProcedure [cass].[p_Отчет_об_обмене_с_кассами]    Script Date: 26.09.2022 11:06:15 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
+﻿-- =============================================
 -- Author:		kma1860
 -- Create date: 23/09/2022
 -- Description:	Отчет об обмене с кассами
 -- =============================================
-ALTER PROCEDURE [cass].[p_Отчет_об_обмене_с_кассами]
+CREATE PROCEDURE [cass].[p_Отчет_об_обмене_с_кассами]
 AS
 BEGIN
 	set nocount on
