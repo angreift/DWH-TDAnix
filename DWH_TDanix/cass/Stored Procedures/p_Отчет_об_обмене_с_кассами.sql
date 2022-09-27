@@ -10,8 +10,9 @@ BEGIN
 	declare @letter_body nvarchar(max);
 	set @letter_body = '';
 	declare @letter_subject nvarchar(255);
-
-	drop table if exists #Неправильные_номера_касс
+	
+	/* Не актуально
+	drop table if exists ##cass
 
 
 	declare @cid int;
@@ -78,6 +79,7 @@ BEGIN
 		)
 		set @letter_body = @letter_body + CHAR(10) + '   ' + char(10);
 	end
+	*/
 
 	drop table if exists #Неопрошенные_кассы
 
