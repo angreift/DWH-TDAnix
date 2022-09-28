@@ -5,7 +5,8 @@
 -- =============================================
 CREATE PROCEDURE [cass].[p_Обмен_с_кассами]
 @ТолькоРозница              bit = 0,
-@Номер_кассы_для_переснятия int = 0
+@Номер_кассы_для_переснятия int = 0,
+@ИД_смены_для_переснятия    int = 0
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -233,9 +234,8 @@ BEGIN
 		end catch
 
 		-- Получим список смен на кассе
-		truncate table cass.t_raw_Смены;
-
 		set @str = '
+			truncate table cass.t_raw_Смены
 			insert into 
 				cass.t_raw_Смены (
 					ИД_смены,
@@ -326,6 +326,8 @@ BEGIN
 			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 			continue;
 		end catch
+
+		if @ИД_смены_для_переснятия > 0 delete from cass.t_raw_Смены where ИД_смены <> @ИД_смены_для_переснятия
 
 		while (select count(*) from cass.t_raw_Смены) > 0 begin
 			-- Проверка на существование/изменение данных в каждой смене. Если в хранилище смена отсутствует,
@@ -418,92 +420,11 @@ BEGIN
 				GETDATE()
 			)
 
-			begin tran @TransactionName 
-
-			-- Удаление смены. Все связанные данные удалятся каскадно.
-
-			delete from
-				cass.t_fact_Смены_на_кассах
-			where
-				cass.t_fact_Смены_на_кассах.Составной_код_смены = @Составной_код_смены
-			
-			-- Очистка таблиц с сырыми (RAW) данными
-			truncate table [cass].[t_raw_Кассовые_документы];
-			truncate table [cass].[t_raw_Позиции_документа];
-			truncate table [cass].[t_raw_Пользователи];
-			truncate table [cass].[t_raw_Скидки];
-			truncate table [cass].[t_raw_Сторнированные_позиции];
-			truncate table [cass].[t_raw_Оплаты];
-
-			-- Загрузка кассовых документов
-
-			-- Добавление смены
-				
-			begin try 
-				insert into 
-					cass.t_fact_Смены_на_кассах (
-						Код_кассы,
-						Номер_смены,
-						Дата_начала_смены,
-						Дата_время_начала_смены,
-						Дата_время_окончания_смены,
-						Номер_первого_чека_в_смене,
-						Номер_последнего_чека_в_смене,
-						Сумма_продажи,
-						Сумма_выручки,
-						Сумма_в_денежном_ящике,
-						Признак_изменения_данных,
-						Дата_время_открытия_первого_чека,
-						Сумма_продажи_наличные,
-						Сумма_продажи_безналичные,
-						Сумма_продажи_прочие,
-						Сумма_выручки_наличные,
-						Сумма_выручки_безналичные,
-						Сумма_возвратов,
-						Сумма_возвратов_наличные,
-						Сумма_возвратов_безналичные,
-						Количество_чеков_продажи,
-						Количество_чеков_возврата,
-						Составной_код_смены,
-						Составной_код_кассира
-					) values (
-						@Код_кассы,
-						@Номер_смены,
-						cast(@Дата_время_начала_смены as date),
-						@Дата_время_начала_смены,
-						@Дата_время_окончания_смены,
-						@Номер_первого_чека_в_смене,
-						@Номер_последнего_чека_в_смене,
-						@Сумма_продажи,
-						@Сумма_выручки,
-						@Сумма_в_денежном_ящике,
-						@Признак_изменения_данных,
-						@Дата_время_открытия_первого_чека,
-						@Сумма_продажи_наличные,
-						@Сумма_продажи_безналичные,
-						@Сумма_продажи_прочие,
-						@Сумма_выручки_наличные,
-						@Сумма_выручки_безналичные,
-						@Сумма_возвратов,
-						@Сумма_возвратов_наличные,
-						@Сумма_возвратов_безналичные,
-						@Количество_чеков_продажи,
-						@Количество_чеков_возврата,
-						@Составной_код_смены,
-						@Составной_код_кассира
-					)
-			end try
-			begin catch
-				rollback tran @TransactionName
-				set @msg = concat('Не удалось добавить информацию о смене в таблицу t_fact_Смены_на_кассе (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
-				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
-				continue
-			end catch
-
 			-- Добавление информации о документах (чеках)
 
 			begin try
 				set @str = '
+				truncate table [cass].[t_raw_Кассовые_документы]
 				insert into
 					[cass].[t_raw_Кассовые_документы] (
 						ИД_документа,
@@ -554,7 +475,7 @@ BEGIN
 				exec(@str);
 			end try
 			begin catch
-				rollback tran @TransactionName
+				--rollback tran @TransactionName
 				set @msg = concat('Не удалось извлечь данные о документах из кассы в таблицу t_raw_Кассовые_документы (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
@@ -564,6 +485,7 @@ BEGIN
 
 			begin try
 				set @str = '
+				truncate table [cass].[t_raw_Оплаты]
 				insert into
 					[cass].[t_raw_Оплаты] (
 						ИД_документа,
@@ -596,7 +518,8 @@ BEGIN
 						left join
 							`documents`.`document` on `documents`.`moneyitem`.`documentid` = `documents`.`document`.`documentid`
 						where
-							`documents`.`document`.`workshiftid` = %workshiftid%
+							`documents`.`document`.`workshiftid` = %workshiftid% and
+							`documents`.`document`.`doctype` in (1, 2, 25) and `documents`.`document`.`closed` in (1, 2)
 						group by
 							`moneyitem`.`documentid`,`moneyitem`.`valcode`,`moneyitem`.`opcode`
 					) as cte70 on 
@@ -614,7 +537,8 @@ BEGIN
 						left join
 							`documents`.`document` on `documents`.`moneyitem`.`documentid` = `documents`.`document`.`documentid`
 						where
-							`documents`.`document`.`workshiftid` = %workshiftid%
+							`documents`.`document`.`workshiftid` = %workshiftid% and
+							`documents`.`document`.`doctype` in (1, 2, 25) and `documents`.`document`.`closed` in (1, 2)
 						group by
 							`moneyitem`.`documentid`,`moneyitem`.`valcode`,`moneyitem`.`opcode`
 					) as cte72 on 
@@ -633,7 +557,7 @@ BEGIN
 				exec(@str);
 			end try
 			begin catch
-				rollback tran @TransactionName
+				--rollback tran @TransactionName
 				set @msg = concat('Не удалось извлечь данные об оплатах из кассы в таблицу t_raw_Оплаты (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
@@ -643,6 +567,7 @@ BEGIN
 
 			begin try
 				set @str = '
+				truncate table [cass].[t_raw_Позиции_документа]
 				insert into
 					[cass].[t_raw_Позиции_документа] (
 						ИД_позиции,
@@ -706,7 +631,8 @@ BEGIN
 					left join
 						`documents`.`document` on `documents`.`goodsitem`.`documentid` = `documents`.`document`.`documentid`
 					where
-						`documents`.`document`.`workshiftid` = %workshiftid%
+						`documents`.`document`.`workshiftid` = %workshiftid% and
+						`documents`.`document`.`doctype` in (1, 2, 25) and `documents`.`document`.`closed` in (1, 2)
 					''
 				) where opcode in (50, 58)';
 
@@ -715,7 +641,7 @@ BEGIN
 				exec(@str);
 			end try
 			begin catch
-				rollback tran @TransactionName
+				--rollback tran @TransactionName
 				set @msg = concat('Не удалось извлечь данные о позициях документов в таблицу t_raw_Позиции_документа (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
@@ -725,6 +651,7 @@ BEGIN
 
 			begin try
 				set @str = '
+				truncate table [cass].[t_raw_Скидки]
 				insert into
 					[cass].[t_raw_Скидки] (
 						ИД_скидки,
@@ -787,7 +714,8 @@ BEGIN
 					left join
 						`documents`.`document`  on `documents`.`goodsitem`.`documentid` = `documents`.`document`.`documentid`
 					where
-						`documents`.`document`.`workshiftid` = %workshiftid%
+						`documents`.`document`.`workshiftid` = %workshiftid% and
+						`documents`.`document`.`doctype` in (1, 2, 25) and `documents`.`document`.`closed` in (1, 2)
 					''
 				)';
 
@@ -796,7 +724,7 @@ BEGIN
 				exec(@str);
 			end try
 			begin catch
-				rollback tran @TransactionName
+				--rollback tran @TransactionName
 				set @msg = concat('Не удалось извлечь данные о скидках в таблицу t_raw_Скидки (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
@@ -806,6 +734,7 @@ BEGIN
 
 			begin try
 				set @str = '
+				truncate table [cass].[t_raw_Сторнированные_позиции]
 				insert into
 					[cass].[t_raw_Сторнированные_позиции] (
 						ИД_сторнированной_позиции,
@@ -882,8 +811,82 @@ BEGIN
 				exec(@str);
 			end try
 			begin catch
-				rollback tran @TransactionName
+				--rollback tran @TransactionName
 				set @msg = concat('Не удалось извлечь данные о сторнированных позициях в таблицу t_raw_Сторнированные_позиции (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end catch
+
+			begin tran @TransactionName 
+
+			-- Удаление смены. Все связанные данные удалятся каскадно.
+
+			delete from
+				cass.t_fact_Смены_на_кассах
+			where
+				cass.t_fact_Смены_на_кассах.Составной_код_смены = @Составной_код_смены
+
+			-- Загрузка кассовых документов
+
+			-- Добавление смены
+				
+			begin try 
+				insert into 
+					cass.t_fact_Смены_на_кассах (
+						Код_кассы,
+						Номер_смены,
+						Дата_начала_смены,
+						Дата_время_начала_смены,
+						Дата_время_окончания_смены,
+						Номер_первого_чека_в_смене,
+						Номер_последнего_чека_в_смене,
+						Сумма_продажи,
+						Сумма_выручки,
+						Сумма_в_денежном_ящике,
+						Признак_изменения_данных,
+						Дата_время_открытия_первого_чека,
+						Сумма_продажи_наличные,
+						Сумма_продажи_безналичные,
+						Сумма_продажи_прочие,
+						Сумма_выручки_наличные,
+						Сумма_выручки_безналичные,
+						Сумма_возвратов,
+						Сумма_возвратов_наличные,
+						Сумма_возвратов_безналичные,
+						Количество_чеков_продажи,
+						Количество_чеков_возврата,
+						Составной_код_смены,
+						Составной_код_кассира
+					) values (
+						@Код_кассы,
+						@Номер_смены,
+						cast(@Дата_время_начала_смены as date),
+						@Дата_время_начала_смены,
+						@Дата_время_окончания_смены,
+						@Номер_первого_чека_в_смене,
+						@Номер_последнего_чека_в_смене,
+						@Сумма_продажи,
+						@Сумма_выручки,
+						@Сумма_в_денежном_ящике,
+						@Признак_изменения_данных,
+						@Дата_время_открытия_первого_чека,
+						@Сумма_продажи_наличные,
+						@Сумма_продажи_безналичные,
+						@Сумма_продажи_прочие,
+						@Сумма_выручки_наличные,
+						@Сумма_выручки_безналичные,
+						@Сумма_возвратов,
+						@Сумма_возвратов_наличные,
+						@Сумма_возвратов_безналичные,
+						@Количество_чеков_продажи,
+						@Количество_чеков_возврата,
+						@Составной_код_смены,
+						@Составной_код_кассира
+					)
+			end try
+			begin catch
+				rollback tran @TransactionName
+				set @msg = concat('Не удалось добавить информацию о смене в таблицу t_fact_Смены_на_кассе (Смена НЕ была загружена). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @ИД_смены, ', Ошибка: ', error_message());
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
