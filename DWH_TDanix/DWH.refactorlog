@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="b72a6138-ee00-44da-bf4f-7bdb30619e3d" ChangeDateTime="09/27/2022 07:02:04">
+    <Property Name="ElementName" Value="[dbo].[t_fact_Товародвижение].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_fact_Товародвижение]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Составной_код_документа" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="092e3b92-7e94-43de-a3b8-4305384c6f91" ChangeDateTime="09/27/2022 07:02:54">
+    <Property Name="ElementName" Value="[dbo].[t_fact_Товародвижение].[Код_т]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_fact_Товародвижение]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Склад_в_магазине" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9027db0a-1306-4aa8-a06f-1fc9e40d82de" ChangeDateTime="09/27/2022 07:40:03">
+    <Property Name="ElementName" Value="[td].[t_fact_Товародвижение].[Себестоимость]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[td].[t_fact_Товародвижение]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="СуммаЗакупа" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c36e4e97-e626-4efa-9478-c9a21013f682" ChangeDateTime="09/27/2022 08:31:30">
+    <Property Name="ElementName" Value="[dbo].[t_dim_Виды_движения].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_dim_Виды_движения]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Код_вида_движения" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="82c6d799-04ea-4b07-b08f-12bc7b98a349" ChangeDateTime="09/27/2022 09:01:53">
+    <Property Name="ElementName" Value="[dbo].[t_dim_Склад_в_магазине].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_dim_Склад_в_магазине]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Код_склада" />
+  </Operation>
+</Operations>
