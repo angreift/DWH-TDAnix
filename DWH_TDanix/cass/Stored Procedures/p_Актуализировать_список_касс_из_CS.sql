@@ -16,7 +16,7 @@ BEGIN
 	
 	insert into #cass_list_from_CS
 	select pos_addr IP_Адрес, cashcode / 100 Код_магазина, cashcode Код_кассы
-	from openquery([SERV-ARTIX], 'select cashcode, pos_addr from rs_pos_sales.status where ping = 1 and sshport = 1')
+	from openquery([SERV-ARTIX], 'select cashcode, pos_addr from rs_pos_sales.status where ping = 1 or sshport = 1')
 	update cass.t_dim_Кассы set Включена = 0;
 	merge
 		cass.t_dim_Кассы as к1
