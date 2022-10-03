@@ -210,6 +210,8 @@ BEGIN
 		begin catch
 			set @msg = concat('Не удалось выполнить запрос к таблице Mol. Код_кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', Ошибка: ', error_message());
 			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+			set @msg = error_message();
+			exec [cass].p_Добавить_информацию_об_ошибке_обмена @Код_кассы, @msg;
 			continue;
 		end catch
 
@@ -322,9 +324,102 @@ BEGIN
 		--	print('Выполнен запрос получения смен (Workshift)');
 		end try
 		begin catch
-			set @msg = concat('Не удалось выполнить запрос получения смен. КАССА БУДЕТ ПРОПУЩЕНА. Код_кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', Ошибка: ', error_message());
-			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
-			continue;
+
+			-- На старых артиксах нет некоторых итоговых полей. Попробуем запрос без них
+			set @str = '
+				truncate table cass.t_raw_Смены
+				insert into 
+					cass.t_raw_Смены (
+						ИД_смены,
+						Номер_смены,
+						Код_кассира,
+						Дата_время_начала_смены,
+						Дата_время_окончания_смены,
+						Номер_первого_чека_в_смене,
+						Номер_последнего_чека_в_смене,
+						Сумма_продажи,
+						Сумма_выручки,
+						Сумма_в_денежном_ящике,
+						Признак_изменения_данных,
+						Дата_время_открытия_первого_чека,
+						Сумма_продажи_наличные,
+						Сумма_продажи_безналичные,
+						Сумма_продажи_прочие,
+						Сумма_выручки_наличные,
+						Сумма_выручки_безналичные,
+						Сумма_возвратов,
+						Сумма_возвратов_наличные,
+						Сумма_возвратов_безналичные,
+						Количество_чеков_продажи,
+						Количество_чеков_возврата
+					)
+				select
+					workshiftid,
+					shiftnum,
+					scode,
+					time_beg,
+					time_end,
+					checknum1,
+					checknum2,
+					sumsale,
+					sumgain,
+					sumdrawer,
+					changed,
+					firstchecktime,
+					sumsalecash,
+					sumsalenoncash,
+					sumsaleother,
+					sumgaincash,
+					sumgainnoncash,
+					sumrefund,
+					sumrefundcash,
+					sumrefundnoncash,
+					countsale,
+					countrefund
+				from
+					openquery(
+						[pos_%cassnum%],
+							''select
+								`workshiftid`,
+								`shiftnum`,
+								`scode`,
+								`time_beg`,
+								`time_end`,
+								`checknum1`,
+								`checknum2`,
+								`sumsale`,
+								`sumgain`,
+								`sumdrawer`,
+								`changed`,
+								`firstchecktime`,
+								0 as `sumsalecash`,
+								0 as`sumsalenoncash`,
+								0 as`sumsaleother`,
+								0 as `sumgaincash`,
+								0 as `sumgainnoncash`,
+								0 as `sumrefund`,
+								0 as `sumrefundcash`,
+								0 as `sumrefundnoncash`,
+								0 as `countsale`,
+								0 as `countrefund`,
+								`cashcode`
+							from
+								`workshift`''
+					) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0 and firstchecktime is not null 
+			'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
+			-- Берем данные за предыдущие 60 дней
+			set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
+			begin try
+				exec (@str);
+			--	print('Выполнен запрос получения смен (Workshift)');
+			end try
+			begin catch
+				set @msg = concat('Не удалось выполнить запрос получения смен. КАССА БУДЕТ ПРОПУЩЕНА. Код_кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				set @msg = error_message();
+				exec [cass].p_Добавить_информацию_об_ошибке_обмена @Код_кассы, @msg;
+				continue;
+			end catch
 		end catch
 
 		if @ИД_смены_для_переснятия > 0 delete from cass.t_raw_Смены where ИД_смены <> @ИД_смены_для_переснятия
