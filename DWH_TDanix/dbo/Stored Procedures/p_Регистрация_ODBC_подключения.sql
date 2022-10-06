@@ -83,10 +83,10 @@ BEGIN
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'rpc', @optvalue=N'false'
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'rpc out', @optvalue=N'false'
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'sub', @optvalue=N'false'
-		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'connect timeout', @optvalue=N'0'
+		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'connect timeout', @optvalue=N'60'
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'collation name', @optvalue=null
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'lazy schema validation', @optvalue=N'false'
-		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'query timeout', @optvalue=N'0'
+		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'query timeout', @optvalue=N'60'
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'use remote collation', @optvalue=N'true'
 		EXEC master.dbo.sp_serveroption @server=@linkedServerName, @optname=N'remote proc transaction promotion', @optvalue=N'true'
 	end try
