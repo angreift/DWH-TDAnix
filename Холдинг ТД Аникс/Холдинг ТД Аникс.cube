@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="88" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1806" scrolltop="30465" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="29977" y="17013" backcolor="2632756" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="88" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1806" scrolltop="30465" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="29977" y="16298" backcolor="2632756" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -5431,25 +5431,6 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="03f9333c-20a7-4515-be76-252a128645f4">
-          <CubeDimensionID>Вид товародвижения</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="0b246ff0-f302-44b6-b0a1-eec8d78644c3">
-              <AttributeID>Код Вида Движения</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e706858b-ead1-4af6-b42c-46cfa3775498">
-                  <DataType>UnsignedTinyInt</DataType>
-                  <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ea4a844a-2499-4656-99a1-b54ab50918b4">
-                    <TableID>td_t_fact_Товародвижение</TableID>
-                    <ColumnID>ВидДвижения</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="7e2188b1-f612-410a-bedb-e426505614e2">
           <CubeDimensionID>Причина товародвижения</CubeDimensionID>
           <Attributes>
@@ -5462,6 +5443,24 @@
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="2cb225a8-02fe-4ac1-93cd-5b517731b909">
                     <TableID>td_t_fact_Товародвижение</TableID>
                     <ColumnID>Код_причины</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ad858cfc-b8e6-4505-bd70-ea5e6e214450">
+          <CubeDimensionID>Вид товародвижения</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4fb79044-f83b-4e27-81ea-b64e7cb4dd40">
+              <AttributeID>Код Вида Движения</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c7e22590-b8d7-4fd9-9ce4-884b6a033b68">
+                  <DataType>UnsignedTinyInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b401d289-68bc-4a1e-b0d7-8c56d0aec5f1">
+                    <TableID>td_t_fact_Товародвижение</TableID>
+                    <ColumnID>ВидДвижения</ColumnID>
                   </Source>
                 </KeyColumn>
               </KeyColumns>
