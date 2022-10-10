@@ -8,7 +8,6 @@ CREATE TABLE [td].[t_fact_Товарная_матрица](
 	[Код_поставщика] [int],
 	[Признак] [tinyint]
 ) ON [FACTS]
+go
 
-GO
-
-Create clustered index ix_cl_дата_товар_магазин on [td].[t_fact_Товарная_матрица] (Дата, Код_товара, Код_магазина)
+create clustered index ix_cl_дата_товар_магазин on [td].[t_fact_Товарная_матрица] (Дата, Код_товара, Код_магазина)  on [FACTS]
