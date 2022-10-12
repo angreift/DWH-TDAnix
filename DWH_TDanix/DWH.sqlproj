@@ -414,5 +414,14 @@
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
+    <Build Include="td\Tables\t_raw_Данные_товародвижения_из_магазинов.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_складов_из_БМ.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="td\Stored Procedures\p_Синхронизация_движений.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
   </ItemGroup>
 </Project>
