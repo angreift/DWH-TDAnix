@@ -1,6 +1,5 @@
 ﻿CREATE TABLE [td].[t_fact_Товародвижение]
 (
-	[Составной_код_документа] NVARCHAR(20) NOT NULL, 
     [Дата] DATE NOT NULL,
     [Код_магазина] INT NOT NULL, 
     [Склад_в_магазине] INT NULL, 
@@ -10,15 +9,15 @@
     [Сумма] DECIMAL(14, 2) NOT NULL, 
     [СуммаЗакупа] DECIMAL(14, 2) NOT NULL,
     [СуммаЗакупаСоСклада] DECIMAL(14, 2) NOT NULL, 
-    [Цена] DECIMAL(14, 2) NOT NULL, 
-    [ЦенаЗакупа] DECIMAL(14, 2) NOT NULL, 
-    [ЦенаЗакупаСоСклада] DECIMAL(14, 2) NOT NULL,
     [Количество] DECIMAL(14, 3) NOT NULL
 )
 
 GO
 
-CREATE NONCLUSTERED INDEX [ix_uncl_Код_товара_Код_магазина] ON [td].[t_fact_Товародвижение] ([Код_товара], [Код_магазина]) ON [FACTS]
+CREATE NONCLUSTERED INDEX [ix_uncl_Код_товара] ON [td].[t_fact_Товародвижение] ([Код_товара]) ON [FACTS]
+GO
+
+CREATE NONCLUSTERED INDEX [ix_uncl_Код_магазина] ON [td].[t_fact_Товародвижение] ([Код_магазина]) ON [FACTS]
 GO
 
 CREATE CLUSTERED INDEX [ix_uncl_Дата] ON [td].[t_fact_Товародвижение] ([Дата]) ON [FACTS]
