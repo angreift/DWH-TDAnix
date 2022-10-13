@@ -683,9 +683,9 @@
                     <point x="32414" y="28590" />
                   </connector>
                 </ddscontrol>
-                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="t_dim_Поставщики" left="-2497" top="-4791" logicalid="275" controlid="146" masterid="0" hint1="0" hint2="0" width="4657" height="4057" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="t_dim_Поставщики" left="-2497" top="-4791" logicalid="275" controlid="146" masterid="0" hint1="0" hint2="0" width="4657" height="4269" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                   <control>
-                    <ddsxmlobjectstreaminitwrapper binary="000e000031120000d90f0000" />
+                    <ddsxmlobjectstreaminitwrapper binary="000e000031120000ad100000" />
                   </control>
                   <layoutobject>
                     <ddsxmlobj>
@@ -2430,7 +2430,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_t_dim_Поставщики" msprop:design-time-name="aca485d6-748c-450a-8c02-caa60f382bc4" msprop:DbTableName="t_dim_Поставщики" msprop:FriendlyName="t_dim_Поставщики" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+            <xs:element name="dbo_t_dim_Поставщики" msprop:design-time-name="aca485d6-748c-450a-8c02-caa60f382bc4" msprop:FriendlyName="t_dim_Поставщики" msprop:DbSchemaName="dbo" msprop:DbTableName="t_dim_Поставщики" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код" msprop:design-time-name="43524834-84a9-45db-b2a9-2845423142e7" msprop:DbColumnName="Код" msprop:FriendlyName="Код" type="xs:int" />
@@ -2458,6 +2458,13 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="Автозаявка" msprop:design-time-name="53ac5279-c96f-4ff9-a05a-b598ce819b44" msprop:DbColumnName="Автозаявка" msprop:FriendlyName="Автозаявка" type="xs:boolean" minOccurs="0" />
+                  <xs:element name="Наименование_с_кодом" msdata:ReadOnly="true" msprop:design-time-name="f63b0f8e-a1a3-4f69-93fb-376e56613bd8" msprop:IsLogical="True" msprop:FriendlyName="Наименование_с_кодом" msprop:Description="содержит код поставщика и наименование его" msprop:DbColumnName="Наименование_с_кодом" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="107" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
