@@ -1,4 +1,4 @@
-﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a377d280-deac-4e83-baf5-adfc0d3b2203" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="93d3d3c1-3a7b-4794-b3ea-682b397f32c7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DWH</ID>
   <Name>DWH</Name>
   <CreatedTimestamp>2022-09-05T03:41:58.303333Z</CreatedTimestamp>
@@ -984,7 +984,7 @@
             <Name>td</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="29752" scrolltop="2832" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="34793" y="18336" backcolor="2632756" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="24306" scrolltop="2715" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="34793" y="18336" backcolor="2632756" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
                   </font>
@@ -1028,7 +1028,7 @@
                   </layoutobject>
                   <shape groupshapeid="0" groupnode="0" />
                 </ddscontrol>
-                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="t_fact_Товародвижение" left="43127" top="12595" logicalid="17" controlid="4" masterid="0" hint1="0" hint2="0" width="4921" height="6746" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="v_fact_Товародвижение" left="43127" top="12595" logicalid="17" controlid="4" masterid="0" hint1="0" hint2="0" width="4921" height="6746" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                   <control>
                     <ddsxmlobjectstreaminitwrapper binary="000e0000391300005a1a0000" />
                   </control>
@@ -1194,8 +1194,8 @@
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>29752</DiagramViewPortLeft>
-            <DiagramViewPortTop>2832</DiagramViewPortTop>
+            <DiagramViewPortLeft>24306</DiagramViewPortLeft>
+            <DiagramViewPortTop>2715</DiagramViewPortTop>
             <DiagramBoundingLeft>35197</DiagramBoundingLeft>
             <DiagramBoundingTop>5195</DiagramBoundingTop>
             <DiagramZoom>100</DiagramZoom>
@@ -2223,7 +2223,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="td_t_fact_Товародвижение" msprop:DbSchemaName="dbo" msprop:design-time-name="eb1f8b0f-a26a-46a0-87ad-17380ea4475e" msprop:FriendlyName="t_fact_Товародвижение" msprop:TableType="View" msprop:DbTableName="v_fact_Товародвижение">
+            <xs:element name="td_t_fact_Товародвижение" msprop:DbSchemaName="dbo" msprop:design-time-name="eb1f8b0f-a26a-46a0-87ad-17380ea4475e" msprop:FriendlyName="v_fact_Товародвижение" msprop:TableType="View" msprop:DbTableName="v_fact_Товародвижение">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Дата" msprop:FriendlyName="Дата" msprop:DbColumnName="Дата" msprop:design-time-name="e7f35b27-e426-4a06-8c65-eccfac12d2ef" type="xs:dateTime" />
@@ -2239,36 +2239,36 @@
                   <xs:element name="ЦенаЗакупа" msprop:FriendlyName="ЦенаЗакупа" msprop:DbColumnName="ЦенаЗакупа" msprop:design-time-name="e02db382-354f-47c6-b10d-9d27beb3d3ca" type="xs:decimal" />
                   <xs:element name="ЦенаЗакупаСоСклада" msprop:FriendlyName="ЦенаЗакупаСоСклада" msprop:DbColumnName="ЦенаЗакупаСоСклада" msprop:design-time-name="b890d437-7ade-4e81-a89b-2bf1d8077936" type="xs:decimal" />
                   <xs:element name="Количество" msprop:FriendlyName="Количество" msprop:DbColumnName="Количество" msprop:design-time-name="40cb8440-b065-47c0-a4ae-c9022e309837" type="xs:decimal" />
-                  <xs:element name="Наименование_склада" msprop:design-time-name="1e3f71b4-49e2-4345-81f8-142678b0168d" msprop:DbColumnName="Наименование_склада" minOccurs="0">
+                  <xs:element name="Наименование_склада" msprop:DbColumnName="Наименование_склада" msprop:design-time-name="1e3f71b4-49e2-4345-81f8-142678b0168d" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="100" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Представление_склада" msprop:design-time-name="dd2357fa-d24d-47d0-9e1a-877a1335ab71" msprop:DbColumnName="Представление_склада" minOccurs="0">
+                  <xs:element name="Представление_склада" msprop:DbColumnName="Представление_склада" msprop:design-time-name="dd2357fa-d24d-47d0-9e1a-877a1335ab71" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="100" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование_вида_движения" msprop:design-time-name="27b81567-a9f3-4b48-8d20-18305a7bab80" msprop:DbColumnName="Наименование_вида_движения" minOccurs="0">
+                  <xs:element name="Наименование_вида_движения" msprop:DbColumnName="Наименование_вида_движения" msprop:design-time-name="27b81567-a9f3-4b48-8d20-18305a7bab80" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование_причины" msprop:design-time-name="c935d890-d601-44b3-b6cd-c59cbde7ff03" msprop:DbColumnName="Наименование_причины" minOccurs="0">
+                  <xs:element name="Наименование_причины" msprop:DbColumnName="Наименование_причины" msprop:design-time-name="c935d890-d601-44b3-b6cd-c59cbde7ff03" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код_категории" msprop:design-time-name="13e5614f-fa9b-4f49-b591-4617f8143234" msprop:DbColumnName="Код_категории" type="xs:short" minOccurs="0" />
-                  <xs:element name="Наименование_категории" msprop:design-time-name="5f2a656a-adba-4e47-8ff9-2bff0a4766c9" msprop:DbColumnName="Наименование_категории" minOccurs="0">
+                  <xs:element name="Код_категории" msprop:DbColumnName="Код_категории" msprop:design-time-name="13e5614f-fa9b-4f49-b591-4617f8143234" type="xs:short" minOccurs="0" />
+                  <xs:element name="Наименование_категории" msprop:DbColumnName="Наименование_категории" msprop:design-time-name="5f2a656a-adba-4e47-8ff9-2bff0a4766c9" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
