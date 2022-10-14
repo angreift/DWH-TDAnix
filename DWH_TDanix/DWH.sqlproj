@@ -432,7 +432,10 @@
       <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="td\Stored Procedures\p_ssas_process_Товародвижение.sql" />
-    <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщики.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщики.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DWH.refactorlog" />
