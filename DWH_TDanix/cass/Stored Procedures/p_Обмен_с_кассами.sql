@@ -315,7 +315,7 @@ BEGIN
 							`cashcode`
 						from
 							`workshift`''
-				) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 and firstchecktime is not null 
+				) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
 		'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 		-- Берем данные за предыдущие 60 дней
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
@@ -405,7 +405,7 @@ BEGIN
 								`cashcode`
 							from
 								`workshift`''
-					) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0 and firstchecktime is not null 
+					) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0
 			'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 			-- Берем данные за предыдущие 60 дней
 			set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
@@ -441,7 +441,7 @@ BEGIN
 			set @Сумма_выручки                    = (select Сумма_выручки                    from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_в_денежном_ящике           = (select Сумма_в_денежном_ящике           from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Признак_изменения_данных         = (select Признак_изменения_данных         from cass.t_raw_Смены where ИД_смены = @ИД_смены);
-			set @Дата_время_открытия_первого_чека = (select Дата_время_открытия_первого_чека from cass.t_raw_Смены where ИД_смены = @ИД_смены);
+			--set @Дата_время_открытия_первого_чека = (select Дата_время_открытия_первого_чека from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_продажи_наличные           = (select Сумма_продажи_наличные           from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_продажи_безналичные        = (select Сумма_продажи_безналичные        from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_продажи_прочие             = (select Сумма_продажи_прочие             from cass.t_raw_Смены where ИД_смены = @ИД_смены);
