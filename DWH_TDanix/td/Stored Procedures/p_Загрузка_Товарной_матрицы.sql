@@ -1,17 +1,13 @@
 ﻿
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
+
 CREATE PROCEDURE [td].[p_Загрузка_Товарной_матрицы] 
 	-- Add the parameters for the stored procedure here
 	
-	@dateInput datetime
+	
 AS
 BEGIN
-	declare @str nvarchar(max), @dateSQL2000 varchar(8);
-
+	declare @dateInput datetime, @str nvarchar(max), @dateSQL2000 varchar(8);
+	set @dateInput=GETDATE()-1
 set @dateSQL2000 = concat( cast(DATEPART(YEAR, @dateInput) as varchar),
 					right('0' + cast(DATEPART(MONTH, @dateInput)as varchar), 2),
 					right('0' + cast(DATEPART(day, @dateInput) as varchar), 2));
