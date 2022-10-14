@@ -7,6 +7,8 @@ FROM            cass.t_fact_Чеки INNER JOIN
                          cass.t_dim_Кассы ON cass.t_fact_Чеки.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
                          dbo.t_dim_Магазины ON cass.t_dim_Кассы.Код_магазина = dbo.t_dim_Магазины.Код INNER JOIN
                          cass.t_fact_Смены_на_кассах ON cass.t_fact_Чеки.Составной_код_смены = cass.t_fact_Смены_на_кассах.Составной_код_смены
+WHERE
+                cass.t_fact_Чеки.Флаг_закрытия_чека in (1, 2) --Сюда попадаю только закрытые чеки. Незакрытые чеки используются в сторно
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
