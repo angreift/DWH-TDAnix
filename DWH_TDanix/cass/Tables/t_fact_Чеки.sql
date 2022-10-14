@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [cass].[t_fact_Чеки] (
 	[Код_кассы] [int] NOT NULL,
 	[Номер_чека] [int] NOT NULL,
-	[Дата_закрытия_чека] [date] NOT NULL,
+	[Дата_закрытия_чека] [date] NULL,
 	[Дата_время_открытия_чека] [datetime] NOT NULL,
 	[Дата_время_закрытия_чека] [datetime] NULL,
 	[Сумма_без_скидок] [decimal](14, 2) NOT NULL,

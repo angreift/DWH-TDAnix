@@ -22,7 +22,9 @@ FROM            cass.t_fact_Чеки AS c INNER JOIN
                                FROM            cass.t_fact_Детализация_чеков AS g LEFT OUTER JOIN
                                                          dbo.t_dim_Товары AS t ON g.Код_товара = t.Код_товара
                                GROUP BY g.Код_кассы, g.Составной_код_документа) AS goods ON c.Составной_код_документа = goods.Составной_код_документа
+                        where c.Флаг_закрытия_чека in (1, 2) and c.Флаг_закрытия_чека is not null --Сюда попадаю только закрытые чеки. Незакрытые чеки используются в сторно
 
+                
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
