@@ -3,7 +3,7 @@
 	[Номер_чека] [int] NOT NULL,
 	[Дата_закрытия_чека] [date] NOT NULL,
 	[Дата_время_открытия_чека] [datetime] NOT NULL,
-	[Дата_время_закрытия_чека] [datetime] NOT NULL,
+	[Дата_время_закрытия_чека] [datetime] NULL,
 	[Сумма_без_скидок] [decimal](14, 2) NOT NULL,
 	[Итоговая_сумма_со_скидками] [money] NOT NULL,
 	[Печать_чека] [bit] NOT NULL,
@@ -16,6 +16,7 @@
 	[Составной_код_смены] [nvarchar](20) NOT NULL,
 	[Составной_код_документа] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира] [nvarchar](20) NOT NULL,
+    [Флаг_закрытия_чека] TINYINT NULL, 
     CONSTRAINT [PK_t_fact_Чеки] PRIMARY KEY CLUSTERED ([Составной_код_документа] ASC) ON [FACTS],
     CONSTRAINT [FK_t_fact_Чеки_t_fact_Смены_на_кассах] FOREIGN KEY ([Составной_код_смены]) REFERENCES [cass].[t_fact_Смены_на_кассах] ([Составной_код_смены]) ON DELETE CASCADE
 ) ON [FACTS];

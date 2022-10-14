@@ -315,7 +315,7 @@ BEGIN
 							`cashcode`
 						from
 							`workshift`''
-				) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 and firstchecktime is not null 
+				) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
 		'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 		-- Берем данные за предыдущие 60 дней
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
@@ -405,7 +405,7 @@ BEGIN
 								`cashcode`
 							from
 								`workshift`''
-					) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0 and firstchecktime is not null 
+					) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0
 			'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 			-- Берем данные за предыдущие 60 дней
 			set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
@@ -441,7 +441,7 @@ BEGIN
 			set @Сумма_выручки                    = (select Сумма_выручки                    from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_в_денежном_ящике           = (select Сумма_в_денежном_ящике           from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Признак_изменения_данных         = (select Признак_изменения_данных         from cass.t_raw_Смены where ИД_смены = @ИД_смены);
-			set @Дата_время_открытия_первого_чека = (select Дата_время_открытия_первого_чека from cass.t_raw_Смены where ИД_смены = @ИД_смены);
+			--set @Дата_время_открытия_первого_чека = (select Дата_время_открытия_первого_чека from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_продажи_наличные           = (select Сумма_продажи_наличные           from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_продажи_безналичные        = (select Сумма_продажи_безналичные        from cass.t_raw_Смены where ИД_смены = @ИД_смены);
 			set @Сумма_продажи_прочие             = (select Сумма_продажи_прочие             from cass.t_raw_Смены where ИД_смены = @ИД_смены);
@@ -531,7 +531,8 @@ BEGIN
 						Возврат,
 						Сумма_без_скидок,
 						Итоговая_сумма_со_скидками,
-						Печать_чека
+						Печать_чека,
+						Флаг_закрытия_чека
 				) select 
 					documentid,
 					workshiftid,
@@ -542,7 +543,8 @@ BEGIN
 					case when doctype = 1 then 0 else 1 end Возврат,
 					sum1,
 					sumb,
-					closewithoutprint
+					closewithoutprint,
+					closed
 				from openquery (
 					[pos_%cassnum%],
 					''
@@ -563,7 +565,7 @@ BEGIN
 					where
 						`documents`.`document`.`workshiftid` = %workshiftid%
 					''
-				) where doctype in (1, 2, 25) and closed in (1, 2)';
+				) where doctype in (1, 2, 25)';
 
 				set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
 				set @str = REPLACE(@str, '%workshiftid%', @ИД_смены);
@@ -1026,7 +1028,7 @@ BEGIN
 						isnull(RM_nt.Сумма_оплаты, 0) Сумма_оплаты_Неинтегрированный_терминал_СБ,
 						isnull(RM_c.Сумма_оплаты,  0) Сумма_оплаты_Накопительные_карты,
 						@Составной_код_смены,
-						cast(@Код_кассы as nvarchar) + '~' + cast(RDoc.ИД_документа as nvarchar),
+						@Составной_код_смены + '~' + cast(RDoc.ИД_документа as nvarchar),
 						@Составной_код_кассира
 					from
 						cass.t_raw_Кассовые_документы RDoc
@@ -1101,8 +1103,8 @@ BEGIN
 						Case when RDoc.Итоговая_сумма_со_скидками = 0 then 0 else round(RG.Итоговая_сумма_после_применения_всех_скидок * ( ISNULL(RM_nt.Сумма_оплаты, 0) / RDoc.Итоговая_сумма_со_скидками ), 2) end as Сумма_оплаты_Неинтегрированный_терминал_СБ,						
 						Case when RDoc.Итоговая_сумма_со_скидками = 0 then 0 else round(RG.Итоговая_сумма_после_применения_всех_скидок * ( ISNULL(RM_c.Сумма_оплаты, 0)  / RDoc.Итоговая_сумма_со_скидками ), 2) end as Сумма_оплаты_Накопительные_карты,
 						RG.Возврат,
-						cast(@Код_кассы as nvarchar) + '~' + CAST(RG.ИД_позиции as nvarchar),
-						cast(@Код_кассы as nvarchar) + '~' + CAST(RG.ИД_документа as nvarchar),
+						@Составной_код_смены + '~' + CAST(RG.ИД_позиции as nvarchar),
+						@Составной_код_смены + '~' + CAST(RG.ИД_документа as nvarchar),
 						cast(@Код_кассы as nvarchar) + '~' + CAST(RG.Код_кассира as nvarchar)
 					from
 						cass.t_raw_Позиции_документа RG
@@ -1169,7 +1171,7 @@ BEGIN
 						Итоговая_сумма_после_применения_скидок,
 						Код_товара,
 						Номер_сторнированной_позиции,
-						cast(@Код_кассы as nvarchar) + '~' + CAST(ИД_документа as nvarchar),
+						@Составной_код_смены + '~' + CAST(ИД_документа as nvarchar),
 						@Составной_код_кассира,
 						cast(@Код_кассы as nvarchar) + '~' + cast(Пользователь_подтвердивший_операцию as nvarchar)
 					from
@@ -1222,7 +1224,7 @@ BEGIN
 						RD.Номер_дисконтной_карты,
 						RD.Название_дисконтной_карты,
 						RD.ИД_карты,
-						cast(@Код_кассы as nvarchar) + '~' + CAST(RD.ИД_позиции as nvarchar),
+						@Составной_код_смены + '~' + CAST(RD.ИД_позиции as nvarchar),
 						@Составной_код_кассира
 					from
 						cass.t_raw_Скидки RD

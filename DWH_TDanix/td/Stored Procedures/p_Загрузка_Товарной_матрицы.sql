@@ -6,36 +6,31 @@ CREATE PROCEDURE [td].[p_Загрузка_Товарной_матрицы]
 	
 AS
 BEGIN
-	declare @dateInput datetime, @str nvarchar(max), @dateSQL2000 varchar(8);
-	set @dateInput=GETDATE()-1
-set @dateSQL2000 = concat( cast(DATEPART(YEAR, @dateInput) as varchar),
-					right('0' + cast(DATEPART(MONTH, @dateInput)as varchar), 2),
-					right('0' + cast(DATEPART(day, @dateInput) as varchar), 2));
+declare @str nvarchar(max), @date varchar(8), @date1 varchar(8);
+set @date =concat( cast(DATEPART(YEAR, getdate()) as varchar),
+					right('0' + cast(DATEPART(MONTH, getdate())as varchar), 2),
+					right('0' + cast(DATEPART(day, getdate()) as varchar), 2));
+
+set @date1 =concat( cast(DATEPART(YEAR, dateadd(d, -30, getdate())) as varchar),
+					right('0' + cast(DATEPART(MONTH, dateadd(d, -30, getdate())) as varchar), 2),
+					right('0' + cast(DATEPART(day, dateadd(d, -30, getdate())) as varchar), 2));
+
 set @str = '
 select 
-	 ''' + @dateSQL2000 + ''' дата, Код_магазина,	Код_поставщика,		Код_товара,		cast(Признак as tinyint) признак
+	 дата, Код_магазина,	Код_поставщика,		Код_товара,		cast(Признак as tinyint) признак
 from openquery (rozn,
 	
 ''
-select (
-	select top 1
-		cast(c1721_vv.value as numeric(1, 0))
-	from
-		_1sconst as c1721_vv (nolock)
-	where
-		
-		c1721_vv.id = 1721 and
-		c1721_vv.objid = спрТоварМатрица.ID and
-		c1721_vv.date <= ''''' + @dateSQL2000 + '''''
-		order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
-		)  Признак,
-	cast(СпрПоставщики.Code as int) Код_поставщика,
-	спрТовары.Code Код_товара,
-	спрМагазины.Code Код_магазина
+select СпрТоварМатрица.SP1723 дата,
+		cast(c1721_vv.value as numeric(1,0)) Признак,
+	cast(СпрПоставщики.Code as bigint) Код_поставщика,
+	cast(спрТовары.Code as bigint) Код_товара,
+	cast(спрМагазины.Code as bigint) Код_магазина
 	
 
 from 
-		sc1725 СпрТоварМатрица (NoLock)
+	_1sconst as c1721_vv (nolock) left join
+		sc1725 СпрТоварМатрица (NoLock) on СпрТоварМатрица.SP1723=c1721_vv.date
 	Left Join
 		sc11 спрТовары (NoLock) On спрТовары.ID = спрТоварМатрица.ParentExt
 	Left Join
@@ -45,30 +40,23 @@ from
 	Left Join
 		sc36 СпрПоставщики (NoLock) On СпрПоставщики.ID = СпрТоварМатрица.sp1816 
 		
-
-Where (
-	(select top 1
-		cast(c1721_vv.value as numeric(1, 0))
-	from
-		_1sconst as c1721_vv (nolock) 
-	where
+where(
+		(СпрТоварМатрица.SP1723 between '''''+@date1+''''' and '''''+@date+''''') and 
 		c1721_vv.id = 1721 and
+		cast(СпрПоставщики.Code as bigint)< 2147483647 and
+		спрТовары.Code is not null and
+		спрМагазины.Code is not null and
 		c1721_vv.value is not null and
 		c1721_vv.objid = спрТоварМатрица.ID and
-		c1721_vv.date<= ''''' + @dateSQL2000 + '''''
-
+		c1721_vv.date =СпрТоварМатрица.SP1723)
 		order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
-) 
-
-		IN (''''2'''',''''3'''',''''4'''',''''6'''',''''9''''))
-		
 '') 
 ';
 delete from td.t_fact_Товарная_матрица
-	where Дата = cast(@dateInput as date)
+where Дата >=@date1
 insert into td.t_fact_Товарная_матрица (
-	дата, Код_магазина,	Код_поставщика,		Код_товара,		Признак
-) 
+дата, Код_магазина,	Код_поставщика,		Код_товара,		Признак)
+	
 exec(@str);
 
 END

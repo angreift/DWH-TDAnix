@@ -2,11 +2,11 @@
 
 
 CREATE TABLE [td].[t_fact_Товарная_матрица](
-	[Дата] [date] ,
-	[Код_магазина] [int],
-	[Код_товара] [int],
+	[Дата] [date] NOT NULL ,
+	[Код_магазина] [int] NOT NULL,
+	[Код_товара] [int] NOT NULL,
 	[Код_поставщика] [int],
-	[Признак] [tinyint]
+	[Признак] [tinyint] NOT NULL
 ) ON [FACTS]
 go
 
