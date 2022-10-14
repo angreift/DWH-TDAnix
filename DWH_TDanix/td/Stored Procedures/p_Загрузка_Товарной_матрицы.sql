@@ -23,9 +23,9 @@ from openquery (rozn,
 ''
 select СпрТоварМатрица.SP1723 дата,
 		cast(c1721_vv.value as numeric(1,0)) Признак,
-	cast(СпрПоставщики.Code as bigint) Код_поставщика,
-	cast(спрТовары.Code as bigint) Код_товара,
-	cast(спрМагазины.Code as bigint) Код_магазина
+	cast(СпрПоставщики.Code as int) Код_поставщика,
+	cast(спрТовары.Code as int) Код_товара,
+	cast(спрМагазины.Code as int) Код_магазина
 	
 
 from 
@@ -43,7 +43,8 @@ from
 where(
 		(СпрТоварМатрица.SP1723 between '''''+@date1+''''' and '''''+@date+''''') and 
 		c1721_vv.id = 1721 and
-		cast(СпрПоставщики.Code as bigint)< 2147483647 and
+		cast(СпрТовары.Code as bigint)< 2000000000 and
+		cast(СпрТовары.Code as bigint)>0 and
 		спрТовары.Code is not null and
 		спрМагазины.Code is not null and
 		c1721_vv.value is not null and
@@ -53,7 +54,7 @@ where(
 '') 
 ';
 delete from td.t_fact_Товарная_матрица
-where Дата >=@date1
+	where Дата >=@date1
 insert into td.t_fact_Товарная_матрица (
 дата, Код_магазина,	Код_поставщика,		Код_товара,		Признак)
 	

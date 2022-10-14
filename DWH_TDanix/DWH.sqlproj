@@ -133,7 +133,6 @@
     <Folder Include="td" />
     <Folder Include="td\Tables" />
     <Folder Include="td\Stored Procedures" />
-    <Folder Include="td\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="cass\Tables\t_raw_Сторнированные_позиции.sql">
@@ -426,16 +425,13 @@
     </Build>
     <Build Include="td\Tables\t_fact_Товарная_матрица.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_Товарной_матрицы.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщики_1.sql" />
     <Build Include="dbo\Tables\t_dim_Поставщики_1.sql" />
     <Build Include="td\Views\v_fact_Товародвижение.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="td\Stored Procedures\p_ssas_process_Товародвижение.sql" />
-    <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщики.sql">
-      <QuotedIdentifier>On</QuotedIdentifier>
-      <AnsiNulls>On</AnsiNulls>
-    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DWH.refactorlog" />
