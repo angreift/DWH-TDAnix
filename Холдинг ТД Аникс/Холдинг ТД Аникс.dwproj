@@ -1,5 +1,5 @@
 ﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
-  <ProductVersion>15.0.19623.0</ProductVersion>
+  <ProductVersion>16.0.20138.0</ProductVersion>
   <SchemaVersion>9.0.2.10</SchemaVersion>
   <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
   <Database>
@@ -2780,6 +2780,277 @@
                   <ConfigurationSetting>
                     <Id>Чеки_2023_12_25</Id>
                     <Name>Чеки_2023_12_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                </Value>
+              </ConfigurationSetting>
+              <ConfigurationSetting>
+                <Id>t Fact Товародвижение</Id>
+                <Name>t Fact Товародвижение</Name>
+                <Value xsi:type="ConfigurationSettingsCollection">
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2021_12_27</Id>
+                    <Name>Товародвижение_2021_12_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_01_03</Id>
+                    <Name>Товародвижение_2022_01_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_01_10</Id>
+                    <Name>Товародвижение_2022_01_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_01_17</Id>
+                    <Name>Товародвижение_2022_01_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_01_24</Id>
+                    <Name>Товародвижение_2022_01_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_01_31</Id>
+                    <Name>Товародвижение_2022_01_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_02_07</Id>
+                    <Name>Товародвижение_2022_02_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_02_14</Id>
+                    <Name>Товародвижение_2022_02_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_02_21</Id>
+                    <Name>Товародвижение_2022_02_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_02_28</Id>
+                    <Name>Товародвижение_2022_02_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_03_07</Id>
+                    <Name>Товародвижение_2022_03_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_03_14</Id>
+                    <Name>Товародвижение_2022_03_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_03_21</Id>
+                    <Name>Товародвижение_2022_03_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_03_28</Id>
+                    <Name>Товародвижение_2022_03_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_04_04</Id>
+                    <Name>Товародвижение_2022_04_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_04_11</Id>
+                    <Name>Товародвижение_2022_04_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_04_18</Id>
+                    <Name>Товародвижение_2022_04_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_04_25</Id>
+                    <Name>Товародвижение_2022_04_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_05_02</Id>
+                    <Name>Товародвижение_2022_05_02</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_05_09</Id>
+                    <Name>Товародвижение_2022_05_09</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_05_16</Id>
+                    <Name>Товародвижение_2022_05_16</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_05_23</Id>
+                    <Name>Товародвижение_2022_05_23</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_05_30</Id>
+                    <Name>Товародвижение_2022_05_30</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_06_06</Id>
+                    <Name>Товародвижение_2022_06_06</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_06_13</Id>
+                    <Name>Товародвижение_2022_06_13</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_06_20</Id>
+                    <Name>Товародвижение_2022_06_20</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_06_27</Id>
+                    <Name>Товародвижение_2022_06_27</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_07_04</Id>
+                    <Name>Товародвижение_2022_07_04</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_07_11</Id>
+                    <Name>Товародвижение_2022_07_11</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_07_18</Id>
+                    <Name>Товародвижение_2022_07_18</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_07_25</Id>
+                    <Name>Товародвижение_2022_07_25</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_08_01</Id>
+                    <Name>Товародвижение_2022_08_01</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_08_08</Id>
+                    <Name>Товародвижение_2022_08_08</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_08_15</Id>
+                    <Name>Товародвижение_2022_08_15</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_08_22</Id>
+                    <Name>Товародвижение_2022_08_22</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_08_29</Id>
+                    <Name>Товародвижение_2022_08_29</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_09_05</Id>
+                    <Name>Товародвижение_2022_09_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_09_12</Id>
+                    <Name>Товародвижение_2022_09_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_09_19</Id>
+                    <Name>Товародвижение_2022_09_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_09_26</Id>
+                    <Name>Товародвижение_2022_09_26</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_10_03</Id>
+                    <Name>Товародвижение_2022_10_03</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_10_10</Id>
+                    <Name>Товародвижение_2022_10_10</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_10_17</Id>
+                    <Name>Товародвижение_2022_10_17</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_10_24</Id>
+                    <Name>Товародвижение_2022_10_24</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_10_31</Id>
+                    <Name>Товародвижение_2022_10_31</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_11_07</Id>
+                    <Name>Товародвижение_2022_11_07</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_11_14</Id>
+                    <Name>Товародвижение_2022_11_14</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_11_21</Id>
+                    <Name>Товародвижение_2022_11_21</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_11_28</Id>
+                    <Name>Товародвижение_2022_11_28</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_12_05</Id>
+                    <Name>Товародвижение_2022_12_05</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_12_12</Id>
+                    <Name>Товародвижение_2022_12_12</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_12_19</Id>
+                    <Name>Товародвижение_2022_12_19</Name>
+                    <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
+                  </ConfigurationSetting>
+                  <ConfigurationSetting>
+                    <Id>Товародвижение_2022_12_26</Id>
+                    <Name>Товародвижение_2022_12_26</Name>
                     <Value xsi:type="xsd:string">\\?\H:\Холдинг ТД Аникс\SSAS</Value>
                   </ConfigurationSetting>
                 </Value>
