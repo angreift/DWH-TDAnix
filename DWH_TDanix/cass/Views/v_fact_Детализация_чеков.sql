@@ -23,9 +23,9 @@ SELECT        cass.t_fact_Детализация_чеков.Код_кассы, c
                          td.v_fact_Товарная_матрица.Признак, td.v_fact_Товарная_матрица.Код_поставщика
 FROM            cass.t_fact_Детализация_чеков INNER JOIN
                          cass.t_dim_Кассы ON cass.t_fact_Детализация_чеков.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
-                         cass.t_fact_Чеки ON cass.t_fact_Детализация_чеков.Составной_код_документа = cass.t_fact_Чеки.Составной_код_документа INNER JOIN
+                         cass.t_fact_Чеки ON cass.t_fact_Детализация_чеков.Составной_код_документа = cass.t_fact_Чеки.Составной_код_документа LEFT OUTER JOIN
                          td.v_fact_Товарная_матрица ON cass.t_fact_Детализация_чеков.Дата_добавления_позиции = td.v_fact_Товарная_матрица.Дата AND 
-                         cass.t_fact_Детализация_чеков.Код_товара = td.v_fact_Товарная_матрица.Код_товара AND cass.t_dim_Кассы.Код_магазина = td.v_fact_Товарная_матрица.Код_магазина RIGHT OUTER JOIN
+                         cass.t_fact_Детализация_чеков.Код_товара = td.v_fact_Товарная_матрица.Код_товара AND cass.t_dim_Кассы.Код_магазина = td.v_fact_Товарная_матрица.Код_магазина LEFT OUTER JOIN
                          dbo.t_dim_Товары ON cass.t_fact_Детализация_чеков.Код_товара = dbo.t_dim_Товары.Код_товара
 GO
 
