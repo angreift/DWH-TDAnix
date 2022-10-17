@@ -15,3 +15,6 @@ GO
 
 create index ix_uncl_Код_магазина on [td].[t_fact_Товарная_матрица] (Код_магазина) on [FACTS]
 GO
+
+create index ix_uncl_Дата on [td].[t_fact_Товарная_матрица] (Дата) on [FACTS]
+GO
