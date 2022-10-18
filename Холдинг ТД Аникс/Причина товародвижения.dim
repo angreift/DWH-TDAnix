@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="538fc19c-04b9-405a-bdda-cc14220d5859" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="58ec06be-65fa-4dcc-bcd5-59dc6a2fac2d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Причина товародвижения</ID>
   <Name>Причина товародвижения</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -97,74 +97,74 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="54d6831d-2aee-4258-b562-766e6857d51e">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="c6dab93e-b8a9-44c3-8e7a-9612f7761dfb">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <UnknownMember valuens="ddl200_200">AutomaticNull</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="fbf618f9-c10d-41f9-ac99-d2f4a2155205">
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="6bdc43b6-1006-4dcb-9930-7b1ab0a81e6a">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <UnknownMemberName>(Причина не указана)</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="70c1406f-bce3-4ad7-b9d6-003937a819d4">
+    <Attribute dwd:design-time-name="01cb1e41-a28e-4403-af02-c81974a8c7a2">
       <ID>Код Причины</ID>
       <Name>Причина</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="34c2e9f7-f4bc-4f6d-bee4-d9d9634152d3">
+        <KeyColumn dwd:design-time-name="a464415c-a884-4373-8aef-de5f5bf3a1ca">
           <DataType>SmallInt</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2ce980aa-604a-4b2e-bca3-7d906443147c">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0216e3b4-eb54-43fa-8324-60dae897173a">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Код_причины</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="0d377d93-0362-48b0-9fec-f768c5634b0f">
+      <NameColumn dwd:design-time-name="8ccf1913-62c4-4db6-ad5e-8a177b47f063">
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="cc6f09fb-d621-476a-99ec-4f5b6f0e5106">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="11c2dc3c-c57e-4cc1-a2ec-7d4638337694">
           <TableID>td_t_dim_Причины</TableID>
           <ColumnID>Наименование_причины</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="d41605d7-6118-4840-a700-d29751d5980f">
+        <AttributeRelationship dwd:design-time-name="3d002a26-7ae5-4b09-90d1-9b7a7a638046">
           <AttributeID>Код Категории</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Категория</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="8b6b74b9-0570-40fe-8e71-d296d0b7590f">
+        <AttributeRelationship dwd:design-time-name="3729cc23-f40e-4bb0-a210-1d493ea4c621">
           <AttributeID>Код в Бухгалтерской Базе</AttributeID>
           <Name>Код в Бухгалтерской Базе</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2d883882-8368-4163-b91d-9f9345c8160f">
+        <AttributeRelationship dwd:design-time-name="f995db48-e150-405d-96ea-e4458aedc982">
           <AttributeID>Заголовок</AttributeID>
           <Name>Заголовок</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="40db1f15-908a-4ee1-8f68-b2d4a004282e">
+        <AttributeRelationship dwd:design-time-name="3f96b202-0d28-45b9-8710-6cc9c9bf494d">
           <AttributeID>Вид</AttributeID>
           <Name>Вид</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="87f3353f-daf7-4c6f-b460-e0ea9cb95a62">
+        <AttributeRelationship dwd:design-time-name="4ad31048-b55c-4b66-8d8f-5f4fb7150abe">
           <AttributeID>Сумма</AttributeID>
           <Name>Сумма</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="e59607d8-f284-4577-896a-9f2080a02cbf">
+        <AttributeRelationship dwd:design-time-name="609c4857-afa9-4add-9f8f-649c8ee0a549">
           <AttributeID>Процент</AttributeID>
           <Name>Процент</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="36a19f80-0ead-4511-bdae-c6b5692cafeb">
+        <AttributeRelationship dwd:design-time-name="183c8277-a744-444e-8b8f-478b61eaadab">
           <AttributeID>Причина По Умолчанию Для Отчетов</AttributeID>
           <Name>Причина По Умолчанию Для Отчетов</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="7b10db93-4133-486c-992f-af83896338ee">
+        <AttributeRelationship dwd:design-time-name="2bf63060-f593-460f-816c-0b34969201e9">
           <AttributeID>Причина Для Учета Потерь</AttributeID>
           <Name>Причина Для Учета Потерь</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="748ed8ee-07dc-4e0b-821f-3a6baa408790">
+        <AttributeRelationship dwd:design-time-name="a72e2438-c013-4fe9-b7b8-d7dd33d79c26">
           <AttributeID>Причина Для Учета Потерь Магазина</AttributeID>
           <Name>Причина Для Учета Потерь Магазина</Name>
         </AttributeRelationship>
@@ -173,22 +173,22 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a07dcffb-acf3-4dcf-be3f-97dccf64629a">
+    <Attribute dwd:design-time-name="620160c4-b9eb-44f4-a8ca-be0ff31eebd5">
       <ID>Код Категории</ID>
       <Name>Категория</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="25f92d73-7a20-49b8-8629-f0b751ce1c4e">
+        <KeyColumn dwd:design-time-name="0fbb7ba4-b44e-484f-bffe-4026688eb7cf">
           <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="7735081f-94e6-47c3-89a5-8a613bf9f8f6">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c76d5060-dacd-4528-9617-b3a11536b254">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Код_категории</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="4afbe51f-4a9e-446a-9c44-6dd0cd1c0367">
+      <NameColumn dwd:design-time-name="9384e96b-44cc-4bbf-a7e7-cff515b9c254">
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="a91ae127-08fa-41b1-83e0-df81daf5ff3b">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4064d989-c2ba-463b-82f5-c9c9bd11403a">
           <TableID>td_t_dim_Причины</TableID>
           <ColumnID>Наименование_категории</ColumnID>
         </Source>
@@ -196,13 +196,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="abd004cf-1dab-47b4-8c8c-e0d126bac1fc">
+    <Attribute dwd:design-time-name="d6e8e70a-d1ce-438d-963d-06deb6140dce">
       <ID>Код в Бухгалтерской Базе</ID>
       <Name>Код в Бухгалтерской Базе</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="dd5c90e6-acb1-4106-88b9-dd8f4d84c9c7">
+        <KeyColumn dwd:design-time-name="2748992c-e202-47f1-a079-170e3950c49c">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="eaf03eab-7255-4b31-a6d9-6784af78e252">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f05e0cad-ebc4-4af7-b012-1197c2aa8b67">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Код_в_бухгалтерской_базе</ColumnID>
           </Source>
@@ -211,14 +211,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="4a650592-7545-4b9a-9f1d-afe6bbf722dc">
+    <Attribute dwd:design-time-name="3c96b56b-773f-409d-a3cd-1a718fcfd465">
       <ID>Заголовок</ID>
       <Name>Заголовок</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c5c762d4-fef1-4616-92af-62eb0766a4bc">
+        <KeyColumn dwd:design-time-name="c9b240ea-f510-4d7f-ae24-30247a8fbd0a">
           <DataType>WChar</DataType>
           <DataSize>10</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b6f7ae5e-3b66-4893-873f-dedb3c6dfad5">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3fec76f0-6ef9-4160-a760-59315110e501">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Заголовок</ColumnID>
           </Source>
@@ -227,13 +227,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="4753859a-58b1-4a45-965a-82da744524dc">
+    <Attribute dwd:design-time-name="660c2ebb-6117-4d3c-94e2-4a7b2c700b31">
       <ID>Вид</ID>
       <Name>Вид</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="dc0dfebe-0af7-4de8-80b1-32beaad7cad8">
+        <KeyColumn dwd:design-time-name="2f22053f-e908-4b33-b92e-b7be4156cf5c">
           <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="f7a3b9ff-2bb3-4592-b24c-bc314ae32850">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c5726fc2-f4bd-46e1-8731-1ba19b363fad">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Вид</ColumnID>
           </Source>
@@ -242,13 +242,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="b6b836d1-54d8-48f6-8629-aacb0f5998d4">
+    <Attribute dwd:design-time-name="f5765b9c-59e0-4fd1-913e-8977cdf91678">
       <ID>Сумма</ID>
       <Name>Сумма</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7c4d4f3d-5886-4ebf-bbbf-c5eb23b16646">
+        <KeyColumn dwd:design-time-name="d3557410-1678-4cc0-bf4b-854e423eecfb">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="9f15edb6-5a0f-4ede-b3d5-4f9a1e9295d2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8c99593e-39d3-4b38-bf5b-5d45cd7dbc50">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Сумма</ColumnID>
           </Source>
@@ -257,13 +257,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="96c62916-a992-468b-ab47-c57deef2f760">
+    <Attribute dwd:design-time-name="aaeb95fc-8ae2-4bae-a8a6-19bc9774ad77">
       <ID>Процент</ID>
       <Name>Процент</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="18e371e4-9559-4b5e-a89a-41b9474e68bf">
+        <KeyColumn dwd:design-time-name="bf78868b-e4b8-4bda-a1ad-8872461d8487">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2a8f0ae8-e29e-489a-9736-71444f6a8e4e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="39b6c525-f28f-4402-b402-7ffd0b09413e">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Процент</ColumnID>
           </Source>
@@ -272,13 +272,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="de82f879-51c0-4cd7-a8cc-b362942e40e7">
+    <Attribute dwd:design-time-name="5543fd58-73e6-48cb-8f34-3c3eb7c0917a">
       <ID>Причина По Умолчанию Для Отчетов</ID>
       <Name>Причина По Умолчанию Для Отчетов</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="6df11b14-84af-4594-940a-e09ad04c64a0">
+        <KeyColumn dwd:design-time-name="a7e281ea-a2f9-4bca-ba4a-409b0a672c09">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5647f9b2-9c15-4054-92f0-b4e1c5ff2051">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="67519ffc-1cd6-4be2-b7dc-4e821a245911">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Причина_по_умолчанию_для_отчетов</ColumnID>
           </Source>
@@ -287,13 +287,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="c7ae2bb5-dc93-4a70-9ab1-e4a9a94065eb">
+    <Attribute dwd:design-time-name="06d3ec17-88c9-490d-a8d1-c7929490f5f3">
       <ID>Причина Для Учета Потерь</ID>
       <Name>Причина Для Учета Потерь</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b5b10a4b-172f-4fc8-869a-a8dd39345ba1">
+        <KeyColumn dwd:design-time-name="ced53bbb-0e7b-4891-925a-0799b66888be">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="61e78c70-7d75-4705-bb8a-ccd8e2b04643">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ca0daa8f-9204-42ab-b1a7-4281fd55d50a">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Причина_для_учета_потерь</ColumnID>
           </Source>
@@ -302,13 +302,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="1691af4f-0b74-4b9e-b697-178c5d32bdfd">
+    <Attribute dwd:design-time-name="01452296-65df-4e5d-956a-dc8b836f8d44">
       <ID>Причина Для Учета Потерь Магазина</ID>
       <Name>Причина Для Учета Потерь Магазина</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="20bda787-79e4-4dce-9d39-72b545a24536">
+        <KeyColumn dwd:design-time-name="08ead333-68c8-4641-a451-4c5ad262ef36">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="cd5ea5b2-b601-4077-b07a-0470ec4afb38">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9e70d67a-9eb3-4637-a794-cdbb800843a4">
             <TableID>td_t_dim_Причины</TableID>
             <ColumnID>Причина_для_учета_потерь_магазина</ColumnID>
           </Source>
@@ -319,16 +319,16 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="53a3cea8-7ecf-4867-9b9f-e087eea55df5">
+    <Hierarchy dwd:design-time-name="64ac2248-c7d9-46ed-9c48-4395edada10f">
       <ID>Иерархия</ID>
       <Name>Иерархия</Name>
       <Levels>
-        <Level dwd:design-time-name="85d0bd94-93fc-4c37-90a2-c1fe6547c846">
+        <Level dwd:design-time-name="17d274df-34a3-4909-b66d-2ab86c580383">
           <ID>Категория</ID>
           <Name>Категория</Name>
           <SourceAttributeID>Код Категории</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="45d9e5a8-8e02-409d-909b-95039917cb64">
+        <Level dwd:design-time-name="5a06baf9-c098-4220-be3c-dacf288619cf">
           <ID>Причина</ID>
           <Name>Причина</Name>
           <SourceAttributeID>Код Причины</SourceAttributeID>
