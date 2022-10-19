@@ -8,11 +8,13 @@ SELECT        cass.t_fact_Скидки.Код_кассы, cass.t_fact_Скидк
                          COALESCE
                              ((SELECT        TOP (1) Признак
                                  FROM            td.t_fact_Товарная_матрица AS м
-                                 WHERE        (Дата <= cass.t_fact_Скидки.[Дата_применения_скидки]) AND (Код_товара = cass.t_fact_Скидки.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)), 0) 
+                                 WHERE        (Дата <= cass.t_fact_Скидки.[Дата_применения_скидки]) AND (Код_товара = cass.t_fact_Скидки.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)
+                                 ORDER BY Дата DESC), 0) 
                          AS Признак,
                              (SELECT        TOP (1) Код_поставщика
                                FROM            td.t_fact_Товарная_матрица AS м
-                               WHERE        (Дата <= cass.t_fact_Скидки.[Дата_применения_скидки]) AND (Код_товара = cass.t_fact_Скидки.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)) 
+                               WHERE        (Дата <= cass.t_fact_Скидки.[Дата_применения_скидки]) AND (Код_товара = cass.t_fact_Скидки.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)
+                               ORDER BY Дата DESC) 
                          AS Код_поставщика
 FROM            cass.t_fact_Скидки INNER JOIN
                          cass.t_dim_Кассы with (nolock) ON cass.t_fact_Скидки.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
