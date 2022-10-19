@@ -717,7 +717,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
-      <Value>70</Value>
+      <Value>60</Value>
     </Annotation>
   </Annotations>
   <LastProcessed>2022-09-18T12:56:54.113333Z</LastProcessed>
@@ -4030,6 +4030,7 @@
             <DataType>UnsignedInt</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="0967864e-b909-47bf-80f3-b97b16a27c49">
               <TableID>dbo_v_fact_Сторнированные_позиции</TableID>
+              <ColumnID>Признак</ColumnID>
             </Source>
           </Source>
         </Measure>
