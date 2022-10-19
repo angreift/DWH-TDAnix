@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="76e00b79-d93a-4f38-a632-08501ca55953" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="34cf499e-98df-4dbe-8b9f-b801097aace6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>t Dim Признаки</ID>
   <Name>Признак</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4486" scrolltop="-5385" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="12012" y="12224" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4486" scrolltop="-5385" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11800" y="17092" backcolor="2632756" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -65,39 +65,58 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
       <Value>100</Value>
     </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="181">
+            <Shape Id="Признак" Expanded="true">
+              <Attributes>
+                <Attribute Id="Признак" />
+                <Attribute Id="Матричный Ассортимент" />
+                <Attribute Id="Топ" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="cec38a2d-2730-4363-94a4-3ae20a4bfe24">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ad7ddceb-3a1d-428a-9875-33cb1bf6c41a">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="dba6593e-5880-40b5-ae08-b307e537c632">
+  <ErrorConfiguration dwd:design-time-name="cbc68ea0-c804-471b-95bb-ac0ddc8377d0">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="33a4b917-7eb0-46d4-bba2-a3b36b259efb">
+    <Attribute dwd:design-time-name="0d64f2b6-b72b-4dbb-93e4-bdd2d3602677">
       <ID>Признак</ID>
       <Name>Признак</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a6509074-c78e-4fea-af14-85a87255d8f1">
+        <KeyColumn dwd:design-time-name="c9181a0f-43ee-425e-b68e-e876103d89a3">
           <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5bd6f96f-f0d2-4b1e-8204-ee3de5dfa9fc">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b37a6a24-65be-4041-8f41-c05cf165a394">
             <TableID>td_t_dim_Признаки</TableID>
             <ColumnID>Признак</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="e0eaf699-2faf-4667-82f0-6b1abc79144b">
+        <AttributeRelationship dwd:design-time-name="cd435447-cc6f-4ce2-8530-2a812d6b53ca">
           <AttributeID>Матричный Ассортимент</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
           <Name>Матричный Ассортимент</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="56cdbe97-29f2-4d2f-9a7b-fa1fdd9974b5">
+        <AttributeRelationship dwd:design-time-name="a5ba7842-abc6-4f61-afa8-4b54591b12b5">
           <AttributeID>Топ</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
           <Name>Топ</Name>
         </AttributeRelationship>
       </AttributeRelationships>
@@ -105,13 +124,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="8995c3e9-b743-48f1-adf4-5ed038801fc2">
+    <Attribute dwd:design-time-name="1dc43a09-60a7-4b02-8b9d-6354ddae3aa6">
       <ID>Матричный Ассортимент</ID>
       <Name>Матричный Ассортимент</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ab384ed7-e238-4843-a618-c5c2cdb77f43">
+        <KeyColumn dwd:design-time-name="2611b150-9a73-459d-b0c6-2212cbcd937b">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="02a2f95b-aa0e-4472-a71a-690b739319eb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ad89f45a-dd7b-433c-a327-b0fb6996ec76">
             <TableID>td_t_dim_Признаки</TableID>
             <ColumnID>Матричный_ассортимент</ColumnID>
           </Source>
@@ -120,13 +139,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="5b0d1854-bb79-4d3c-9698-36873601f792">
+    <Attribute dwd:design-time-name="92a10b28-843f-410e-b9a1-0b0c7009b305">
       <ID>Топ</ID>
       <Name>Топ</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d2198749-537f-4c8b-8453-42d5367c629a">
+        <KeyColumn dwd:design-time-name="e5de5bc3-83a9-4b76-8cf7-0c8b4be98ac9">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e5f86187-7a60-4f55-8513-a8e2abd16318">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ee03cad6-0da3-41a5-ba52-f57eb4a478b6">
             <TableID>td_t_dim_Признаки</TableID>
             <ColumnID>Топ</ColumnID>
           </Source>
