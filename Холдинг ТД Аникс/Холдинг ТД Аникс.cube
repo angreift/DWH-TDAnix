@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="90" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="17592" scrolltop="2694" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="70" x="20108" y="12383" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="90" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="17592" scrolltop="2694" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="70" x="23918" y="13705" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -1548,9 +1548,6 @@
         <MeasureGroup dwd:design-time-name="0f4156e0-6a5e-4f07-8a5b-170f9b0e679e">
           <MeasureGroupID>v Fact Детализация Чеков</MeasureGroupID>
           <Measures>
-            <Measure dwd:design-time-name="d56ed383-db7f-4fc6-b373-9cafc717e56a">
-              <MeasureID>Количество чеков</MeasureID>
-            </Measure>
             <Measure dwd:design-time-name="f1c9ec3e-b6bf-46d2-bc3c-32c24e61d512">
               <MeasureID>Количество</MeasureID>
             </Measure>
@@ -1690,19 +1687,6 @@
       <LastProcessed>2022-09-18T12:56:54.11Z</LastProcessed>
       <State>Processed</State>
       <Measures>
-        <Measure dwd:design-time-name="728f7014-3cdb-4ae0-8e42-4593d3915c46">
-          <ID>Количество чеков</ID>
-          <Name>Количество чеков</Name>
-          <AggregateFunction>DistinctCount</AggregateFunction>
-          <DataType>Integer</DataType>
-          <Source dwd:design-time-name="0e83eed9-cfa0-4d0f-804a-423d882aca6d">
-            <DataType>WChar</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="23df1392-1a00-4003-8d98-8327be6002db">
-              <TableID>dbo_v_fact_Детализация_чеков</TableID>
-              <ColumnID>Составной_код_документа</ColumnID>
-            </Source>
-          </Source>
-        </Measure>
         <Measure dwd:design-time-name="810c0ff7-19ec-422c-a23b-a8ca5f82385b">
           <ID>Количество</ID>
           <Name>Количество товара в позиции ШТ КГ</Name>
@@ -5620,7 +5604,7 @@
 */
 CALCULATE;  
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний чек РУБ]
- AS '[Measures].[Итоговая сумма позиции после применения скидок РУБ]/[Measures].[Количество чеков]', 
+ AS '[Measures].[Итоговая сумма позиции после применения скидок РУБ]/[Measures].[Количество чеков ШТ]', 
 VISIBLE = 1  ; </Text>
         </Command>
       </Commands>
