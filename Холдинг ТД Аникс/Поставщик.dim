@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="46e8234f-181a-40cd-bd92-838b8e62b253" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a3ea776e-c40b-4582-9e81-7aca858a25ac" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Поставщики</ID>
   <Name>Поставщик</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2348" scrolltop="-8427" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9763" y="13785" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2348" scrolltop="-8427" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10186" y="15558" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -65,100 +65,130 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
       <Value>100</Value>
     </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="162">
+            <Shape Id="Код" Expanded="false">
+              <Attributes>
+                <Attribute Id="Код" />
+                <Attribute Id="Автозаявка" />
+                <Attribute Id="Адрес" />
+                <Attribute Id="ИНН" />
+                <Attribute Id="КПП" />
+                <Attribute Id="Ответственное Лицо" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Наименование с Кодом" Expanded="false">
+              <Attributes>
+                <Attribute Id="Наименование с Кодом" />
+              </Attributes>
+              <Position x="227" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="710b3117-9f9d-4902-9031-7eaf7828e9bd">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="cde644c6-6193-4ac4-8b0e-8c7dc86b7d9a">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="09a34a23-385b-4b67-aa19-693f2fa1480d">
+  <ErrorConfiguration dwd:design-time-name="ec4c9fc0-b300-4e02-a950-70d87f6225e5">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1049</Language>
   <Attributes>
-    <Attribute dwd:design-time-name="877d0542-539e-4a94-8a13-58d447cb71f8">
+    <Attribute dwd:design-time-name="e4e24e05-4225-4d48-9a5b-b860cc06c6be">
       <ID>Код</ID>
       <Name>Поставщик</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c5ec88ea-b502-4089-82aa-20803d04c7d2">
+        <KeyColumn dwd:design-time-name="4c815f45-16ca-48b2-957d-dcc01ab4ae5d">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e44a9d4a-afb5-4bb6-8a70-2b53caca0b77">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4ff1267a-156a-4131-b441-c01a80bb2a16">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>Код</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="470467a5-e532-4f38-b4b1-88bb97ab5b20">
+      <NameColumn dwd:design-time-name="0d514405-d3aa-4aee-bc14-ba938be47b10">
         <DataType>WChar</DataType>
         <DataSize>100</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="9419e063-c21c-4adf-9522-06652920b297">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8a6e755b-1226-44df-94b7-267a1fa26eed">
           <TableID>dbo_t_dim_Поставщики</TableID>
           <ColumnID>Наименование</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="78d088ce-6a83-4030-a876-82baa3ba957d">
+        <AttributeRelationship dwd:design-time-name="07b2322f-54a3-44d6-8185-3231490e7269">
           <AttributeID>Наименование с Кодом</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
           <Name>Поставщик с кодом</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="8a21b882-9e71-4e73-96f2-4e5e8cf72fd2">
+        <AttributeRelationship dwd:design-time-name="527576c4-0e23-474b-8805-eeef495b6383">
           <AttributeID>ИНН</AttributeID>
           <Name>ИНН</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="5e0eb585-1044-466f-b9cb-82670bf3dd89">
+        <AttributeRelationship dwd:design-time-name="1cd70934-a7a6-4f14-b56e-1ef5ec6e00f7">
           <AttributeID>КПП</AttributeID>
           <Name>КПП</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2b9cce87-e606-4ac0-9219-d27736b98694">
+        <AttributeRelationship dwd:design-time-name="281c1045-dbbe-452b-8a79-5ac1aa3def91">
           <AttributeID>Адрес</AttributeID>
           <Name>Адрес</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2843c691-e817-4b2b-b6ef-7350c4b6a262">
+        <AttributeRelationship dwd:design-time-name="38413e08-f600-4839-807d-0db286be5e65">
           <AttributeID>Ответственное Лицо</AttributeID>
           <Name>Ответственное Лицо</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="3a73e9e5-2ef1-4ff7-8a14-0cddb5093aa0">
+        <AttributeRelationship dwd:design-time-name="ce908f97-0685-42f7-8c8d-74b08b498b41">
           <AttributeID>Автозаявка</AttributeID>
           <Name>Автозаявка</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="403b9e24-fc9d-4e78-b8bb-9be1a075bdbc">
+    <Attribute dwd:design-time-name="74e275cf-89d4-45ef-a752-b58d6db96342">
       <ID>Наименование с Кодом</ID>
       <Name>Поставщик с кодом</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="fa1e2dab-4d16-4653-99b3-b2fad8ae85fe">
+        <KeyColumn dwd:design-time-name="03555876-a8df-427b-916c-462f18af92da">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="41c06fa4-8117-4a45-a275-bc6cb86d4105">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b3c3a99b-fc16-4b08-8622-21468a696ce0">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>Код</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="e10870fb-70a7-481f-9e95-6f4f80c30b36">
+      <NameColumn dwd:design-time-name="452a5e38-708f-4ef2-a86e-26605cd19afd">
         <DataType>WChar</DataType>
         <DataSize>107</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="ebdd7d81-b2a1-4459-aa35-a7eb2ef7e0df">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="745f9104-6f88-4186-850a-57873b019583">
           <TableID>dbo_t_dim_Поставщики</TableID>
           <ColumnID>Наименование_с_кодом</ColumnID>
         </Source>
       </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="11678f98-7790-4085-abda-7d6e98f9aa20">
+    <Attribute dwd:design-time-name="1bde8c67-ce1f-4220-8fa7-49bd4c4cf2f0">
       <ID>ИНН</ID>
       <Name>ИНН</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="62bdd1ef-5900-43b5-96b6-8f2f45954de3">
+        <KeyColumn dwd:design-time-name="8232c160-81b1-4fd1-8b5d-85c1c41ba201">
           <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="19bd7f02-9bb9-4818-a83f-ecb08d7c125e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e4faff5a-b1f5-4c24-a7b5-4fbb61275fd8">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>ИНН</ColumnID>
           </Source>
@@ -167,13 +197,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="5f02d0e0-4bc5-49aa-b1e9-372f30f7d05d">
+    <Attribute dwd:design-time-name="42a67b1b-8cd3-433a-b649-db6628d88767">
       <ID>КПП</ID>
       <Name>КПП</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9baa657a-1d2c-4a13-8f6d-c0fd8b6e28d6">
+        <KeyColumn dwd:design-time-name="7c8cc3e8-7957-473e-bdb7-4587a6cb1988">
           <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e9073a9b-5df8-4ac1-b3c0-8a1ddfbf3db7">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1e340a9a-88a6-477a-9d2b-83dd300cb65e">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>КПП</ColumnID>
           </Source>
@@ -182,14 +212,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="e7bad1f3-1e37-48ff-a5fb-b5117a51ab63">
+    <Attribute dwd:design-time-name="5e9aa88f-1c11-459f-a175-8f80eb21d0f1">
       <ID>Адрес</ID>
       <Name>Адрес</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a4815d5e-e0aa-43ec-9ceb-e3d2499e11f5">
+        <KeyColumn dwd:design-time-name="12ae3fc3-7e06-4e92-81fd-72a1f71d5d09">
           <DataType>WChar</DataType>
           <DataSize>200</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e9b012be-e842-4d7e-a639-9ebb17fd7c60">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="93ba571f-a7b7-4264-9d5d-869391b47177">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>Адрес</ColumnID>
           </Source>
@@ -198,14 +228,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="de88d4ce-0339-4ae2-b271-f66f8465fdbb">
+    <Attribute dwd:design-time-name="061cef9e-6349-4fd6-a3ca-8ac7a988f74d">
       <ID>Ответственное Лицо</ID>
       <Name>Ответственное Лицо</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="fab72c42-a7f5-4d88-b54f-20ed6713be64">
+        <KeyColumn dwd:design-time-name="477674db-d716-48cb-8062-19e39cb034a8">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="8507668b-117c-4d0a-8724-777eda032abf">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d53895b-ae4a-44ae-bc1b-a3dcb35374b2">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>Ответственное_лицо</ColumnID>
           </Source>
@@ -214,13 +244,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a21cd68a-b86a-4990-8b40-6cd32abf8334">
+    <Attribute dwd:design-time-name="21afe1b4-f136-43f5-b7d6-b9c1aa549a34">
       <ID>Автозаявка</ID>
       <Name>Автозаявка</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="54002a36-7c33-478a-854b-46069ceee52f">
+        <KeyColumn dwd:design-time-name="845df9b7-937f-43cc-a0ce-2f70f9de75c5">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="a998d45f-3a85-4c25-82d3-60d7a37edf11">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5c52d4e2-ed88-4ca9-a5f6-0acbf8542671">
             <TableID>dbo_t_dim_Поставщики</TableID>
             <ColumnID>Автозаявка</ColumnID>
           </Source>
@@ -231,22 +261,22 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="0a071974-ea7b-4a38-a662-82f32f2ce127">
+    <Hierarchy dwd:design-time-name="056e239e-e317-42e3-a9c0-a68d3f64451e">
       <ID>Иерархия</ID>
       <Name>Поставщики</Name>
       <Levels>
-        <Level dwd:design-time-name="0289c576-1ee1-45af-b1b8-14bd712fd109">
+        <Level dwd:design-time-name="5f8ecaac-9446-4ff7-9c49-73a4433aef11">
           <ID>Поставщик</ID>
           <Name>Поставщик</Name>
           <SourceAttributeID>Код</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="91038245-dbcb-4651-a86b-068be03bc8b0">
+    <Hierarchy dwd:design-time-name="13811bd3-f20a-44eb-a383-92d79c977d59">
       <ID>Иерархия 1</ID>
       <Name>Поставщики с кодом</Name>
       <Levels>
-        <Level dwd:design-time-name="07b11a0e-4b57-4dc2-958d-5b2b18b08bb6">
+        <Level dwd:design-time-name="55edfbe5-eac9-463a-908c-57919119c7b3">
           <ID>Поставщик с кодом</ID>
           <Name>Поставщик с кодом</Name>
           <SourceAttributeID>Наименование с Кодом</SourceAttributeID>
