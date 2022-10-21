@@ -5736,7 +5736,7 @@
 CALCULATE; 
 CREATE MEMBER CURRENTCUBE.[Measures].[Пенетрация %]
  AS sum([Товар].[(all)], [Measures].[Количество чеков ШТ])/[Measures].[Количество чеков ШТ], 
-VISIBLE = 1  ;   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков'  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний чек РУБ]
  AS [Measures].[Итоговая сумма чека со скидками РУБ]/[Measures].[Количество чеков ШТ], 
 VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';    
