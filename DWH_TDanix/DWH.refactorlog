@@ -42,4 +42,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Код" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="0b01180a-7b93-41f3-8973-b01e9ba077b8" ChangeDateTime="10/24/2022 03:24:46">
+    <Property Name="ElementName" Value="[td].[t_fact_НачальныеОстатки].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[td].[t_fact_НачальныеОстатки]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Дата" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="452a2b74-eeb8-4c83-ade3-0c1bee7624a1" ChangeDateTime="10/24/2022 03:26:13">
+    <Property Name="ElementName" Value="[td].[t_fact_НачальныеОстатки].[Сумма_закупа_со_Склада]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[td].[t_fact_НачальныеОстатки]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Сумма_закупа_со_склада" />
+  </Operation>
 </Operations>
