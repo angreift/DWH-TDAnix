@@ -11,10 +11,11 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- 1. Создание временной таблицы
-	drop table if exists #dwh_temp_товары
+		drop table if exists #dwh_temp_товары
 
 	create table #dwh_temp_товары (
 		Код_товара                    bigint      not null,
+		
 		Наименование                  varchar(55) not null,
 		Акцизный_Объём                float       null,
 		Ассортимент                   int         null,
@@ -33,16 +34,18 @@ BEGIN
 		Период_Грин                   bit         null,
 		Гастрономия                   bit         null,
 		Вид_Маркированной_Продукции   varchar(50) null,
+		Категория_группы			  varchar(50) null,
 		Код_Группы                    bigint      not null,
 		Наименование_Группы           varchar(50) not null,
 		Код_Подгруппы                 bigint      null,
 		Наименование_Подгруппы        varchar(50) null
 );
-
+	
 	-- 2. Загрузка из serv-term
 	insert into 
 		#dwh_temp_товары (
 			Код_товара,
+			Категория_группы,
 			Наименование,
 			Акцизный_Объём,
 			Ассортимент,
@@ -61,12 +64,15 @@ BEGIN
 			Период_Грин,
 			Гастрономия,
 			Вид_Маркированной_Продукции,
+			
 			Код_Группы,
 			Наименование_Группы,
 			Код_Подгруппы,
 			Наименование_Подгруппы
-	) select
+	) select distinct
 		Товары.CODE    as Код_товара,
+		
+		Категории.descr as Категория_группы,
 		Товары.DESCR   as Наименование,
 		Товары.SP3234  as Акцизный_Объём,
 		Товары.SP1059  as Ассортимент,
@@ -85,6 +91,7 @@ BEGIN
 		Товары.SP6283  as Период_Грин,
 		Товары.SP6320  as Гастрономия,
 		Товары.SP6388  as Вид_Маркированной_Продукции,
+		
 		cast(
 			case
 				when Товары_4.CODE is not null
@@ -125,6 +132,17 @@ BEGIN
 			[Rozn].[rozn].[dbo].[SC11]   as Товары_3 (nolock) on Товары_3.[ID] = Товары.[PARENTID]
 		left join 
 			[Rozn].[rozn].[dbo].[SC11]   as Товары_4 (nolock) on Товары_4.[ID] = Товары_3.[PARENTID]
+		left join 
+			[Rozn].[rozn].[dbo].[SC5818] as Группы (nolock) on Группы.SP5816=
+			case
+				when Товары_4.CODE is not null
+				then Товары_4.ID
+				else Товары_3.ID
+			end 
+				and Группы.ismark=0 
+		left join
+			[Rozn].[rozn].[dbo].[SC5815] as Категории (nolock) on Категории.id=Группы.parentext
+
 		where 
 			Товары.ISFOLDER = 2 and Товары.[PARENTID] is not null and cast(Товары.CODE as bigint) between 1 and 999999999;
 
@@ -158,6 +176,7 @@ BEGIN
 		dbo.t_dim_Товары.Период_Грин                   = #dwh_temp_товары.Период_Грин,
 		dbo.t_dim_Товары.Гастрономия                   = #dwh_temp_товары.Гастрономия,
 		dbo.t_dim_Товары.Вид_Маркированной_Продукции   = #dwh_temp_товары.Вид_Маркированной_Продукции,
+		dbo.t_dim_Товары.Категория_группы			   = #dwh_temp_товары.Категория_группы,
 		dbo.t_dim_Товары.Код_Группы                    = #dwh_temp_товары.Код_Группы,
 		dbo.t_dim_Товары.Наименование_Группы           = #dwh_temp_товары.Наименование_Группы,
 		dbo.t_dim_Товары.Код_Подгруппы                 = #dwh_temp_товары.Код_Подгруппы,
@@ -184,11 +203,11 @@ BEGIN
 			#dwh_temp_товары.Маркировка,
 			#dwh_temp_товары.Период_Грин,
 			#dwh_temp_товары.Гастрономия,
-			#dwh_temp_товары.Вид_Маркированной_Продукции, 
+			#dwh_temp_товары.Вид_Маркированной_Продукции,
+			#dwh_temp_товары.Категория_группы,
 			#dwh_temp_товары.Код_Группы,
 			#dwh_temp_товары.Наименование_Группы,
 			#dwh_temp_товары.Код_Подгруппы,
 			#dwh_temp_товары.Наименование_Подгруппы
 		);
-
 END
