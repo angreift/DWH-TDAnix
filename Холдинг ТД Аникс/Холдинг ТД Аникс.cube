@@ -6095,6 +6095,14 @@ end,
 VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков'; 
 CREATE MEMBER CURRENTCUBE.[Measures].[Себестоимость продаж]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Сумма ТО закупочная РУБ]), 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение'  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Потери в розничных ценах РУБ]
+ AS sum([Вид товародвижения].[Вид товародвижения].&amp;[2], [Measures].[Сумма ТО РУБ])+
+sum([Вид товародвижения].[Вид товародвижения].&amp;[7], [Measures].[Сумма ТО РУБ]), 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение'  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Потери в закупочных ценах РУБ]
+ AS sum([Вид товародвижения].[Вид товародвижения].&amp;[2], [Measures].[Сумма ТО закупочная РУБ])+
+sum([Вид товародвижения].[Вид товародвижения].&amp;[7], [Measures].[Сумма ТО закупочная РУБ]), 
 VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение'  ;       
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний чек РУБ]
  AS [Measures].[Итоговая сумма чека со скидками РУБ]/[Measures].[Количество чеков ШТ], 
