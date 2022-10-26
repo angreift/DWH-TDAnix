@@ -213,7 +213,7 @@ BEGIN
 		set @letter_subject = 'Отчет об обмене с кассами';
 		exec msdb.dbo.sp_send_dbmail 
 			@profile_name ='service-account@anixtd.ru'
-			,@recipients = 'olap-problem@anixtd.ru;help@anixtd.ru'
+			,@recipients = 'olap-problem@anixtd.ru'
 			,@body = @letter_body
 			,@subject = @letter_subject
 
