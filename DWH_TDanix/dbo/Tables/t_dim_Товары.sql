@@ -18,6 +18,7 @@
     [Период_грин]                   BIT          NULL,
     [Гастрономия]                   BIT          NULL,
     [Вид_маркированной_продукции]   NVARCHAR (50) NULL,
+    [Категория_группы]                    NVARCHAR (50) NULL,
     [Код_группы]                    BIGINT       NOT NULL,
     [Наименование_группы]           NVARCHAR (50) NOT NULL,
     [Код_подгруппы]                 BIGINT       NULL,
