@@ -11,11 +11,11 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- 1. Создание временной таблицы
-		drop table if exists #dwh_temp_товары
+	drop table if exists #dwh_temp_товары
 
 	create table #dwh_temp_товары (
 		Код_товара                    bigint      not null,
-		
+		Менеджер_группы				  varchar(100)	  null,
 		Наименование                  varchar(55) not null,
 		Акцизный_Объём                float       null,
 		Ассортимент                   int         null,
@@ -45,6 +45,7 @@ BEGIN
 	insert into 
 		#dwh_temp_товары (
 			Код_товара,
+			Менеджер_группы,
 			Категория_группы,
 			Наименование,
 			Акцизный_Объём,
@@ -69,9 +70,10 @@ BEGIN
 			Наименование_Группы,
 			Код_Подгруппы,
 			Наименование_Подгруппы
-	) select distinct
+	)select distinct  
 		Товары.CODE    as Код_товара,
 		
+		Менеджер.Descr  as Менеджер_группы, 
 		Категории.descr as Категория_группы,
 		Товары.DESCR   as Наименование,
 		Товары.SP3234  as Акцизный_Объём,
@@ -120,6 +122,7 @@ BEGIN
 			[Rozn].[rozn].[dbo].[SC11]   as Товары   (nolock)
 		left join 
 			[Rozn].[rozn].[dbo].[SC2722] as Бренд    (nolock) on Бренд.ID      = Товары.SP2724
+		
 		left join 
 			[Rozn].[rozn].[dbo].[SC1341] as Вид_упак (nolock) on Вид_упак.ID   = Товары.SP1344
 		left join 
@@ -132,6 +135,12 @@ BEGIN
 			[Rozn].[rozn].[dbo].[SC11]   as Товары_3 (nolock) on Товары_3.[ID] = Товары.[PARENTID]
 		left join 
 			[Rozn].[rozn].[dbo].[SC11]   as Товары_4 (nolock) on Товары_4.[ID] = Товары_3.[PARENTID]
+		left join
+			Rozn.rozn.dbo.SC36 as Менеджер (nolock) on Менеджер.ID=case
+				when Товары_4.CODE is not null
+				then Товары_4.SP1404
+				else Товары_3.SP1404
+			end 
 		left join 
 			[Rozn].[rozn].[dbo].[SC5818] as Группы (nolock) on Группы.SP5816=
 			case
@@ -142,9 +151,8 @@ BEGIN
 				and Группы.ismark=0 
 		left join
 			[Rozn].[rozn].[dbo].[SC5815] as Категории (nolock) on Категории.id=Группы.parentext
-
-		where 
-			Товары.ISFOLDER = 2 and Товары.[PARENTID] is not null and cast(Товары.CODE as bigint) between 1 and 999999999;
+			where 
+			Товары.ISFOLDER = 2 and Товары.[PARENTID] is not null and cast(Товары.CODE as bigint) between 1 and     999998;
 
 	-- 3. Слияние таблиц
 	merge 
@@ -180,7 +188,8 @@ BEGIN
 		dbo.t_dim_Товары.Код_Группы                    = #dwh_temp_товары.Код_Группы,
 		dbo.t_dim_Товары.Наименование_Группы           = #dwh_temp_товары.Наименование_Группы,
 		dbo.t_dim_Товары.Код_Подгруппы                 = #dwh_temp_товары.Код_Подгруппы,
-		dbo.t_dim_Товары.Наименование_Подгруппы        = #dwh_temp_товары.Наименование_Подгруппы
+		dbo.t_dim_Товары.Наименование_Подгруппы        = #dwh_temp_товары.Наименование_Подгруппы,
+		dbo.t_dim_Товары.Менеджер_группы			   = #dwh_temp_товары.Менеджер_группы
 	when 
 		not matched
 	then 
@@ -208,6 +217,7 @@ BEGIN
 			#dwh_temp_товары.Код_Группы,
 			#dwh_temp_товары.Наименование_Группы,
 			#dwh_temp_товары.Код_Подгруппы,
-			#dwh_temp_товары.Наименование_Подгруппы
+			#dwh_temp_товары.Наименование_Подгруппы,
+			#dwh_temp_товары.Менеджер_группы
 		);
 END

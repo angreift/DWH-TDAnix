@@ -23,6 +23,7 @@
     [Наименование_группы]           NVARCHAR (50) NOT NULL,
     [Код_подгруппы]                 BIGINT       NULL,
     [Наименование_подгруппы]        NVARCHAR (50) NULL,
+    [Менеджер_группы]               nvarchar (100) null
     CONSTRAINT [ix_cl_Код] PRIMARY KEY CLUSTERED ([Код_товара] ASC) ON [DIMENTIONS]
 ) ON [DIMENTIONS];
 
