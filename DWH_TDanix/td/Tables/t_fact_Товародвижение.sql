@@ -20,5 +20,5 @@ GO
 CREATE NONCLUSTERED INDEX [ix_uncl_Код_магазина] ON [td].[t_fact_Товародвижение] ([Код_магазина]) ON [FACTS]
 GO
 
-CREATE CLUSTERED INDEX [ix_uncl_Дата] ON [td].[t_fact_Товародвижение] ([Дата]) ON [FACTS]
+CREATE CLUSTERED INDEX [ix_cl_Дата] ON [td].[t_fact_Товародвижение] ([Дата]) ON [FACTS]
 GO

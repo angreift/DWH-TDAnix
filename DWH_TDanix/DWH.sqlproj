@@ -134,6 +134,7 @@
     <Folder Include="td\Tables" />
     <Folder Include="td\Stored Procedures" />
     <Folder Include="td\Views" />
+    <Folder Include="td\Functions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="cass\Tables\t_raw_Сторнированные_позиции.sql">
@@ -436,5 +437,11 @@
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
+    <Build Include="td\Stored Procedures\p_Загрузка_начальных_остатков.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="td\Functions\f_Срез_остатков_на_дату.sql" />
+    <Build Include="td\Functions\f_Срез_остатков_на_период.sql" />
   </ItemGroup>
 </Project>
