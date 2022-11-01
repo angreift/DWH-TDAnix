@@ -2493,7 +2493,7 @@
         </Measure>
         <Measure dwd:design-time-name="a4883353-0833-4a5a-9249-f5e89884d220">
           <ID>Составной Код Документа</ID>
-          <Name>Количество чеков</Name>
+          <Name>Кол-во чеков ШТ</Name>
           <AggregateFunction>DistinctCount</AggregateFunction>
           <DataType>Integer</DataType>
           <Source dwd:design-time-name="98060a2a-c1d7-4611-ad01-ab4d3abed2e1">
@@ -6445,12 +6445,11 @@ VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';
 CREATE MEMBER CURRENTCUBE.[Measures].[Списания на МОЛ в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[13], [Measures].[Сумма ТО закупочная РУБ]), 
 VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';           
-CREATE MEMBER CURRENTCUBE.[Measures].[Пенетрация %]
- AS case
-    when isEmpty([Measures].[Количество чеков])
-    then 0
-    else ([Товар].[Группа-Товар].[(all)].[all], [Measures].[Количество чеков])/sum([Measures].[Количество чеков])
-end, 
+CREATE MEMBER CURRENTCUBE.[Measures].[Пенетрация ПРОЦ]
+ AS iif(
+    ([Measures].[Количество чеков ШТ]) = 0, 0,
+    ([Товар].[Товар], [Measures].[Кол-во чеков ШТ]) / ([Measures].[Количество чеков ШТ]) * 100
+), 
 VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Себестоимость продаж РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Сумма ТО закупочная РУБ]), 
