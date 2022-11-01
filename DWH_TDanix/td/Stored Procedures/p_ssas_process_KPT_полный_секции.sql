@@ -78,6 +78,6 @@ BEGIN
 		    'Начинается выполнениу SSAS команды на сервере SSAS_S19-OLAP. Текст команды: ', char(13), @command_to_process_kpt
 	    )
     );
-    exec(@command_to_process_kpt) at [SSAS_S19-OLAP];
+    exec(@command_to_process_kpt) at [S19-BI-DB];
     insert into [S19-STORAGE-SQL].[CS].[dbo].[t_fact_ProcessingReport](object,TimeProcessed, remark) values(6, getdate(), 'SSIS');
 END

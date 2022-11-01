@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="89"
-  DTS:VersionGUID="{2A86C392-24E2-456F-A4CC-AF51E768C0D9}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{BC091FF2-5BB5-420F-BC3E-7E1522E87787}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -466,7 +466,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -3243,7 +3243,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3784,7 +3784,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4714,7 +4714,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="8">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5279,7 +5279,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5321,7 +5321,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="8">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6098,7 +6098,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="9">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6410,7 +6410,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="9">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -9816,7 +9816,7 @@ WHERE
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить свод за период"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -15360,7 +15360,7 @@ Left JOIN Свод_временный3 Свод (nolock) ON Свод.Дата = 
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы Увеличение средневных продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -15834,7 +15834,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Определение причин Этап 3 Приоритеты причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16240,7 +16240,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод временный 3"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16259,7 +16259,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_Временный1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16278,7 +16278,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_временный2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16297,7 +16297,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить строки из карты причин падения КПТ (ОТБОР ПО ДАТЕ)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22295,7 +22295,7 @@ Left Join
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблиц для сбора данных для определения причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22314,7 +22314,7 @@ Left Join
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить строки из причины падения КПТ"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22369,52 +22369,17 @@ Left Join
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Расчет куба"
+      DTS:refId="Package\Расчет измерений куба КПТ"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Контейнер последовательности"
       DTS:DTSID="{E3732637-E407-4F09-B8F2-BA04969F5A1D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Расчет куба">
+      DTS:ObjectName="Расчет измерений куба КПТ">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Расчет куба\Добавление информации в автоматическую систему отчетов (КПТ по причинам)"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Задача &quot;Выполнение SQL&quot;"
-          DTS:DTSID="{D20E5E8D-0420-4350-8339-935924C16DA3}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Добавление информации в автоматическую систему отчетов (КПТ по причинам)"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9BBC010B-81BB-49ED-B079-50E45CEBFF43}"
-              SQLTask:SqlStatementSource="insert into [S19-STORAGE-SQL].[CS].[dbo].[t_fact_ProcessingReport](object,TimeProcessed, remark) values(6, getdate(), 'SSIS')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Расчет куба\Добавление информации в автоматическую систему отчетов (КПТ)"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Задача &quot;Выполнение SQL&quot;"
-          DTS:Disabled="True"
-          DTS:DTSID="{1CCBE0EE-0E64-4B6A-8DB2-2C52042F4174}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Добавление информации в автоматическую систему отчетов (КПТ)"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9BBC010B-81BB-49ED-B079-50E45CEBFF43}"
-              SQLTask:SqlStatementSource="insert into [S19-STORAGE-SQL].[CS].[dbo].[t_fact_ProcessingReport](object,TimeProcessed, remark) values(5, getdate(), 'SSIS')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Расчет куба\Обработка измерений"
+          DTS:refId="Package\Расчет измерений куба КПТ\Обработка измерений"
           DTS:CreationName="Microsoft.DTSProcessingTask"
           DTS:Description="Задача &quot;Обработка средствами Analysis Services&quot;"
           DTS:DTSID="{E202E9ED-C750-46DF-80B0-D479198181E5}"
@@ -22429,73 +22394,7 @@ Left Join
               ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Parallel&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Вид Ассортимента&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;СТМ&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Магазины&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Товары&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Вид Ассортимента 1&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Виды Причин Падения КПТ&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Поставщики&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;TOP&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Менеджер&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;DimensionID&gt;Товары 1&lt;/DimensionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;  &lt;/Parallel&gt;&#xA;&lt;/Batch&gt;" />
           </DTS:ObjectData>
         </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Расчет куба\Обработка оперативных секций группы мер КПТ"
-          DTS:CreationName="Microsoft.DTSProcessingTask"
-          DTS:Description="Задача &quot;Обработка средствами Analysis Services&quot;"
-          DTS:DTSID="{D087FD2D-B5DE-41D6-9DEA-C84D78C03AF1}"
-          DTS:ExecutableType="Microsoft.DTSProcessingTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Обработка оперативных секций группы мер КПТ"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ASProcessingData
-              ConnectionName="s19-bi-db.KPT_prod"
-              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Parallel&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;KPT&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;View Свод&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;kpt_2022_08&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;KPT&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;View Свод&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;kpt_2022_09&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;  &lt;/Parallel&gt;&#xA;&lt;/Batch&gt;" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Расчет куба\Обработка оперативных секций группы мер КПТ по причинам"
-          DTS:CreationName="Microsoft.DTSProcessingTask"
-          DTS:Description="Задача &quot;Обработка средствами Analysis Services&quot;"
-          DTS:DTSID="{F9A549B2-2C71-48EA-8AD4-CA3AF6FBFC26}"
-          DTS:ExecutableType="Microsoft.DTSProcessingTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Обработка оперативных секций группы мер КПТ по причинам"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ASProcessingData
-              ConnectionName="s19-bi-db.KPT_prod"
-              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Parallel&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;KPT&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;Карта Причин Падения КПТ&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;kpt_reasons_2022_08&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;    &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;KPT_prod&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;KPT&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;Карта Причин Падения КПТ&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;kpt_reasons_2022_09&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;  &lt;/Parallel&gt;&#xA;&lt;/Batch&gt;" />
-          </DTS:ObjectData>
-        </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Расчет куба.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{971C359E-89A8-45A8-BBE9-177A40888BB6}"
-          DTS:From="Package\Расчет куба\Обработка измерений"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Расчет куба\Обработка оперативных секций группы мер КПТ" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Расчет куба.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{7AE09CB2-BF33-49A0-81D0-4C9427F330C8}"
-          DTS:From="Package\Расчет куба\Обработка измерений"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Расчет куба\Обработка оперативных секций группы мер КПТ по причинам" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Расчет куба.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{65AE9564-8362-42E2-839C-849015D2F5C3}"
-          DTS:From="Package\Расчет куба\Обработка оперативных секций группы мер КПТ по причинам"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Расчет куба\Добавление информации в автоматическую систему отчетов (КПТ по причинам)" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Расчет куба.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{9F22D857-5C8F-4C67-AECD-EC1DDF19B82B}"
-          DTS:From="Package\Расчет куба\Обработка оперативных секций группы мер КПТ"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Расчет куба\Добавление информации в автоматическую систему отчетов (КПТ)" />
-      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -22506,7 +22405,7 @@ Left Join
       DTS:From="Package\КПТ по причинам (определение причин)"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Расчет куба" />
+      DTS:To="Package\Расчет измерений куба КПТ" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 26]"
       DTS:CreationName=""
@@ -22558,7 +22457,7 @@ Left Join
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="256" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\OLAP\Очистка таблиц"
@@ -23973,158 +23872,30 @@ Left Join
           Id="Package\КПТ по причинам (сбор данных)"
           TopLeft="1758.25,380" />
         <NodeLayout
-          Size="185,87"
-          Id="Package\Расчет куба\Добавление информации в автоматическую систему отчетов (КПТ по причинам)"
-          TopLeft="19,190" />
-        <NodeLayout
-          Size="186,83"
-          Id="Package\Расчет куба\Добавление информации в автоматическую систему отчетов (КПТ)"
-          TopLeft="214,191" />
-        <NodeLayout
           Size="188,42"
-          Id="Package\Расчет куба\Обработка измерений"
-          TopLeft="113,17" />
-        <NodeLayout
-          Size="187,64"
-          Id="Package\Расчет куба\Обработка оперативных секций группы мер КПТ"
-          TopLeft="212,83" />
-        <NodeLayout
-          Size="186,64"
-          Id="Package\Расчет куба\Обработка оперативных секций группы мер КПТ по причинам"
-          TopLeft="18.5,84" />
-        <EdgeLayout
-          Id="Package\Расчет куба.PrecedenceConstraints[Constraint]"
-          TopLeft="237,59">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.5,24"
-              Start="0,0"
-              End="68.5,16.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,5.72151898734177" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,5.72151898734177"
-                    Point2="0,9.72151898734177"
-                    Point3="4,9.72151898734177" />
-                  <mssgle:LineSegment
-                    End="64.5,9.72151898734177" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64.5,9.72151898734177"
-                    Point2="68.5,9.72151898734177"
-                    Point3="68.5,13.7215189873418" />
-                  <mssgle:LineSegment
-                    End="68.5,16.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Расчет куба.PrecedenceConstraints[Constraint 1]"
-          TopLeft="177,59">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-65.5,25"
-              Start="0,0"
-              End="-65.5,17.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,6.12658227848101" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,6.12658227848101"
-                    Point2="0,10.126582278481"
-                    Point3="-4,10.126582278481" />
-                  <mssgle:LineSegment
-                    End="-61.5,10.126582278481" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-61.5,10.126582278481"
-                    Point2="-65.5,10.126582278481"
-                    Point3="-65.5,14.126582278481" />
-                  <mssgle:LineSegment
-                    End="-65.5,17.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Расчет куба.PrecedenceConstraints[Constraint 2]"
-          TopLeft="111.5,148">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42"
-              Start="0,0"
-              End="0,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Расчет куба.PrecedenceConstraints[Constraint 3]"
-          TopLeft="306.25,147">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44"
-              Start="0,0"
-              End="0,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\Расчет измерений куба КПТ\Обработка измерений"
+          TopLeft="27,15" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="418,303"
-          Size="418,346"
-          Id="Package\Расчет куба"
-          TopLeft="3975,557" />
+          PanelSize="260,97"
+          Size="260,140"
+          Id="Package\Расчет измерений куба КПТ"
+          TopLeft="3960,660" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="3926.5,733.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="48.5,0"
+              EndConnector="33.5,0"
               Start="0,0"
-              End="41,0">
+              End="26,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41,0" />
+                    End="26,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
