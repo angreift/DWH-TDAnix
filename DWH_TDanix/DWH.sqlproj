@@ -449,6 +449,9 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="td\Stored Procedures\p_ssas_process_KPT_утренний_секции.sql" />
+    <Build Include="td\Stored Procedures\p_ssas_process_KPT_утренний_секции.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[p_ssas_process_KPT_утренний_секции] AS
+﻿CREATE PROCEDURE [td].[p_ssas_process_KPT_утренний_секции] AS
 BEGIN
     SET NOCOUNT ON;
 	SET DATEFIRST 1;
