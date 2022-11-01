@@ -445,9 +445,10 @@
     <Build Include="td\Functions\f_Срез_остатков_на_период.sql" />
     <Build Include="td\Stored Procedures\p_ssas_process_Остатки_товара.sql" />
     <Build Include="dbo\Tables\t_dim_Время.sql" />
-    <Build Include="td\Stored Procedures\p_ssas_process_KPT_секции.sql">
+    <Build Include="td\Stored Procedures\p_ssas_process_KPT_полный_секции.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="td\Stored Procedures\p_ssas_process_KPT_утренний_секции.sql" />
   </ItemGroup>
 </Project>
