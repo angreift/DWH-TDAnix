@@ -3469,7 +3469,15 @@
                   </xs:element>
                 </xs:sequence>
               </xs:complexType>
-            
+            </xs:element>
+            <xs:element name="td_t_dim_Признаки" msprop:design-time-name="e9030e0d-870e-494d-90f8-3199b492237b" msprop:FriendlyName="t_dim_Признаки" msprop:DbSchemaName="td" msprop:DbTableName="t_dim_Признаки" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Признак" msprop:design-time-name="1075bbaa-dbc3-455c-a0ce-4d33b5a3836b" msprop:DbColumnName="Признак" msprop:FriendlyName="Признак" type="xs:unsignedByte" />
+                  <xs:element name="Матричный_ассортимент" msprop:design-time-name="28b88eba-3823-4239-b82c-4b6c40eea3c3" msprop:DbColumnName="Матричный_ассортимент" type="xs:boolean" minOccurs="0" />
+                  <xs:element name="Топ" msprop:design-time-name="b14c0700-6cd3-46a9-882b-f6a0e1c1e847" msprop:DbColumnName="Топ" type="xs:boolean" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
             </xs:element>
             <xs:element name="td_t_dim_Признаки" msprop:DbSchemaName="td" msprop:design-time-name="e9030e0d-870e-494d-90f8-3199b492237b" msprop:FriendlyName="t_dim_Признаки" msprop:TableType="Table" msprop:DbTableName="t_dim_Признаки">
               <xs:complexType>
