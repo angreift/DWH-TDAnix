@@ -3479,15 +3479,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="td_t_dim_Признаки" msprop:DbSchemaName="td" msprop:design-time-name="e9030e0d-870e-494d-90f8-3199b492237b" msprop:FriendlyName="t_dim_Признаки" msprop:TableType="Table" msprop:DbTableName="t_dim_Признаки">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="Признак" msprop:FriendlyName="Признак" msprop:DbColumnName="Признак" msprop:design-time-name="1075bbaa-dbc3-455c-a0ce-4d33b5a3836b" type="xs:unsignedByte" />
-                  <xs:element name="Матричный_ассортимент" msprop:DbColumnName="Матричный_ассортимент" msprop:design-time-name="28b88eba-3823-4239-b82c-4b6c40eea3c3" type="xs:boolean" minOccurs="0" />
-                  <xs:element name="Топ" msprop:DbColumnName="Топ" msprop:design-time-name="b14c0700-6cd3-46a9-882b-f6a0e1c1e847" type="xs:boolean" minOccurs="0" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
+           
             <xs:element name="td_v_fact_Товарная_матрица" msprop:DbSchemaName="td" msprop:design-time-name="1fad3d29-ea89-4f00-9d95-a2fe71710624" msprop:FriendlyName="v_fact_Товарная_матрица" msprop:TableType="View" msprop:DbTableName="v_fact_Товарная_матрица">
               <xs:complexType>
                 <xs:sequence>
