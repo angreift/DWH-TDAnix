@@ -26,11 +26,10 @@ SELECT               cass.t_fact_Детализация_чеков.Код_кас
                                  WHERE        (Дата <= cass.t_fact_Детализация_чеков.Дата_добавления_позиции) AND (Код_товара = cass.t_fact_Детализация_чеков.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)
                                  ORDER BY Дата desc), 0) 
                          AS Признак,
-                             (SELECT        TOP (1) Код_поставщика
-                               FROM            td.t_fact_Товарная_матрица AS м
-                               WHERE        (Дата <= cass.t_fact_Детализация_чеков.Дата_добавления_позиции) AND (Код_товара = cass.t_fact_Детализация_чеков.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)
-                               ORDER BY Дата DESC)
-                         AS Код_поставщика
+                             COALESCE( (SELECT        TOP (1) Код_поставщика
+								   FROM            td.t_fact_Товарная_матрица AS м
+								   WHERE        (Дата <=Дата_добавления_позиции) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина) AND (Код_товара = cass.t_fact_Детализация_чеков.Код_товара)
+								   ORDER BY Дата DESC), -1) AS Код_поставщика
 FROM            cass.t_fact_Детализация_чеков INNER JOIN
                          cass.t_dim_Кассы WITH (nolock) ON cass.t_fact_Детализация_чеков.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
                          cass.t_fact_Чеки ON cass.t_fact_Детализация_чеков.Составной_код_документа = cass.t_fact_Чеки.Составной_код_документа LEFT OUTER JOIN
