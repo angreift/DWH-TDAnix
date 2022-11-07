@@ -136,6 +136,7 @@
     <Folder Include="td\Views" />
     <Folder Include="td\Functions" />
     <Folder Include="rprt_cw" />
+    <Folder Include="rprt_cw\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="cass\Tables\t_raw_Сторнированные_позиции.sql">
@@ -448,6 +449,7 @@
     <Build Include="dbo\Tables\t_dim_Время.sql" />
     <Build Include="Security\rprt_cw.sql" />
     <Build Include="Storage\REPORTS.sql" />
+    <Build Include="rprt_cw\Tables\t_dim_Причины_потерь.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
