@@ -18,6 +18,3 @@ GROUP BY
 	i.object_id ,
 	i.index_id ,
 	i.name
-ORDER BY
-	FILEGROUP_NAME(a.data_space_id) ,
-	SUM(a.used_pages) DESC;
