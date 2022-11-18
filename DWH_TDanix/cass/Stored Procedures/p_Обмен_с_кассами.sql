@@ -1037,7 +1037,7 @@ BEGIN
 					left join
 						cass.t_raw_Оплаты RM_n  on RDoc.ИД_документа = RM_n.ИД_документа  and RM_n.Код_типа_оплаты  in (1)
 					left join
-						cass.t_raw_Оплаты RM_t  on RDoc.ИД_документа = RM_t.ИД_документа  and RM_t.Код_типа_оплаты  in (3)
+						cass.t_raw_Оплаты RM_t  on RDoc.ИД_документа = RM_t.ИД_документа  and RM_t.Код_типа_оплаты  in (2,3)
 					left join
 						cass.t_raw_Оплаты RM_s  on RDoc.ИД_документа = RM_s.ИД_документа  and RM_s.Код_типа_оплаты  in (15)
 					left join
