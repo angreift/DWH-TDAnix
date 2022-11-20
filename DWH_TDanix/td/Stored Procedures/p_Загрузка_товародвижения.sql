@@ -36,7 +36,7 @@ BEGIN
 	select distinct 
 		Код_магазина, Дата_выгрузки, Отпечаток_времени, Выгрузка_из_ЗОД
 	from
-		[td].[t_raw_Данные_товародвижения_из_магазинов]
+		[td].[t_raw_Данные_товародвижения_из_магазинов] with (nolock)
 
 	-- Преобразуем по циклу
 	while (select count(*) from @load_pr) > 0 begin
@@ -54,9 +54,9 @@ BEGIN
 		--Проверим финишировала ли выгрузка. Если нет, то удалим эти данные
 
 
-		Print('02' + format(@_дата_выгрузки, 'yyMMdd') + case when @_выгрузка_зод = 1 then 'Z' else 'D' end + right('0000' + cast(@_код_магазина as nvarchar), 4) + right('000000' + cast(@_отпечаток_времени as nvarchar), 6) + 'finish');
+		--Print('02' + format(@_дата_выгрузки, 'yyMMdd') + case when @_выгрузка_зод = 1 then 'Z' else 'D' end + right('0000' + cast(@_код_магазина as nvarchar), 4) + right('000000' + cast(@_отпечаток_времени as nvarchar), 6) + 'finish');
 
-		if (select count(*) from [td].t_raw_Данные_товародвижения_из_магазинов where
+		if (select count(*) from [td].t_raw_Данные_товародвижения_из_магазинов with (nolock) where
 				Дата_выгрузки = @_дата_выгрузки and
 				Код_магазина = @_код_магазина and
 				Выгрузка_из_ЗОД = @_выгрузка_зод and
@@ -121,7 +121,7 @@ BEGIN
 			set @exVer = cast(left(@strData, 2) as int);
 			
 			if @exVer = 2 begin 
-				print('load -> ' + @strData);
+				--print('load -> ' + @strData);
 
 				-- 1. Обрезаем метаифнормацию в началае
 				set @strData = substring(@strData, 20, len(@strData) - 19);
@@ -178,12 +178,13 @@ BEGIN
 		begin try
 			commit tran td_bm_load
 			set @msg = concat('Загрузка успешно завершена и зафиксирована. Дата выгрузки: ', @_дата_выгрузки, ', Код магазина: ', @_код_магазина, ', Выгрузка из ЗОД: ', @_выгрузка_зод, ', Отпечаток времени: ', @_отпечаток_времени);
+			print(@msg);
 			exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
 		end try
 		begin catch
 			rollback tran td_bm_load
 			set @msg = concat('Не удалось загрузить товародвижение: ', error_message(), '. Дата выгрузки: ', @_дата_выгрузки, ', Код магазина: ', @_код_магазина, ', Выгрузка из ЗОД: ', @_выгрузка_зод, ', Отпечаток времени: ', @_отпечаток_времени);
-			exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
+			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 		end catch
 	end
 

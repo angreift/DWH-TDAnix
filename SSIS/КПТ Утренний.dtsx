@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ Утренний"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{9514BAE1-85BF-4F25-BD01-3CB2E8AC4F9E}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{BE28F71E-20B5-4729-BD1A-670BFAABE66D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3873,158 +3873,135 @@ where
                       version="1">
                       <components>
                         <component
-                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ"
-                          componentClassID="Microsoft.OLEDBDestination"
-                          contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                          description="OLE DB Destination"
-                          name="КПТ"
+                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Writes to a database using ADO.NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                          description="Writes to a database using ADO.NET provider."
+                          name="s8-oalp-test ОТБРС_Матрица"
                           usesDispositions="true"
-                          version="4">
+                          version="2">
                           <properties>
                             <property
+                              dataType="System.String"
+                              description="The Destination database table name."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ОТБРС_Матрица"</property>
+                            <property
                               dataType="System.Int32"
-                              description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                              description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                              expressionType="Notify"
+                              name="BatchSize">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                              expressionType="Notify"
                               name="CommandTimeout">0</property>
                             <property
-                              dataType="System.String"
-                              description="Specifies the name of the database object used to open a rowset."
-                              name="OpenRowset">[dbo].[ОТБРС_Матрица]</property>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the variable that contains the name of the database object used to open a rowset."
-                              name="OpenRowsetVariable"></property>
-                            <property
-                              dataType="System.String"
-                              description="The SQL command to be executed."
-                              name="SqlCommand"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the column code page to use when code page information is unavailable from the data source."
-                              name="DefaultCodePage">1251</property>
-                            <property
                               dataType="System.Boolean"
-                              description="Forces the use of the DefaultCodePage property value when describing character data."
-                              name="AlwaysUseDefaultCodePage">false</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the mode used to access the database."
-                              name="AccessMode"
-                              typeConverter="AccessMode">3</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                              name="FastLoadKeepIdentity">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                              name="FastLoadKeepNulls">false</property>
+                              description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                              expressionType="Notify"
+                              name="UseBulkInsertWhenPossible">true</property>
                             <property
                               dataType="System.String"
-                              description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                              name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                              name="FastLoadMaxInsertCommitSize">2147483647</property>
+                              name="UserComponentTypeName">Microsoft.ADONETDestination</property>
                           </properties>
                           <connections>
                             <connection
-                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Connections[OleDbConnection]"
-                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader]"
-                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader]"
-                              description="The OLE DB runtime connection used to access the database."
-                              name="OleDbConnection" />
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              description="Managed connection manager"
+                              name="IDbConnection" />
                           </connections>
                           <inputs>
                             <input
-                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input]"
-                              errorOrTruncationOperation="Insert"
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]"
                               errorRowDisposition="FailComponent"
                               hasSideEffects="true"
-                              name="OLE DB Destination Input">
+                              name="ADO NET Destination Input">
                               <inputColumns>
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[Дата]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Дата]"
                                   cachedDataType="dbTimeStamp"
                                   cachedName="Дата"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[Дата]"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[Топ]"
-                                  cachedDataType="i4"
-                                  cachedName="Топ"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ТОП]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Топ]" />
-                                <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[ВидПоставки]"
-                                  cachedDataType="i4"
-                                  cachedName="ВидПоставки"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ВидПоставки]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
-                                <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[Код_товара]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_товара]"
                                   cachedDataType="i4"
                                   cachedName="Код_товара"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[КодТовара]"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_товара]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[Код_поставщика]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_поставщика]"
                                   cachedDataType="i4"
                                   cachedName="Код_поставщика"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[КодПоставщика]"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_поставщика]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[Код_магазина]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_магазина]"
                                   cachedDataType="i4"
                                   cachedName="Код_магазина"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[КодМагазина]"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_магазина]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[Признак]"
-                                  cachedDataType="ui1"
-                                  cachedName="Признак"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ВидАсс]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Признак]" />
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Топ]"
+                                  cachedDataType="i4"
+                                  cachedName="Топ"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Топ]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].Columns[ВидАсс2н]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
+                                  cachedDataType="i4"
+                                  cachedName="ВидПоставки"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс2н]"
                                   cachedDataType="ui1"
                                   cachedName="ВидАсс2н"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ВидАсс14денейНазад]"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидАсс2н]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Признак]"
+                                  cachedDataType="ui1"
+                                  cachedName="Признак"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Признак]" />
                               </inputColumns>
                               <externalMetadataColumns
                                 isUsed="True">
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[Дата]"
-                                  dataType="dbDate"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                                  dataType="dbTimeStamp"
                                   name="Дата" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[КодТовара]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
                                   dataType="i8"
                                   name="КодТовара" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[КодПоставщика]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
                                   dataType="i8"
                                   name="КодПоставщика" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[КодМагазина]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
                                   dataType="i8"
                                   name="КодМагазина" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ТОП]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
                                   dataType="bool"
                                   name="ТОП" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ВидАсс]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
                                   dataType="ui1"
                                   name="ВидАсс" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ВидАсс14денейНазад]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
                                   dataType="ui1"
                                   name="ВидАсс14денейНазад" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input].ExternalColumns[ВидПоставки]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
                                   dataType="bool"
                                   name="ВидПоставки" />
                               </externalMetadataColumns>
@@ -4032,22 +4009,22 @@ where
                           </inputs>
                           <outputs>
                             <output
-                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Outputs[OLE DB Destination Error Output]"
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output]"
                               exclusionGroup="1"
                               isErrorOut="true"
-                              name="OLE DB Destination Error Output"
-                              synchronousInputId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input]">
+                              name="ADO NET Destination Error Output"
+                              synchronousInputId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]">
                               <outputColumns>
                                 <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                                   dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                                   name="ErrorCode"
                                   specialFlags="1" />
                                 <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                                   dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                                   name="ErrorColumn"
                                   specialFlags="2" />
                               </outputColumns>
@@ -4073,7 +4050,7 @@ where
 declare @date as date
 declare @dateN as date
 
-set @date = dateadd(day, -1, getdate())
+set @date = convert(varchar(16), dateadd(day, -1, getdate()), 112)
 set @date = CASE 
   WHEN DATEPART(weekday, @date) = 1 THEN @date 
   WHEN DATEPART(weekday, @date) = 2 THEN dateadd(day, + 6, @date) 
@@ -4321,7 +4298,7 @@ Where
                       <paths>
                         <path
                           refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате).Paths[ADO NET Source Output]"
-                          endId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ.Inputs[OLE DB Destination Input]"
+                          endId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]"
                           name="ADO NET Source Output"
                           startId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output]" />
                       </paths>
@@ -10937,52 +10914,54 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="223,44"
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица"
+          TopLeft="50.4433962264151,129.311320754717" />
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС"
           TopLeft="5.5,5.5" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ"
-          TopLeft="113,150" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате).Paths[ADO NET Source Output]"
-          TopLeft="73.5,49.5">
+          TopLeft="73.3867924528302,49.4245283018868">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="89,100.5"
+              EndConnector="88.377358490566,79.8867924528302"
               Start="0,0"
-              End="89,93">
+              End="88.377358490566,72.3867924528302">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.25"
-                    Point2="0,50.25"
-                    Point3="4,50.25" />
+                    End="0,39.9245283018868" />
                   <mssgle:LineSegment
-                    End="85,50.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="85,50.25"
-                    Point2="89,50.25"
-                    Point3="89,54.25" />
+                    End="88.377358490566,39.9245283018868" />
                   <mssgle:LineSegment
-                    End="89,93" />
+                    End="88.377358490566,72.3867924528302" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="4.52847742236633,44.9245283018868,79.3204036458333,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС">
     <Properties>
@@ -11334,19 +11313,6 @@ WHERE
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\КПТ">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
