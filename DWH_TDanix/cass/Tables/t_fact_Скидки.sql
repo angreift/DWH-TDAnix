@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [cass].[t_fact_Скидки] (
 	[Код_кассы] [int] NOT NULL,
-	[ИД_скидки] [int] NOT NULL,
+	[ИД_скидки] NVARCHAR(20) NOT NULL,
 	[Код_товара] [bigint] NOT NULL,
 	[Номер_позиции] [int] NOT NULL,
 	[Дата_применения_скидки] [date] NOT NULL,
