@@ -315,7 +315,7 @@ BEGIN
 							`cashcode`
 						from
 							`workshift`''
-				) where time_beg >= dateadd(day, -60, getdate()) and time_beg >= ''220221101'' and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
+				) where time_beg >= dateadd(day, -60, getdate()) and time_beg >= ''20221101'' and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
 		'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 		-- Берем данные за предыдущие 60 дней
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
