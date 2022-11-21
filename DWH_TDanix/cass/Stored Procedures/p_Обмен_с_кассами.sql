@@ -641,7 +641,7 @@ BEGIN
 					) as cte72 on 
 						`documents`.`moneyitem`.`documentid` = cte72.`documentid` and 
 						`documents`.`moneyitem`.`valcode` = cte72.`valcode` and 
-						cte72.opcode = 72
+						cte72.opcode in (72, 76)
 					left join
 						`documents`.`document` on `documents`.`moneyitem`.`documentid` = `documents`.`document`.`documentid`
 					where
