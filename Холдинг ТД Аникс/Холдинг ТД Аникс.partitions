@@ -4,9 +4,9 @@
     <MeasureGroup>
       <ID>v Fact Детализация Чеков</ID>
       <Partitions>
-        <Partition dwd:design-time-name="540f6f5e-1a40-4c94-b5bd-6493066736a1">
-          <ID>Детализация_Чеков_2018</ID>
-          <Name>Детализация_Чеков_2018</Name>
+        <Partition>
+          <ID>Детализация_Чеков_2018_q1</ID>
+          <Name>Детализация_Чеков_2018_q1</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
@@ -15,7 +15,7 @@
             <DataSourceID>DWH</DataSourceID>
             <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
 FROM [cass].[v_fact_Детализация_чеков]
-WHERE Дата_добавления_позиции &gt;= '20180101' and Дата_добавления_позиции &lt; '20190101'</QueryDefinition>
+WHERE Дата_добавления_позиции &gt;= '20180101' and Дата_добавления_позиции &lt; '20180401'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
@@ -29,81 +29,391 @@ WHERE Дата_добавления_позиции &gt;= '20180101' and Дата
             <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
           </ProactiveCaching>
         </Partition>
-        <Partition dwd:design-time-name="e02c3955-5ae5-4ac6-a351-2de1409a86f4">
-          <ID>Детализация_Чеков_2019</ID>
-          <Name>Детализация_Чеков_2019</Name>
+        <Partition>
+          <ID>Детализация_Чеков_2018_q2</ID>
+          <Name>Детализация_Чеков_2018_q2</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="a92f8c70-6352-4518-acdc-7c53ff37e9cb">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
             <DataSourceID>DWH</DataSourceID>
             <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
 FROM [cass].[v_fact_Детализация_чеков]
-WHERE Дата_добавления_позиции &gt;= '20190101' and Дата_добавления_позиции &lt; '20200101'</QueryDefinition>
+WHERE Дата_добавления_позиции &gt;= '20180401' and Дата_добавления_позиции &lt; '20180701'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
           <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
-          <ProactiveCaching dwd:design-time-name="586d7886-8688-4f42-a15d-44c317b8f12e">
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
             <SilenceInterval>-PT1S</SilenceInterval>
             <Latency>-PT1S</Latency>
             <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
             <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4b877aa9-fa6a-4b1f-9be0-a685438a8460" />
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
           </ProactiveCaching>
         </Partition>
-        <Partition dwd:design-time-name="e21ddc65-a2b3-452d-9b72-3148d1ce5da8">
-          <ID>Детализация_Чеков_2020</ID>
-          <Name>Детализация_Чеков_2020</Name>
+        <Partition>
+          <ID>Детализация_Чеков_2018_q3</ID>
+          <Name>Детализация_Чеков_2018_q3</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="261a2f6c-5982-4288-bae0-4f927efa9d0a">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
             <DataSourceID>DWH</DataSourceID>
             <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
 FROM [cass].[v_fact_Детализация_чеков]
-WHERE Дата_добавления_позиции &gt;= '20200101' and Дата_добавления_позиции &lt; '20210101'</QueryDefinition>
+WHERE Дата_добавления_позиции &gt;= '20180701' and Дата_добавления_позиции &lt; '20181001'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
           <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
-          <ProactiveCaching dwd:design-time-name="a7fd206e-c049-4fbc-b7da-90f959f9efa0">
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
             <SilenceInterval>-PT1S</SilenceInterval>
             <Latency>-PT1S</Latency>
             <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
             <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cd7350ca-37ee-4b7e-ba9c-8cd38754760f" />
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
           </ProactiveCaching>
         </Partition>
-        <Partition dwd:design-time-name="4a562c31-33df-4f87-9899-84c098d3cc20">
-          <ID>Детализация_Чеков_2021</ID>
-          <Name>Детализация_Чеков_2021</Name>
+                <Partition>
+          <ID>Детализация_Чеков_2018_q4</ID>
+          <Name>Детализация_Чеков_2018_q4</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="ecf6d763-0d65-45fb-950f-d77b20991a99">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
             <DataSourceID>DWH</DataSourceID>
             <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
 FROM [cass].[v_fact_Детализация_чеков]
-WHERE Дата_добавления_позиции &gt;= '20210101' and Дата_добавления_позиции &lt; '20220101'</QueryDefinition>
+WHERE Дата_добавления_позиции &gt;= '20181001' and Дата_добавления_позиции &lt; '20190101'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
           <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
-          <ProactiveCaching dwd:design-time-name="2ba23211-f958-4f6b-9a66-29f832be5267">
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
             <SilenceInterval>-PT1S</SilenceInterval>
             <Latency>-PT1S</Latency>
             <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
             <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="8f50bcdb-3892-4654-a9d2-56291e0acb77" />
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
           </ProactiveCaching>
         </Partition>
+        
+        
+        <Partition>
+          <ID>Детализация_Чеков_2019_q1</ID>
+          <Name>Детализация_Чеков_2019_q1</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20190101' and Дата_добавления_позиции &lt; '20190401'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        <Partition>
+          <ID>Детализация_Чеков_2019_q2</ID>
+          <Name>Детализация_Чеков_2019_q2</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20190401' and Дата_добавления_позиции &lt; '20190701'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        <Partition>
+          <ID>Детализация_Чеков_2019_q3</ID>
+          <Name>Детализация_Чеков_2019_q3</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20190701' and Дата_добавления_позиции &lt; '20191001'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+                <Partition>
+          <ID>Детализация_Чеков_2019_q4</ID>
+          <Name>Детализация_Чеков_2019_q4</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20191001' and Дата_добавления_позиции &lt; '20200101'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        
+        
+                <Partition>
+          <ID>Детализация_Чеков_2020_q1</ID>
+          <Name>Детализация_Чеков_2020_q1</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20200101' and Дата_добавления_позиции &lt; '20200401'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        <Partition>
+          <ID>Детализация_Чеков_2020_q2</ID>
+          <Name>Детализация_Чеков_2020_q2</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20200401' and Дата_добавления_позиции &lt; '20200701'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        <Partition>
+          <ID>Детализация_Чеков_2020_q3</ID>
+          <Name>Детализация_Чеков_2020_q3</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20200701' and Дата_добавления_позиции &lt; '20201001'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+                <Partition>
+          <ID>Детализация_Чеков_2020_q4</ID>
+          <Name>Детализация_Чеков_2020_q4</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20201001' and Дата_добавления_позиции &lt; '20210101'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        
+        
+        
+                <Partition>
+          <ID>Детализация_Чеков_2021_q1</ID>
+          <Name>Детализация_Чеков_2021_q1</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20210101' and Дата_добавления_позиции &lt; '20210401'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        <Partition>
+          <ID>Детализация_Чеков_2021_q2</ID>
+          <Name>Детализация_Чеков_2021_q2</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20210401' and Дата_добавления_позиции &lt; '20210701'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+        <Partition>
+          <ID>Детализация_Чеков_2021_q3</ID>
+          <Name>Детализация_Чеков_2021_q3</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20210701' and Дата_добавления_позиции &lt; '20211001'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+                <Partition>
+          <ID>Детализация_Чеков_2021_q4</ID>
+          <Name>Детализация_Чеков_2021_q4</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="92554d7b-8028-4d46-ba82-cdbf0d7cd9c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [cass].[v_fact_Детализация_чеков].[Код_кассы],[cass].[v_fact_Детализация_чеков].[Код_товара],[cass].[v_fact_Детализация_чеков].[Дата_время_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Способ_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Количество],[cass].[v_fact_Детализация_чеков].[Способ_ввода_количества],[cass].[v_fact_Детализация_чеков].[Цена],[cass].[v_fact_Детализация_чеков].[Минимальная_цена],[cass].[v_fact_Детализация_чеков].[Цена_позиции],[cass].[v_fact_Детализация_чеков].[Способ_ввода_цены],[cass].[v_fact_Детализация_чеков].[Сумма_скидки],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок],[cass].[v_fact_Детализация_чеков].[Номер_позиции_в_чеке],[cass].[v_fact_Детализация_чеков].[Сумма_Наличные],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты],[cass].[v_fact_Детализация_чеков].[Возврат],[cass].[v_fact_Детализация_чеков].[Количество_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_скидки_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Начальная_сумма_до_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Итоговая_сумма_после_применения_скидок_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_наличные_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_Терминал_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_СБП_Сбербанк_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Неинтегрированный_терминал_СБ_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Сумма_оплаты_Накопительные_карты_с_учетом_возвратов],[cass].[v_fact_Детализация_чеков].[Составной_код_кассира],[cass].[v_fact_Детализация_чеков].[Дата_добавления_позиции],[cass].[v_fact_Детализация_чеков].[Код_магазина],[cass].[v_fact_Детализация_чеков].[Составной_код_документа],[cass].[v_fact_Детализация_чеков].[Составной_код_смены],[cass].[v_fact_Детализация_чеков].[Код_поставщика],[cass].[v_fact_Детализация_чеков].[Признак]
+FROM [cass].[v_fact_Детализация_чеков]
+WHERE Дата_добавления_позиции &gt;= '20211001' and Дата_добавления_позиции &lt; '20220101'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <StorageLocation>\\?\H:\Холдинг ТД Аникс\SSAS</StorageLocation>
+          <ProactiveCaching dwd:design-time-name="a3c62717-1613-4555-91ff-a005cc64cf52">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="38cf61b5-9ee8-423b-981c-5263dda0495a" />
+          </ProactiveCaching>
+        </Partition>
+
+
+
         <Partition dwd:design-time-name="05cae32e-0dbd-4f54-88de-89b3f75d3ea1">
           <ID>Детализация_Чеков_2021_12_27</ID>
           <Name>Детализация_Чеков_2021_12_27</Name>
