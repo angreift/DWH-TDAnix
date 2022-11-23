@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="114" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2131" scrolltop="-3321" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="70" x="59796" y="26326" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="114" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2131" scrolltop="-3321" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="70" x="13996" y="16801" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -967,30 +967,32 @@
         </Attribute>
         <Attribute dwd:design-time-name="a7011432-b0de-47d5-b567-86c5cd8e8d26">
           <AttributeID>ИД Год</AttributeID>
+          <AggregationUsage>Full</AggregationUsage>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="46991b53-e381-4558-b7be-b31ab0c81b26">
           <AttributeID>ИД Квартал</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
-        <Attribute dwd:design-time-name="165850f6-2adf-4325-89d4-8300d301bfd7">
-          <AttributeID>День Число</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
         <Attribute dwd:design-time-name="03f64f60-02e1-434c-9663-7728dee1b523">
           <AttributeID>ИД Год 1</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="d8af0a63-56bb-449b-8abe-28367b892633">
           <AttributeID>ИД Месяц 1</AttributeID>
+          <AggregationUsage>Full</AggregationUsage>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="f5f9c03c-4011-4519-b18b-fbdf4cb4923d">
           <AttributeID>ИД Дата 1</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="bfa762e0-3c83-4728-989b-1658ee1767ca">
           <AttributeID>ISO Неделя</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="e7a8e8ea-76d6-4b36-b6b8-41d5875b432a">
@@ -999,6 +1001,7 @@
         </Attribute>
         <Attribute dwd:design-time-name="56592b73-4c7d-4a03-9ca4-bcc63cf244ec">
           <AttributeID>ISO Неделя Кратко</AttributeID>
+          <AggregationUsage>Full</AggregationUsage>
         </Attribute>
       </Attributes>
       <Hierarchies>
@@ -1007,12 +1010,6 @@
         </Hierarchy>
         <Hierarchy dwd:design-time-name="a93dade3-9a5f-4a5f-8b90-73000c48600a">
           <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="9d347bee-8222-47d3-bcae-cdd161f916b0">
-          <HierarchyID>Иерархия 2</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="80f728be-5c6e-4a1e-8550-fe47ababac63">
-          <HierarchyID>Иерархия 3</HierarchyID>
         </Hierarchy>
         <Hierarchy dwd:design-time-name="67c9ec63-5aa9-4c0a-af0b-8457ef673a82">
           <HierarchyID>Иерархия 4</HierarchyID>
@@ -1030,24 +1027,11 @@
         </Attribute>
         <Attribute dwd:design-time-name="8688113e-228f-4de6-883a-000305d0f461">
           <AttributeID>Включена</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="06811084-f0e4-4c19-b539-cd24fe0cffa9">
-          <AttributeID>Код Магазина</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="7c95f660-cb80-416d-bd51-b68a16a728a5">
-          <AttributeID>Группа Магазина</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="e359137d-fc37-4ca5-9a55-9a598ea7f18d">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="f1117671-070a-44ab-be40-d70b2e24b92b">
-          <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
         <Hierarchy dwd:design-time-name="cbcb2499-6341-4e65-8942-4e7c4b64a40a">
           <HierarchyID>Иерархия 2</HierarchyID>
         </Hierarchy>
@@ -1060,10 +1044,6 @@
       <Attributes>
         <Attribute dwd:design-time-name="132c80c3-560b-432d-9fd4-6efd16db08df">
           <AttributeID>Код</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="47d4961f-5014-46a8-8745-b24e1e8ef8ad">
-          <AttributeID>Наименование</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="00df7492-0b62-4171-8a98-abee26aa0f5b">
@@ -1084,21 +1064,10 @@
         </Attribute>
         <Attribute dwd:design-time-name="f2f884c1-6eaa-4581-9f9c-04a7fdbc6286">
           <AttributeID>Код 1</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="27014adf-d3ba-43c8-b894-8160ab0a9ad0">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="9430628d-f304-4cd0-b52c-edd4198fa13b">
-          <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="8bad3b71-c57d-46fa-8694-e32fa1e217b3">
-          <HierarchyID>Иерархия 2</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="26a3187c-f946-4c24-9b9c-f1f449393a08">
-          <HierarchyID>Иерархия 3</HierarchyID>
-        </Hierarchy>
         <Hierarchy dwd:design-time-name="5c72c3e7-af7e-4d52-a5f1-8581b2768b0f">
           <HierarchyID>Иерархия 4</HierarchyID>
         </Hierarchy>
@@ -1122,34 +1091,12 @@
           <AttributeID>Составной Код</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
-        <Attribute dwd:design-time-name="493d7fba-ca3b-46ef-8ddd-dc83ee5eebc7">
-          <AttributeID>Код Кассы</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="d6fec6a6-e48f-4421-8a24-d90fc6951475">
-          <AttributeID>Код Магазина</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="a8f2f698-13e5-4041-b245-274023fdb5e6">
-          <AttributeID>Группа Магазина</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
         <Attribute dwd:design-time-name="d4b1dab0-1953-49f6-abcd-5e5285ffbf91">
           <AttributeID>Имя Пользователя</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="2cf08854-7932-494e-a195-3d2ba29452ce">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="cd2aae2e-ae32-4afb-b04b-1db29271004f">
-          <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="b10640de-4208-4aff-aca9-133957b684d4">
-          <HierarchyID>Иерархия 2</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="d8b2af5d-ea5c-4e11-af9c-cac3cc0101a9">
       <ID>Способ ввода количества на кассе</ID>
@@ -1180,16 +1127,9 @@
           <AttributeID>Код Товара</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
-        <Attribute dwd:design-time-name="b3020aaf-5cf6-4193-b665-0a94837869e0">
-          <AttributeID>Наименование</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
         <Attribute dwd:design-time-name="39ba7b4d-3980-4cfa-995d-e9e80e1cc3f7">
           <AttributeID>Код Группы</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="31863d26-a0b9-4d04-a70e-339f9625a66a">
-          <AttributeID>Наименование Группы</AttributeID>
+          <AggregationUsage>Full</AggregationUsage>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="66af79c5-1441-4110-abeb-8b6814289677">
@@ -1253,44 +1193,7 @@
           <AttributeID>Составной Код Смены</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
-        <Attribute dwd:design-time-name="a15d9360-e005-4eae-b6eb-0bdd6a124fd6">
-          <AttributeID>Составной Код Кассира</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="c0a16450-fdb8-4fcf-93ec-4408c897b4c6">
-          <AttributeID>Код</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="a063f860-484c-4a9e-bb6c-11d56b0caecb">
-          <AttributeID>Группа</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="2459dd7e-bf3e-4fce-8cb0-aa488f1100ad">
-          <AttributeID>Код Кассы</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="702437b4-a058-46fe-bb21-b68112b37d09">
-          <AttributeID>Имя Пользователя</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="9932ce4c-dfea-4a20-bacc-7effc2435960">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="3b16bb1e-3541-481c-aef6-93620edeeeed">
-          <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="f9007983-5444-439b-8b53-bbe91f28c47e">
-          <HierarchyID>Иерархия 2</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="94bd0335-da10-45af-926e-c11eaba7f346">
-          <HierarchyID>Иерархия 3</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="721be857-57a3-4ac2-9cde-b749e1630139">
-          <HierarchyID>Иерархия 4</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="be8f9b07-dfcd-4b8b-b9db-cd68a29fb319">
       <ID>Чеки</ID>
@@ -1301,31 +1204,7 @@
           <AttributeID>Составной Код Документа</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
-        <Attribute dwd:design-time-name="9e4507fa-4cf1-4520-97c7-875b56d94b63">
-          <AttributeID>Группа</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="38a5010e-ca36-4a4c-8394-38cfc7c07a25">
-          <AttributeID>Код</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="13b05c81-b186-4ac1-a254-3c75101bc38c">
-          <AttributeID>Код Кассы</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
-        <Attribute dwd:design-time-name="674733c1-1b94-43a6-8499-68cc54bd0faf">
-          <AttributeID>Номер Смены</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="fbf47968-cd5a-424f-8b55-e0aacd783ed1">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="fd8722a2-c670-489b-9fd4-7dd5492cbbbb">
-          <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="85da8acb-5094-47c9-9010-8949b32e2f9f">
       <ID>Склад в Магазине</ID>
@@ -1335,15 +1214,7 @@
         <Attribute dwd:design-time-name="13bd7316-09f9-4100-b26c-48fda21429c5">
           <AttributeID>Код Склада</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="545214d9-1697-4c29-b42f-6e2d13ec7a07">
-          <AttributeID>Представление Склада</AttributeID>
-        </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="d98f6a07-7ba7-45b9-b671-8e0b40779d56">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="f9b68c89-b958-451d-bec8-807c8831c9e3">
       <ID>Вид товародвижения</ID>
@@ -1368,27 +1239,35 @@
         </Attribute>
         <Attribute dwd:design-time-name="03213f7c-b39b-49c6-bf00-8a452855da71">
           <AttributeID>Код в Бухгалтерской Базе</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="bb760fa0-579d-4ad1-a416-da2685d7065a">
           <AttributeID>Заголовок</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="79374f36-6f15-49bd-9fd5-6130d14d5311">
           <AttributeID>Вид</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="996eb3ca-c99c-41ec-9ad3-ffc128f6bca3">
           <AttributeID>Сумма</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="4dd55d88-238f-4ea8-8228-b1b7873554e3">
           <AttributeID>Процент</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="68e74b00-6f4e-4d0d-bed7-a8d61dee153c">
           <AttributeID>Причина По Умолчанию Для Отчетов</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="02611147-1375-4bc2-acc8-55d915b9d66a">
           <AttributeID>Причина Для Учета Потерь</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="016615e9-fac2-4c2c-951c-ef8af2b5495d">
           <AttributeID>Причина Для Учета Потерь Магазина</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
       </Attributes>
       <Hierarchies>
@@ -1410,6 +1289,7 @@
         </Attribute>
         <Attribute dwd:design-time-name="74cda879-d592-459b-811a-e3c118d49d5b">
           <AttributeID>Топ</AttributeID>
+          <AggregationUsage>Full</AggregationUsage>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -1423,31 +1303,29 @@
         </Attribute>
         <Attribute dwd:design-time-name="6c418635-9984-4b5f-9ab5-642260ecfd97">
           <AttributeID>Наименование с Кодом</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="b0ba8937-7ee2-4a6a-a0f5-76b48ed1dcae">
           <AttributeID>ИНН</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="5a5221ad-7ddb-408d-b2c7-cc7f816338fd">
           <AttributeID>КПП</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="39bca1fb-0ba2-45db-9e2a-df9a210a0e76">
           <AttributeID>Адрес</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="1efca284-9024-4287-b8b0-6059b56dbf50">
           <AttributeID>Ответственное Лицо</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="8a53ba69-505a-4d7d-9f9a-24eb206d3015">
           <AttributeID>Автозаявка</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="be15faac-b035-440a-9c59-c394911838b6">
-          <HierarchyID>Иерархия</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="c1c63e28-6196-4033-9010-fa7235c58be9">
-          <HierarchyID>Иерархия 1</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="4335262a-d56d-4476-b24a-b314c234deb8">
       <ID>Время</ID>
@@ -1470,6 +1348,9 @@
       <Hierarchies>
         <Hierarchy dwd:design-time-name="48e970e0-cc8a-4080-b181-d379d7759aa2">
           <HierarchyID>Иерархия</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="b3efdd4e-4e2c-47d7-ab37-e6897b2c9257">
+          <HierarchyID>Иерархия 1</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
@@ -1502,46 +1383,14 @@
         <Dimension dwd:design-time-name="d3134b3f-367b-45cd-b225-192560499f94">
           <CubeDimensionID>Смены на кассах</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="df0d6cda-7650-45ba-8251-f3c76283fe31">
-              <AttributeID>Составной Код Кассира</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="f4219121-4976-4b89-a841-f3ac0910738c">
-              <AttributeID>Код</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="b73d6cee-5ae9-401c-bff9-75973540930d">
-              <AttributeID>Имя Пользователя</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="8168ce72-1695-4037-91fc-9c764cce748a">
-              <AttributeID>Код Кассы</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="1cd4b1fd-9732-4258-9be6-2ff6671b5b35">
               <AttributeID>Составной Код Смены</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="ddfc6338-5bb6-493b-b628-f715b3251572">
-              <AttributeID>Группа</AttributeID>
-            </Attribute>
           </Attributes>
-          <Hierarchies>
-            <Hierarchy dwd:design-time-name="195edafe-ba31-488e-a274-52385b181d0a">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="6e8c0184-30e3-4e09-9bc3-5aca4daf0428">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="0aa38b4c-34c4-476c-956e-924b450d5fbc">
-              <HierarchyID>Иерархия 3</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="394a4fe4-731c-43fc-ab6d-845352f75df3">
-              <HierarchyID>Иерархия 2</HierarchyID>
-            </Hierarchy>
-          </Hierarchies>
         </Dimension>
         <Dimension dwd:design-time-name="a384d14a-5adb-4ed0-9b22-e8ceed580e98">
           <CubeDimensionID>Магазин</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="2470defd-73bd-43be-9e29-cf66aef92421">
-              <AttributeID>Наименование</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="518722ab-f588-4288-b8c9-e64c8aed6559">
               <AttributeID>Куст</AttributeID>
             </Attribute>
@@ -1558,20 +1407,6 @@
               <AttributeID>Технолог СП</AttributeID>
             </Attribute>
           </Attributes>
-          <Hierarchies>
-            <Hierarchy dwd:design-time-name="5f6c508d-8a72-417c-96cb-fe6ceb280c0e">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="04d2450f-db69-4eff-a276-1651576ecb90">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="2b652e48-3c5e-47f1-97d6-07b59c40d122">
-              <HierarchyID>Иерархия 3</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="34ddeab5-bc86-4dee-88ed-d2a6d18a1209">
-              <HierarchyID>Иерархия 2</HierarchyID>
-            </Hierarchy>
-          </Hierarchies>
         </Dimension>
         <Dimension dwd:design-time-name="52af968d-2525-46a0-a09e-17283f1e9938">
           <CubeDimensionID>Способ добавления позиции на кассе</CubeDimensionID>
@@ -1604,9 +1439,6 @@
             <Attribute dwd:design-time-name="4d66d6e3-8857-4ba6-bbcc-ae8183554393">
               <AttributeID>ИД Квартал</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="4d110510-d1ab-4cb1-943c-7901123a92f4">
-              <AttributeID>День Число</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="8458dcfe-e44f-4922-b895-1fe19082537f">
               <AttributeID>ИД Год 1</AttributeID>
             </Attribute>
@@ -1630,12 +1462,6 @@
             <Hierarchy dwd:design-time-name="425c6ecc-c4f0-4c0f-b82a-e58627367532">
               <HierarchyID>Иерархия 1</HierarchyID>
             </Hierarchy>
-            <Hierarchy dwd:design-time-name="f30acdda-1a01-4e4d-8f7a-21308733df81">
-              <HierarchyID>Иерархия 3</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="cf7ecf2d-9041-4f9c-8a33-400535117735">
-              <HierarchyID>Иерархия 2</HierarchyID>
-            </Hierarchy>
           </Hierarchies>
         </Dimension>
         <Dimension dwd:design-time-name="9e98869e-c6a8-4f29-b028-b4f555974746">
@@ -1649,14 +1475,8 @@
         <Dimension dwd:design-time-name="dbf30404-adad-4d49-a389-84d51bf234ae">
           <CubeDimensionID>Товар</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="e2581e04-de53-4c7e-9049-79d6d43ebfa9">
-              <AttributeID>Наименование</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="6782fe6f-970e-405a-be18-d45eaab0164b">
               <AttributeID>Код Товара</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="1248389c-6158-46f3-8892-7b64a0f228ac">
-              <AttributeID>Наименование Группы</AttributeID>
             </Attribute>
             <Attribute dwd:design-time-name="ac9e9c33-fd6b-4db9-9e00-a61607c5ce66">
               <AttributeID>Код Группы</AttributeID>
@@ -1671,26 +1491,14 @@
         <Dimension dwd:design-time-name="00684d29-6425-440a-8b62-eb342c544f5e">
           <CubeDimensionID>Касса</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="d276bc42-a49e-4570-bb42-1afd6866c77f">
-              <AttributeID>Код Магазина</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="6122fe4b-4d55-4b46-a413-44d98725e1c6">
               <AttributeID>Код Кассы</AttributeID>
             </Attribute>
             <Attribute dwd:design-time-name="a7f6c4b8-b8e8-43a1-bfb3-af90089dfb93">
               <AttributeID>Включена</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="8bdb5619-8f12-4f4d-b661-3b30ecb8278c">
-              <AttributeID>Группа Магазина</AttributeID>
-            </Attribute>
           </Attributes>
           <Hierarchies>
-            <Hierarchy dwd:design-time-name="45a86b42-81c4-4c24-b1bf-ff3cbe669ab0">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="d5f795a3-aecf-4ab6-bdff-d2e2c162c32d">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
             <Hierarchy dwd:design-time-name="d769d091-7681-440f-811f-68c1b5b6f7f4">
               <HierarchyID>Иерархия 2</HierarchyID>
             </Hierarchy>
@@ -1707,33 +1515,13 @@
         <Dimension dwd:design-time-name="b01f66c0-3367-448b-aa33-0b5e35ac5699">
           <CubeDimensionID>Кассир</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="db694c80-a60d-454b-8250-757a2b63c761">
-              <AttributeID>Код Магазина</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="e6306cf5-6125-460a-925f-465a500b35a2">
               <AttributeID>Имя Пользователя</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="4cec9cff-b926-4bad-b357-0131dddcfcaf">
-              <AttributeID>Код Кассы</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="62dada44-7e26-4d4a-bd42-8018d352815c">
-              <AttributeID>Группа Магазина</AttributeID>
             </Attribute>
             <Attribute dwd:design-time-name="c0c1acd1-5b00-43fc-8677-87ab69614011">
               <AttributeID>Составной Код</AttributeID>
             </Attribute>
           </Attributes>
-          <Hierarchies>
-            <Hierarchy dwd:design-time-name="7122283c-321f-4d44-9074-12e66f56104c">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="1ce48942-2929-44fa-a5cf-8722b0be60d0">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="daa1174c-61f0-41ac-82f9-e54afd2893aa">
-              <HierarchyID>Иерархия 2</HierarchyID>
-            </Hierarchy>
-          </Hierarchies>
         </Dimension>
         <Dimension dwd:design-time-name="c2dce0db-53dc-45cf-acb1-54d289a7415b">
           <CubeDimensionID>Режим скидки</CubeDimensionID>
@@ -1749,27 +1537,7 @@
             <Attribute dwd:design-time-name="4914be40-ee52-4221-b7f7-b7d342d7af18">
               <AttributeID>Составной Код Документа</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="32843a86-7f3a-4cea-b467-b2847bffe0c6">
-              <AttributeID>Группа</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="d0e61977-3593-4d75-91a5-26789097fa7a">
-              <AttributeID>Код</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="6f3f6472-e083-45aa-b7de-d464f99c228e">
-              <AttributeID>Код Кассы</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="8f2eab41-606b-489c-8b83-07dc0b5f3ae2">
-              <AttributeID>Номер Смены</AttributeID>
-            </Attribute>
           </Attributes>
-          <Hierarchies>
-            <Hierarchy dwd:design-time-name="1370c083-9b3f-4e82-b789-d56368a5d948">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="92d449f6-82f2-49f4-8255-b793177eff22">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
-          </Hierarchies>
         </Dimension>
       </Dimensions>
       <MeasureGroups>
@@ -1993,9 +1761,6 @@
             <Attribute dwd:design-time-name="4929cac4-bdb4-45d6-a94a-889d9012ed17">
               <AttributeID>ИД Квартал</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="309cec8a-e641-4fe8-b964-775b75289916">
-              <AttributeID>День Число</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="9361fa49-07c4-4c0e-b19c-93e4e6aa6220">
               <AttributeID>ИД Год 1</AttributeID>
             </Attribute>
@@ -2019,12 +1784,6 @@
             <Hierarchy dwd:design-time-name="5fb8430b-4254-4e47-8fc7-34f21de3f8d4">
               <HierarchyID>Иерархия 1</HierarchyID>
             </Hierarchy>
-            <Hierarchy dwd:design-time-name="a2434336-01b4-4ba0-a85d-c9c107919022">
-              <HierarchyID>Иерархия 2</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="5d2ef0d0-bf0e-4a3e-8f49-e4d16348686f">
-              <HierarchyID>Иерархия 3</HierarchyID>
-            </Hierarchy>
           </Hierarchies>
         </Dimension>
         <Dimension dwd:design-time-name="7ec6455f-2bd3-40f8-84e6-adc8bc5f035b">
@@ -2036,20 +1795,8 @@
             <Attribute dwd:design-time-name="ccc9dec5-cc96-4156-80c2-f9c4a68fb6e0">
               <AttributeID>Включена</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="19c2369a-df69-46f2-b75a-08305880fd86">
-              <AttributeID>Код Магазина</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="8c908de7-da9f-4ed0-bd51-4a333edc36e9">
-              <AttributeID>Группа Магазина</AttributeID>
-            </Attribute>
           </Attributes>
           <Hierarchies>
-            <Hierarchy dwd:design-time-name="248a8596-cf53-4f9a-863d-a19299dc773b">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="e5460d7a-b021-4cd6-af74-e5e33b2d56c5">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
             <Hierarchy dwd:design-time-name="0905b809-5587-4b15-8162-caecdd814c1a">
               <HierarchyID>Иерархия 2</HierarchyID>
             </Hierarchy>
@@ -2060,9 +1807,6 @@
           <Attributes>
             <Attribute dwd:design-time-name="048f3564-5bc2-4591-9fea-d72042b75964">
               <AttributeID>Код</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="a5b1a16c-b184-495a-a0a6-66eb360f49d7">
-              <AttributeID>Наименование</AttributeID>
             </Attribute>
             <Attribute dwd:design-time-name="2e0a4a46-8e8c-40f9-9298-ca2c8c9804f0">
               <AttributeID>Группа</AttributeID>
@@ -2081,18 +1825,6 @@
             </Attribute>
           </Attributes>
           <Hierarchies>
-            <Hierarchy dwd:design-time-name="28ad8196-3e1d-4daa-b43c-26c89743f694">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="d3de043f-e774-42c5-a839-72c7ae07b988">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="a2fc5fb3-9f9d-4105-b3b9-147104e3b8fe">
-              <HierarchyID>Иерархия 2</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="3eb97627-008a-4fa2-991f-0e277e17c5e1">
-              <HierarchyID>Иерархия 3</HierarchyID>
-            </Hierarchy>
             <Hierarchy dwd:design-time-name="b641e487-584f-4dbd-9620-7fa75c13d256">
               <HierarchyID>Иерархия 4</HierarchyID>
             </Hierarchy>
@@ -2113,14 +1845,8 @@
             <Attribute dwd:design-time-name="29450862-a705-4639-ac8f-6a82060903b1">
               <AttributeID>Код Товара</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="db3b4aeb-8fee-4f6b-8ab1-aed75cc8aa94">
-              <AttributeID>Наименование</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="7b02526d-3331-4b07-9d3a-74c57098d737">
               <AttributeID>Код Группы</AttributeID>
-            </Attribute>
-            <Attribute dwd:design-time-name="548f95b4-a03c-455e-8b7e-7f4b1db9aa98">
-              <AttributeID>Наименование Группы</AttributeID>
             </Attribute>
           </Attributes>
           <Hierarchies>
@@ -2138,15 +1864,7 @@
             <Attribute dwd:design-time-name="40297acb-0684-45f4-90f2-a93ce4b63ca6">
               <AttributeID>Код Склада</AttributeID>
             </Attribute>
-            <Attribute dwd:design-time-name="9ab76546-f4c1-4bb4-aa97-d5bacce06423">
-              <AttributeID>Представление Склада</AttributeID>
-            </Attribute>
           </Attributes>
-          <Hierarchies>
-            <Hierarchy dwd:design-time-name="804ff324-bf47-4ffa-962b-9ef845be802c">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-          </Hierarchies>
         </Dimension>
         <Dimension dwd:design-time-name="480cac20-a967-4a40-978d-be75e909adab">
           <CubeDimensionID>Вид товародвижения</CubeDimensionID>
@@ -2235,14 +1953,6 @@
               <AttributeID>Автозаявка</AttributeID>
             </Attribute>
           </Attributes>
-          <Hierarchies>
-            <Hierarchy dwd:design-time-name="0fc1fe50-7092-4e11-ba9e-b353207f61f9">
-              <HierarchyID>Иерархия</HierarchyID>
-            </Hierarchy>
-            <Hierarchy dwd:design-time-name="7b192fcc-82b6-4b29-aed8-16a1fbfa0a25">
-              <HierarchyID>Иерархия 1</HierarchyID>
-            </Hierarchy>
-          </Hierarchies>
         </Dimension>
       </Dimensions>
       <MeasureGroups>
@@ -2548,6 +2258,7 @@
         </Measure>
       </Measures>
       <StorageMode>Molap</StorageMode>
+      <EstimatedRows>977299148</EstimatedRows>
       <EstimatedSize>1993515321</EstimatedSize>
       <ProcessingMode>Regular</ProcessingMode>
       <Dimensions>
@@ -2633,18 +2344,6 @@
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="1b9258e4-bd61-47ca-b2a8-29603aac040c">
                     <TableID>dbo_t_dim_Календарь</TableID>
                     <ColumnID>ИД_квартал</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="2c63fdba-fa25-4889-b220-0e1070a07263">
-              <AttributeID>День Число</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="5dee78d0-d287-4c7f-83f2-f02b42ba1ca7">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="92310936-8b5c-47e4-b505-7031f7f9ec4c">
-                    <TableID>dbo_t_dim_Календарь</TableID>
-                    <ColumnID>ИД_дата</ColumnID>
                   </Source>
                 </KeyColumn>
               </KeyColumns>
@@ -2754,31 +2453,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="369b2fc5-f51d-4c5b-a265-65f8946ee58a">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="49cb9dbd-2710-4f8a-9dd0-2b5afb024402">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0a3ff003-01cf-40e5-a9bc-1638da94159f">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="a61f8f72-8f34-430b-a526-a4c45da11abc">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="cabb1ee4-ec1b-46a4-8f7f-5b77886a41c4">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fe8e4083-fede-4511-a86b-bd3eb560d05a">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a50c3db8-24f1-436d-8ae9-a9f22db7fcdb">
@@ -2797,18 +2471,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="2b183bf6-733b-4bce-b8a9-bf16a20063cb">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="b08b119c-71a7-4217-b0e4-ae91abc25648">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="84ae83ea-6414-4e16-96f7-135634530575">
-                    <TableID>dbo_t_dim_Магазины</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="dbf614bc-8e5e-4513-979c-ae51c95e9997">
               <AttributeID>Группа</AttributeID>
@@ -2944,56 +2606,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="553abb96-d848-4e67-bb91-5661368778eb">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="0f85ac78-a908-4e9a-98a4-5350c98be22b">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="398d1b38-56e8-45e3-8bd9-93b10a0051b1">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="9b665912-ae6a-43ae-8d37-ed7b138c9c61">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e1debfe9-3945-4907-9405-77d051163879">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ba539115-b5f5-4fe0-94b3-4f3282c2a1d1">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="e6f2c166-bc6b-4d70-8e0b-ceea70155145">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="bd9adb91-e444-4f02-82cf-1d24fe4a1d72">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="00033782-4395-45a2-9c75-9dd0d14d851d">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="0c4d2d20-6850-4696-9f4e-187c907bbb3b">
-              <AttributeID>Номер Смены</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="df93c26b-2672-4970-ad9b-bc6779b46b65">
-                  <DataType>WChar</DataType>
-                  <DataSize>20</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6ae06e97-bf93-4f80-992b-cd3d4d9b6763">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Составной_код_смены</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b367674e-997d-4952-8aa4-883d464e99ec">
@@ -3014,69 +2626,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="bc64a64c-1e77-4a9e-af5d-8f3bafa71e1f">
-              <AttributeID>Составной Код Кассира</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c0e0b9fb-a996-49c5-9d87-2f738a24454b">
-                  <DataType>WChar</DataType>
-                  <DataSize>61</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b10e6a38-40c3-4eb7-923b-c8085574c6c7">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Составной_код_кассира</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="833e8716-8d32-4f43-9795-07cc168227ae">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="d8f333f3-6751-4bba-8657-4c9dea271dc4">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="40c0fcf0-25e9-495b-80ac-e2ad600c447f">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="209d625b-f0ea-4fbb-a5b6-e60f20bfb424">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ff01ac94-ec1a-4d91-8fb1-3326a957d263">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bd0e92ce-38e4-488e-afc6-272e5cd08601">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="55ba33de-8f1b-44eb-ba0c-7eceaea79f5e">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="dd9f99ad-78c3-4bb7-ba65-7a3a25f12f05">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="44f56775-c2d4-4764-8b15-3f65a6fed3d2">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="c9edff34-fd45-41a1-8c99-2ae57a54e3c7">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ad46cf39-e665-4249-ba5e-e840867f8f51">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="17dbbd0a-0fba-434b-b270-82ad71a782ae">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6c192da1-16f8-42f9-961e-03c1d5f18eee">
@@ -3096,43 +2645,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="ba7ca395-3d77-4621-b478-3caef732f824">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e37f2ed4-84a5-4119-b002-243db2bf5929">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ec037e8c-1900-4d55-bc26-582614e03d8d">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="166f4811-3214-40fd-9a64-3ea40b781a71">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="fba2e461-83b7-4bc3-b5ed-f284e3d9ffec">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5a8a4aef-7b05-47d4-83a3-97e7cf8aa6b0">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="403d9d90-f54b-422d-a6b9-62ddabee09d2">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c823fcc7-dee8-4213-98ee-e2224e0bf05a">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="72d1bb38-ae14-4495-ae6d-77e4ceac7d1a">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="b82cda1a-d972-4fb2-8143-2c137628578e">
               <AttributeID>Имя Пользователя</AttributeID>
@@ -3167,36 +2679,12 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="b3b4355d-f54f-4794-a910-e0cca8e197a5">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c13383c9-7a53-471e-85d9-28da204fa6bf">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d262852f-0982-475b-b321-9abe31fd6686">
-                    <TableID>dbo_t_dim_Товары</TableID>
-                    <ColumnID>Код_товара</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="6a9df994-af8f-44bf-a1b5-9947ed068248">
               <AttributeID>Код Группы</AttributeID>
               <KeyColumns>
                 <KeyColumn dwd:design-time-name="a0848308-e6ab-474d-bb6f-b219428a2902">
                   <DataType>BigInt</DataType>
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="12f81e09-5ff2-4166-a449-a91ec08b4e3c">
-                    <TableID>dbo_t_dim_Товары</TableID>
-                    <ColumnID>Код_группы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="510a170e-7e02-4c38-ae79-0be4ddd58f86">
-              <AttributeID>Наименование Группы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e4f73479-218b-4ba3-8287-7ebb7f0b0c01">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="edc668fb-b666-4aac-8c55-556b4b48ba11">
                     <TableID>dbo_t_dim_Товары</TableID>
                     <ColumnID>Код_группы</ColumnID>
                   </Source>
@@ -3400,18 +2888,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="571a20df-ff1f-46c2-8634-9826f73e174b">
-              <AttributeID>День Число</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="89642103-4793-46ba-9e22-404c720fa500">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3e7c2f51-9b2f-4dcf-a99b-4b421598d4f6">
-                    <TableID>dbo_t_dim_Календарь</TableID>
-                    <ColumnID>ИД_дата</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="0de85bf4-6f04-46c9-91ea-cbfd7ca0040b">
               <AttributeID>ИД Год 1</AttributeID>
               <KeyColumns>
@@ -3517,31 +2993,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="8eac3130-dbc6-44ee-bf25-a2629e819684">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="589ddd67-4721-472a-b003-0cbfbde22d91">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2638e2c6-9dd1-4b7b-90fb-e850ea265f2d">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="b6785a27-61da-4961-8400-3ad04108a62b">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c5ef07dd-a9b9-4c3b-914e-b543cfd2744f">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2a9e5d40-a350-4938-af2f-b5c196f1d235">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c17872fa-1b4a-414b-b567-6ecf40971dab">
@@ -3560,18 +3011,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="d55a9681-0e25-4046-9eba-263cc24b7a68">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="02ca507d-75d7-4087-a747-59a1a5b4d9ed">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="39b75ce7-5446-4c03-8246-56f976b96eb6">
-                    <TableID>dbo_t_dim_Магазины</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="0e82c55f-3873-44d5-af24-09c237073962">
               <AttributeID>Группа</AttributeID>
@@ -3726,56 +3165,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="66609d80-6567-4bf5-a6ca-aa566c336dfc">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="189ce48a-4662-417d-815b-a84b1f991be3">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e1145fc7-f67f-4cc7-81cf-353f2e7c30d7">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="c603dec4-2500-42a8-b856-c15c16404b58">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c3d51de8-0e0f-43dd-9307-55d37b8b166d">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ddb6f6e2-34a9-4859-b044-b8eb9b501e91">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="0515fd87-1538-4bce-ae3b-b2434b6aa095">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e9313858-0c93-4bf7-b63a-6c7758182a2d">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="45fc4d6b-6807-4858-b297-36f95e771c64">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="883d4be4-af0d-4887-8afc-ee2646567367">
-              <AttributeID>Номер Смены</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="38de17ad-1f14-41ff-a05c-17f2b9ff5547">
-                  <DataType>WChar</DataType>
-                  <DataSize>20</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c75c7478-7f32-499d-a630-972132275822">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Составной_код_смены</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1988d071-6a70-42d7-9ce8-e989daba4b5b">
@@ -3795,43 +3184,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="31aa100a-5ed7-43cb-bf27-44492777fd43">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c0b96df4-b718-411a-86d2-d685e9b001ee">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7c891061-e8d6-440d-94df-0a4b4453efef">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="92f7be7d-0a07-4ad3-a3e6-0549a12692a9">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="51f9c6f7-502d-421e-b1b7-545bf8dbb6da">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1e058165-2ba6-4238-b8dc-501599a02f28">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="bc52e4a3-65c1-4e7e-9c8b-316518544053">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="4d5dfdf7-f85d-46f3-9a16-ec98f61285a4">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9d691af2-f521-4f64-9a45-82c13f9775be">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="97a1d7cf-003d-45b1-adf2-1b4b02831f47">
               <AttributeID>Имя Пользователя</AttributeID>
@@ -3866,36 +3218,12 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="ed81d969-5303-430b-b4ce-78ea09f90c01">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="8fbbccb1-5c3a-4040-af69-bb36cfe248e9">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3e05fe7d-eaf1-4f58-8757-96c7686a5f3d">
-                    <TableID>dbo_t_dim_Товары</TableID>
-                    <ColumnID>Код_товара</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="606c8eb4-56c3-453c-b994-cda16eff35ae">
               <AttributeID>Код Группы</AttributeID>
               <KeyColumns>
                 <KeyColumn dwd:design-time-name="03413499-0e2e-49d4-a771-4d614899d878">
                   <DataType>BigInt</DataType>
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="c7b838e8-6db6-4514-81c5-d380cee0c4c4">
-                    <TableID>dbo_t_dim_Товары</TableID>
-                    <ColumnID>Код_группы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="e7fd77ba-4bca-4f5c-bdcf-72c405fcbdc4">
-              <AttributeID>Наименование Группы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="29113388-1c92-4249-8772-2f722f9937a5">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="85ec9904-a908-4576-8402-8087c7f856db">
                     <TableID>dbo_t_dim_Товары</TableID>
                     <ColumnID>Код_группы</ColumnID>
                   </Source>
@@ -4218,18 +3546,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="58ace2f0-678d-427c-a7fa-bb31030b871b">
-              <AttributeID>День Число</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="80ac755b-fe3f-49f3-b2c1-ecaaf270e001">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6a1df9f6-1a28-4fec-bd29-ae640cffd9c3">
-                    <TableID>dbo_t_dim_Календарь</TableID>
-                    <ColumnID>ИД_дата</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="1a30ccdc-f184-4255-8f41-d9aa15e0c475">
               <AttributeID>ИД Год 1</AttributeID>
               <KeyColumns>
@@ -4335,31 +3651,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="323deeda-2ad6-4d18-b349-06682bed9e22">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="665ea68e-d831-4104-a879-717d41b3914f">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="08f69cdf-e4b5-4a20-8143-360d44e1dc0f">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="da62fb13-a3dc-452a-8435-16b94aac2d15">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ef890729-7d01-4dc9-94cc-27fbff08d353">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ad1494fc-4b7d-4f0d-8a90-e6c5bd4f6480">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f74f9b50-a663-460c-88fa-db514765db12">
@@ -4378,18 +3669,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="8a816684-aedc-4496-a840-b795cf610e6c">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="612699fa-7938-4163-8f39-33c3a121d2d4">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d9d3b99e-f74e-4c58-a2f3-78eca9ba5fa7">
-                    <TableID>dbo_t_dim_Магазины</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="14857abc-be48-408c-a468-3d1da088a35f">
               <AttributeID>Группа</AttributeID>
@@ -4487,69 +3766,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="1e804ad3-1cfa-4d02-b7a8-0a78c7c31618">
-              <AttributeID>Составной Код Кассира</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ff1d8ee3-a24e-48b1-b115-9558a7420022">
-                  <DataType>WChar</DataType>
-                  <DataSize>61</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b077a329-dcfe-4584-a290-83ac12dfe37b">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Составной_код_кассира</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="0fd5078f-187a-439a-ad83-533123a41016">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="293e2357-df4c-4304-bd7b-03f5bd6166f5">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="424b6b76-213a-499c-9c78-4b6f65f3fe29">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="9f6261bf-a434-4732-ad52-b9c4700c7e14">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ef5d6582-ad4f-40e8-900f-d445543fcb6e">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ea9d4e23-aa78-4bb8-b28a-1a7eb86577cd">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="868d6faa-600a-41a0-8237-3246d5d00b06">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="f3d7ea5c-3bdc-4b65-a7a1-c6342763953a">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6749f05d-6600-45fe-91c6-c9c256b636a4">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="36252a33-f74b-4ddb-a3ca-9c15e9b8dea2">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="9e96c6b6-8ee7-42d5-8964-eff97d3d953f">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8024b77f-1d7a-4d79-8820-eedd15dc1e6c">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="bf73856a-70c0-4a6b-9433-d8e5aad05aa3">
@@ -4569,43 +3785,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="a32513bd-5f64-4a63-b516-a4809f3cc31d">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="da93a4b9-8703-44fd-b9be-7f355ebf604c">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4ce0342b-6365-4b75-9277-4c67ce4beba9">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="59dc9aa2-87aa-434e-8a43-3977c09bc0ed">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="68a17f6a-46ee-401c-ac25-35dc44223b89">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e82fda62-0789-4429-a69d-ad14ddcd52f6">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="31781788-2bb7-4dd7-a322-2d162a38f3e2">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="febfc3bf-826d-4ed1-89e6-d205aef70ff2">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="286512a8-de21-4c5f-92d2-6b275da9de17">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="44605136-f5bf-4608-b411-0a5ebe9d69d5">
               <AttributeID>Имя Пользователя</AttributeID>
@@ -4815,18 +3994,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="6349d144-9d4a-42dd-8065-6d4f895640f8">
-              <AttributeID>День Число</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="4886c2ac-d098-43b2-a5dc-30ddea393857">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5d82dcdb-0d64-4ebb-9f72-af3182a701d0">
-                    <TableID>dbo_t_dim_Календарь</TableID>
-                    <ColumnID>ИД_дата</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="82092f1f-a908-4a47-85da-d53554f95096">
               <AttributeID>ИД Год 1</AttributeID>
               <KeyColumns>
@@ -4932,31 +4099,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="f3fb265b-a0c7-4237-98a9-c882f743f010">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="18842d14-2933-4b9c-bbeb-a9a5c1173d5c">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cc1e0825-9b11-4913-98cd-257758d95849">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="9eb975eb-8f15-4a4e-938a-09e82c5d1f0d">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c81c2d66-1a3c-49ae-aab9-9b15c8cc2c10">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="93f71957-eb44-4b18-919e-b1e733b988dc">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c2b26e83-388c-45da-af08-833d0e6da903">
@@ -4975,18 +4117,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="6f557ce8-1bdf-4855-bb8d-a000d0633667">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="f8fd95d7-e01d-4b2c-a917-9cf73c9b731c">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0ed02b0b-e0f4-4af2-a9c8-e071216a6fcd">
-                    <TableID>dbo_t_dim_Магазины</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="ed8e19bb-77b5-4fc6-9d3c-9568ec3cfa49">
               <AttributeID>Группа</AttributeID>
@@ -5122,56 +4252,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="22f8ec90-8de2-434c-8a75-8fe57df3564a">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="13aa709c-160c-4ab1-8ef9-223e7397fec6">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0dc21c0f-fd54-4fd6-b3d2-6a1a8458d6d3">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="37cfad76-25c3-46e6-a6ef-c8a07bfa01dd">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="eefad17a-dc50-4711-9c5b-40b2e5edd1ed">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e1c3092e-e472-48c1-93eb-e416b8636db1">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="b22f4012-b61b-43cf-935b-2dfe2dc93c71">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="19fccfa9-3c98-40aa-a50b-e3f0ca047926">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="663b514d-b7b4-41d9-be73-962a6a564157">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="d5e92b4d-e9fe-4c66-bd46-10f6fc4af6b5">
-              <AttributeID>Номер Смены</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="8e8af86e-b312-4d2e-91fd-0a83a75c4cb2">
-                  <DataType>WChar</DataType>
-                  <DataSize>20</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2ff3e17d-6361-44f2-8407-ce4f7a60b58f">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Составной_код_смены</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="5b19ba79-8b14-401e-8807-3b7deb25be63">
@@ -5191,43 +4271,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="2ae5f17e-f040-47ff-b5cc-ce1cd484ad20">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="089e17a3-a84d-4e4a-9ed0-c8233917987b">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e2b03c1f-209e-4d9b-ae63-89e9b5fcc711">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="078de6e4-0219-4690-942e-a62def128607">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="758a6e8d-0527-443d-a026-04ad0d5bb67f">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8f22aa95-4be7-4266-833a-6884803aa3ea">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="77c91d24-b7d9-4734-b294-04eeb5fd9a43">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="a4a2bc7e-8a8a-4117-82d5-20957a800f10">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="41926f0b-d553-4b59-a92c-73cc56d69f89">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="2f25d0e3-f68a-4404-b5c2-1b981159ff8d">
               <AttributeID>Имя Пользователя</AttributeID>
@@ -5262,36 +4305,12 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="f736a08d-47f3-4ca0-ac25-1858650a3f92">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="b50d1da1-3d1a-4c3c-a815-a9eebae21b60">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="48a4e666-7b31-4eff-ba7d-a131585fc969">
-                    <TableID>dbo_t_dim_Товары</TableID>
-                    <ColumnID>Код_товара</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="9e0559b3-c998-4e0d-b438-0772a74f40a2">
               <AttributeID>Код Группы</AttributeID>
               <KeyColumns>
                 <KeyColumn dwd:design-time-name="ffe632a5-a3d4-4f0f-8940-4fd492fafc88">
                   <DataType>BigInt</DataType>
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="86ac5b8b-c7a2-4242-928e-f6895af2ee9d">
-                    <TableID>dbo_t_dim_Товары</TableID>
-                    <ColumnID>Код_группы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="7d4359ca-55eb-4b49-886f-86d51c30247e">
-              <AttributeID>Наименование Группы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="040497fe-21d0-4a74-8215-fd14ef472932">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9fd026da-b0fa-4315-a3dd-cf7bbd97f364">
                     <TableID>dbo_t_dim_Товары</TableID>
                     <ColumnID>Код_группы</ColumnID>
                   </Source>
@@ -5644,18 +4663,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="3427006f-51ab-469f-a00b-7665fe639a4f">
-              <AttributeID>День Число</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ad7c7d29-70fa-4aa6-bc2f-4bb378e82279">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3a802a22-fe84-48c3-bfdb-10de34f4be4e">
-                    <TableID>dbo_t_dim_Календарь</TableID>
-                    <ColumnID>ИД_дата</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
             <Attribute dwd:design-time-name="f984143b-d94c-4650-8f21-8d7a64b85b5b">
               <AttributeID>ИД Год 1</AttributeID>
               <KeyColumns>
@@ -5761,31 +4768,6 @@
                 </KeyColumn>
               </KeyColumns>
             </Attribute>
-            <Attribute dwd:design-time-name="601eeca3-5429-4439-83a0-6b45764e3b7e">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="6c63b202-534b-423a-a027-e2ed04275ff7">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e058ef55-d1ec-44ac-b696-6647aa7eb5be">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="88630950-d565-4d39-906e-05abe4d70794">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="a81f3f68-8d69-46cc-8cc8-7c96723c732e">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cd69c360-9ecd-4e8a-ae1e-23e8a0315fab">
-                    <TableID>cass_v_dim_Кассы</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a78b4276-440d-4987-ad5c-9b678450e562">
@@ -5804,18 +4786,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="b40282cd-7d18-4cf0-b2d3-daa7d7165231">
-              <AttributeID>Наименование</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="8c7ee250-c3f2-45a4-bda6-7b75804b5767">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8a494d19-114e-41ac-bcfc-3c63657de418">
-                    <TableID>dbo_t_dim_Магазины</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="8423af2f-dffb-4d21-a01e-4fb54cfb619b">
               <AttributeID>Группа</AttributeID>
@@ -5913,69 +4883,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="e9f1ce55-3663-4888-ba81-d31c6fc475b1">
-              <AttributeID>Составной Код Кассира</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="04ae6b72-2b39-419d-a5ca-fa516b41eb6a">
-                  <DataType>WChar</DataType>
-                  <DataSize>61</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="de4bcd33-df68-4c74-be2d-f281c3378ed1">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Составной_код_кассира</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="f2fb2928-4b7d-42a9-b4db-84d5c0fc3ea9">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c2b57ffe-7c6c-44c5-bd9d-531e7ef3bc7a">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="690079cf-c2ae-4979-b83e-2e9d9a17ea97">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="f5c64021-6a07-4d29-a238-b5e01a09329c">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="996aa109-cb7b-4656-85cc-a0320cc27149">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bd307e1a-aea8-4aa4-bef0-3227bef2c785">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="8cd21be4-b574-410a-a081-33cfae459441">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="101f5d93-2c5a-464a-b90d-7cf1c8b19910">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5faf00f3-cc40-424f-927d-e20f71a0e87b">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="19f97442-180d-4a2e-a3a6-06eecad45de4">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="a0f31fdb-55fb-407c-83d2-121659007b01">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5e9a4ae8-84af-4f54-8dd7-271cccc39995">
-                    <TableID>cass_v_dim_Смены</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="2f27d4e7-42cc-4276-8f1a-7a3a6c80cb6a">
@@ -5996,56 +4903,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="90ba68c8-8caa-482b-9f7c-bbd047ff26d8">
-              <AttributeID>Группа</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="b8babff4-5f87-41d1-a559-88a1a9ba8dd8">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8804c162-65d8-4fd1-9ec1-c063e0813a1c">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Группа</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="8102d4e2-fa8f-4291-aab4-996f961fc8a6">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="03467d34-bd92-48f9-b5f5-7c69f963ed54">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d4b1c66f-ee97-480f-8b46-24a46f48b070">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="8e50510c-f968-40f7-9985-0decf603f135">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="a8becd3c-764b-4973-8017-21eeec1562b7">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="85182f9a-1c28-4361-a4f8-fd099134031d">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="9f482a8a-e99b-486e-bbbc-d4c8d119c412">
-              <AttributeID>Номер Смены</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="dc8c3adf-c48c-4644-b5da-026ce2b12e32">
-                  <DataType>WChar</DataType>
-                  <DataSize>20</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="35a9379a-634e-4d6e-b6db-39aebcc87db0">
-                    <TableID>cass_v_dim_Чеки</TableID>
-                    <ColumnID>Составной_код_смены</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="33b7b69b-26da-434a-a050-ee0aab6db5c4">
@@ -6065,43 +4922,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="cd69d04c-e91b-4eea-9f33-1f31cc63302c">
-              <AttributeID>Код Кассы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e046f27a-8c15-403b-84c4-77036011b992">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="04a2c653-a162-4d85-9b85-f12c954b5598">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_кассы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="6c5f7801-9552-4801-82b4-0ac0d1ff74e2">
-              <AttributeID>Код Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="7e51814c-2c1f-46f2-b1ba-60860bd6be60">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="072c1e06-2f12-429e-b1fa-842f27c4d3d2">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="68d31c61-7a7b-44e1-9f64-f479b7e32bfb">
-              <AttributeID>Группа Магазина</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="c7e3077d-50b3-4d94-a6ee-3874852ccb39">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="852f9f29-c8cc-4489-8dd6-9ae3aa16beff">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Группа_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
             <Attribute dwd:design-time-name="934d2049-7bd3-43ed-9597-34d84bc94d2a">
               <AttributeID>Имя Пользователя</AttributeID>
@@ -6596,66 +5416,66 @@
       <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
       <Commands>
         <Command>
-          <Text>CALCULATE;      
+          <Text>CALCULATE;       
 CREATE MEMBER CURRENTCUBE.MEASURES.UseAsDefaultMeasure
  AS NULL,
-VISIBLE = 0; 
+VISIBLE = 0;  
 
 ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures,
-DEFAULT_MEMBER = [Measures].UseAsDefaultMeasure; 
+DEFAULT_MEMBER = [Measures].UseAsDefaultMeasure;  
 CREATE DYNAMIC SET CURRENTCUBE.[DaysDynSet]
- AS existing [Календарь].[День].[День] ; 
+ AS existing [Календарь].[День].[День];  
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний остаток]
  AS AVG(existing [DaysDynSet],[Measures].[Остаток ШТ КГ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара'  ;      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара';       
 
 CREATE MEMBER CURRENTCUBE.[Measures].[Кража в розничных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[32], [Measures].[Сумма ТО РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Кража в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[32], [Measures].[Сумма ТО закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Форс-мажор в розничных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[81], [Measures].[Сумма ТО РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Переоценка в розничных ценах РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[4], [Measures].[Сумма ТО РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Переоценка в закупочных ценах РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[4], [Measures].[Сумма ТО закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Форс-мажор в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[81], [Measures].[Сумма ТО закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';        
 CREATE MEMBER CURRENTCUBE.[Measures].[Списания на МОЛ в розничных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[13], [Measures].[Сумма ТО РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';        
 CREATE MEMBER CURRENTCUBE.[Measures].[Списания на МОЛ в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[13], [Measures].[Сумма ТО закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';             
 CREATE MEMBER CURRENTCUBE.[Measures].[Пенетрация ПРОЦ]
  AS iif(
     ([Measures].[Количество чеков ШТ]) = 0, 0,
     ([Товар].[Товар], [Measures].[Количество чеков в детализации]) / ([Товар].[Все товары], [Measures].[Количество чеков в детализации]) * 100
 ), FORMAT_STRING = "#,#0.0000",
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';       
 CREATE MEMBER CURRENTCUBE.[Measures].[Себестоимость продаж РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Сумма ТО закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';        
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';         
 CREATE MEMBER CURRENTCUBE.[Measures].[Потери в розничных ценах РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[2], [Measures].[Сумма ТО РУБ])+
 sum([Вид товародвижения].[Вид товародвижения].&amp;[7], [Measures].[Сумма ТО РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';        
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';         
 CREATE MEMBER CURRENTCUBE.[Measures].[Потери в закупочных ценах РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[2], [Measures].[Сумма ТО закупочная РУБ])+
 sum([Вид товародвижения].[Вид товародвижения].&amp;[7], [Measures].[Сумма ТО закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';               
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний чек РУБ]
  AS [Measures].[Итоговая сумма чека со скидками РУБ]/[Measures].[Количество чеков ШТ], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';               
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка РУБ]
- AS [Сумма ТО РУБ] -[Сумма ТО закупочная РУБ], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';               
+ AS [Сумма ТО РУБ] -[Сумма ТО закупочная РУБ] * (-1), 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение'  ;                
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка ПРОЦ]
  AS [Наценка РУБ]/([Сумма ТО РУБ]-[Наценка РУБ])*100, 
 VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение'; </Text>

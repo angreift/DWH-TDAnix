@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="6e23a53a-f3fc-4087-8483-3babbbfaed86" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f3382f76-b59e-44fd-b0c6-d46689e276f7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>t Dim Время</ID>
   <Name>Время</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,9 +8,9 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4486" scrolltop="-8520" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="12012" y="20479" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4486" scrolltop="-8520" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="20003" y="26326" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
-              <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
             <mouseicon>
               <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -101,31 +101,32 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="71e94844-6622-4644-873c-c1acbcad1ce6">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="bb3011b0-254a-4bc9-b5d4-572f2ba8540f">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="cb13fb1b-5bec-45b4-a524-bb78fe089408">
+  <ErrorConfiguration dwd:design-time-name="2c5f47e8-df78-464f-a83d-09abd255c4ba">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="b07c6326-8d2f-43f8-b1e6-903516fedc7e">
+    <Attribute dwd:design-time-name="e4d346da-e9e6-4c5a-9a41-e5f31cd97b66">
       <ID>Время ИД</ID>
       <Name>Время полностью</Name>
       <Usage>Key</Usage>
+      <EstimatedCount>86400</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="03d12f90-5984-4efa-a778-2862df29e530">
+        <KeyColumn dwd:design-time-name="c30a28b2-986f-4ad3-a05a-c6bfc0265488">
           <DataType>WChar</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="249e0f2c-05ba-437f-8a95-034e7d09db65">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="04b41755-d2c3-4b95-96b3-64730343a3b6">
             <TableID>dbo_t_dim_Время</TableID>
             <ColumnID>Время_ИД</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="469a2cca-93e0-40d4-86d9-5603a4eefa7b">
+        <AttributeRelationship dwd:design-time-name="589711b0-d972-4176-8332-4caabbff22a0">
           <AttributeID>Час Минута Секунда</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Секунда</Name>
@@ -135,89 +136,106 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="279a44bf-e4c4-4f65-bbe5-af5dd4eccf25">
+    <Attribute dwd:design-time-name="401ee792-e149-42f6-a145-404aa4082f82">
       <ID>Час</ID>
       <Name>Час</Name>
+      <EstimatedCount>24</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="533772d3-99b7-495a-aac0-eb9b89d5c900">
+        <KeyColumn dwd:design-time-name="81d4676b-355f-4d1f-b2c4-5e6a415f61bb">
           <DataType>WChar</DataType>
           <DataSize>30</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2e87bfbd-de77-4a41-9d9a-02df854fc9fd">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b66e6d8-6925-4155-b1e5-e3e15b2930c1">
             <TableID>dbo_t_dim_Время</TableID>
             <ColumnID>Час</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="159b7e52-8bd6-4f53-ad4e-24733f5377f9">
+    <Attribute dwd:design-time-name="fbe00db2-c035-4fd5-972f-56925dd21556">
       <ID>Час Минута</ID>
       <Name>Минута</Name>
+      <EstimatedCount>1440</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e939d265-e870-421d-8d5a-6c898e4f3a67">
+        <KeyColumn dwd:design-time-name="ba04e7bf-32ad-41c6-a23a-8f68e4a9771b">
           <DataType>WChar</DataType>
           <DataSize>61</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="dbaa34e1-baae-4b70-bb0b-25b127549af9">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="78aafaf6-64d4-4547-a67f-5245d96acb4a">
             <TableID>dbo_t_dim_Время</TableID>
             <ColumnID>Час_минута</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="85fd5a7b-d9aa-499e-8cba-b219cb71bd15">
+        <AttributeRelationship dwd:design-time-name="dded2f6c-c83c-4ace-9006-c0ab266f373c">
           <AttributeID>Час</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Час</Name>
         </AttributeRelationship>
       </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="2a00c075-ca1c-4288-883b-db69ca697729">
+    <Attribute dwd:design-time-name="72d5a396-56b5-4271-9172-6b5999017035">
       <ID>Час Минута Секунда</ID>
       <Name>Секунда</Name>
+      <EstimatedCount>86400</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="98c02604-4d74-4a8d-8fad-9df30adb752c">
+        <KeyColumn dwd:design-time-name="14574e2c-f8e5-467c-ab62-2ac5a42b2cb1">
           <DataType>WChar</DataType>
           <DataSize>92</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="23f1d703-2941-45ca-8e30-1f33c97a6ba0">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="96808d44-e7f6-4563-bc22-fdb184f249bb">
             <TableID>dbo_t_dim_Время</TableID>
             <ColumnID>Час_минута_секунда</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="e843c94f-35d8-49c3-8ade-9f2b6a06150b">
+        <AttributeRelationship dwd:design-time-name="1d029ce3-cc45-4ff4-bc15-62613c18881c">
           <AttributeID>Час Минута</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Минута</Name>
         </AttributeRelationship>
       </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="b6038f2b-53e3-4a13-a0b7-8fd5a3090d00">
+    <Hierarchy dwd:design-time-name="ad6558c8-78e1-4b97-a88c-b6a1f989db69">
       <ID>Иерархия</ID>
       <Name>Час-Минута-Секунда</Name>
       <Levels>
-        <Level dwd:design-time-name="6ee1d83f-1ef7-4a90-bb3c-6c8d096bc8f1">
+        <Level dwd:design-time-name="99989e08-cd13-4c10-bd7a-ff026560a487">
           <ID>Час</ID>
           <Name>Час</Name>
           <SourceAttributeID>Час</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="9e60bf20-6a50-4473-b93c-e7cf5d2616b2">
+        <Level dwd:design-time-name="6bdfef8f-37c1-4e62-9df0-aa0fad523261">
           <ID>Минута</ID>
           <Name>Минута</Name>
           <SourceAttributeID>Час Минута</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="0451b116-1df7-4186-aeca-e971773325c0">
+        <Level dwd:design-time-name="f4f56717-504c-4571-ba7b-777e6eefcaac">
           <ID>Секунда</ID>
           <Name>Секунда</Name>
           <SourceAttributeID>Час Минута Секунда</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="9206344b-0edc-4913-ac4e-a6cd8f9f63ef">
+      <ID>Иерархия 1</ID>
+      <Name>Часы</Name>
+      <Levels>
+        <Level dwd:design-time-name="774b669a-5445-485e-ac08-236a03b9041f">
+          <ID>Час</ID>
+          <Name>Час</Name>
+          <SourceAttributeID>Час</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
