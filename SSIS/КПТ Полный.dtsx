@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\kma1860"
   DTS:DTSID="{22BCB2A8-F9C3-4955-9EA2-A1F90EBD7A9D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="1049"
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="94"
-  DTS:VersionGUID="{A0676361-A2EC-4BF6-B3C5-4A3E25A68B7A}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{B211AAC2-C9FD-4BF6-8620-C2D0264DAAE4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="8">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -2782,7 +2782,7 @@ where  dateadd(yyyy,-2000,   РегистрНТ._Period) between @dateN and @dat
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы RSC Незаказанный товар по причинам"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3202,7 +3202,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Статусы не заказывать"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3253,7 +3253,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3794,7 +3794,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3843,7 +3843,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3929,7 +3929,7 @@ where
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_товара]"
-                                  cachedDataType="i4"
+                                  cachedDataType="i8"
                                   cachedName="Код_товара"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_товара]" />
@@ -4152,7 +4152,7 @@ Where
                                   truncationRowDisposition="FailComponent" />
                                 <outputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_товара]"
-                                  dataType="i4"
+                                  dataType="i8"
                                   errorOrTruncationOperation="Преобразование"
                                   errorRowDisposition="FailComponent"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_товара]"
@@ -4212,7 +4212,7 @@ Where
                                   name="Код_поставщика" />
                                 <externalMetadataColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_товара]"
-                                  dataType="i4"
+                                  dataType="i8"
                                   name="Код_товара" />
                                 <externalMetadataColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Признак]"
@@ -4254,7 +4254,7 @@ Where
                                   name="Код_поставщика" />
                                 <outputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_товара]"
-                                  dataType="i4"
+                                  dataType="i8"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_товара]"
                                   name="Код_товара" />
                                 <outputColumn
@@ -4622,7 +4622,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="8">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5187,7 +5187,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="9">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5229,7 +5229,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6006,7 +6006,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6318,7 +6318,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6425,28 +6425,25 @@ where
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[Дата]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[КодТовара]"
-                          cachedDataType="numeric"
+                          cachedDataType="i8"
                           cachedName="КодТовара"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодТовара]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[КодПоставщика]"
-                          cachedDataType="numeric"
+                          cachedDataType="i8"
                           cachedName="КодПоставщика"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодПоставщика]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[КодМагазина]"
-                          cachedDataType="numeric"
+                          cachedDataType="i8"
                           cachedName="КодМагазина"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодМагазина]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[ТОП]"
-                          cachedDataType="i4"
+                          cachedDataType="bool"
                           cachedName="ТОП"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ТОП]" />
@@ -6604,37 +6601,32 @@ where
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоОстаткам]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[ДнейНаСкладеПоПродажам]"
-                          cachedDataType="numeric"
+                          cachedDataType="bool"
                           cachedName="ДнейНаСкладеПоПродажам"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[ДнейНаСкладеПоПродажам]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоПродажам]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[ДнейНаСкладеПоПродажамПоДнямНедели]"
-                          cachedDataType="numeric"
+                          cachedDataType="bool"
                           cachedName="ДнейНаСкладеПоПродажамПоДнямНедели"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[ДнейНаСкладеПоПродажамПоДнямНедели]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоПродажамПоДнямНедели]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[КолВоДней]"
-                          cachedDataType="numeric"
+                          cachedDataType="bool"
                           cachedName="КолВоДней"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[КолВоДней]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КолВоДней]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[ДнейПродажСП]"
-                          cachedDataType="numeric"
+                          cachedDataType="bool"
                           cachedName="ДнейПродажСП"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[ДнейПродажСП]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейПродажСП]" />
                         <inputColumn
                           refId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].Columns[КолВоДнейСП]"
-                          cachedDataType="numeric"
+                          cachedDataType="bool"
                           cachedName="КолВоДнейСП"
-                          cachedPrecision="10"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод.Inputs[ADO NET Destination Input].ExternalColumns[КолВоДнейСП]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КолВоДнейСП]" />
                         <inputColumn
@@ -6970,7 +6962,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[Дата]"
                           dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[Дата]"
@@ -6978,38 +6970,35 @@ where
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодТовара]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="i8"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодТовара]"
                           name="КодТовара"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодПоставщика]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="i8"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КодПоставщика]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодПоставщика]"
                           name="КодПоставщика"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодМагазина]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="i8"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КодМагазина]"
                           name="КодМагазина"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ТОП]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="bool"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ТОП]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ТОП]"
@@ -7018,7 +7007,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КоличествоПриход]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КоличествоПриход]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КоличествоПриход]"
@@ -7029,7 +7018,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СуммаПриход]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[СуммаПриход]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СуммаПриход]"
@@ -7040,7 +7029,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДатаПриемки]"
                           dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДатаПриемки]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДатаПриемки]"
@@ -7049,7 +7038,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВремяПриемки]"
                           dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ВремяПриемки]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВремяПриемки]"
@@ -7058,7 +7047,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]"
@@ -7069,7 +7058,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоРознРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]"
@@ -7080,7 +7069,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОборотШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОборотШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОборотШТ]"
@@ -7091,7 +7080,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОборотРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОборотРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОборотРуб]"
@@ -7102,7 +7091,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаКонецШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаКонецШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаКонецШТ]"
@@ -7113,7 +7102,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаКонецРознРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаКонецРознРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокНаКонецРознРуб]"
@@ -7124,7 +7113,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ПродажиШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиШТ]"
@@ -7135,7 +7124,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ПродажиРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиРуб]"
@@ -7146,7 +7135,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиДоПриходаШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ПродажиДоПриходаШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиДоПриходаШТ]"
@@ -7157,7 +7146,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиДоПриходаРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ПродажиДоПриходаРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ПродажиДоПриходаРуб]"
@@ -7168,7 +7157,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокПередПриходомШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОстатокПередПриходомШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокПередПриходомШТ]"
@@ -7179,7 +7168,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокПередПриходомРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ОстатокПередПриходомРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ОстатокПередПриходомРуб]"
@@ -7190,7 +7179,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[СреднедневныеШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеШТ]"
@@ -7201,7 +7190,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[СреднедневныеРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеРуб]"
@@ -7212,7 +7201,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеПоДнямНеделиШТ]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[СреднедневныеПоДнямНеделиШТ]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеПоДнямНеделиШТ]"
@@ -7223,7 +7212,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеПоДнямНеделиРуб]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[СреднедневныеПоДнямНеделиРуб]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СреднедневныеПоДнямНеделиРуб]"
@@ -7234,7 +7223,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоОстаткам]"
                           dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейНаСкладеПоОстаткам]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоОстаткам]"
@@ -7244,58 +7233,53 @@ where
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоПродажам]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="bool"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейНаСкладеПоПродажам]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоПродажам]"
                           name="ДнейНаСкладеПоПродажам"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоПродажамПоДнямНедели]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="bool"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейНаСкладеПоПродажамПоДнямНедели]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейНаСкладеПоПродажамПоДнямНедели]"
                           name="ДнейНаСкладеПоПродажамПоДнямНедели"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КолВоДней]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="bool"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КолВоДней]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КолВоДней]"
                           name="КолВоДней"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейПродажСП]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="bool"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейПродажСП]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ДнейПродажСП]"
                           name="ДнейПродажСП"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КолВоДнейСП]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
+                          dataType="bool"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КолВоДнейСП]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[КолВоДнейСП]"
                           name="КолВоДнейСП"
-                          precision="10"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВидАсс]"
                           dataType="ui1"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВидАсс]"
@@ -7304,7 +7288,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВидАсс14днейНазад]"
                           dataType="ui1"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс14днейНазад]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВидАсс14днейНазад]"
@@ -7313,7 +7297,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
                           dataType="i2"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
@@ -7322,7 +7306,7 @@ where
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СтатусНеЗаказывать]"
                           dataType="ui1"
-                          errorOrTruncationOperation="Conversion"
+                          errorOrTruncationOperation="Преобразование"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[СтатусНеЗаказывать]"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].Columns[СтатусНеЗаказывать]"
@@ -7337,22 +7321,19 @@ where
                           name="Дата" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
-                          dataType="numeric"
-                          name="КодТовара"
-                          precision="10" />
+                          dataType="i8"
+                          name="КодТовара" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КодПоставщика]"
-                          dataType="numeric"
-                          name="КодПоставщика"
-                          precision="10" />
+                          dataType="i8"
+                          name="КодПоставщика" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
-                          dataType="numeric"
-                          name="КодМагазина"
-                          precision="10" />
+                          dataType="i8"
+                          name="КодМагазина" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ТОП]"
-                          dataType="i4"
+                          dataType="bool"
                           name="ТОП" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КоличествоПриход]"
@@ -7478,29 +7459,24 @@ where
                           scale="2" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейНаСкладеПоПродажам]"
-                          dataType="numeric"
-                          name="ДнейНаСкладеПоПродажам"
-                          precision="10" />
+                          dataType="bool"
+                          name="ДнейНаСкладеПоПродажам" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейНаСкладеПоПродажамПоДнямНедели]"
-                          dataType="numeric"
-                          name="ДнейНаСкладеПоПродажамПоДнямНедели"
-                          precision="10" />
+                          dataType="bool"
+                          name="ДнейНаСкладеПоПродажамПоДнямНедели" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КолВоДней]"
-                          dataType="numeric"
-                          name="КолВоДней"
-                          precision="10" />
+                          dataType="bool"
+                          name="КолВоДней" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ДнейПродажСП]"
-                          dataType="numeric"
-                          name="ДнейПродажСП"
-                          precision="10" />
+                          dataType="bool"
+                          name="ДнейПродажСП" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[КолВоДнейСП]"
-                          dataType="numeric"
-                          name="КолВоДнейСП"
-                          precision="10" />
+                          dataType="bool"
+                          name="КолВоДнейСП" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс]"
                           dataType="ui1"
@@ -7531,25 +7507,22 @@ where
                           name="Дата" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
-                          dataType="numeric"
+                          dataType="i8"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
-                          name="КодТовара"
-                          precision="10" />
+                          name="КодТовара" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КодПоставщика]"
-                          dataType="numeric"
+                          dataType="i8"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КодПоставщика]"
-                          name="КодПоставщика"
-                          precision="10" />
+                          name="КодПоставщика" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
-                          dataType="numeric"
+                          dataType="i8"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
-                          name="КодМагазина"
-                          precision="10" />
+                          name="КодМагазина" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ТОП]"
-                          dataType="i4"
+                          dataType="bool"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ТОП]"
                           name="ТОП" />
                         <outputColumn
@@ -7697,34 +7670,29 @@ where
                           scale="2" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ДнейНаСкладеПоПродажам]"
-                          dataType="numeric"
+                          dataType="bool"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ДнейНаСкладеПоПродажам]"
-                          name="ДнейНаСкладеПоПродажам"
-                          precision="10" />
+                          name="ДнейНаСкладеПоПродажам" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ДнейНаСкладеПоПродажамПоДнямНедели]"
-                          dataType="numeric"
+                          dataType="bool"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ДнейНаСкладеПоПродажамПоДнямНедели]"
-                          name="ДнейНаСкладеПоПродажамПоДнямНедели"
-                          precision="10" />
+                          name="ДнейНаСкладеПоПродажамПоДнямНедели" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КолВоДней]"
-                          dataType="numeric"
+                          dataType="bool"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КолВоДней]"
-                          name="КолВоДней"
-                          precision="10" />
+                          name="КолВоДней" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ДнейПродажСП]"
-                          dataType="numeric"
+                          dataType="bool"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ДнейПродажСП]"
-                          name="ДнейПродажСП"
-                          precision="10" />
+                          name="ДнейПродажСП" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КолВоДнейСП]"
-                          dataType="numeric"
+                          dataType="bool"
                           lineageId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[КолВоДнейСП]"
-                          name="КолВоДнейСП"
-                          precision="10" />
+                          name="КолВоДнейСП" />
                         <outputColumn
                           refId="Package\КПТ\Перенос в свод\Свод_ступень_обработки_1.Outputs[ADO NET Source Error Output].Columns[ВидАсс]"
                           dataType="ui1"
@@ -9468,22 +9436,19 @@ WHERE
                           name="Дата" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
-                          dataType="numeric"
-                          name="КодТовара"
-                          precision="10" />
+                          dataType="i8"
+                          name="КодТовара" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
-                          dataType="numeric"
-                          name="КодПоставщика"
-                          precision="10" />
+                          dataType="i8"
+                          name="КодПоставщика" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
-                          dataType="numeric"
-                          name="КодМагазина"
-                          precision="10" />
+                          dataType="i8"
+                          name="КодМагазина" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
-                          dataType="i4"
+                          dataType="bool"
                           name="ТОП" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоПриход]"
@@ -9605,33 +9570,28 @@ WHERE
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ДнейНаСкладеПоОстаткам]"
                           dataType="numeric"
                           name="ДнейНаСкладеПоОстаткам"
-                          precision="10"
+                          precision="3"
                           scale="2" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ДнейНаСкладеПоПродажам]"
-                          dataType="numeric"
-                          name="ДнейНаСкладеПоПродажам"
-                          precision="10" />
+                          dataType="bool"
+                          name="ДнейНаСкладеПоПродажам" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ДнейНаСкладеПоПродажамПоДнямНедели]"
-                          dataType="numeric"
-                          name="ДнейНаСкладеПоПродажамПоДнямНедели"
-                          precision="10" />
+                          dataType="bool"
+                          name="ДнейНаСкладеПоПродажамПоДнямНедели" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КолВоДней]"
-                          dataType="numeric"
-                          name="КолВоДней"
-                          precision="10" />
+                          dataType="bool"
+                          name="КолВоДней" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ДнейПродажСП]"
-                          dataType="numeric"
-                          name="ДнейПродажСП"
-                          precision="10" />
+                          dataType="bool"
+                          name="ДнейПродажСП" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КолВоДнейСП]"
-                          dataType="numeric"
-                          name="КолВоДнейСП"
-                          precision="10" />
+                          dataType="bool"
+                          name="КолВоДнейСП" />
                         <externalMetadataColumn
                           refId="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
                           dataType="ui1"
@@ -9724,7 +9684,7 @@ WHERE
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить свод за период"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22203,7 +22163,7 @@ Left Join
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблиц для сбора данных для определения причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22222,7 +22182,7 @@ Left Join
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить строки из причины падения КПТ"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22355,12 +22315,12 @@ Left Join
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -24541,7 +24501,7 @@ Left Join
     design-time-name="Package\КПТ\Свод_ступень_обработки_1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="263,44"
           Id="Package\КПТ\Свод_ступень_обработки_1\Преобразование типов"
@@ -24577,9 +24537,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24605,14 +24563,20 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\Свод_ступень_обработки_1\Свод_ступень_обработки_1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\Свод_ступень_обработки_1\Все источники">
     <Properties>
