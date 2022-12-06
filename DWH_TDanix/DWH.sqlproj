@@ -446,6 +446,7 @@
     <Build Include="Storage\REPORTS.sql" />
     <Build Include="rprt_cw\Tables\t_dim_Причины_потерь.sql" />
     <Build Include="rprt_cw\Tables\t_raw_Распричинивание_потерь.sql" />
+    <Build Include="cass\Views\v_fact_Чеки_2нед.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
