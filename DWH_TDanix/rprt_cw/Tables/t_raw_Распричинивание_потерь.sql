@@ -2,10 +2,12 @@
 (
 	Дата date,
 	Код_магазина int,
-	Код_товара int,
+	Код_товара BIGINT,
 	Причина_потери varchar(30),
-	Подпричина_потери varchar(30)
-) ON [RAW]
+	Подпричина_потери varchar(30), 
+    [Сумма] DECIMAL(14, 2) NULL, 
+    [Флаг] BIT NULL
+) ON [Reports]
 go
 
 CREATE NONCLUSTERED INDEX [ix_uncl_КодТовара_КодМагазина_Дата] ON [rprt_cw].[t_raw_Распричинивание_потерь]
