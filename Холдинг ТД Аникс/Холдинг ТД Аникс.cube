@@ -1070,6 +1070,10 @@
           <AttributeID>Код 1</AttributeID>
           <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
+        <Attribute dwd:design-time-name="b9a29d77-4273-4c4f-a736-e3b5718bc5e3">
+          <AttributeID>Код 2</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
       </Attributes>
       <Hierarchies>
         <Hierarchy dwd:design-time-name="7d59b186-c4f6-4676-9133-748c8db711c9">
@@ -1095,12 +1099,12 @@
           <AttributeID>Составной Код</AttributeID>
           <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
-        <Attribute dwd:design-time-name="a358ab70-9f48-4bdd-a37c-e9e7ebf4bd10">
-          <AttributeID>Имя Пользователя</AttributeID>
-          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
-        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="36955000-d9a6-4321-8f63-ff90e4ad6b92">
+          <HierarchyID>Иерархия</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="d43d7f83-5b77-4ca7-b362-1b7541cd8f85">
       <ID>Способ ввода количества на кассе</ID>
@@ -1590,9 +1594,6 @@
         <Dimension dwd:design-time-name="4c279bda-41c2-4ba7-835c-2f818f975329">
           <CubeDimensionID>Кассир</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="64ac1294-66b5-48d3-b9b9-d0e3eb24ed28">
-              <AttributeID>Имя Пользователя</AttributeID>
-            </Attribute>
             <Attribute dwd:design-time-name="f4402dc7-5011-421a-9d3f-2030b48be647">
               <AttributeID>Составной Код</AttributeID>
             </Attribute>
@@ -2729,19 +2730,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="2a1d59a1-a441-4ee6-897a-d34267d0c60a">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="7efe39b9-c7ef-4618-abe9-d2b56bb2f246">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d0170783-3e14-40b2-98fc-d2a7f54d889d">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3b626e99-6c16-4c0a-9e2d-b378e6087449">
@@ -3267,19 +3255,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="2eef9d6d-8c6f-47e2-9644-c15e5bbe3abb">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="8c37fa33-0432-4c22-a43d-f382b1d7803f">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="043cf46d-bba6-401d-8ce6-1c1fe2d7304b">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
           </Attributes>
         </Dimension>
@@ -3888,19 +3863,6 @@
               </KeyColumns>
               <Type>Granularity</Type>
             </Attribute>
-            <Attribute dwd:design-time-name="1a2e7c12-6cf7-43f4-bab8-d120b2ff118a">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="ab5e19ef-07a5-4155-a3ba-b7c229e4c6aa">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c807f9c4-eddf-463a-b94c-6cd85cec493b">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
           </Attributes>
         </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="8061a079-a111-4d93-8662-f445f7afd8a9">
@@ -4373,19 +4335,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="8912c8f1-7586-4ca6-84ea-fbca15c3de4d">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="8ea78568-a53f-4165-8419-6dfa033a3ea5">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9a4d2b2e-c929-46a2-b254-3b293e879a62">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
           </Attributes>
         </Dimension>
@@ -5024,19 +4973,6 @@
                 </KeyColumn>
               </KeyColumns>
               <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="b9e70c5d-3df4-44b2-a4bd-b8aa98c0ff9c">
-              <AttributeID>Имя Пользователя</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="b57dfb8d-ec35-4e4b-9dcd-a3f7f5d52629">
-                  <DataType>WChar</DataType>
-                  <DataSize>50</DataSize>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="44331cb9-9cce-471d-afa1-744a56daa3b8">
-                    <TableID>dbo_v_dim_Пользователи_на_кассах</TableID>
-                    <ColumnID>Имя_пользователя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
             </Attribute>
           </Attributes>
         </Dimension>

@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="58da181a-abc1-428d-857c-2bb7681c0e6b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="911b17a9-498d-436f-8d66-3704380731c0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Смены на кассах</ID>
   <Name>Смены на кассах</Name>
   <CreatedTimestamp>2022-09-06T07:22:56.493333Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2136" scrolltop="-5914" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="20003" y="26326" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2136" scrolltop="-5914" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10239" y="16801" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -83,10 +83,10 @@
   </Annotations>
   <LastProcessed>2022-09-18T12:53:34.16Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a1289ba7-a67a-4a9f-b9d3-6d407b5b2171">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="8f81cf26-3be7-4d18-9232-52dd4aa2a268">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="573a8228-e8dd-4b33-80f9-913758815295">
+  <ErrorConfiguration dwd:design-time-name="47050900-f5b3-4d71-b7c4-2a42f2b48bdf">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
@@ -96,41 +96,40 @@
   <Collation>Cyrillic_General_CI_AS</Collation>
   <UnknownMemberName>Unknown</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="880c18f1-b5a2-4483-b4bb-0bb9d8fd58b5">
+    <Attribute dwd:design-time-name="3ddfa0dd-9ab1-4abe-b2b3-03c83bb83dde">
       <ID>Составной Код Смены</ID>
       <Name>Смена</Name>
       <Usage>Key</Usage>
       <EstimatedCount>2011916</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e6dca036-1bb5-45b3-acce-e59326116aa1">
+        <KeyColumn dwd:design-time-name="c56aada9-9db9-46d5-9db3-92c7bf943720">
           <DataType>WChar</DataType>
           <DataSize>61</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="af82223c-30a9-4797-8e36-13ae428e06b2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2ba3b587-7fee-4282-b5bf-63ece6dc8213">
             <TableID>cass_v_dim_Смены</TableID>
             <ColumnID>Составной_код_смены</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="49854ce3-d3b2-4ac1-b8a0-13a133ec1ea3">
+      <NameColumn dwd:design-time-name="14496842-cc11-47cc-b230-0a1dea08488c">
         <DataType>WChar</DataType>
         <DataSize>107</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="03efd138-5fed-4943-aa2a-a4c6af7ecb63">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b8fe69b1-1a78-45fb-9a92-5fcdf6154fbe">
           <TableID>cass_v_dim_Смены</TableID>
           <ColumnID>Наименование_смены</ColumnID>
         </Source>
       </NameColumn>
       <OrderBy>Key</OrderBy>
-      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
-  <ProactiveCaching dwd:design-time-name="8410dd14-4a07-487b-9333-4e26d2846ac3">
+  <ProactiveCaching dwd:design-time-name="550473fd-7b1a-4354-b80a-af3a185a1538">
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="dd1f5c38-326a-421a-953b-2c699fdf9dd9" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5359752a-1d82-4bd7-b703-0eb6b6f4e47f" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
