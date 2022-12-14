@@ -9,7 +9,9 @@
     [Сумма] DECIMAL(14, 2) NOT NULL, 
     [СуммаЗакупа] DECIMAL(14, 2) NOT NULL,
     [СуммаЗакупаСоСклада] DECIMAL(14, 2) NOT NULL, 
-    [Количество] DECIMAL(14, 3) NOT NULL
+    [Количество] DECIMAL(14, 3) NOT NULL, 
+    [Поставщик] INT NULL, 
+    [Признак] TINYINT NULL
 )
 
 GO
