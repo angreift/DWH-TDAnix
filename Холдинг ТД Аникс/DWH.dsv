@@ -1,4 +1,4 @@
-﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e6724dda-886d-415d-8d02-364ac3a14e3c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="35bbfe50-740b-4910-877d-95681b045152" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DWH</ID>
   <Name>DWH</Name>
   <CreatedTimestamp>2022-09-05T03:41:58.303333Z</CreatedTimestamp>
@@ -27,7 +27,7 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="122" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-30907" scrolltop="48996" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="66649" y="27649" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="122" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="3768" scrolltop="22551" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="29554" y="18124" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -982,8 +982,8 @@
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>-30907</DiagramViewPortLeft>
-            <DiagramViewPortTop>48996</DiagramViewPortTop>
+            <DiagramViewPortLeft>3768</DiagramViewPortLeft>
+            <DiagramViewPortTop>22551</DiagramViewPortTop>
             <DiagramBoundingLeft>0</DiagramBoundingLeft>
             <DiagramBoundingTop>0</DiagramBoundingTop>
             <DiagramZoom>75</DiagramZoom>
@@ -1941,7 +1941,7 @@
             <xs:element name="dbo_t_dim_Товары" msprop:design-time-name="9bdf9796-d753-4914-a240-2a5496b086b5" msprop:FriendlyName="t_dim_Товары" msprop:DbSchemaName="dbo" msprop:DbTableName="t_dim_Товары" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Код_товара" msprop:design-time-name="e1ba1440-1113-4038-aa92-23ef98e21887" msprop:DbColumnName="Код_товара" msprop:FriendlyName="Код_товара" type="xs:long" minOccurs="0" />
+                  <xs:element name="Код_товара" msprop:design-time-name="e1ba1440-1113-4038-aa92-23ef98e21887" msprop:DbColumnName="Код_товара" msprop:FriendlyName="Код_товара" type="xs:long" />
                   <xs:element name="Наименование" msprop:design-time-name="a285a10b-52a2-4fcd-b806-917bcf0faf4c" msprop:DbColumnName="Наименование" msprop:FriendlyName="Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -2059,7 +2059,13 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Код_кассы" msprop:design-time-name="a5435e9d-4256-4544-bb04-4735f69ebbd3" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
-                  <xs:element name="ИД_скидки" msprop:design-time-name="32948417-3cd9-4723-a352-ce311d9fa65e" msprop:DbColumnName="ИД_скидки" msprop:FriendlyName="ИД_скидки" type="xs:int" />
+                  <xs:element name="ИД_скидки" msprop:design-time-name="32948417-3cd9-4723-a352-ce311d9fa65e" msprop:DbColumnName="ИД_скидки" msprop:FriendlyName="ИД_скидки">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="Номер_позиции" msprop:design-time-name="e1d32dd0-06c8-43c2-b7cd-3072bb3ad1a7" msprop:DbColumnName="Номер_позиции" msprop:FriendlyName="Номер_позиции" type="xs:int" />
                   <xs:element name="Дата_время_применения_скидки" msprop:design-time-name="0c527b2d-b8eb-4010-9252-4744b77af1f0" msprop:DbColumnName="Дата_время_применения_скидки" msprop:FriendlyName="Дата_время_применения_скидки" type="xs:dateTime" />
                   <xs:element name="Объект_скидки" msprop:design-time-name="9c5de7a5-93ed-4bef-af04-25e959af53a4" msprop:DbColumnName="Объект_скидки" msprop:FriendlyName="Объект_скидки" type="xs:boolean" />
@@ -2625,7 +2631,7 @@
                   <xs:element name="Сумма_скидки" msprop:design-time-name="ed644268-2932-4745-ab79-6a6366adbce9" msprop:DbColumnName="Сумма_скидки" msprop:FriendlyName="Сумма_скидки" type="xs:decimal" />
                   <xs:element name="Начальная_сумма_до_применения_скидок" msprop:design-time-name="a8e8c113-3ca5-4409-a10f-c8433f346d0c" msprop:DbColumnName="Начальная_сумма_до_применения_скидок" msprop:FriendlyName="Начальная_сумма_до_применения_скидок" type="xs:decimal" />
                   <xs:element name="Итоговая_сумма_после_применения_скидок" msprop:design-time-name="d163fcaa-1592-4603-bf33-a8b9e899c677" msprop:DbColumnName="Итоговая_сумма_после_применения_скидок" msprop:FriendlyName="Итоговая_сумма_после_применения_скидок" type="xs:decimal" />
-                  <xs:element name="Номер_позиции_в_чеке" msprop:design-time-name="d0fdbfb6-5500-4b74-9f43-c071f9d8faef" msprop:DbColumnName="Номер_позиции_в_чеке" msprop:FriendlyName="Номер_позиции_в_чеке" type="xs:unsignedByte" />
+                  <xs:element name="Номер_позиции_в_чеке" msprop:design-time-name="d0fdbfb6-5500-4b74-9f43-c071f9d8faef" msprop:DbColumnName="Номер_позиции_в_чеке" msprop:FriendlyName="Номер_позиции_в_чеке" type="xs:short" />
                   <xs:element name="Сумма_Наличные" msprop:design-time-name="42d0e0ca-2103-43bd-94f8-145a5ddf4e09" msprop:DbColumnName="Сумма_Наличные" msprop:FriendlyName="Сумма_Наличные" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Сумма_Терминал" msprop:design-time-name="fc19b153-fea8-40bb-9b9b-72742554dc60" msprop:DbColumnName="Сумма_Терминал" msprop:FriendlyName="Сумма_Терминал" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Сумма_СБП_Сбербанк" msprop:design-time-name="9937759a-883b-4302-bd37-69756d7ec2a6" msprop:DbColumnName="Сумма_СБП_Сбербанк" msprop:FriendlyName="Сумма_СБП_Сбербанк" type="xs:decimal" minOccurs="0" />
@@ -2781,7 +2787,7 @@
             <xs:element name="cass_v_dim_Чеки" msprop:design-time-name="7e178eaf-e72f-4503-b1f0-1e7e13c1478e" msprop:FriendlyName="v_dim_Чеки" msprop:DbSchemaName="cass" msprop:DbTableName="v_dim_Чеки" msprop:TableType="View">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Составной_код_документа" msprop:design-time-name="fd87e4e9-67a7-47c3-91e2-1df3c7ad1a44" msprop:DbColumnName="Составной_код_документа" msprop:FriendlyName="Составной_код_документа">
+                  <xs:element name="Составной_код_документа" msprop:design-time-name="fd87e4e9-67a7-47c3-91e2-1df3c7ad1a44" msprop:DbColumnName="Составной_код_документа" msprop:FriendlyName="Составной_код_документа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
@@ -2789,23 +2795,23 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="Номер_смены" msprop:design-time-name="c850ead3-2710-4729-9c35-eea94c9b588d" msprop:DbColumnName="Номер_смены" msprop:FriendlyName="Номер_смены" type="xs:int" minOccurs="0" />
-                  <xs:element name="Номер_чека" msprop:design-time-name="b62de72d-e3ea-432b-8204-5db8fdd05b6b" msprop:DbColumnName="Номер_чека" msprop:FriendlyName="Номер_чека" type="xs:int" />
-                  <xs:element name="Группа" msprop:design-time-name="94a93f98-bda0-4d36-bd40-e5de3fca84a7" msprop:DbColumnName="Группа" msprop:FriendlyName="Группа">
+                  <xs:element name="Номер_чека" msprop:design-time-name="b62de72d-e3ea-432b-8204-5db8fdd05b6b" msprop:DbColumnName="Номер_чека" msprop:FriendlyName="Номер_чека" type="xs:int" minOccurs="0" />
+                  <xs:element name="Группа" msprop:design-time-name="94a93f98-bda0-4d36-bd40-e5de3fca84a7" msprop:DbColumnName="Группа" msprop:FriendlyName="Группа" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование" msprop:design-time-name="4ea41d78-14cf-41cc-979e-82207d64a1c5" msprop:DbColumnName="Наименование" msprop:FriendlyName="Наименование">
+                  <xs:element name="Наименование" msprop:design-time-name="4ea41d78-14cf-41cc-979e-82207d64a1c5" msprop:DbColumnName="Наименование" msprop:FriendlyName="Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="100" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Код" msprop:design-time-name="19458a4b-c183-4cf9-8218-decc5c489642" msprop:DbColumnName="Код" msprop:FriendlyName="Код" type="xs:int" />
-                  <xs:element name="Код_кассы" msprop:design-time-name="c0b73b9e-8e25-4aaf-8fe4-6ee9e3f5a207" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" />
+                  <xs:element name="Код" msprop:design-time-name="19458a4b-c183-4cf9-8218-decc5c489642" msprop:DbColumnName="Код" msprop:FriendlyName="Код" type="xs:int" minOccurs="0" />
+                  <xs:element name="Код_кассы" msprop:design-time-name="c0b73b9e-8e25-4aaf-8fe4-6ee9e3f5a207" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" minOccurs="0" />
                   <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:design-time-name="7a6a2cef-578d-4b4c-9598-eef01d334422" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_наименование_магазина" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -2841,6 +2847,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="Дата_закрытия_чека" msprop:DbColumnName="Дата_закрытия_чека" msprop:design-time-name="118e6251-5158-4d45-9639-c8dfb7370326" type="xs:dateTime" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -3022,7 +3029,7 @@
                 <xs:sequence>
                   <xs:element name="Дата" msprop:design-time-name="f75f2516-c89f-4474-97eb-d812fabeaf58" msprop:DbColumnName="Дата" msprop:FriendlyName="Дата" type="xs:dateTime" />
                   <xs:element name="Код_магазина" msprop:design-time-name="d6bc6ed5-3f24-4a30-8c9d-c3ce34f3f10e" msprop:DbColumnName="Код_магазина" msprop:FriendlyName="Код_магазина" type="xs:int" />
-                  <xs:element name="Код_товара" msprop:design-time-name="9904c18b-98af-488e-958d-dadea098cd57" msprop:DbColumnName="Код_товара" msprop:FriendlyName="Код_товара" type="xs:int" />
+                  <xs:element name="Код_товара" msprop:design-time-name="9904c18b-98af-488e-958d-dadea098cd57" msprop:DbColumnName="Код_товара" msprop:FriendlyName="Код_товара" type="xs:long" />
                   <xs:element name="Признак" msdata:ReadOnly="true" msprop:design-time-name="0f107e68-6eaf-4ccc-b2fb-76ba83822bc9" msprop:DbColumnName="Признак" msprop:FriendlyName="Признак" type="xs:unsignedByte" minOccurs="0" />
                   <xs:element name="Код_поставщика" msdata:ReadOnly="true" msprop:design-time-name="86b1191a-224d-48d0-a04a-ed34c7763094" msprop:DbColumnName="Код_поставщика" msprop:FriendlyName="Код_поставщика" type="xs:int" minOccurs="0" />
                 </xs:sequence>
@@ -3113,6 +3120,13 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="Приоритет" msprop:DbColumnName="Приоритет" msprop:design-time-name="729d4c95-1892-4fbc-a1dc-453d71bd6480" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -3122,7 +3136,7 @@
           <xs:selector xpath=".//dbo_t_dim_Магазины" />
           <xs:field xpath="Код" />
         </xs:unique>
-        <xs:unique name="dbo_t_dim_Товары_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+        <xs:unique name="dbo_t_dim_Товары_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
           <xs:selector xpath=".//dbo_t_dim_Товары" />
           <xs:field xpath="Код_товара" />
         </xs:unique>
