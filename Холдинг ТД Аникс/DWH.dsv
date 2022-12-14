@@ -1,4 +1,4 @@
-﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="35bbfe50-740b-4910-877d-95681b045152" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0137f5f4-508c-4fb1-89e7-3cc89cfee04f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DWH</ID>
   <Name>DWH</Name>
   <CreatedTimestamp>2022-09-05T03:41:58.303333Z</CreatedTimestamp>
@@ -2784,7 +2784,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="cass_v_dim_Чеки" msprop:design-time-name="7e178eaf-e72f-4503-b1f0-1e7e13c1478e" msprop:FriendlyName="v_dim_Чеки" msprop:DbSchemaName="cass" msprop:DbTableName="v_dim_Чеки" msprop:TableType="View">
+            <xs:element name="cass_v_dim_Чеки" msprop:design-time-name="7e178eaf-e72f-4503-b1f0-1e7e13c1478e" msprop:IsLogical="True" msprop:FriendlyName="v_dim_Чеки" msprop:DbTableName="v_dim_Чеки" msprop:TableType="View" msprop:QueryDefinition="SELECT        Составной_код_документа, Номер_смены, Номер_чека, Группа, Наименование, Код, Код_кассы, Составной_код_смены, [Наименование чека], '[' + RIGHT('    ' + CAST(Код AS nvarchar), 4) &#xD;&#xA;                         + '] ' + Наименование AS Код_наименование_магазина, 'Касса ' + CAST(Код_кассы AS nvarchar) AS [Наименование кассы], 'Касса ' + CAST(Код_кассы AS nvarchar) + ' Смена №' + CAST(Номер_смены AS nvarchar) &#xD;&#xA;                         AS Наименование_смены, Дата_закрытия_чека&#xD;&#xA;FROM            cass.v_dim_Чеки&#xD;&#xA;WHERE        (Дата_закрытия_чека &gt;= '20221101')" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Составной_код_документа" msprop:design-time-name="fd87e4e9-67a7-47c3-91e2-1df3c7ad1a44" msprop:DbColumnName="Составной_код_документа" msprop:FriendlyName="Составной_код_документа" minOccurs="0">
@@ -2812,13 +2812,6 @@
                   </xs:element>
                   <xs:element name="Код" msprop:design-time-name="19458a4b-c183-4cf9-8218-decc5c489642" msprop:DbColumnName="Код" msprop:FriendlyName="Код" type="xs:int" minOccurs="0" />
                   <xs:element name="Код_кассы" msprop:design-time-name="c0b73b9e-8e25-4aaf-8fe4-6ee9e3f5a207" msprop:DbColumnName="Код_кассы" msprop:FriendlyName="Код_кассы" type="xs:int" minOccurs="0" />
-                  <xs:element name="Код_наименование_магазина" msdata:ReadOnly="true" msprop:design-time-name="7a6a2cef-578d-4b4c-9598-eef01d334422" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Код_наименование_магазина" msprop:ComputedColumnExpression="'[' + right('       ' + cast(Код as nvarchar), 4) + '] ' + Наименование" minOccurs="0">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:maxLength value="107" />
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
                   <xs:element name="Составной_код_смены" msprop:design-time-name="0abce646-273b-4261-b07b-5e9669177882" msprop:DbColumnName="Составной_код_смены" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -2833,21 +2826,28 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование_x0020_кассы" msdata:ReadOnly="true" msprop:design-time-name="bfe69caa-cf67-4898-a433-354dd74116fc" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Наименование кассы" msprop:ComputedColumnExpression="'Касса ' + cast(Код_кассы as nvarchar)" minOccurs="0">
+                  <xs:element name="Дата_закрытия_чека" msprop:design-time-name="118e6251-5158-4d45-9639-c8dfb7370326" msprop:DbColumnName="Дата_закрытия_чека" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Код_наименование_магазина" msprop:DbColumnName="Код_наименование_магазина" msprop:design-time-name="1a3fa21c-2bfe-4c78-9ecb-9b336ecccd76" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="107" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Наименование_x0020_кассы" msprop:DbColumnName="Наименование кассы" msprop:design-time-name="15e28172-9e2f-465a-b4da-4f82534ea47c" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="36" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Наименование_смены" msdata:ReadOnly="true" msprop:design-time-name="f64e1d16-0d21-4fb8-b95a-28b3cf2de1b6" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Наименование_смены" msprop:ComputedColumnExpression="'Касса ' + cast(Код_кассы as nvarchar) + ' Смена №' + cast(Номер_смены as nvarchar)" minOccurs="0">
+                  <xs:element name="Наименование_смены" msprop:DbColumnName="Наименование_смены" msprop:design-time-name="ac3535d7-f4ac-4a8b-8c06-e8c48e66fcaf" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="74" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Дата_закрытия_чека" msprop:DbColumnName="Дата_закрытия_чека" msprop:design-time-name="118e6251-5158-4d45-9639-c8dfb7370326" type="xs:dateTime" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -3120,7 +3120,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Приоритет" msprop:DbColumnName="Приоритет" msprop:design-time-name="729d4c95-1892-4fbc-a1dc-453d71bd6480" minOccurs="0">
+                  <xs:element name="Приоритет" msprop:design-time-name="729d4c95-1892-4fbc-a1dc-453d71bd6480" msprop:DbColumnName="Приоритет" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="30" />
@@ -3207,7 +3207,7 @@
           <msdata:Relationship name="v_fact_Смены_на_кассах-v_dim_Кассы" msdata:parent="cass_v_dim_Кассы" msdata:child="dbo_v_fact_Смены_на_кассах" msdata:parentkey="Код_кассы" msdata:childkey="Код_кассы" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Детализация_чеков-v_dim_Кассы" msdata:parent="cass_v_dim_Кассы" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="Код_кассы" msdata:childkey="Код_кассы" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Детализация_чеков-v_fact_Чеки" msdata:parent="dbo_v_fact_Чеки" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="Составной_код_документа" msdata:childkey="Составной_код_документа" msprop:IsLogical="True" msprop:Description="" />
-          <msdata:Relationship name="v_fact_Детализация_чеков-v_dim_Чеки" msdata:parent="cass_v_dim_Чеки" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="Составной_код_документа" msdata:childkey="Составной_код_документа" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="v_fact_Детализация_чеков-v_dim_Чеки" msdata:parent="cass_v_dim_Чеки" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="Составной_код_документа" msdata:childkey="Составной_код_документа" msprop:Description="" msprop:IsLogical="True" />
           <msdata:Relationship name="v_fact_Детализация_чеков-t_dim_Товары" msdata:parent="dbo_t_dim_Товары" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="Код_товара" msdata:childkey="Код_товара" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Детализация_чеков-t_dim_Способы_добавления_позиции" msdata:parent="cass_t_dim_Способы_добавления_позиции" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="ИД_способа_добавления_позиции" msdata:childkey="Способ_добавления_позиции" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Детализация_чеков-t_dim_Способы_ввода_количества" msdata:parent="cass_t_dim_Способы_ввода_количества" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="ИД_способа_ввода_количества" msdata:childkey="Способ_ввода_количества" msprop:IsLogical="True" msprop:Description="" />
@@ -3215,7 +3215,7 @@
           <msdata:Relationship name="v_fact_Детализация_чеков-v_dim_Календарь" msdata:parent="dbo_t_dim_Календарь" msdata:child="dbo_v_fact_Детализация_чеков" msdata:parentkey="ИД_дата" msdata:childkey="Дата_добавления_позиции" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Сторнированные_позиции-v_dim_Кассы" msdata:parent="cass_v_dim_Кассы" msdata:child="dbo_v_fact_Сторнированные_позиции" msdata:parentkey="Код_кассы" msdata:childkey="Код_кассы" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Сторнированные_позиции-v_fact_Чеки" msdata:parent="dbo_v_fact_Чеки" msdata:child="dbo_v_fact_Сторнированные_позиции" msdata:parentkey="Составной_код_документа" msdata:childkey="Составной_код_документа" msprop:IsLogical="True" msprop:Description="" />
-          <msdata:Relationship name="v_fact_Сторнированные_позиции-v_dim_Чеки" msdata:parent="cass_v_dim_Чеки" msdata:child="dbo_v_fact_Сторнированные_позиции" msdata:parentkey="Составной_код_документа" msdata:childkey="Составной_код_документа" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="v_fact_Сторнированные_позиции-v_dim_Чеки" msdata:parent="cass_v_dim_Чеки" msdata:child="dbo_v_fact_Сторнированные_позиции" msdata:parentkey="Составной_код_документа" msdata:childkey="Составной_код_документа" msprop:Description="" msprop:IsLogical="True" />
           <msdata:Relationship name="v_fact_Сторнированные_позиции-v_dim_Календарь" msdata:parent="dbo_t_dim_Календарь" msdata:child="dbo_v_fact_Сторнированные_позиции" msdata:parentkey="ИД_дата" msdata:childkey="Дата_время_добавления_сторнированной_позиции" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_fact_Сторнированные_позиции-v_dim_Календарь1" msdata:parent="dbo_t_dim_Календарь" msdata:child="dbo_v_fact_Сторнированные_позиции" msdata:parentkey="ИД_дата" msdata:childkey="Дата_время_сторнирования_позиции" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="v_dim_Кассы-t_dim_Магазины" msdata:parent="dbo_t_dim_Магазины" msdata:child="cass_v_dim_Кассы" msdata:parentkey="Код" msdata:childkey="Код_магазина" msprop:IsLogical="True" msprop:Description="" />
