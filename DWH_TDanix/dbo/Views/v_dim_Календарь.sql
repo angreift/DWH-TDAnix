@@ -3,8 +3,8 @@ AS
 SELECT        ИД_дата, ИД_год, Год_наименование, ИД_квартал, Квартал_наименование, ИД_месяц, Месяц_наименование, ИД_неделя, Неделя_наименование, ИД_день_недели, День_недели_наименование, ISO_неделя, 
                          ISO_неделя_наименование, ISO_год, ISO_год_наименование, ISO_неделя_год_наименование, Месяц_год_наименование, День_месяц_год_наименование, Полное_наименование, Месяц_год_кратко, 
                          День_месяц_год_кратко, CAST(ИД_год AS nvarchar) + ' г' AS Г, CAST(ИД_квартал AS nvarchar) + N' кв' AS КВ, CAST(ИД_месяц AS nvarchar) AS М, CAST(DATEPART(day, ИД_дата) AS nvarchar) AS Д, 
-                         RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) + N'-' + CAST(ИД_год AS nvarchar) + N' г' AS [М-Г], RIGHT('0' + CAST(DATEPART(day, ИД_дата) AS nvarchar), 2) + N'-' + RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) 
-                         + N'-' + CAST(ИД_год AS nvarchar) + N' г' AS [Д-М-Г], CAST(ИД_квартал AS nvarchar) + N' кв ' + CAST(ИД_год AS nvarchar) + ' г' AS [К-Г], RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) + ' ' + CAST(ИД_квартал AS nvarchar) 
+                         RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) + N'-' + CAST(ИД_год AS nvarchar) + N' г' AS [М-Г], RIGHT('0' + CAST(DATEPART(day, ИД_дата) AS nvarchar), 2) + N'.' + RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) 
+                         + N'.' + CAST(ИД_год AS nvarchar) + N' г' AS [Д-М-Г], CAST(ИД_квартал AS nvarchar) + N' кв ' + CAST(ИД_год AS nvarchar) AS [К-Г], RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) + ' ' + CAST(ИД_квартал AS nvarchar) 
                          + N' кв ' + CAST(ИД_год AS nvarchar) + ' г' AS [М-К-Г], RIGHT('0' + CAST(DATEPART(day, ИД_дата) AS nvarchar), 2) + ' ' + RIGHT('0' + CAST(ИД_месяц AS nvarchar), 2) + ' ' + CAST(ИД_квартал AS nvarchar) 
                          + N' кв ' + CAST(ИД_год AS nvarchar) + ' г' AS [Д-М-К-Г]
 FROM            dbo.t_dim_Календарь
