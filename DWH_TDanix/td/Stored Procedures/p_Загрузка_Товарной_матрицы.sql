@@ -4,13 +4,8 @@ CREATE PROCEDURE [td].[p_Загрузка_Товарной_матрицы]
 AS
 BEGIN
 declare @str nvarchar(max), @date varchar(8), @date1 varchar(8);
-set @date =concat( cast(DATEPART(YEAR, getdate()) as varchar),
-					right('0' + cast(DATEPART(MONTH, getdate())as varchar), 2),
-					right('0' + cast(DATEPART(day, getdate()) as varchar), 2));
-
-set @date1 =concat( cast(DATEPART(YEAR, dateadd(d, -30, getdate())) as varchar),
-					right('0' + cast(DATEPART(MONTH, dateadd(d, -30, getdate())) as varchar), 2),
-					right('0' + cast(DATEPART(day, dateadd(d, -30, getdate())) as varchar), 2));
+set @date = format(getdate(), 'yyyyMMdd');
+set @date1 = format(dateadd(d, -90, getdate()), 'yyyyMMdd');
 
 set @str = '
 select 
@@ -50,8 +45,11 @@ where
 		order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
 '') 
 ';
-delete from td.t_fact_Товарная_матрица
-	where Дата >=@date1
-insert into td.t_fact_Товарная_матрица (дата, Код_магазина,	Код_поставщика,		Код_товара,		Признак)
-exec(@str);
+begin tran
+	delete from td.t_fact_Товарная_матрица
+		where Дата >=@date1
+	insert into td.t_fact_Товарная_матрица (дата, Код_магазина,	Код_поставщика,		Код_товара,		Признак)
+	exec(@str);
+commit tran
 END
+
