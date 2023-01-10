@@ -152,7 +152,7 @@ BEGIN
 		left join
 			[Rozn].[rozn].[dbo].[SC5815] as Категории (nolock) on Категории.id=Группы.parentext
 			where 
-			Товары.ISFOLDER = 2 and Товары.[PARENTID] is not null and cast(Товары.CODE as bigint) between 1 and     999998;
+			Товары.ISFOLDER = 2 and Товары.[PARENTID] is not null and cast(Товары.CODE as bigint) between 1 and     999999998;
 
 	-- 3. Слияние таблиц
 	merge 
