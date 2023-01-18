@@ -55,6 +55,7 @@ BEGIN
 
 	declare @forcePOS                         bit;                    -- Если явно задается касса, то не проверяется включена ли она
 	declare @forceWorkshift                   bit;                    -- Если явно задается смена, то она перезаписывается
+	declare @shiftRange                       int;                    -- Количество дней для выборки смен
 
 	set @object_name = object_schema_name(@@procid)+'.'+object_name(@@procid); -- Получаем название данной процедуры
 
@@ -324,10 +325,13 @@ BEGIN
 							`cashcode`
 						from
 							`workshift`''
-				) where time_beg >= dateadd(day, -60, getdate()) and time_beg >= ''20221101'' and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
+				) where time_beg >= dateadd(day, -%range%, getdate()) and time_beg >= ''20221101'' and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
 		'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 		-- Берем данные за предыдущие 60 дней
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
+		-- Если явно указываем кассу для переснятия, то ищем смены за 60 дней, если это обычный обмен, то только за 3 дня
+		if (@forcePOS = 1) set @shiftRange = 60 else set @shiftRange = 3;
+		set @str = REPLACE(@str, '%range%', @shiftRange);
 		begin try
 			exec (@str);
 		--	print('Выполнен запрос получения смен (Workshift)');

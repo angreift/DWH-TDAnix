@@ -451,6 +451,33 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="td\Tables\t_raw_Данные_продаж_ТСД.sql" />
+    <Build Include="td\Tables\t_fact_Продажи_ТСД.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_продаж_ТСД.sql" />
+    <Build Include="td\Stored Procedures\p_Загрузка_продаж_ТСД.sql" />
+    <Build Include="td\Tables\t_raw_Данные_ПД_шапки.sql" />
+    <Build Include="td\Tables\t_raw_Данные_ПД_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_ПД_шапки.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_ПД_строки.sql" />
+    <Build Include="td\Tables\t_fact_ПД_шапки.sql" />
+    <Build Include="td\Tables\t_fact_ПД_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Загрузка_ПД.sql" />
+    <Build Include="td\Views\v_fact_Продажи_ТСД.sql" />
+    <Build Include="td\Tables\t_raw_Данные_Заявка_РЦ_шапки.sql" />
+    <Build Include="td\Tables\t_raw_Данные_Заявка_СТ_шапки.sql" />
+    <Build Include="td\Tables\t_raw_Данные_Заявка_СТ_строки.sql" />
+    <Build Include="td\Tables\t_raw_Данные_Заявка_РЦ_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_РЦ_шапки.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_РЦ_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_СТ_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_СТ_шапки.sql" />
+    <Build Include="td\Tables\t_fact_Заявка_РЦ_шапки.sql" />
+    <Build Include="td\Tables\t_fact_Заявка_РЦ_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Загрузка_Заявка_РЦ.sql" />
+    <Build Include="td\Stored Procedures\p_ssas_process_продажи_ТСД.sql" />
+    <Build Include="td\Tables\t_fact_Заявка_СТ_шапки.sql" />
+    <Build Include="td\Tables\t_fact_Заявка_СТ_строки.sql" />
+    <Build Include="td\Stored Procedures\p_Загрузка_Заявка_СТ.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
