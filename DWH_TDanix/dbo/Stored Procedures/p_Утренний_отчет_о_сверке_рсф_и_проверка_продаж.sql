@@ -22,7 +22,7 @@ BEGIN
 	set @dateEnd2000   = dateadd(year, 2000, @dateEnd);
 	set @dateSQL2000   = format(@dateEnd, 'yyyyMMdd');
 
-		-- Проверим разницу между РСФ, хранилищем и DWH
+		-- Проверим разницу между РСФ и хранилищем DWH
 
 		drop table if exists tempdb.dbo.morning_report_cube_rsf
 
@@ -60,16 +60,16 @@ BEGIN
 				case when РСФ.Сумма is null then 0 else РСФ.Сумма end СуммаРСФ,
 				case when DWH.Сумма is null then 0 else DWH.Сумма end СуммаDWH
 			from
-				[dbo].[t_dim_Магазины] t
+				dbo.t_dim_Магазины t
 			cross join @d
 			left join (
 				select 
-					Чеки.[Дата_закрытия_чека] Дата,
-					Магазины.[Код] КодМагазина,
-					sum(Чеки.[Итоговая_сумма_со_скидками]) Сумма
-				from [DWH].[cass].[t_fact_Чеки] as Чеки
-				left join [DWH].[cass].[t_dim_Кассы] as Кассы on Кассы.[Код_кассы] = Чеки.[Код_кассы]
-				left join [DWH].[dbo].[t_dim_Магазины] as Магазины on Кассы.[Код_магазина] = Магазины.[Код]
+					Чеки.Дата_закрытия_чека Дата,
+					Магазины.Код КодМагазина,
+					sum(Чеки.Итоговая_сумма_со_скидками) Сумма
+				from DWH.cass.t_fact_Чеки as Чеки
+				left join DWH.cass.t_dim_Кассы as Кассы on Кассы.[Код_кассы] = Чеки.[Код_кассы]
+				left join DWH.dbo.t_dim_Магазины as Магазины on Кассы.[Код_магазина] = Магазины.[Код]
 				where Чеки.[Дата_закрытия_чека] between @dateStart and @dateEnd and Магазины.[Группа] = 'Розница                                 '
 				group by Чеки.[Дата_закрытия_чека], Магазины.[Код], Магазины.[Наименование]
 			) Чеки on t.Код = Чеки.КодМагазина and d = Чеки.Дата
@@ -105,13 +105,13 @@ BEGIN
 			begin
 				set @output = concat(
 					@output,
-					'Есть расхождения между рсф, olap-rozn, DWH. Добавляем информацию об этом в текст письма',
+					'Есть расхождения между рсф, DWH. Добавляем информацию об этом в текст письма',
 					char(13), char(13)
 				)
 
 				set @letter_text = concat(
 					@letter_text,
-					'Обнаружены расхождения между РСФ и хранилищами чеков ([s19-olap].[olap-rozn])',
+					'Обнаружены расхождения между РСФ и хранилищам чеков DWH',
 					char(13), char(13)
 				);
 				set @letter_text = concat(@letter_text, (
@@ -142,7 +142,6 @@ BEGIN
 					'	· Не закрыта смена на кассе, не установлен флаг закрытия смены в документе ОтчетОтдела базы магазина', char(13),
 					'	· Отрицательная сумма смены (нужно привязать возврат к другому отчету отдела)', char(13),
 					'	· Не работает обмен БМ -> РСФ', char(13),
-					'	· Не работает сборщик SERV-OLAP', char(13),
 					'	· Поломка кассы', char(13), '.', char(13),
 					'----------------------------------------------', char(13), '.', char(13)
 				)
@@ -175,7 +174,7 @@ BEGIN
 
 		if len(@letter_text) > 0
 			begin
-				set @letter_subject = 'Сверка данных о продажах (ОТБРС, РСФ)';
+				set @letter_subject = 'Сверка данных о продажах РСФ';
 				set @output = concat(
 					@output,
 					'СФормировано не пустое письмо, отправляем его в Итилиум и на альяс',
@@ -183,10 +182,9 @@ BEGIN
 				)
 				exec msdb.dbo.sp_send_dbmail 
 					@profile_name ='service-account@anixtd.ru'
-					,@recipients = 'vae20367@tdanix.ru'
+					,@recipients = 'olap-problem@anixtd.ru'
 					,@body = @letter_text
 					,@subject = @letter_subject
-					-- 'olap-problem@anixtd.ru'
 			end
 		else
 			set @output = concat(
