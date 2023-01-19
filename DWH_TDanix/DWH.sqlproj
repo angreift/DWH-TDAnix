@@ -478,7 +478,7 @@
     <Build Include="td\Tables\t_fact_Заявка_СТ_строки.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_Заявка_СТ.sql" />
     <Build Include="td\Stored Procedures\p_ssas_process_Продажи_ТСД.sql" />
-    <Build Include="dbo\Stored Procedures\p_Отчет_об_отрицательных_сменах.sql">
+    <Build Include="cass\Stored Procedures\p_Отчет_об_отрицательных_сменах.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
