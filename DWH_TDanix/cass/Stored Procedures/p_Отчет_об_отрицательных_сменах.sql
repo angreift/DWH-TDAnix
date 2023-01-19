@@ -5,7 +5,7 @@
 -- =============================================
 
 
-CREATE PROCEDURE [dbo].[p_Отчет_об_отрицательных_сменах]
+CREATE PROCEDURE [cass].[p_Отчет_об_отрицательных_сменах]
 AS
 BEGIN
 	set nocount on
@@ -74,7 +74,7 @@ BEGIN
 			set @letter_subject = 'Отчёт об отрицательных сменах';
 			exec msdb.dbo.sp_send_dbmail 
 				@profile_name ='service-account@anixtd.ru'
-				,@recipients = 'olap-problem@anixtd.ru'
+				,@recipients = 'olap-problem@anixtd.ru,prog_rozn@tdanix.ru'
 				,@body = @letter_text
 				,@subject = @letter_subject
 
