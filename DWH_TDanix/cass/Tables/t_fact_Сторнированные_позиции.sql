@@ -37,3 +37,26 @@ GO
 CREATE INDEX [ix_uncl_Сторно_Измерения] ON [cass].[t_fact_Сторнированные_позиции] (Код_товара, Код_кассы) ON [FACTS];
 
 GO
+
+CREATE TRIGGER [cass].[tg_onDeleteUpdate_Сторнированные_позиции]
+       ON [cass].[t_fact_Сторнированные_позиции]
+AFTER DELETE, UPDATE
+AS
+BEGIN
+       SET NOCOUNT ON;
+
+       DECLARE @date date, @date1 date
+ 
+       SELECT @date = DELETED.[Дата_сторнирования_позиции]
+       FROM DELETED
+	   SELECT @date1 = INSERTED.[Дата_сторнирования_позиции]  
+       FROM INSERTED
+ 
+       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       BEGIN
+              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+			  rollback tran
+       END
+END
+
+GO
