@@ -34,3 +34,27 @@ CREATE INDEX [ix_uncl_Скидки_Дата] ON [cass].[t_fact_Скидки] ([�
 GO
 
 CREATE INDEX [ix_uncl_Скидки_Измерения] ON [cass].[t_fact_Скидки] (Код_товара, Код_кассы) ON [FACTS];
+
+GO
+CREATE TRIGGER [cass].[tg_onDeleteUpdate_Скидки]
+       ON [cass].[t_fact_Скидки]
+AFTER DELETE, UPDATE
+AS
+BEGIN
+       SET NOCOUNT ON;
+
+       DECLARE @date date, @date1 date
+ 
+       SELECT @date = DELETED.[Дата_применения_скидки]    
+       FROM DELETED
+	   SELECT @date1 = INSERTED.[Дата_применения_скидки]     
+       FROM INSERTED
+ 
+       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       BEGIN
+              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+			  rollback tran
+       END
+END
+
+GO

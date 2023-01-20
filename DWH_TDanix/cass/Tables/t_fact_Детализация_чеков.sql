@@ -47,3 +47,24 @@ CREATE NONCLUSTERED INDEX [ix_uncl_чек] ON [cass].[t_fact_Детализац�
 	[Составной_код_документа] ASC
 ) ON [FACTS]
 GO
+CREATE TRIGGER [cass].[tg_onDeleteUpdate_Детализация_чеков]
+       ON [cass].[t_fact_Детализация_чеков]
+AFTER DELETE, UPDATE
+AS
+BEGIN
+       SET NOCOUNT ON;
+
+       DECLARE @date date, @date1 date
+ 
+       SELECT @date = DELETED.[Дата_добавления_позиции]     
+       FROM DELETED
+	   SELECT @date1 = INSERTED.[Дата_добавления_позиции]     
+       FROM INSERTED
+ 
+       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       BEGIN
+              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+			  rollback tran
+       END
+END
+GO
