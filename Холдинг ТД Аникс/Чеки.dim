@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c57ac80a-719b-4002-a3e3-828aec8df058" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5e45b9b0-2be9-49f1-9817-dc0bd6c0190a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Чеки</ID>
   <Name>Чеки</Name>
   <CreatedTimestamp>2022-09-11T09:37:35.94Z</CreatedTimestamp>
@@ -8,9 +8,9 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8168" scrolltop="-10676" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10239" y="16801" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8168" scrolltop="-10676" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9472" y="11695" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
-              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+              <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
             <mouseicon>
               <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -107,11 +107,11 @@
   </Annotations>
   <LastProcessed>2022-09-18T12:56:44.863333Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="b672c8ad-db7a-40a3-9219-1e9d47aaeafd">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="492d3616-75d8-46d6-9fde-1dfceff612e9">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <UnknownMember>Hidden</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="e61ee488-0aa3-4170-83b0-9d8961172992">
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="2f2595fa-9a97-4adf-972c-49421ba426ae">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
@@ -119,27 +119,27 @@
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Language>1049</Language>
   <Collation>Cyrillic_General_CI_AS</Collation>
-  <UnknownMemberName>Unknown</UnknownMemberName>
+  <UnknownMemberName>Необработанные чеки</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="7f7bc99d-da0e-4104-9e43-1533c35817df">
+    <Attribute dwd:design-time-name="5d056de2-b894-4b0f-a467-43fb0dd6e797">
       <ID>Составной Код Документа</ID>
       <Name>Чек</Name>
       <Usage>Key</Usage>
       <EstimatedCount>259573004</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e6233199-6a67-41dd-a85b-eb7618f6d7e0">
+        <KeyColumn dwd:design-time-name="bf319c92-a580-47b1-94ea-3e2daf21d96d">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b765db6-13b4-43e9-b804-feb9056beb82">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="91d323d9-be18-4656-b6ea-e78516b5fde2">
             <TableID>cass_v_dim_Чеки</TableID>
             <ColumnID>Составной_код_документа</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="93ee6225-b6a3-4be2-b1ce-e7bf45252976">
+      <NameColumn dwd:design-time-name="6066a97f-be83-49f1-8d9e-a8531115370f">
         <DataType>WChar</DataType>
         <DataSize>69</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="0ec82c24-fc8e-4a30-9a60-dcc831eb6444">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5461e5a7-4182-4607-8590-329917fd6b07">
           <TableID>cass_v_dim_Чеки</TableID>
           <ColumnID>Наименование_x0020_чека</ColumnID>
         </Source>
@@ -150,11 +150,11 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="950a9949-c4b5-44e8-9b15-2037e6250794">
+    <Hierarchy dwd:design-time-name="d0a05969-5d71-4650-b711-9bca7c275f62">
       <ID>Иерархия</ID>
       <Name>Чеки список</Name>
       <Levels>
-        <Level dwd:design-time-name="3e1e999d-0347-4e76-8b0c-9fc2082a2a95">
+        <Level dwd:design-time-name="f238348f-3f47-43e6-8855-3f0663958f85">
           <ID>Чек</ID>
           <Name>Чек</Name>
           <SourceAttributeID>Составной Код Документа</SourceAttributeID>
@@ -162,12 +162,12 @@
       </Levels>
     </Hierarchy>
   </Hierarchies>
-  <ProactiveCaching dwd:design-time-name="69de6695-0254-4f65-83dc-c17398c11d5f">
+  <ProactiveCaching dwd:design-time-name="f0c499b1-66b8-429a-a096-0c1321404059">
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="1ad105ad-2907-48a6-8110-473774cf4a50" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="076d9659-3626-4977-84a0-347f26a6efd9" />
   </ProactiveCaching>
   <ddl300:StringStoresCompatibilityLevel>1100</ddl300:StringStoresCompatibilityLevel>
   <ddl300:CurrentStringStoresCompatibilityLevel>1100</ddl300:CurrentStringStoresCompatibilityLevel>
