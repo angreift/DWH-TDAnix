@@ -447,10 +447,6 @@
     <Build Include="rprt_cw\Tables\t_dim_Причины_потерь.sql" />
     <Build Include="rprt_cw\Tables\t_raw_Распричинивание_потерь.sql" />
     <Build Include="rprt_cw\Tables\t_fact_Потери.sql" />
-    <Build Include="dbo\Stored Procedures\p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="td\Tables\t_raw_Данные_продаж_ТСД.sql" />
     <Build Include="td\Tables\t_fact_Продажи_ТСД.sql" />
     <Build Include="td\Stored Procedures\p_Синхронизация_продаж_ТСД.sql" />
@@ -482,6 +478,7 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="cass\Stored Procedures\p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />

@@ -4,7 +4,7 @@
 -- Description:	Автоматическая сверка сумм РСФ и Хранилища чеков, а так же проверка продаж в ОТБРС
 -- =============================================
 
-CREATE PROCEDURE [dbo].[p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж] @output nvarchar(max) output
+CREATE PROCEDURE [cass].[p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж] @output nvarchar(max) output
 AS
 BEGIN
 	declare @dateStart2000  datetime;
@@ -31,8 +31,7 @@ BEGIN
 			Код_магазина int,
 			Имя_магазина nchar(50),
 			Чеки_сумма money,
-			РСФ_сумма money,
-			DWH_сумма money
+			РСФ_сумма money
 		)
 
 		declare @d table (d datetime);
@@ -49,16 +48,14 @@ BEGIN
 			Код Код_магазина,
 			Наименование Имя_магазина,
 			СуммаЧеки Чеки_сумма,
-			СуммаРСФ РСФ_сумма,
-			СуммаDWH DWH_сумма 
+			СуммаРСФ РСФ_сумма
 		from (
 			Select
 				d Дата, 
 				t.Код, 
 				t.Наименование, 
 				case when чеки.Сумма is null then 0 else чеки.Сумма end СуммаЧеки, 
-				case when РСФ.Сумма is null then 0 else РСФ.Сумма end СуммаРСФ,
-				case when DWH.Сумма is null then 0 else DWH.Сумма end СуммаDWH
+				case when РСФ.Сумма is null then 0 else РСФ.Сумма end СуммаРСФ
 			from
 				dbo.t_dim_Магазины t
 			cross join @d
@@ -89,15 +86,6 @@ BEGIN
 					ZОтчет._Posted = 0x01
 				group by dateadd(year, -2000, cast([_Date_Time] as date)),СтруктурныеЕдиницы._Code
 			) РСФ on t.Код = РСФ.КодМагазина and d = РСФ.Дата
-			left join (
-				select
-					Дата_закрытия_чека Дата, 
-					Код_магазина Код_магазина,
-					sum([Итоговая_сумма_со_скидками]) Сумма
-				from dwh.cass.v_fact_Чеки
-				where Дата_закрытия_чека between @dateStart and @dateEnd
-				group by Дата_закрытия_чека, Код_магазина
-			) dwh on t.Код = dwh.Код_магазина and d = dwh.Дата
 			where Группа in ('Розница                                 ', 'РС Закрытые                             ') 
 		) as a where СуммаРСФ <> СуммаЧеки
 
@@ -123,12 +111,10 @@ BEGIN
 								cast(t.Код_магазина as nchar(3)),
 								' | ', 
 								cast(t.Имя_магазина as nchar(50)),
-								' Хранилище: ', 
+								' DWH: ', 
 								cast(t.Чеки_сумма as nchar(10)),
 								'; РСФ: ', 
-								cast(t.РСФ_сумма as nchar(10)), 
-								'; DWH: ',
-								cast(t.DWH_сумма as nchar(10))
+								cast(t.РСФ_сумма as nchar(10))
 							) as nvarchar(max))
 						, CHAR(13))
 
