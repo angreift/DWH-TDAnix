@@ -35,3 +35,26 @@ GO
 CREATE INDEX [ix_uncl_Смены_Измерения] ON [cass].[t_fact_Смены_на_кассах] (Код_кассы) ON [FACTS];
 
 GO
+
+CREATE TRIGGER [cass].[tg_onDeleteUpdate_Смены_на_кассах]
+       ON [cass].[t_fact_Смены_на_кассах]
+AFTER DELETE, UPDATE
+AS
+BEGIN
+       SET NOCOUNT ON;
+
+       DECLARE @date date, @date1 date
+ 
+       SELECT @date = DELETED.[Дата_начала_смены]  
+       FROM DELETED
+	   SELECT @date1 = INSERTED.[Дата_начала_смены]     
+       FROM INSERTED
+ 
+       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       BEGIN
+              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+			  rollback tran
+       END
+END
+
+GO
