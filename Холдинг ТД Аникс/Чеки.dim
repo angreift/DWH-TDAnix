@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5e45b9b0-2be9-49f1-9817-dc0bd6c0190a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="af708234-b28d-4db0-8c1b-c7aa623d5a6f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Чеки</ID>
   <Name>Чеки</Name>
   <CreatedTimestamp>2022-09-11T09:37:35.94Z</CreatedTimestamp>
@@ -107,11 +107,11 @@
   </Annotations>
   <LastProcessed>2022-09-18T12:56:44.863333Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="492d3616-75d8-46d6-9fde-1dfceff612e9">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="b6322e04-e5c6-408d-adae-db1424713e88">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="2f2595fa-9a97-4adf-972c-49421ba426ae">
+  <ErrorConfiguration dwd:design-time-name="0a853f7b-7229-4648-a48a-6adae6060fee">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
@@ -119,27 +119,27 @@
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Language>1049</Language>
   <Collation>Cyrillic_General_CI_AS</Collation>
-  <UnknownMemberName>Необработанные чеки</UnknownMemberName>
+  <UnknownMemberName>(Необработанные чеки)</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="5d056de2-b894-4b0f-a467-43fb0dd6e797">
+    <Attribute dwd:design-time-name="fb7aa526-1392-4ca2-9b4b-b4f5967de12a">
       <ID>Составной Код Документа</ID>
       <Name>Чек</Name>
       <Usage>Key</Usage>
       <EstimatedCount>259573004</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="bf319c92-a580-47b1-94ea-3e2daf21d96d">
+        <KeyColumn dwd:design-time-name="25426daa-2929-44d5-974a-44031e3d9c3c">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="91d323d9-be18-4656-b6ea-e78516b5fde2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ac999cc5-7a3c-444f-a21f-88d652814c4e">
             <TableID>cass_v_dim_Чеки</TableID>
             <ColumnID>Составной_код_документа</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="6066a97f-be83-49f1-8d9e-a8531115370f">
+      <NameColumn dwd:design-time-name="76282542-8a5c-4cbc-a360-20df3ec14d88">
         <DataType>WChar</DataType>
         <DataSize>69</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="5461e5a7-4182-4607-8590-329917fd6b07">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7494c321-26fe-4f5d-8f52-2f7524b6adf6">
           <TableID>cass_v_dim_Чеки</TableID>
           <ColumnID>Наименование_x0020_чека</ColumnID>
         </Source>
@@ -150,11 +150,11 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="d0a05969-5d71-4650-b711-9bca7c275f62">
+    <Hierarchy dwd:design-time-name="6a8463e6-5a7c-44b4-a316-49db7e80b5b8">
       <ID>Иерархия</ID>
       <Name>Чеки список</Name>
       <Levels>
-        <Level dwd:design-time-name="f238348f-3f47-43e6-8855-3f0663958f85">
+        <Level dwd:design-time-name="85151e41-b82f-41d5-a038-37c04cb901de">
           <ID>Чек</ID>
           <Name>Чек</Name>
           <SourceAttributeID>Составной Код Документа</SourceAttributeID>
@@ -162,12 +162,12 @@
       </Levels>
     </Hierarchy>
   </Hierarchies>
-  <ProactiveCaching dwd:design-time-name="f0c499b1-66b8-429a-a096-0c1321404059">
+  <ProactiveCaching dwd:design-time-name="bec21cb7-4f1f-4d75-a0f4-806ac7da2d50">
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="076d9659-3626-4977-84a0-347f26a6efd9" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="2f1fc400-7a75-47ed-ac0d-78370557193f" />
   </ProactiveCaching>
   <ddl300:StringStoresCompatibilityLevel>1100</ddl300:StringStoresCompatibilityLevel>
   <ddl300:CurrentStringStoresCompatibilityLevel>1100</ddl300:CurrentStringStoresCompatibilityLevel>
