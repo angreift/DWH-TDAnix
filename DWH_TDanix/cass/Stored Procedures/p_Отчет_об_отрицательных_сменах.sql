@@ -38,7 +38,7 @@ BEGIN
 	where 
 		Смены.Дата_время_окончания_смены is not null and 
 		Смены.Сумма_выручки < 0 and 
-		Смены.Дата_начала_смены = dateadd(day, -1, getdate())
+		Смены.Дата_начала_смены = format(dateadd(day, -1, getdate()), 'yyyyMMdd')
 	order by [Дата_начала_смены] desc
 
 
