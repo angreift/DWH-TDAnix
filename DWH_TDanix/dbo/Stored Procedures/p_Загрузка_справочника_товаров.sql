@@ -36,9 +36,9 @@ BEGIN
 		Вид_Маркированной_Продукции   varchar(50) null,
 		Категория_группы			  varchar(50) null,
 		Код_Группы                    bigint      not null,
-		Наименование_Группы           varchar(50) not null,
+		Наименование_Группы           varchar(55) not null,
 		Код_Подгруппы                 bigint      null,
-		Наименование_Подгруппы        varchar(50) null
+		Наименование_Подгруппы        varchar(55) null
 );
 	
 	-- 2. Загрузка из serv-term
@@ -105,7 +105,7 @@ BEGIN
 				when Товары_4.CODE is not null
 				then Товары_4.DESCR
 				else Товары_3.DESCR
-			end as varchar(50)) as Наименование_Группы,
+			end as varchar(55)) as Наименование_Группы,
 		cast(
 			case
 				when Товары_4.CODE is not null
@@ -117,7 +117,7 @@ BEGIN
 				when Товары_4.DESCR is not null
 				then Товары_3.DESCR
 				else NULL
-			end as varchar(50)) as Наименование_Подгруппы
+			end as varchar(55)) as Наименование_Подгруппы
 		from 
 			[Rozn].[rozn].[dbo].[SC11]   as Товары   (nolock)
 		left join 
