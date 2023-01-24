@@ -3,11 +3,11 @@ AS
 SELECT        dbo.t_dim_Магазины.Код, dbo.t_dim_Магазины.Группа, dbo.t_dim_Магазины.Наименование, dbo.t_dim_Магазины.Адрес, dbo.t_dim_Магазины.Город, dbo.t_dim_Магазины.График_ПРАЙД, 
                          dbo.t_dim_Магазины.Дата_закрытия, dbo.t_dim_Магазины.Дата_открытия, dbo.t_dim_Магазины.ИНН, dbo.t_dim_Магазины.Категория_по_площади, dbo.t_dim_Магазины.КПП, dbo.t_dim_Магазины.Куст, 
                          dbo.t_dim_Магазины.Ответственный, dbo.t_dim_Магазины.Отчёт, dbo.t_dim_Магазины.Регион, dbo.t_dim_Магазины.Дата_начала_реконструкции, dbo.t_dim_Магазины.Дата_конца_реконструкции, 
-                         dbo.t_dim_Магазины.Бренд_магазина, dbo.t_dim_Магазины.Технолог_СП, ISNULL(dbo.t_Директора_кустов.Директор, N'(Не заполнено)') AS Директор, ISNULL(dbo.t_Форматы_магазинов.Наименование_формата, 
-                         N'(Не заполнено)') AS Наименование_формата
+                         dbo.t_dim_Магазины.Бренд_магазина, dbo.t_dim_Магазины.Технолог_СП, ISNULL(dbo.t_dim_Директора_кустов.Директор, N'(Не заполнено)') AS Директор, 
+                         ISNULL(dbo.t_dim_Форматы_магазинов.Наименование_формата_магазина, N'(Не заполнено)') AS Наименование_формата
 FROM            dbo.t_dim_Магазины LEFT OUTER JOIN
-                         dbo.t_Форматы_магазинов ON dbo.t_dim_Магазины.Код_формата_магазина = dbo.t_Форматы_магазинов.Код_формата LEFT OUTER JOIN
-                         dbo.t_Директора_кустов ON dbo.t_dim_Магазины.Составной_код_директора = dbo.t_Директора_кустов.Составной_код
+                         dbo.t_dim_Форматы_магазинов ON dbo.t_dim_Магазины.Код_формата_магазина = dbo.t_dim_Форматы_магазинов.Код_формата_магазина LEFT OUTER JOIN
+                         dbo.t_dim_Директора_кустов ON dbo.t_dim_Магазины.Составной_код_директора = dbo.t_dim_Директора_кустов.Составной_код_директора
 GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -15,7 +15,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[34] 4[27] 2[9] 3) )"
+         Configuration = "(H (1[36] 4[21] 2[24] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -91,7 +91,7 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 6
          End
-         Begin Table = "t_Форматы_магазинов"
+         Begin Table = "t_dim_Форматы_магазинов"
             Begin Extent = 
                Top = 6
                Left = 418
@@ -101,7 +101,7 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "t_Директора_кустов"
+         Begin Table = "t_dim_Директора_кустов"
             Begin Extent = 
                Top = 6
                Left = 682

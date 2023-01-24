@@ -479,8 +479,8 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="cass\Stored Procedures\p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж_1.sql" />
-    <Build Include="dbo\Tables\t_Директора_кустов.sql" />
-    <Build Include="dbo\Tables\t_Форматы_магазинов.sql" />
+    <Build Include="dbo\Tables\t_dim_Директора_кустов.sql" />
+    <Build Include="dbo\Tables\t_dim_Форматы_магазинов.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
