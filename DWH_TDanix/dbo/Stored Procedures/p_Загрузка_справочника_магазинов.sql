@@ -1,7 +1,7 @@
 ﻿-- =============================================
--- Author:		kma1860
+-- Author:		kma1860, vae20367
 -- Create date: 22/08/2022
--- Description:	Загрузка справочника магазинов из s19-storage-sql
+-- Description:	Загрузка справочника магазинов, деректаров и форматов магазинов из s19-storage-sql
 -- =============================================
 CREATE PROCEDURE dbo.p_Загрузка_справочника_магазинов
 
@@ -10,9 +10,51 @@ BEGIN
 
 	SET NOCOUNT ON;
 
-    -- 1. Создание временной таблицы
-	drop table if exists #dwh_temp_магазины
+       	-- Создаём буферную таблицу для кустовых директаров
+	drop table if exists #dwh_temp_кустовые_директора
+	create table #dwh_temp_кустовые_директора (
+		Составной_код             nvarchar(20)  NOT NULL,
+		Директор                  nvarchar(40)  NOT NULL
+	);
 
+	-- Заполняю выше упомянутую таблицу данными
+	insert into #dwh_temp_кустовые_директора
+	select
+		(rtrim(ltrim(Куст.CODE))+'~'+rtrim(ltrim(Директор.CODE))) as Составной_код,
+		rtrim(ltrim(Директор.DESCR)) as Директор
+	from
+		[Rozn].[rozn].[dbo].sc3651 as Куст     (nolock)
+	left join 
+		[Rozn].[rozn].[dbo].SC36   as Директор (nolock) on Куст.[SP4521] = Директор.id
+	where
+		Директор.CODE is not null and
+		Директор.ISMARK = 0
+
+	--Слияние
+	merge 
+		[dbo].t_Директора_кустов
+	using 
+		#dwh_temp_кустовые_директора
+	on 
+		[dbo].t_Директора_кустов.Составной_код = #dwh_temp_кустовые_директора.Составной_код and 
+		[dbo].t_Директора_кустов.Директор = #dwh_temp_кустовые_директора.Директор
+	when 
+		matched 
+	then 
+		update 
+	set 
+		[dbo].t_Директора_кустов.Составной_код      = #dwh_temp_кустовые_директора.Составной_код,
+		[dbo].t_Директора_кустов.Директор = #dwh_temp_кустовые_директора.Директор
+	when 
+		not matched
+	then 
+		insert values(
+			#dwh_temp_кустовые_директора.Составной_код,
+			#dwh_temp_кустовые_директора.Директор
+		);
+
+	-- Создаём буферную таблицу дял магазинов
+	drop table if exists #dwh_temp_магазины
 	create table #dwh_temp_магазины (
 		Код                       int           NOT NULL, 
 		Группа                    nvarchar(50)  NOT NULL,
@@ -32,26 +74,34 @@ BEGIN
 		Дата_Начала_Реконструкции datetime      NULL,
 		Дата_Конца_Реконструкции  datetime      NULL, 
 		Бренд_Магазина            nvarchar(50)  NULL,
-		Технолог_СП               nvarchar(50)  NULL
-);
+		Технолог_СП               nvarchar(50)  NULL,
+		Код_формата_магазина      nvarchar(6)   NULL,
+		Составной_код_директора   nvarchar(20)  NULL
+	);
 
 
 	-- 2. Загрузка из serv-term
-	insert into #dwh_temp_магазины (
-		Код, Группа, Наименование, Адрес, Город, График_ПРАЙД, Дата_Закрытия, Дата_Открытия, ИНН, Категория_По_Площади, КПП, Куст, Ответственный, Отчёт,
-		Регион, Дата_Начала_Реконструкции, Дата_Конца_Реконструкции, Бренд_Магазина, Технолог_СП
-	) select
+	insert into #dwh_temp_магазины
+	select
 		Магазины.[CODE]         as Код,
 		Магазины_2.[DESCR]      as Группа,
 		Магазины.[DESCR]        as Наименование,
-		case when ltrim(rtrim(Магазины.[SP40])) = '' then NULL else Магазины.[SP40] end as Адрес,
+		(case 
+			when rtrim(ltrim(Магазины.[SP40])) = '' 
+			then NULL 
+			else Магазины.[SP40] 
+		end)                    as Адрес,
 		Города.[DESCR]          as Город,
 		Магазины.[SP2009]       as График_ПРАЙД,
 		Магазины.[SP4225]       as Дата_Закрытия,
 		Магазины.[SP2843]       as Дата_Открытия,
 		Магазины.[SP44]         as ИНН,
 		Магазины.[SP2424]       as Категория_По_Площади,
-		case when cast(Магазины.[SP2160] as int) = 0 then NULL else cast(Магазины.[SP2160] as int) end as КПП,
+		(case 
+			when cast(Магазины.[SP2160] as int) = 0 
+			then NULL 
+			else cast(Магазины.[SP2160] as int) 
+		end)                    as КПП,
 		Кусты.[DESCR]           as Куст,
 		Магазины.[SP38]         as Ответственный,
 		Магазины.[SP1155]       as Отчёт,
@@ -59,19 +109,27 @@ BEGIN
 		Магазины.[SP4570]       as Дата_Начала_Реконструкции,
 		Магазины.[SP4571]       as Дата_Конца_Реконструкции,
 		Брэнды_Магазина.[DESCR] as Бренд_Магазина,
-		case when ltrim(rtrim(Магазины.[SP6401])) = '' then NULL else Магазины.[SP6401] end as Технолог_СП
-	FROM 
-		[Rozn].[rozn].[dbo].[SC36]   as Магазины        (nolock)
+		(case 
+			when rtrim(ltrim(Магазины.[SP6401])) = '' 
+			then NULL 
+			else Магазины.[SP6401] 
+		end)                    as Технолог_СП,
+		rtrim(ltrim(Магазины.SP1576))       as Код_формата_магазина,
+		(rtrim(ltrim(Кусты.CODE))+'~'+rtrim(ltrim(Директор.CODE))) as Составной_код_директора
+	FROM
+		[Rozn].[rozn].[dbo].[SC36]   as Магазины          (nolock)
 	left join 
-		[Rozn].[rozn].[dbo].[SC36]   as Магазины_2      (nolock) on Магазины_2.[ID]      = Магазины.[PARENTID]
+		[Rozn].[rozn].[dbo].[SC36]   as Магазины_2        (nolock)   on Магазины_2.[ID]      = Магазины.[PARENTID]
 	left join 
-		[Rozn].[rozn].[dbo].[SC26]   as Города          (nolock) on Магазины.[SP39]      = Города.[ID]
+		[Rozn].[rozn].[dbo].[SC26]   as Города            (nolock)   on Магазины.[SP39]      = Города.[ID]
 	left join 
-		[Rozn].[rozn].[dbo].[SC3651] as Кусты           (nolock) on Кусты.[ID]           = Магазины.[SP3654]
+		[Rozn].[rozn].[dbo].[SC3651] as Кусты             (nolock)   on Кусты.[ID]           = Магазины.[SP3654]
 	left join 
-		[Rozn].[rozn].[dbo].[SC2400] as Регионы         (nolock) on Регионы.[ID]         = Магазины.[SP2222]
+		[Rozn].[rozn].[dbo].SC36     as Директор          (nolock)   on Кусты.[SP4521]       = Директор.id
 	left join 
-		[Rozn].[rozn].[dbo].[SC4948] as Брэнды_Магазина (nolock) on Брэнды_Магазина.[ID] = Магазины.[SP4935]
+		[Rozn].[rozn].[dbo].[SC2400] as Регионы           (nolock)   on Регионы.[ID]         = Магазины.[SP2222]
+	left join 
+		[Rozn].[rozn].[dbo].[SC4948] as Брэнды_Магазина   (nolock)   on Брэнды_Магазина.[ID] = Магазины.[SP4935]
 	where 
 		Магазины_2.[ID] in ('     1   ', '    EP   ', '  1FBI   ', '  1FBH   ');
 
@@ -104,7 +162,9 @@ BEGIN
 		[dbo].t_dim_Магазины.Дата_Начала_Реконструкции = #dwh_temp_магазины.Дата_Начала_Реконструкции,
 		[dbo].t_dim_Магазины.Дата_Конца_Реконструкции  = #dwh_temp_магазины.Дата_Конца_Реконструкции,
 		[dbo].t_dim_Магазины.Бренд_Магазина            = #dwh_temp_магазины.Бренд_Магазина,
-		[dbo].t_dim_Магазины.Технолог_СП               = #dwh_temp_магазины.Технолог_СП
+		[dbo].t_dim_Магазины.Технолог_СП               = #dwh_temp_магазины.Технолог_СП,
+		[dbo].t_dim_Магазины.Код_формата_магазина      = #dwh_temp_магазины.Код_формата_магазина,
+		[dbo].t_dim_Магазины.Составной_код_директора   = #dwh_temp_магазины.Составной_код_директора
 	when 
 		not matched
 	then 
@@ -127,7 +187,9 @@ BEGIN
 			#dwh_temp_магазины.Дата_Начала_Реконструкции,
 			#dwh_temp_магазины.Дата_Конца_Реконструкции, 
 			#dwh_temp_магазины.Бренд_Магазина,
-			#dwh_temp_магазины.Технолог_СП
+			#dwh_temp_магазины.Технолог_СП,
+			#dwh_temp_магазины.Код_формата_магазина,
+			#dwh_temp_магазины.Составной_код_директора
 		);
 
 END
