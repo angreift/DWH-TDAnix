@@ -56,4 +56,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Сумма_закупа_со_склада" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="daf78239-eb0b-4d47-bf45-801a4e92e921" ChangeDateTime="01/24/2023 09:20:12">
+    <Property Name="ElementName" Value="[dbo].[t_Директора_кустов].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_Директора_кустов]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Составной_код" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ee25e361-6400-4e32-b3a8-74cb76137071" ChangeDateTime="01/24/2023 09:21:15">
+    <Property Name="ElementName" Value="[dbo].[t_Форматы_магазинов].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_Форматы_магазинов]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Код_формата" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6d76f880-d981-4bf2-ab7a-2b5293d575b2" ChangeDateTime="01/24/2023 10:04:01">
+    <Property Name="ElementName" Value="[dbo].[t_dim_Директора_кустов].[Составной_код]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_dim_Директора_кустов]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Составной_код_директора" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fc8cde46-e5a8-4e5d-9294-d1169cb0a60d" ChangeDateTime="01/24/2023 10:15:38">
+    <Property Name="ElementName" Value="[dbo].[t_Форматы_магазинов].[Код_формата]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_Форматы_магазинов]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Код_формата_магазина" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="40f1f0b7-406a-4d4b-a54e-e10f9a9af713" ChangeDateTime="01/24/2023 10:15:48">
+    <Property Name="ElementName" Value="[dbo].[t_Форматы_магазинов].[Наименование_формата]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_Форматы_магазинов]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Наименование_формата_магазина" />
+  </Operation>
 </Operations>
