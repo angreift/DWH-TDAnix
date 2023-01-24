@@ -482,6 +482,14 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="dbo\Tables\t_raw_Классификатор_Альянс.sql" />
+    <Build Include="dbo\Stored Procedures\p_Синхронизация_Классификатора_Альянса.sql" />
+    <Build Include="dbo\Tables\t_dim_Классификатор_Альянс.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_классификатора_Альянс.sql" />
+    <Build Include="dbo\Tables\t_raw_Сопоставление_классификатора_Альянс.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_сопоставления_классификатора_Альянс.sql" />
+    <Build Include="dbo\Tables\t_dim_Сопоставление_классификатора_Альянс.sql" />
+    <Build Include="dbo\Stored Procedures\p_Синхронизация_Сопоставления_классификатора_Альянса.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
