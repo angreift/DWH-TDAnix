@@ -1,12 +1,11 @@
 ﻿CREATE TABLE [rprt_cw].[t_raw_Распричинивание_потерь]
 (
-	Дата date,
-	Код_магазина int,
-	Код_товара BIGINT,
-	Причина_потери varchar(30),
-	Подпричина_потери varchar(30), 
-    [Сумма] DECIMAL(14, 2) NULL, 
-    [Флаг] BIT NULL
+	Дата date NOT NULL,
+	Код_магазина int NOT NULL,
+	Код_товара BIGINT NOT NULL,
+	[Код_причины] TINYINT NOT NULL,
+    [Влияние] DECIMAL(14, 2) NULL, 
+    [Флаг] BIT NOT NULL
 ) ON [Reports]
 go
 

@@ -1,4 +1,4 @@
-﻿CREATE ROLE [rprt_owner]
+﻿CREATE ROLE [rprt_cw_owner]
     AUTHORIZATION [dbo];
 
 
