@@ -489,6 +489,7 @@
     <Build Include="cass\Stored Procedures\p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж.sql" />
     <Build Include="dbo\Tables\t_dim_Директора_кустов.sql" />
     <Build Include="dbo\Tables\t_dim_Форматы_магазинов.sql" />
+    <Build Include="dbo\Views\v_dim_Товары.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
