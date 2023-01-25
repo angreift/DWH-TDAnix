@@ -4,7 +4,7 @@
 -- Description:	Автоматическая сверка сумм РСФ и Хранилища чеков, а так же проверка продаж в ОТБРС
 -- =============================================
 
-CREATE PROCEDURE [dbo].[p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж] @output nvarchar(max) output
+CREATE PROCEDURE [cass].[p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж] @output nvarchar(max) output
 AS
 BEGIN
 	declare @dateStart2000  datetime;

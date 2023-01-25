@@ -18,6 +18,8 @@
     [Дата_конца_реконструкции]  DATETIME      NULL,
     [Бренд_магазина]            NVARCHAR (50)  NULL,
     [Технолог_СП]               NVARCHAR (50)  NULL,
+    [Код_формата_магазина] NVARCHAR(6) NULL, 
+    [Составной_код_директора] NVARCHAR(20) NULL, 
     CONSTRAINT [ix_cl_pk_Код] PRIMARY KEY CLUSTERED ([Код] ASC) ON [DIMENTIONS]
 ) ON [DIMENTIONS];
 
