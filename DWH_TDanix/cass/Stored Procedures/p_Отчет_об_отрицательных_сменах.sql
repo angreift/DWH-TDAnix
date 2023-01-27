@@ -38,7 +38,7 @@ BEGIN
 	where 
 		Смены.Дата_время_окончания_смены is not null and 
 		Смены.Сумма_выручки < 0 and 
-		Смены.Дата_начала_смены = dateadd(day, -1, cast(getdate() as date))
+		Смены.Дата_начала_смены between dateadd(day, -2, cast(getdate() as date)) and dateadd(day, -1, cast(getdate() as date))
 	order by [Дата_начала_смены] desc
 
 
