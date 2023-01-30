@@ -16,7 +16,8 @@ SELECT        cass.t_fact_Скидки.Код_кассы, cass.t_fact_Скидк
                              ((SELECT        TOP (1) Признак
                                  FROM            td.t_fact_Товарная_матрица AS м
                                  WHERE        (Дата <= cass.t_fact_Скидки.[Дата_применения_скидки]) AND (Код_товара = cass.t_fact_Скидки.Код_товара) AND (Код_магазина = cass.t_dim_Кассы.Код_магазина)
-                                 ORDER BY Дата desc), 0) as Код_поставщика
+                                 ORDER BY Дата desc), 0) as Код_поставщика,
+                                 CONCAT(trim(Номер_дисконтной_карты), '~', trim(Название_дисконтной_карты)) AS Составной_ид_карты
 FROM            cass.t_fact_Скидки INNER JOIN
                          cass.t_dim_Кассы with (nolock) ON cass.t_fact_Скидки.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
                          cass.t_fact_Детализация_чеков ON cass.t_fact_Скидки.Составной_код_позиции = cass.t_fact_Детализация_чеков.Составной_код_позиции LEFT OUTER JOIN
