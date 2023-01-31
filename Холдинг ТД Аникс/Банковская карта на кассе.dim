@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0ecd6092-911f-4280-8928-73d82c2cdb8a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a8e6cf3b-75cb-4a01-ad6e-a67b4d45e885" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Банковская карта на кассе</ID>
   <Name>Банковская карта на кассе</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -65,45 +65,30 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
       <Value>100</Value>
     </Annotation>
-    <Annotation>
-      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
-      <Value>
-        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
-          <Shapes NodeWidth="180">
-            <Shape Id="Номер Банковской Карты" Expanded="true">
-              <Attributes>
-                <Attribute Id="Номер Банковской Карты" />
-              </Attributes>
-              <Position x="20" y="20" />
-            </Shape>
-          </Shapes>
-        </DiagramLayout>
-      </Value>
-    </Annotation>
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="3eeb3a6a-d068-46db-a485-90c506773908">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a7e38abb-60b3-4e55-8d14-45d1cf2ae948">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="33b45e41-741b-4ed2-a3ce-68b852e78c1f">
+  <ErrorConfiguration dwd:design-time-name="0dd1df97-31ca-4ede-82c7-5ad324f1cfc1">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="b1461b49-c7c6-4ea1-bb7b-a87c56d83fef">
-      <ID>Номер Банковской Карты</ID>
+    <Attribute dwd:design-time-name="d6faa874-87fe-4ff5-b0b0-48357fdc5c4d">
+      <ID>Номер банковской карты</ID>
       <Name>Номер банковской карты</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="0ee6c23d-37f6-4c4d-b363-8391f4543896">
+        <KeyColumn dwd:design-time-name="47e26245-a30d-48d4-ac64-cdd8741809b6">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="25f3d794-0895-429f-81ef-40e02706fd11">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="83b9680b-985d-4e0c-a71e-b381a13d19da">
             <TableID>cass_v_dim_Номера_банковских_карт</TableID>
             <ColumnID>Номер_банковской_карты</ColumnID>
           </Source>
@@ -116,14 +101,14 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="437140e8-1a27-4b8c-945d-ded8456e114a">
+    <Hierarchy dwd:design-time-name="f92e8214-7907-479e-9d6c-f317388e60f4">
       <ID>Иерархия</ID>
       <Name>Номера банковских карт</Name>
       <Levels>
-        <Level dwd:design-time-name="61f54856-d613-44fb-8a7a-4ec65346921a">
+        <Level dwd:design-time-name="0de8282f-38e8-4cbf-9c69-6a2e103ac9d8">
           <ID>Номер банковской карты</ID>
           <Name>Номер банковской карты</Name>
-          <SourceAttributeID>Номер Банковской Карты</SourceAttributeID>
+          <SourceAttributeID>Номер банковской карты</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
