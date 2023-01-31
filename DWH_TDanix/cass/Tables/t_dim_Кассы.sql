@@ -4,6 +4,7 @@
     [Включена]     BIT            NOT NULL,
     [Код_магазина] INT            NOT NULL,
     [UserBind]     NVARCHAR (100) NULL,
+    [Тип_кассы] NVARCHAR(30) NULL, 
     CONSTRAINT [PK_t_dim_Кассы] PRIMARY KEY CLUSTERED ([Код_кассы] ASC) ON [DIMENTIONS]
 ) ON [DIMENTIONS];
 
