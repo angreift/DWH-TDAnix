@@ -17,6 +17,7 @@
 	[Составной_код_документа] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира] [nvarchar](20) NOT NULL,
     [Флаг_закрытия_чека] TINYINT NULL, 
+    [Номер_банковской_карты] NVARCHAR(100) NULL, 
     CONSTRAINT [PK_t_fact_Чеки] PRIMARY KEY CLUSTERED ([Составной_код_документа] ASC) ON [FACTS],
     CONSTRAINT [FK_t_fact_Чеки_t_fact_Смены_на_кассах] FOREIGN KEY ([Составной_код_смены]) REFERENCES [cass].[t_fact_Смены_на_кассах] ([Составной_код_смены]) ON DELETE CASCADE
 ) ON [FACTS];

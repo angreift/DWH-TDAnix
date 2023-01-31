@@ -586,11 +586,13 @@ BEGIN
 					[cass].[t_raw_Оплаты] (
 						ИД_документа,
 						Код_типа_оплаты,
-						Сумма_оплаты
+						Сумма_оплаты,
+						Номер_банковской_карты
 				) select 
 					documentid,
 					valcode,
-					sumb
+					sumb,
+					cardnum
 				from openquery (
 					[pos_%cassnum%],
 					''
@@ -600,7 +602,8 @@ BEGIN
 						case when 
 							cte70.sumb is null then 0 else cte70.sumb end - 
 						case when 
-							cte72.sumb is null then 0 else cte72.sumb end as sumb
+							cte72.sumb is null then 0 else cte72.sumb end as sumb,
+						(select a.`cardnum` from `documents`.`moneyitem` as a where a.`documentid` = `moneyitem`.`documentid` limit 1) cardnum
 					from
 						`documents`.`moneyitem`
 					left join (
@@ -1011,7 +1014,8 @@ BEGIN
 						Составной_код_смены,
 						Составной_код_документа,
 						Составной_код_кассира,
-						Флаг_закрытия_чека
+						Флаг_закрытия_чека,
+						Номер_банковской_карты
 					) select
 						@Код_кассы,
 						RDoc.Номер_чека,
@@ -1030,7 +1034,10 @@ BEGIN
 						@Составной_код_смены,
 						@Составной_код_смены + '~' + cast(RDoc.ИД_документа as nvarchar),
 						@Составной_код_кассира,
-						Флаг_закрытия_чека
+						Флаг_закрытия_чека,
+						(Select top 1 Номер_банковской_карты from cass.t_raw_Оплаты where Номер_банковской_карты is not null 
+																					and cass.t_raw_Оплаты.ИД_документа = RDoc.ИД_документа 
+																					and cass.t_raw_Оплаты.Код_типа_оплаты in (2, 3)) Номер_банковской_карты
 					from
 						cass.t_raw_Кассовые_документы RDoc
 					left join
