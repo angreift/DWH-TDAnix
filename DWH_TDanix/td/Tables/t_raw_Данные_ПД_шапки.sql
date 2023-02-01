@@ -1,11 +1,19 @@
 ﻿CREATE TABLE [td].[t_raw_Данные_ПД_шапки]
 (
-	[Дата_время] datetime not null,
-	[Дата_выгрузки] date not null,
+	[Дата_выгрузки] date null,
 	[Отпечаток_времени] int null,
-	[Выгрузка_из_ЗОД] bit not null,
-	[Код_магазина] int not null,
-	[Data] nvarchar(max) not null
+	[Выгрузка_из_ЗОД] bit null,
+	[Код_магазина] int null,
+	-- Столбцы до этого комментария используются для обратной совместимости при переходе от одной версии обмена к другой
+	[Дата_время] datetime null,
+	[Data] nvarchar(max) null,
+	[Version] int null,
+	[SubCode] int null,
+	[DateExec] date null,
+	[TimeStamp] int null,
+	[DateStart] date null,
+	[DateEnd] date null, 
+    [EndFlag] BIT NULL
 ) on RAW
 GO
 

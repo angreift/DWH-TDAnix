@@ -15,7 +15,8 @@
 	[Сумма_НДС_розничная] decimal(12,2) null,
 	[Срок_годности] date null,
 	[Штрихкод] nvarchar(13) null,
-	constraint [FK_t_fact_ПД_строки_t_fact_ПД_шапки] foreign key ([Составной_код_ПД]) references [td].[t_fact_ПД_шапки] ([Составной_код_ПД]) on delete cascade
+	[Код_поставщика_холдинга] INT NULL, 
+    constraint [FK_t_fact_ПД_строки_t_fact_ПД_шапки] foreign key ([Составной_код_ПД]) references [td].[t_fact_ПД_шапки] ([Составной_код_ПД]) on delete cascade
 ) on [FACTS]
 GO
 
