@@ -31,6 +31,19 @@ BEGIN
 		Флаг_загрузки bit
 	)
 
+	-- Удалим выгрузки, содержащие в важных полях нули
+	delete from td.[t_raw_Данные_Заявка_РЦ_шапки] where SubCode is null or 
+														DateExec is null or 
+														TimeStamp is null or 
+														DateStart is null or 
+														DateEnd is null
+
+	delete from td.[t_raw_Данные_Заявка_РЦ_строки] where SubCode is null or 
+														 DateExec is null or 
+														 TimeStamp is null or 
+														 DateStart is null or 
+														 DateEnd is null
+
 	declare @Version int, @strData nvarchar(max), @currStr nvarchar(max);
 
 	-- Переменные для шапок

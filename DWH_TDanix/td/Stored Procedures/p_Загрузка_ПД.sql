@@ -15,6 +15,19 @@ BEGIN
 
 	declare @_код_магазина int, @_дата_выгрузки date, @_дата_начала_выгрузки date, @_дата_конца_выгрузки date, @_отпечаток_времени int;
 
+	-- Удалим выгрузки, содержащие в важных полях нули
+	delete from td.[t_raw_Данные_ПД_шапки] where SubCode is null or 
+												 DateExec is null or 
+												 TimeStamp is null or 
+												 DateStart is null or 
+												 DateEnd is null
+
+	delete from td.[t_raw_Данные_ПД_строки] where SubCode is null or 
+												  DateExec is null or 
+												  TimeStamp is null or 
+												  DateStart is null or 
+												  DateEnd is null
+
 	declare @load_pr table (
 		Код_магазина int,
 		Дата_выгрузки date,
@@ -284,9 +297,6 @@ BEGIN
 			set @strData = (select top 1 [data] from @Данные_строки where Флаг_загрузки is null);
 			update @Данные_строки set Флаг_загрузки = 1 where [data] = @strData
 
-			-- 1. Обрезаем метаифнормацию в началае
-			set @strData = substring(@strData, 20, len(@strData) - 19);
-
 			while len(@strData) > 0 begin
 				set @currStr = left(@strData, charindex(';', @strData));
 				set @strData = right(@strData, len(@strData) - charindex(';', @strData));
@@ -344,6 +354,7 @@ BEGIN
 				set @currStr = right(@currStr, len(@currStr) - charindex('&', @currStr));
 
 				set @Код_поставщика_холдинга = left(@currStr, charindex(';', @currStr) - 1);
+				if @Код_поставщика_холдинга = 0 set @Код_поставщика_холдинга = null;
 
 			insert into
 				td.t_fact_ПД_Строки(

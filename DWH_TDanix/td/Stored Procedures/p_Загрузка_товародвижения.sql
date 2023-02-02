@@ -32,6 +32,13 @@ BEGIN
 		@Сумма decimal(15,2), @СуммаЗакупа decimal(15,2), @СуммаЗакупаСоСклада decimal(15,2), 
 		@Количество decimal(15, 3), @Код_причины smallint;
 
+	-- Удалим выгрузки, содержащие в важных полях нули
+	delete from td.t_raw_Данные_товародвижения_из_магазинов where SubCode is null or 
+																  DateExec is null or 
+																  TimeStamp is null or 
+																  DateStart is null or 
+																  DateEnd is null
+
 	-- Сначала получаем все выгрузки, которые есть в таблице сырых данных
 	insert into @load_pr
 	select distinct 

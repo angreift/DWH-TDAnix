@@ -27,6 +27,13 @@ BEGIN
 		Флаг_загрузки bit
 	)
 
+	-- Удалим выгрузки, содержащие в важных полях нули
+	delete from td.[t_raw_Данные_продаж_ТСД] where SubCode is null or 
+												   DateExec is null or 
+												   TimeStamp is null or 
+												   DateStart is null or 
+												   DateEnd is null
+
 	declare @Version int, @strData nvarchar(max), @currStr nvarchar(max);
 	Declare @Дата_документа date, @Код_товара bigint, @Штрихкод nvarchar(13), @Цена decimal(10,2), @Количество decimal(10,3),
 		@Сумма decimal(10,2), @Количество_чеков int;

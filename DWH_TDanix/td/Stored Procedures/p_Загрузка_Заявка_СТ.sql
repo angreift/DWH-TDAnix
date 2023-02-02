@@ -31,6 +31,19 @@ BEGIN
 		Флаг_загрузки bit
 	)
 
+	-- Удалим выгрузки, содержащие в важных полях нули
+	delete from td.[t_raw_Данные_Заявка_СТ_шапки] where SubCode is null or 
+														DateExec is null or 
+														TimeStamp is null or 
+														DateStart is null or 
+														DateEnd is null
+
+	delete from td.[t_raw_Данные_Заявка_СТ_строки] where SubCode is null or 
+														 DateExec is null or 
+														 TimeStamp is null or 
+														 DateStart is null or 
+														 DateEnd is null
+
 	declare @Version int, @strData nvarchar(max), @currStr nvarchar(max);
 
 	-- Переменные для шапок
@@ -137,6 +150,8 @@ BEGIN
 		set @msg = concat('Начало загрузки данных о фактах из сырых таблиц. Дата выгрузки: ', @_дата_выгрузки, ', Код магазина: ', @_код_магазина, 
 				', Отпечаток времени: ', @_отпечаток_времени, ', Дата начала выгрузки: ', @_дата_начала_выгрузки, ', Дата конца выгрузки: ', @_дата_конца_выгрузки);
 		exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
+
+		begin tran td_bm_load_st
 
 		-- Удалили старые данные
 		delete from td.t_fact_Заявка_СТ_шапки where Дата_заявки_СТ >= @_дата_начала_выгрузки and Дата_заявки_СТ <= @_дата_конца_выгрузки and Код_магазина = @_код_магазина
@@ -347,14 +362,14 @@ BEGIN
 		end
 
 		begin try
-			commit tran td_bm_load_rc
+			commit tran td_bm_load_st
 			set @msg = concat('Загрузка успешно завершена и зафиксирована. Дата выгрузки: ', @_дата_выгрузки, ', Код магазина: ', @_код_магазина, 
 				', Отпечаток времени: ', @_отпечаток_времени, ', Дата начала выгрузки: ', @_дата_начала_выгрузки, ', Дата конца выгрузки: ', @_дата_конца_выгрузки);
 			print(@msg);
 			exec [dbo].[p_Сообщить_в_общий_журнал] 3, @object_name, @msg;
 		end try
 		begin catch
-			rollback tran td_bm_load_rc
+			rollback tran td_bm_load_st
 			set @msg = concat('Не удалось загрузить Заявки СТ: ', error_message(), '. Дата выгрузки: ', @_дата_выгрузки, ', Код магазина: ', @_код_магазина, 
 				', Отпечаток времени: ', @_отпечаток_времени, ', Дата начала выгрузки: ', @_дата_начала_выгрузки, ', Дата конца выгрузки: ', @_дата_конца_выгрузки);
 			exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
