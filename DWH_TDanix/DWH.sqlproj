@@ -9,8 +9,7 @@
     <ProjectGuid>{12da1078-8223-4301-a427-ee22a87375bf}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>DWH_TDanix</RootNamespace>
     <AssemblyName>DWH_TDanix</AssemblyName>
     <ModelCollation>1049,CI</ModelCollation>
@@ -111,7 +110,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -137,6 +135,7 @@
     <Folder Include="td\Functions" />
     <Folder Include="rprt_cw" />
     <Folder Include="rprt_cw\Tables" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="cass\Tables\t_raw_Сторнированные_позиции.sql">
@@ -437,8 +436,6 @@
     <Build Include="Security\rprt_cw.sql" />
     <Build Include="Storage\REPORTS.sql" />
     <Build Include="rprt_cw\Tables\t_dim_Причины_потерь.sql" />
-    <Build Include="rprt_cw\Tables\t_raw_Распричинивание_потерь.sql" />
-    <Build Include="rprt_cw\Tables\t_fact_Потери.sql" />
     <Build Include="td\Tables\t_raw_Данные_продаж_ТСД.sql" />
     <Build Include="td\Tables\t_fact_Продажи_ТСД.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_продаж_ТСД.sql" />
@@ -486,6 +483,10 @@
       <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="dbo\Stored Procedures\p_Загрузить_данные_в_RAW.sql" />
+    <Build Include="cass\Stored Procedures\p_Загрузка_смены_из_Cheques.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="rprt_cw\Tables\t_fact_Распричинивание_потерь.sql" />
+    <Build Include="rprt_cw\Tables\t_Факты_потерь.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
