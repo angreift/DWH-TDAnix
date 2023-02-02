@@ -91,4 +91,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Наименование_формата_магазина" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="ad411f51-169c-47e1-923e-e7c0885cf381" ChangeDateTime="02/02/2023 04:30:22">
+    <Property Name="ElementName" Value="[dbo].[t_dim_Типы_касс].[Тип_кассы]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_dim_Типы_касс]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Код_типа_кассы" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d7077fb6-8d5b-46c0-926d-c9455ba30140" ChangeDateTime="02/02/2023 04:35:07">
+    <Property Name="ElementName" Value="[dbo].[t_dim_Типы_касс].[Тип_кассы_наименование]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_dim_Типы_касс]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Наименование" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f6a66c90-1bc8-4c08-8ba6-a4e285396ee8" ChangeDateTime="02/02/2023 05:27:48">
+    <Property Name="ElementName" Value="[cass].[t_dim_Кассы].[Тип_кассы]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[cass].[t_dim_Кассы]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Код_типа_кассы" />
+  </Operation>
 </Operations>
