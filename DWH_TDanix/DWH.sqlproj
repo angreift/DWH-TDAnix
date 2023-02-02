@@ -414,10 +414,6 @@
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
-    <Build Include="td\Stored Procedures\p_Синхронизация_движений.sql">
-      <QuotedIdentifier>On</QuotedIdentifier>
-      <AnsiNulls>On</AnsiNulls>
-    </Build>
     <Build Include="td\Tables\t_fact_Товарная_матрица.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_Товарной_матрицы.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -429,10 +425,6 @@
     <Build Include="td\Stored Procedures\p_Журнал_загрузки_товародвижения_из_БМ.sql" />
     <Build Include="td\Tables\t_fact_Начальные_остатки.sql" />
     <Build Include="td\Tables\t_raw_Данные_начальных_остатков_из_магазинов.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_начальных_остатков.sql">
-      <QuotedIdentifier>On</QuotedIdentifier>
-      <AnsiNulls>On</AnsiNulls>
-    </Build>
     <Build Include="td\Stored Procedures\p_Загрузка_начальных_остатков.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
@@ -446,12 +438,9 @@
     <Build Include="rprt_cw\Tables\t_dim_Причины_потерь.sql" />
     <Build Include="td\Tables\t_raw_Данные_продаж_ТСД.sql" />
     <Build Include="td\Tables\t_fact_Продажи_ТСД.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_продаж_ТСД.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_продаж_ТСД.sql" />
     <Build Include="td\Tables\t_raw_Данные_ПД_шапки.sql" />
     <Build Include="td\Tables\t_raw_Данные_ПД_строки.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_ПД_шапки.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_ПД_строки.sql" />
     <Build Include="td\Tables\t_fact_ПД_шапки.sql" />
     <Build Include="td\Tables\t_fact_ПД_строки.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_ПД.sql" />
@@ -460,10 +449,6 @@
     <Build Include="td\Tables\t_raw_Данные_Заявка_СТ_шапки.sql" />
     <Build Include="td\Tables\t_raw_Данные_Заявка_СТ_строки.sql" />
     <Build Include="td\Tables\t_raw_Данные_Заявка_РЦ_строки.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_РЦ_шапки.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_РЦ_строки.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_СТ_строки.sql" />
-    <Build Include="td\Stored Procedures\p_Синхронизация_Заявка_СТ_шапки.sql" />
     <Build Include="td\Tables\t_fact_Заявка_РЦ_шапки.sql" />
     <Build Include="td\Tables\t_fact_Заявка_РЦ_строки.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_Заявка_РЦ.sql" />
@@ -491,6 +476,13 @@
     <Build Include="cass\Views\v_dim_Номера_банковских_карт.sql" />
     <Build Include="dbo\Tables\t_dim_Поставщики.sql" />
     <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщики.sql" />
+    <Build Include="dbo\Tables\t_dim_Поставщики_холдинга.sql" />
+    <Build Include="dbo\Tables\t_fact_Поставщики_холдинга.sql" />
+    <Build Include="dbo\Views\v_dim_Поставщики_холдинга.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщиков_холдинга.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\p_Загрузить_данные_в_RAW.sql" />
     <Build Include="cass\Stored Procedures\p_Загрузка_смены_из_Cheques.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="rprt_cw\Tables\t_fact_Распричинивание_потерь.sql" />
