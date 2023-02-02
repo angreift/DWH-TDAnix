@@ -12,8 +12,8 @@
   DTS:ObjectName="1822"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{A68C84F0-A242-4E98-9B80-3FD793988458}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{790FB5FC-5732-4F91-860C-8E7901E529E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -927,38 +927,80 @@ group by Код</property>
                           description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @StartDate DATE, @EndDate DATE
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @StartDate DATE, @EndDate DATE, @Дата DATE
 SET @StartDate = dateadd(day, -14, getdate())
 SET @EndDate = dateadd(day, -1, getdate())
+set @Дата = @StartDate
+
+declare @buff_остатки_на_периуд table (
+	Дата    date              not null,
+	Код_магазина     int      not null,
+	Код_склада_в_магазине int not null,
+	Код_товара int            not null,
+	Остаток numeric(18, 3)    not null
+);
 
 declare @tmp_1822_Остатки table (
 	Дата    date           NOT NULL,
-	Код     bigint         NOT NULL,
+	Код     int            NOT NULL,
 	Остаток numeric(18, 3) NOT NULL
 );
+
+while @Дата &lt;= @EndDate begin
+	insert into
+		@buff_остатки_на_периуд
+	select 
+		Дата, Код_магазина, Код_склада_в_магазине, Код_товара, Остаток
+	from (
+		select 
+			@Дата Дата,
+			Код_магазина,
+			Код_склада_в_магазине,
+			Код_товара, 
+			sum(Остаток) Остаток
+		from (
+			select
+				ib_f.Код_магазина,
+				ib_f.Код_склада_в_магазине,
+				ib_f.Код_товара,
+				ib.Остаток
+			from td.t_fact_Начальные_остатки ib
+			right join (
+				select
+					max(ib_f.Дата) Дата,
+					ib_f.Код_Товара,
+					ib_f.Код_магазина,
+					ib_f.Код_склада_в_магазине
+				from
+					td.t_fact_Начальные_остатки ib_f
+				where
+					ib_f.Дата = dateadd(day, -1, dateFromParts(year(@Дата), month(@Дата), 1))
+				group by 
+					ib_f.Код_товара, ib_f.Код_магазина, ib_f.Код_склада_в_магазине
+				) ib_f on ib.Дата = ib_f.Дата and ib.Код_товара = ib_f.Код_товара and ib.Код_магазина = ib_f.Код_магазина and ib.Код_склада_в_магазине = ib_f.Код_склада_в_магазине
+			) о
+		left join dbo.t_dim_Магазины as Магазины on Магазины.Код = о.Код_магазина
+
+		where Код_магазина in (
+			SELECT [Код]
+			FROM [DWH].[dbo].[t_dim_Магазины]
+			where Группа = 'Розница                                 '
+				and Дата_открытия &lt; GETDATE()
+				and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
+		) and Код_магазина &gt; 0
+
+		group by Код_магазина, Код_склада_в_магазине, Код_товара
+	) о;
+	set @Дата = dateAdd(day, 1, @Дата);
+End
 
 insert into @tmp_1822_Остатки
 SELECT
 	Остатки.Дата,
-	Остатки.Код,
+	Остатки.Код_товара as Код,
 	sum(Остатки.Остаток) Остаток
-FROM (
-	SELECT 
-		Код_магазина as КодМагазина,
-		дата as Дата, 
-		Код_товара as Код, 
-		Остатки.Код_склада_в_магазине as Склад, 
-		Остаток as Остаток
-	FROM [td].[f_Срез_остатков_на_период](@StartDate, @EndDate) as Остатки
-	WHERE Код_магазина in (
-		SELECT [Код]
-		FROM [DWH].[dbo].[t_dim_Магазины]
-		where Группа = 'Розница                                 '
-			and Дата_открытия &lt; GETDATE()
-			and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
-	) and Код_магазина &gt; 0
-) as Остатки
-group by Дата, Код
+FROM @buff_остатки_на_периуд as Остатки
+group by Остатки.Дата, Остатки.Код_товара
 
 
 Select
@@ -1011,7 +1053,7 @@ group by к.Код</property>
                           <outputColumns>
                             <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[Код]"
-                              dataType="i8"
+                              dataType="i4"
                               errorOrTruncationOperation="Преобразование"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[Код]"
@@ -1034,7 +1076,7 @@ group by к.Код</property>
                             isUsed="True">
                             <externalMetadataColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[Код]"
-                              dataType="i8"
+                              dataType="i4"
                               name="Код" />
                             <externalMetadataColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[остаток]"
@@ -1051,7 +1093,7 @@ group by к.Код</property>
                           <outputColumns>
                             <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[Код]"
-                              dataType="i8"
+                              dataType="i4"
                               lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[Код]"
                               name="Код" />
                             <outputColumn
@@ -1137,7 +1179,7 @@ group by к.Код</property>
                               lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[остаток]" />
                             <inputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Код]"
-                              cachedDataType="i8"
+                              cachedDataType="i4"
                               cachedName="Код"
                               externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодТовара]"
                               lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[Код]" />
@@ -1202,7 +1244,7 @@ group by к.Код</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы остатков"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -1219,7 +1261,7 @@ group by к.Код</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы средний остаток"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -1568,7 +1610,7 @@ group by Остатки.Код_товара</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка стоимости остатков"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -1906,7 +1948,7 @@ group by КодТовара</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка суммы переоценки"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -2214,7 +2256,7 @@ order by Товародвижение.Код_товара</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка суммы потерь"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -3072,7 +3114,7 @@ order by КодТоварв</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -3090,7 +3132,7 @@ order by КодТоварв</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы средних продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
