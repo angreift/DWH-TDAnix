@@ -12,7 +12,7 @@ BEGIN
 		IP_Адрес nvarchar(15),
 		Код_магазина int,
 		Код_кассы int,
-		Тип_кассы nvarchar(30)
+		Код_типа_кассы nvarchar(7)
 	)
 	
 	insert into #cass_list_from_CS
@@ -20,7 +20,7 @@ BEGIN
 		pos_addr as IP_Адрес,
 		cashcode / 100 as Код_магазина,
 		cashcode as Код_кассы,
-		postype as Тип_кассы
+		postype as Код_типа_кассы
 	from openquery(
 		[SERV-ARTIX],
 		'select cashcode, pos_addr, postype from rs_pos_sales.status where ping = 1 or sshport = 1'
@@ -37,10 +37,10 @@ BEGIN
 				   к1.Включена = 1,
 				   к1.Код_магазина = к2.Код_магазина,
 				   к1.UserBind = 'Auto update',
-				   к1.Тип_кассы = к2.Тип_кассы
+				   к1.Код_типа_кассы = к2.Код_типа_кассы
 	when not matched then
-		insert (Код_кассы,    IP_Адрес,    Включена,    Код_магазина,    UserBind,      Тип_кассы)
-		values (к2.Код_кассы, к2.IP_Адрес, 1,           к2.Код_магазина, 'Auto update', к2.Тип_кассы);
+		insert (Код_кассы,    IP_Адрес,    Включена,    Код_магазина,    UserBind,      Код_типа_кассы)
+		values (к2.Код_кассы, к2.IP_Адрес, 1,           к2.Код_магазина, 'Auto update', к2.Код_типа_кассы);
 
 	declare cur cursor local for select Код_кассы from cass.t_dim_Кассы
 	declare @cid int, @r bit, @IP_Адрес nvarchar(15);
