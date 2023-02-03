@@ -4,20 +4,9 @@
     [Включена]     BIT            NOT NULL,
     [Код_магазина] INT            NOT NULL,
     [UserBind]     NVARCHAR (100) NULL,
-    [Тип_кассы] NVARCHAR(30) NULL, 
+    [Код_типа_кассы] NVARCHAR(7) NULL, 
     CONSTRAINT [PK_t_dim_Кассы] PRIMARY KEY CLUSTERED ([Код_кассы] ASC) ON [DIMENTIONS]
 ) ON [DIMENTIONS];
-
-
-GO
-CREATE UNIQUE NONCLUSTERED INDEX [ix_uncl_IP_Адрес]
-    ON [cass].[t_dim_Кассы]([IP_Адрес] ASC)
-    ON [DIMENTIONS];
-
-
-GO
-ALTER INDEX [ix_uncl_IP_Адрес]
-    ON [cass].[t_dim_Кассы] DISABLE;
 
 
 GO
