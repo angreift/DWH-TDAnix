@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\kma1860"
   DTS:DTSID="{22BCB2A8-F9C3-4955-9EA2-A1F90EBD7A9D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="1049"
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{67C6923E-C6AF-44FC-B568-24C7CB17F436}">
+  DTS:VersionBuild="102"
+  DTS:VersionGUID="{492C41C6-26A2-4C57-878D-C6D3B72232DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -3202,7 +3202,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Статусы не заказывать"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3843,7 +3843,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4622,7 +4622,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4656,13 +4656,13 @@ FROM         SC5650 (nolock)</property>
               <DTS:Variables />
               <DTS:Executables>
                 <DTS:Executable
-                  DTS:refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)"
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)"
                   DTS:CreationName="Microsoft.Pipeline"
                   DTS:Description="Data Flow Task"
                   DTS:DTSID="{9DFE0C9A-4D98-4815-82BE-AEAB0C1702CB}"
                   DTS:ExecutableType="Microsoft.Pipeline"
                   DTS:LocaleID="-1"
-                  DTS:ObjectName="Остатки ОТБРС (ОТБОР ПО ДАТЕ)"
+                  DTS:ObjectName="Остатки DWH (ОТБОР ПО ДАТЕ)"
                   DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
@@ -4674,11 +4674,334 @@ FROM         SC5650 (nolock)</property>
                       version="1">
                       <components>
                         <component
-                          refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки"
+                          refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                          description="Extracts data from a relational database by using a .NET provider."
+                          name="DWH"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the SQL statement used by the component to extract data."
+                              expressionType="Notify"
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
+
+declare @date as datetime
+declare @dateN as datetime
+declare @curdate as datetime
+declare @Дата date;
+
+set @curdate = convert(varchar(16), dateadd(day, -1, getdate()), 112)
+
+set @date = CASE 
+WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
+WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)
+END
+
+set @dateN = dateadd(dd, -13, @date)
+set @Дата = @dateN;
+
+declare @buff_остатки table (
+	Дата datetime,
+	КодТовара bigint,
+	КодМагазина int,
+	ОстатокНаНачалоШТ decimal(14,3),
+	ОстатокНаНачалоРознРуб decimal(14,2),
+	ОборотШТ decimal(14,3),
+	ОборотРуб decimal(14,2)
+)
+
+
+While @Дата &lt;= @date Begin
+	insert into
+		@buff_остатки
+	select
+		convert(datetime, @Дата) Дата,
+		Код_товара as КодТовара,
+		Код_магазина as КодМагазина,
+		sum(Остаток) - sum(Количество_пред) as ОстатокНаНачалоШТ,
+		sum(Сумма) - sum(Сумма_пред) as ОстатокНаНачалоРознРуб,
+		sum(Количество_пред) ОборотШТ,
+		sum(Сумма_пред) ОборотРуб
+	from (
+		select
+			ib_f.Код_магазина,
+			ib_f.Код_товара,
+			ib.Сумма,
+			ib.Остаток,
+			0 Сумма_пред,
+			0 Количество_пред
+		from
+			td.t_fact_Начальные_остатки ib
+		right join (
+			select
+				max(ib_f.Дата) Дата,
+				ib_f.Код_Товара,
+				ib_f.Код_магазина,
+				ib_f.Код_склада_в_магазине
+			from
+				td.t_fact_Начальные_остатки ib_f (nolock)
+			where
+				ib_f.Дата = dateadd(day, -1, dateFromParts(year(@Дата), month(@Дата), 1))
+			group by 
+				ib_f.Код_товара, ib_f.Код_магазина, ib_f.Код_склада_в_магазине
+		) ib_f on ib.Дата = ib_f.Дата and ib.Код_товара = ib_f.Код_товара and ib.Код_магазина = ib_f.Код_магазина and ib.Код_склада_в_магазине = ib_f.Код_склада_в_магазине
+		union all
+		select
+			Код_магазина,
+			Код_товара,
+			Сумма,
+			Количество,
+			0 Сумма_пред, 
+			0 Количество_пред
+ 		from
+			td.t_fact_Товародвижение (nolock)
+		where
+			Дата &lt;= @Дата and Дата &gt; dateadd(day, -1, dateFromParts(year(@Дата), month(@Дата), 1))
+		union all
+		Select
+			Код_магазина,
+			Код_товара, 
+			0 Сумма,
+			0 Количество,
+			isnull(Сумма, 0) Сумма_пред,
+			isnull(Количество, 0) Количество_пред
+		from
+			td.t_fact_Товародвижение (nolock)
+		where
+			Дата = @Дата
+	) о
+	group by Код_магазина, Код_товара
+	set @Дата = dateAdd(day, 1, @Дата);
+End 
+select * from @buff_остатки as Остатки</property>
+                            <property
+                              dataType="System.Int32"
+                              description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                              name="AllowImplicitStringConversion">true</property>
+                            <property
+                              dataType="System.String"
+                              description="The Destination database table name."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specify the mode to retrieve external column information"
+                              name="AccessMode"
+                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.DWH]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.DWH]"
+                              description="Managed connection manager"
+                              name="IDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output]"
+                              name="ADO NET Source Output">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[КодТовара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[КодТовара]"
+                                  name="КодТовара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[КодМагазина]"
+                                  name="КодМагазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоШТ]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]"
+                                  name="ОстатокНаНачалоШТ"
+                                  precision="14"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоРознРуб]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]"
+                                  name="ОстатокНаНачалоРознРуб"
+                                  precision="14"
+                                  scale="2"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОборотШТ]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОборотШТ]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОборотШТ]"
+                                  name="ОборотШТ"
+                                  precision="14"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОборотРуб]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОборотРуб]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОборотРуб]"
+                                  name="ОборотРуб"
+                                  precision="14"
+                                  scale="2"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоШТ]"
+                                  dataType="numeric"
+                                  name="ОстатокНаНачалоШТ"
+                                  precision="14"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоРознРуб]"
+                                  dataType="numeric"
+                                  name="ОстатокНаНачалоРознРуб"
+                                  precision="14"
+                                  scale="2" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОборотШТ]"
+                                  dataType="numeric"
+                                  name="ОборотШТ"
+                                  precision="14"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ОборотРуб]"
+                                  dataType="numeric"
+                                  name="ОборотРуб"
+                                  precision="14"
+                                  scale="2" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output]"
+                              isErrorOut="true"
+                              name="ADO NET Source Error Output">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
+                                  name="КодТовара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
+                                  name="КодМагазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоШТ]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоШТ]"
+                                  name="ОстатокНаНачалоШТ"
+                                  precision="14"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоРознРуб]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоРознРуб]"
+                                  name="ОстатокНаНачалоРознРуб"
+                                  precision="14"
+                                  scale="2" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОборотШТ]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОборотШТ]"
+                                  name="ОборотШТ"
+                                  precision="14"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОборотРуб]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ОборотРуб]"
+                                  name="ОборотРуб"
+                                  precision="14"
+                                  scale="2" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки"
                           componentClassID="Microsoft.ManagedComponentHost"
                           contactInfo="Writes to a database using ADO.NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
                           description="Writes to a database using ADO.NET provider."
-                          name="s8-olap-test ОТБРС_Остатки"
+                          name="s19-olap ОТБРС_Остатки"
                           usesDispositions="true"
                           version="2">
                           <properties>
@@ -4709,7 +5032,7 @@ FROM         SC5650 (nolock)</property>
                           </properties>
                           <connections>
                             <connection
-                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Connections[IDbConnection]"
+                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Connections[IDbConnection]"
                               connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
                               connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
                               description="Managed connection manager"
@@ -4717,98 +5040,96 @@ FROM         SC5650 (nolock)</property>
                           </connections>
                           <inputs>
                             <input
-                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input]"
+                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input]"
                               errorRowDisposition="FailComponent"
                               hasSideEffects="true"
                               name="ADO NET Destination Input">
                               <inputColumns>
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[Дата]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[Дата]"
                                   cachedDataType="dbTimeStamp"
                                   cachedName="Дата"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[Дата]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[КодТовара]"
-                                  cachedDataType="wstr"
-                                  cachedLength="10"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[КодТовара]"
+                                  cachedDataType="i8"
                                   cachedName="КодТовара"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[КодТовара]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[КодТовара]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[КодМагазина]"
-                                  cachedDataType="wstr"
-                                  cachedLength="6"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[КодМагазина]"
+                                  cachedDataType="i4"
                                   cachedName="КодМагазина"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[КодМагазина]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[КодМагазина]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОстатокНаНачалоШТ]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОстатокНаНачалоШТ]"
                                   cachedDataType="numeric"
                                   cachedName="ОстатокНаНачалоШТ"
-                                  cachedPrecision="38"
+                                  cachedPrecision="14"
                                   cachedScale="3"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоШТ]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоШТ]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОстатокНаНачалоРознРуб]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОстатокНаНачалоРознРуб]"
                                   cachedDataType="numeric"
                                   cachedName="ОстатокНаНачалоРознРуб"
-                                  cachedPrecision="38"
+                                  cachedPrecision="14"
                                   cachedScale="2"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоРознРуб]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоРознРуб]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОборотШТ]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОборотШТ]"
                                   cachedDataType="numeric"
                                   cachedName="ОборотШТ"
-                                  cachedPrecision="38"
+                                  cachedPrecision="14"
                                   cachedScale="3"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотШТ]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОборотШТ]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотШТ]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОборотШТ]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОборотРуб]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].Columns[ОборотРуб]"
                                   cachedDataType="numeric"
                                   cachedName="ОборотРуб"
-                                  cachedPrecision="38"
+                                  cachedPrecision="14"
                                   cachedScale="2"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотРуб]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОборотРуб]" />
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотРуб]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output].Columns[ОборотРуб]" />
                               </inputColumns>
                               <externalMetadataColumns
                                 isUsed="True">
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
                                   dataType="dbTimeStamp"
                                   name="Дата" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
                                   dataType="i8"
                                   name="КодТовара" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
                                   dataType="i8"
                                   name="КодМагазина" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоШТ]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоШТ]"
                                   dataType="numeric"
                                   name="ОстатокНаНачалоШТ"
                                   precision="10"
                                   scale="3" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоРознРуб]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОстатокНаНачалоРознРуб]"
                                   dataType="numeric"
                                   name="ОстатокНаНачалоРознРуб"
                                   precision="10"
                                   scale="2" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотШТ]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотШТ]"
                                   dataType="numeric"
                                   name="ОборотШТ"
                                   precision="10"
                                   scale="3" />
                                 <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотРуб]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input].ExternalColumns[ОборотРуб]"
                                   dataType="numeric"
                                   name="ОборотРуб"
                                   precision="10"
@@ -4818,348 +5139,22 @@ FROM         SC5650 (nolock)</property>
                           </inputs>
                           <outputs>
                             <output
-                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Outputs[ADO NET Destination Error Output]"
+                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Outputs[ADO NET Destination Error Output]"
                               exclusionGroup="1"
                               isErrorOut="true"
                               name="ADO NET Destination Error Output"
-                              synchronousInputId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input]">
+                              synchronousInputId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input]">
                               <outputColumns>
                                 <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                                   dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                                   name="ErrorCode"
                                   specialFlags="1" />
                                 <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                                   dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
-                                  name="ErrorColumn"
-                                  specialFlags="2" />
-                              </outputColumns>
-                              <externalMetadataColumns />
-                            </output>
-                          </outputs>
-                        </component>
-                        <component
-                          refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС"
-                          componentClassID="Microsoft.ManagedComponentHost"
-                          contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                          description="Extracts data from a relational database by using a .NET provider."
-                          name="ОТБРС"
-                          usesDispositions="true"
-                          version="4">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the SQL statement used by the component to extract data."
-                              expressionType="Notify"
-                              name="SqlCommand"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
-
-declare @date as datetime
-declare @dateN as datetime
-declare @curdate as datetime
-
-set @curdate=convert(varchar(16), dateadd(day, -1, getdate()), 112)
-
-set @date =CASE 
-WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
-WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
-WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) 
-WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) 
-WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) 
-WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) 
-WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)
-END
-
-set @dateN = dateadd(dd, -13, @date)
-
-select
-	convert(datetime, rr50_vt.Дата) Дата,
-	спрТовары.code as КодТовара,
-	СпрМагазины.code as КодМагазина,
-	sum(rr50_vt.sp54) as ОстатокНаНачалоШТ,
-	sum(rr50_vt.sp379) as ОстатокНаНачалоРознРуб,
-	sum(rr50_vt.ОборотШТ) as ОборотШТ,
-	sum(rr50_vt.ОборотРуб) as ОборотРуб
-from 
-	(
-	select
-		Календарь2.val Дата,
-		rg50_vt.sp51,
-		rg50_vt.sp52,
-		rg50_vt.sp54,
-		rg50_vt.sp379,
-		0 ОборотШТ,
-		0 ОборотРуб
-	from
-		dbo.GetTblDate(@dateN, @date) Календарь2
-	left join
-		rg50 as rg50_vt (nolock)
-			on rg50_vt.period=cast((dateadd(m,-1,dateadd(day,1-day(Календарь2.val),Календарь2.val)))as DATETIME)
-	union all
-	select
-		Календарь3.val Дата,
-		ra50_vt.sp51,
-		ra50_vt.sp52,
-		case ra50_vt.debkred when 0 then ra50_vt.sp54 else -ra50_vt.sp54 end,
-		case ra50_vt.debkred when 0 then ra50_vt.sp379 else -ra50_vt.sp379 end,
-		0,
-		0
-	from
-		dbo.GetTblDate(@dateN, @date) Календарь3
-	left join 
-		_1sjourn as j50_vt (nolock) 
-			on j50_vt.date_time_iddoc &gt; convert(varchar, dateadd(day,1-day(Календарь3.val),Календарь3.val), 112) 
-			and j50_vt.date_time_iddoc &lt; (convert(varchar, dateadd(d,-1,Календарь3.val), 112)+'Z')
-			and j50_vt.rf50 = 0x1
-	left join
-		ra50 as ra50_vt (nolock)
-			on j50_vt.iddoc = ra50_vt.iddoc
-	union all
-	select
-		Календарь4.val Дата,
-		ra50_vt2.sp51,
-		ra50_vt2.sp52,
-		0,
-		0,
-		case ra50_vt2.debkred when 0 then ra50_vt2.sp54 else -ra50_vt2.sp54 end,
-		case ra50_vt2.debkred when 0 then ra50_vt2.sp379 else -ra50_vt2.sp379 end
-	from
-		dbo.GetTblDate(@dateN, @date) Календарь4
-	left join 
-		_1sjourn as j50_vt2 (nolock) 
-			on j50_vt2.date_time_iddoc &gt;= convert(varchar, Календарь4.val, 112)
-			and j50_vt2.date_time_iddoc &lt; (convert(varchar, Календарь4.val, 112)+'Z')
-			and j50_vt2.rf50 = 0x1
-	left join
-		ra50 as ra50_vt2 (nolock)
-			on j50_vt2.iddoc = ra50_vt2.iddoc
-	) as rr50_vt
-INNER JOIN
-   sc11 as СпрТовары (nolock) ON СпрТовары.ID = rr50_vt.sp51
-INNER JOIN
-   sc36 as СпрМагазины (nolock) ON СпрМагазины.ID = rr50_vt.sp52
-where 
-СпрМагазины.parentid='     1   '
-
-group by
-	convert(datetime, rr50_vt.Дата),
-	спрТовары.code,
-	СпрМагазины.code</property>
-                            <property
-                              dataType="System.Int32"
-                              description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                              name="CommandTimeout">0</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
-                              name="AllowImplicitStringConversion">true</property>
-                            <property
-                              dataType="System.String"
-                              description="The Destination database table name."
-                              expressionType="Notify"
-                              name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specify the mode to retrieve external column information"
-                              name="AccessMode"
-                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
-                            <property
-                              dataType="System.String"
-                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
-                          </properties>
-                          <connections>
-                            <connection
-                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Connections[IDbConnection]"
-                              connectionManagerID="Package.ConnectionManagers[serv-term.rozn.reader ADO .net]"
-                              connectionManagerRefId="Package.ConnectionManagers[serv-term.rozn.reader ADO .net]"
-                              description="Managed connection manager"
-                              name="IDbConnection" />
-                          </connections>
-                          <outputs>
-                            <output
-                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output]"
-                              name="ADO NET Source Output">
-                              <outputColumns>
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]"
-                                  dataType="dbTimeStamp"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]"
-                                  name="Дата"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[КодТовара]"
-                                  dataType="wstr"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
-                                  length="10"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[КодТовара]"
-                                  name="КодТовара"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[КодМагазина]"
-                                  dataType="wstr"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
-                                  length="6"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[КодМагазина]"
-                                  name="КодМагазина"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]"
-                                  dataType="numeric"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоШТ]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоШТ]"
-                                  name="ОстатокНаНачалоШТ"
-                                  precision="38"
-                                  scale="3"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]"
-                                  dataType="numeric"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоРознРуб]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОстатокНаНачалоРознРуб]"
-                                  name="ОстатокНаНачалоРознРуб"
-                                  precision="38"
-                                  scale="2"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОборотШТ]"
-                                  dataType="numeric"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОборотШТ]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОборотШТ]"
-                                  name="ОборотШТ"
-                                  precision="38"
-                                  scale="3"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОборотРуб]"
-                                  dataType="numeric"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОборотРуб]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].Columns[ОборотРуб]"
-                                  name="ОборотРуб"
-                                  precision="38"
-                                  scale="2"
-                                  truncationRowDisposition="FailComponent" />
-                              </outputColumns>
-                              <externalMetadataColumns
-                                isUsed="True">
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
-                                  dataType="dbTimeStamp"
-                                  name="Дата" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
-                                  dataType="wstr"
-                                  length="10"
-                                  name="КодТовара" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
-                                  dataType="wstr"
-                                  length="6"
-                                  name="КодМагазина" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоШТ]"
-                                  dataType="numeric"
-                                  name="ОстатокНаНачалоШТ"
-                                  precision="38"
-                                  scale="3" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОстатокНаНачалоРознРуб]"
-                                  dataType="numeric"
-                                  name="ОстатокНаНачалоРознРуб"
-                                  precision="38"
-                                  scale="2" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОборотШТ]"
-                                  dataType="numeric"
-                                  name="ОборотШТ"
-                                  precision="38"
-                                  scale="3" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ОборотРуб]"
-                                  dataType="numeric"
-                                  name="ОборотРуб"
-                                  precision="38"
-                                  scale="2" />
-                              </externalMetadataColumns>
-                            </output>
-                            <output
-                              refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output]"
-                              isErrorOut="true"
-                              name="ADO NET Source Error Output">
-                              <outputColumns>
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Дата]"
-                                  dataType="dbTimeStamp"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Дата]"
-                                  name="Дата" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
-                                  dataType="wstr"
-                                  length="10"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
-                                  name="КодТовара" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
-                                  dataType="wstr"
-                                  length="6"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
-                                  name="КодМагазина" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоШТ]"
-                                  dataType="numeric"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоШТ]"
-                                  name="ОстатокНаНачалоШТ"
-                                  precision="38"
-                                  scale="3" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоРознРуб]"
-                                  dataType="numeric"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОстатокНаНачалоРознРуб]"
-                                  name="ОстатокНаНачалоРознРуб"
-                                  precision="38"
-                                  scale="2" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОборотШТ]"
-                                  dataType="numeric"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОборотШТ]"
-                                  name="ОборотШТ"
-                                  precision="38"
-                                  scale="3" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОборотРуб]"
-                                  dataType="numeric"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ОборотРуб]"
-                                  name="ОборотРуб"
-                                  precision="38"
-                                  scale="2" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                                  name="ErrorCode"
-                                  specialFlags="1" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                                   name="ErrorColumn"
                                   specialFlags="2" />
                               </outputColumns>
@@ -5170,10 +5165,10 @@ group by
                       </components>
                       <paths>
                         <path
-                          refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ).Paths[ADO NET Source Output]"
-                          endId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки.Inputs[ADO NET Destination Input]"
+                          refId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ).Paths[ADO NET Source Output]"
+                          endId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки.Inputs[ADO NET Destination Input]"
                           name="ADO NET Source Output"
-                          startId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС.Outputs[ADO NET Source Output]" />
+                          startId="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH.Outputs[ADO NET Source Output]" />
                       </paths>
                     </pipeline>
                   </DTS:ObjectData>
@@ -5187,7 +5182,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="8">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5207,7 +5202,7 @@ group by
                   DTS:From="Package\КПТ\ОТБРС\Загрузка остатков\Очистка таблицы остатков"
                   DTS:LogicalAnd="True"
                   DTS:ObjectName="Constraint"
-                  DTS:To="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)" />
+                  DTS:To="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)" />
               </DTS:PrecedenceConstraints>
             </DTS:Executable>
             <DTS:Executable
@@ -5229,7 +5224,7 @@ group by
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6006,7 +6001,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="8">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6115,7 +6110,7 @@ WHERE Товары.isFolder=1</property>
                                 <externalMetadataColumn
                                   refId="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\s8-olap-test Поставщики_temp_load.Inputs[ADO NET Destination Input].ExternalColumns[Поставщик]"
                                   dataType="wstr"
-                                  length="40"
+                                  length="100"
                                   name="Поставщик" />
                                 <externalMetadataColumn
                                   refId="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\s8-olap-test Поставщики_temp_load.Inputs[ADO NET Destination Input].ExternalColumns[ИДПоставщика]"
@@ -6318,7 +6313,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="8">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -15228,7 +15223,7 @@ Left JOIN Свод_временный3 Свод (nolock) ON Свод.Дата = 
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы Увеличение средневных продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -15702,7 +15697,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Определение причин Этап 3 Приоритеты причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16108,7 +16103,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод временный 3"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16127,7 +16122,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_Временный1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16146,7 +16141,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_временный2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16165,7 +16160,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить строки из карты причин падения КПТ (ОТБОР ПО ДАТЕ)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -22315,12 +22310,12 @@ Left Join
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -22696,8 +22691,8 @@ Left Join
           Id="Package\КПТ\ОТБРС\Загрузка МК"
           TopLeft="493.5,202.75" />
         <NodeLayout
-          Size="222,44"
-          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)"
+          Size="238,42"
+          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)"
           TopLeft="10.1226415094341,77.816037735849" />
         <NodeLayout
           Size="226,44"
@@ -22705,18 +22700,30 @@ Left Join
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка остатков.PrecedenceConstraints[Constraint]"
-          TopLeft="119.811320754717,49.5">
+          TopLeft="118.5,49.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.316037735849"
+              EndConnector="10.6226415094341,28.316037735849"
               Start="0,0"
-              End="0,20.816037735849">
+              End="10.6226415094341,20.816037735849">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.816037735849" />
+                    End="0,10.1580188679245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.1580188679245"
+                    Point2="0,14.1580188679245"
+                    Point3="4,14.1580188679245" />
+                  <mssgle:LineSegment
+                    End="6.62264150943409,14.1580188679245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.62264150943409,14.1580188679245"
+                    Point2="10.6226415094341,14.1580188679245"
+                    Point3="10.6226415094341,18.1580188679245" />
+                  <mssgle:LineSegment
+                    End="10.6226415094341,20.816037735849" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22728,8 +22735,8 @@ Left Join
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="245,143"
-          Size="245,186"
+          PanelSize="254,136"
+          Size="254,179"
           Id="Package\КПТ\ОТБРС\Загрузка остатков"
           TopLeft="16.25,262.5" />
         <NodeLayout
@@ -22835,8 +22842,8 @@ Left Join
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="756,527"
-          Size="756,570"
+          PanelSize="756,536"
+          Size="756,578"
           Id="Package\КПТ\ОТБРС"
           TopLeft="11.5,10" />
         <NodeLayout
@@ -22853,13 +22860,13 @@ Left Join
           TopLeft="1271.43396226415,206.38679245283" />
         <EdgeLayout
           Id="Package\КПТ.PrecedenceConstraints[Constraint]"
-          TopLeft="767.5,295">
+          TopLeft="767.5,299">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="185.363207547171,-19"
+              EndConnector="185.363207547171,-23"
               Start="0,0"
-              End="177.863207547171,-19">
+              End="177.863207547171,-23">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -22870,13 +22877,13 @@ Left Join
                     Point2="92.6816037735855,0"
                     Point3="92.6816037735855,-4" />
                   <mssgle:LineSegment
-                    End="92.6816037735855,-15" />
+                    End="92.6816037735855,-19" />
                   <mssgle:CubicBezierSegment
-                    Point1="92.6816037735855,-15"
-                    Point2="92.6816037735855,-19"
-                    Point3="96.6816037735855,-19" />
+                    Point1="92.6816037735855,-19"
+                    Point2="92.6816037735855,-23"
+                    Point3="96.6816037735855,-23" />
                   <mssgle:LineSegment
-                    End="177.863207547171,-19" />
+                    End="177.863207547171,-23" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24282,36 +24289,44 @@ Left Join
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)">
+    design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="136,44"
-          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС"
+          Size="103,42"
+          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="245,44"
-          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки"
+          Size="200,42"
+          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки"
           TopLeft="25.4622641509434,111.311320754717" />
         <EdgeLayout
-          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ).Paths[ADO NET Source Output]"
-          TopLeft="73.3867924528302,49.4245283018868">
+          Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ).Paths[ADO NET Source Output]"
+          TopLeft="57,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="74.377358490566,61.8867924528302"
+              EndConnector="68.4622641509434,63.811320754717"
               Start="0,0"
-              End="74.377358490566,54.3867924528302">
+              End="68.4622641509434,56.311320754717">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.9433962264151" />
+                    End="0,27.9056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9056603773585"
+                    Point2="0,31.9056603773585"
+                    Point3="4,31.9056603773585" />
                   <mssgle:LineSegment
-                    End="74.377358490566,30.9433962264151" />
+                    End="64.4622641509434,31.9056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.4622641509434,31.9056603773585"
+                    Point2="68.4622641509434,31.9056603773585"
+                    Point3="68.4622641509434,35.9056603773585" />
                   <mssgle:LineSegment
-                    End="74.377358490566,54.3867924528302" />
+                    End="68.4622641509434,56.311320754717" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24324,7 +24339,7 @@ Left Join
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_Остатки">
+    design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24332,7 +24347,7 @@ Left Join
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС">
+    design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\s19-olap ОТБРС_Остатки">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24415,13 +24430,13 @@ Left Join
     design-time-name="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="135.773584905661,43.9245283018868"
+          Size="136,44"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\ОТБРС"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="262.56603773585,43.9245283018868"
+          Size="263,44"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\s8-olap-test Поставщики_temp_load"
           TopLeft="7.5,118.330188679245" />
         <EdgeLayout
@@ -24447,14 +24462,20 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\s8-olap-test Поставщики_temp_load">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\КПТ\Перенос в свод">
     <LayoutInfo>
