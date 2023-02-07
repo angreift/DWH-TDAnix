@@ -495,7 +495,10 @@
     <Build Include="td\Views\v_fact_Товародвижение.sql" />
     <Build Include="td\Views\v_fact_ПД.sql" />
     <Build Include="dbo\Tables\t_fact_Важный_товар.sql" />
-    <Build Include="dbo\Stored Procedures\p_Загрузка_документов_Важный_товар.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_документов_Важный_товар.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
