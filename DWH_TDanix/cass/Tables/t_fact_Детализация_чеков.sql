@@ -24,6 +24,7 @@
 	[Составной_код_документа] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира] [nvarchar](20) NOT NULL,
     [Составной_код_смены] NVARCHAR(20) NOT NULL, 
+    [Поставщик_холдинга] NVARCHAR(100) NULL, 
     CONSTRAINT [PK_t_fact_Детализация_чеков] PRIMARY KEY NONCLUSTERED ([Составной_код_позиции] ASC) ON [FACTS],
     CONSTRAINT [FK_t_fact_Детализация_чеков_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE
 ) ON [FACTS];
@@ -61,9 +62,9 @@ BEGIN
 	   SELECT @date1 = INSERTED.[Дата_добавления_позиции]     
        FROM INSERTED
  
-       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       IF DATEDIFF(day,@date,getdate())>=63 or DATEDIFF(day,@date1,getdate())>=63
        BEGIN
-              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+              RAISERROR('Удаление\изменение кассовых данных старше 63 дней запрещено!',16 ,1)
 			  rollback tran
        END
 END

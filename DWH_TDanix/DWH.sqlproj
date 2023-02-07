@@ -468,7 +468,10 @@
     <Build Include="dbo\Stored Procedures\p_Загрузка_сопоставления_классификатора_Альянс.sql" />
     <Build Include="dbo\Tables\t_dim_Сопоставление_классификатора_Альянс.sql" />
     <Build Include="dbo\Stored Procedures\p_Синхронизация_Сопоставления_классификатора_Альянса.sql" />
-    <Build Include="cass\Stored Procedures\p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж.sql" />
+    <Build Include="cass\Stored Procedures\p_Утренний_отчет_о_сверке_рсф_и_проверка_продаж.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
     <Build Include="dbo\Tables\t_dim_Директора_кустов.sql" />
     <Build Include="dbo\Tables\t_dim_Форматы_магазинов.sql" />
     <Build Include="dbo\Views\v_dim_Товары.sql" />
@@ -477,7 +480,6 @@
     <Build Include="dbo\Tables\t_dim_Поставщики.sql" />
     <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщики.sql" />
     <Build Include="dbo\Tables\t_dim_Поставщики_холдинга.sql" />
-    <Build Include="dbo\Tables\t_fact_Поставщики_холдинга.sql" />
     <Build Include="dbo\Views\v_dim_Поставщики_холдинга.sql" />
     <Build Include="dbo\Stored Procedures\p_Загрузка_справочника_поставщиков_холдинга.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -488,6 +490,12 @@
     <Build Include="rprt_cw\Tables\t_fact_Распричинивание_потерь.sql" />
     <Build Include="rprt_cw\Tables\t_Факты_потерь.sql" />
     <Build Include="cass\Tables\t_dim_Типы_касс.sql" />
+    <Build Include="dbo\Tables\t_fact_Поставщики_холдинга.sql" />
+    <Build Include="dbo\Stored Procedures\p_Формирование_таблицы_поставщиков_холдинга.sql" />
+    <Build Include="td\Views\v_fact_Товародвижение.sql" />
+    <Build Include="td\Views\v_fact_ПД.sql" />
+    <Build Include="dbo\Tables\t_fact_Важный_товар.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_документов_Важный_товар.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />

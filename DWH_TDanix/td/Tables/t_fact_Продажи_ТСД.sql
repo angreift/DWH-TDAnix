@@ -7,7 +7,8 @@
 	[Цена] decimal(10,2) not null,
 	[Количество] decimal(10,3) not null,
 	[Сумма] decimal(10,2) not null,
-	[Количество_чеков] int not null
+	[Количество_чеков] int not null,
+	[Поставщик_холдинга] NVARCHAR(100) NULL
 )
 GO
 Create clustered index [ix_cl_Дата] on [td].[t_fact_Продажи_ТСД] (Дата) on [FACTS]

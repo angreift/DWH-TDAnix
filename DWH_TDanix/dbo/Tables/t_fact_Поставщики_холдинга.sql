@@ -1,11 +1,17 @@
-﻿-- Таблица-сцепка между поставщиком холдинга, магазином и временем
-
-CREATE TABLE [dbo].[t_fact_Поставщики_холдинга]
+﻿CREATE TABLE [dbo].[t_fact_Поставщики_холдинга]
 (
-	[Дата_смены_поставщика_холдинга] date not null,
+	[Дата] date not null,
 	[Код_магазина] int not null,
-	[Код_поставщика_холдинга] int null,
+	[Код_товара] bigint not null,
+	[Поставщик_холдинга] NVARCHAR(100) null
 ) on [FACTS]
-GO
+go
 
-Create clustered index [ix_cl_Дата_смены_поставщика_холдинга] on [dbo].[t_fact_Поставщики_холдинга] ([Дата_смены_поставщика_холдинга] asc) on [FACTS]
+create clustered index [ix_cl_Дата] on [dbo].[t_fact_Поставщики_холдинга] ([дата] asc) on [FACTS]
+go
+
+create nonclustered index [ix_uncl_Код_магазина] on [dbo].[t_fact_Поставщики_холдинга] ([Код_магазина]) on [FACTS]
+go
+
+create nonclustered index [ix_uncl_Код_товара] on [dbo].[t_fact_Поставщики_холдинга] ([Код_товара]) on [FACTS]
+go

@@ -13,11 +13,13 @@
 	[Основание] nvarchar(120) null,
 	[Дата_ТТН] date null,
 	[Номер_ТТН] nvarchar(20) null,
-	constraint [PK_Составной_код_ПД] primary key clustered ([Составной_код_ПД] asc) on [FACTS]
+	constraint [PK_Составной_код_ПД] primary key nonclustered ([Составной_код_ПД] asc) on [FACTS]
 ) on [FACTS]
 GO
 
 create nonclustered index [ix_uncl_Заявки] on [td].[t_fact_ПД_шапки] ([Составной_код_заявки_РЦ], [Составной_код_заявки_СТ]) on [FACTS]
 GO
 create nonclustered index [ix_uncl_Код_магазина] on [td].[t_fact_ПД_шапки] ([Код_магазина]) on [FACTS]
+GO
+create clustered index [ix_cl_Дата] on [td].[t_fact_ПД_шапки] ([Дата_ПД]) on [FACTS]
 GO

@@ -19,7 +19,8 @@
 	[Составной_код_документа] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира_подтвердившего_сторно] [nvarchar](20) NOT NULL
-    CONSTRAINT [FK_t_fact_Сторнированные_позиции_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE
+    CONSTRAINT [FK_t_fact_Сторнированные_позиции_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE, 
+    [Поставщик_холдинга] NVARCHAR(100) NULL
 ) ON [FACTS];
 
 
@@ -52,9 +53,9 @@ BEGIN
 	   SELECT @date1 = INSERTED.[Дата_сторнирования_позиции]  
        FROM INSERTED
  
-       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       IF DATEDIFF(day,@date,getdate())>=63 or DATEDIFF(day,@date1,getdate())>=63
        BEGIN
-              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+              RAISERROR('Удаление\изменение кассовых данных старше 63 дней запрещено!',16 ,1)
 			  rollback tran
        END
 END
