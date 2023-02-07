@@ -12,7 +12,9 @@
     [Количество] DECIMAL(14, 3) NOT NULL, 
     [Поставщик] INT NULL, 
     [Признак] TINYINT NULL, 
-    [Поставщик_холдинга] NVARCHAR(100) NULL
+    [Поставщик_холдинга] NVARCHAR(100) NULL, 
+    [Важный_товар] BIT NULL, 
+    [Сценарий_важного_товара] NVARCHAR(64) NULL
 )
 
 GO
