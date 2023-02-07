@@ -52,9 +52,9 @@ BEGIN
 	   SELECT @date1 = INSERTED.[Дата_закрытия_чека] 
        FROM INSERTED
  
-       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       IF DATEDIFF(day,@date,getdate())>=63 or DATEDIFF(day,@date1,getdate())>=63
        BEGIN
-              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+              RAISERROR('Удаление\изменение кассовых данных старше 63 дней запрещено!',16 ,1)
 			  rollback tran
        END
 END

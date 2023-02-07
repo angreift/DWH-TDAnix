@@ -11,7 +11,8 @@
     [СуммаЗакупаСоСклада] DECIMAL(14, 2) NOT NULL, 
     [Количество] DECIMAL(14, 3) NOT NULL, 
     [Поставщик] INT NULL, 
-    [Признак] TINYINT NULL
+    [Признак] TINYINT NULL, 
+    [Поставщик_холдинга] NVARCHAR(100) NULL
 )
 
 GO

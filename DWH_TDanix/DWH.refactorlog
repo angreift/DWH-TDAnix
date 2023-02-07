@@ -112,4 +112,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Код_типа_кассы" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="84305158-58fd-40b4-acd3-712c20133eb7" ChangeDateTime="02/04/2023 12:36:51">
+    <Property Name="ElementName" Value="[td].[t_fact_ПД_строки].[Код_поставщика_холдинга]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[td].[t_fact_ПД_строки]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Поставщик_холдинга" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e34f79fb-8b5a-4a8a-85a3-df2617727172" ChangeDateTime="02/04/2023 12:40:34">
+    <Property Name="ElementName" Value="[dbo].[t_fact_Поставщики_холдинга].[Код_поставщика_холдинга]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[t_fact_Поставщики_холдинга]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Поставщик_холдинга" />
+  </Operation>
 </Operations>

@@ -325,7 +325,7 @@ BEGIN
 							`cashcode`
 						from
 							`workshift`''
-				) where time_beg >= dateadd(day, -%range%, getdate()) and time_beg >= ''20221101'' and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
+				) where time_beg is not null and time_beg >= dateadd(day, -%range%, getdate()) and time_beg >= ''20221101'' and cashcode = %cassnum% and scode is not null and (countsale + countrefund) > 0 
 		'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 		-- Берем данные за предыдущие 60 дней
 		set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
@@ -418,7 +418,7 @@ BEGIN
 								`cashcode`
 							from
 								`workshift`''
-					) where time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0
+					) where time_beg is not null and time_beg >= dateadd(day, -60, getdate()) and cashcode = %cassnum% and scode is not null and sumsale > 0
 			'; -- Забираем только закрытые смены с цифрами, у которых указан кассир
 			-- Берем данные за предыдущие 60 дней
 			set @str = REPLACE(@str, '%cassnum%', @Код_кассы);
@@ -576,6 +576,14 @@ BEGIN
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
+
+			-- Если есть данные старше 60 дней при регулярном обмене - явный признак аномалии, пропускаем такую смену
+			if (@forcePOS = 0) and (Select count(*) from [cass].[t_raw_Кассовые_документы] 
+					where Дата_время_закрытия_чека is null or Дата_время_закрытия_чека < dateadd(day, -60, cast(getdate() as date))) > 0 begin
+				set @msg = concat('Смена пропущена, так как таблица чеков содержит незакрытый чек, либо закрытый более 60 дней назад (аномалия). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @Номер_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end;
 
 			-- Добавление информации об оплатах
 
@@ -746,6 +754,15 @@ BEGIN
 				continue
 			end catch
 
+			-- Если есть данные старше 60 дней при регулярном обмене - явный признак аномалии, пропускаем такую смену
+			if (@forcePOS = 0) and (Select count(*) from [cass].[t_raw_Позиции_документа] 
+					where Дата_время_добавления_позиции is null or Дата_время_добавления_позиции < dateadd(day, -60, cast(getdate() as date))) > 0 begin
+				set @msg = concat('Смена пропущена, так как таблица детализации чеков содержит нулевую, либо старше 60 дней дату (аномалия). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @Номер_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end;
+
+
 			-- Добавление информации о скидках
 
 			begin try
@@ -828,6 +845,14 @@ BEGIN
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
+
+			-- Если есть данные старше 60 дней при регулярном обмене - явный признак аномалии, пропускаем такую смену
+			if (@forcePOS = 0) and (Select count(*) from [cass].[t_raw_Скидки]
+					where Дата_время_применения_скидки is null or Дата_время_применения_скидки < dateadd(day, -60, cast(getdate() as date))) > 0 begin
+				set @msg = concat('Смена пропущена, так как таблица скидок содержит нулевую, либо старше 60 дней дату (аномалия). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @Номер_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end;
 
 			-- Добавление информации о сторнированных позициях
 
@@ -915,6 +940,14 @@ BEGIN
 				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
 				continue
 			end catch
+
+			-- Если есть данные старше 60 дней при регулярном обмене - явный признак аномалии, пропускаем такую смену
+			if (@forcePOS = 0) and (Select count(*) from [cass].[t_raw_Сторнированные_позиции]
+					where Дата_время_сторнирования_позиции is null or Дата_время_сторнирования_позиции < dateadd(day, -60, cast(getdate() as date))) > 0 begin
+				set @msg = concat('Смена пропущена, так как таблица сторно содержит нулевую, либо старше 60 дней дату (аномалия). Код кассы: ', @Код_кассы, ', IP: ', @IP_адрес, ', Код_магазина: ', @Код_магазина, ', ИД_смены: ', @Номер_смены, ', Ошибка: ', error_message());
+				exec [dbo].[p_Сообщить_в_общий_журнал] 1, @object_name, @msg;
+				continue
+			end;
 
 			begin tran @TransactionName 
 

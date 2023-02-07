@@ -14,6 +14,7 @@
     [Номер_дисконтной_карты]       NVARCHAR (200)  NULL,
     [Название_дисконтной_карты]    NVARCHAR (200)  NULL,
     [ИД_кнопки]                    INT             NULL,
-    [ИД_карты]                     INT             NULL
+    [ИД_карты]                     INT             NULL, 
+    [Поставщик_холдинга] NVARCHAR(100) NULL
 ) ON [RAW];
 

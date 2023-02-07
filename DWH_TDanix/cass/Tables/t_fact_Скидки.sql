@@ -17,7 +17,8 @@
 	[ИД_карты] [int] NULL,
 	[Составной_код_позиции] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира] [nvarchar](20) NOT NULL
-    CONSTRAINT [FK_t_fact_Скидки_t_fact_Детализация_чеков] FOREIGN KEY ([Составной_код_позиции]) REFERENCES [cass].[t_fact_Детализация_чеков] ([Составной_код_позиции]) ON DELETE CASCADE
+    CONSTRAINT [FK_t_fact_Скидки_t_fact_Детализация_чеков] FOREIGN KEY ([Составной_код_позиции]) REFERENCES [cass].[t_fact_Детализация_чеков] ([Составной_код_позиции]) ON DELETE CASCADE, 
+    [Поставщик_холдинга] NVARCHAR(100) NULL
 ) ON [FACTS];
 
 
@@ -50,9 +51,9 @@ BEGIN
 	   SELECT @date1 = INSERTED.[Дата_применения_скидки]     
        FROM INSERTED
  
-       IF DATEDIFF(day,@date,getdate())>=60 or DATEDIFF(day,@date1,getdate())>=60
+       IF DATEDIFF(day,@date,getdate())>=63 or DATEDIFF(day,@date1,getdate())>=63
        BEGIN
-              RAISERROR('Удаление\изменение кассовых данных старше 60 дней запрещено!',16 ,1)
+              RAISERROR('Удаление\изменение кассовых данных старше 63 дней запрещено!',16 ,1)
 			  rollback tran
        END
 END
