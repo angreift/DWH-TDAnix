@@ -46,9 +46,25 @@ AS BEGIN
 			sc36 СпрК on СМДокС.sp3310 = СпрК.ID
 		where Док.sp6601 >= ''''' + format(@DateStart, 'yyyyMMdd') + ''''' and Док.sp6601 <= ''''' + format(@DateEnd, 'yyyyMMdd') + ''''' '') ';
 
-	Insert into dbo.t_fact_Важный_товар (
+	Drop table if exists #t_raw_Важный_товар
+
+	Insert into #t_raw_Важный_товар (
 		Код_магазина, Начало_действия, Конец_действия, Код_товара, Сценарий
 	) exec(@query);
+
+	-- Сохраним новые сценарии
+	Insert into dbo.t_dim_Сценарии_важного_товара (Сценарий_важного_товара) 
+	select distinct Сценарий from #t_raw_Важный_товар where Сценарий not in 
+	(select Сценарий_важного_товара from t_dim_Сценарии_важного_товара)
+
+	-- Приджойним коды сценариев в новую таблицу
+	alter table #t_raw_Важный_товар add [Код_сценария] int null
+
+	update #t_raw_Важный_товар set [Код_сценария] = (Select [Код_сценария] from t_fact_Важный_товар where Сценарий = #t_raw_Важный_товар.Сценарий) 
+
+	-- Полученные данные сохраним в основной таблице
+	insert into dbo.t_fact_Важный_товар (Код_магазина, Начало_действия, Конец_действия, Код_товара, Сценарий) 
+	select Код_магазина, Начало_действия, Конец_действия, Код_товара, Код_сценария from #t_raw_Важный_товар
 
 	begin try
 		commit tran load_important_goods

@@ -499,6 +499,8 @@
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
+    <Build Include="dbo\Tables\t_dim_Сценарии_важного_товара.sql" />
+    <Build Include="dbo\Views\v_dim_Сценарии_важного_товара.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />

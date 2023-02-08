@@ -22,7 +22,7 @@
     CONSTRAINT [FK_t_fact_Сторнированные_позиции_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE, 
     [Поставщик_холдинга] NVARCHAR(100) NULL, 
     [Важный_товар] BIT NULL, 
-    [Сценарий_важного_товара] NVARCHAR(64) NULL
+    [Сценарий_важного_товара] INT NULL
 ) ON [FACTS];
 
 
