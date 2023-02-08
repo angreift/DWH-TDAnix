@@ -7,7 +7,7 @@
 	[Дата_время_применения_скидки] [datetime] NOT NULL,
 	[Объект_скидки] [bit] NOT NULL,
 	[Номер_скидки] [int] NOT NULL,
-	[Режим_скидки] [int] NOT NULL,
+	[Режим_скидки] TINYINT NOT NULL,
 	[Тип_скидки] [int] NOT NULL,
 	[Ставка_скидки] [decimal](13, 2) NOT NULL,
 	[Сумма_скидки] [decimal](14, 2) NOT NULL,
