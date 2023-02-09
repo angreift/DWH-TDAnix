@@ -22,7 +22,7 @@ SELECT        cass.t_fact_Скидки.Код_кассы, cass.t_fact_Скидк
                 -- Не будем выводить null, чтобы не генерировать ошибку при обработке куба
                 Coalesce(cass.t_fact_Скидки.Поставщик_холдинга, '(Не задан)') Поставщик_холдинга,
                 Coalesce(cass.t_fact_Скидки.Важный_товар, cast(0 as bit)) Важный_товар,
-                Coalesce(cass.t_fact_Скидки.Сценарий_важного_товара, '(Не задан)') Сценарий_важного_товара
+                Coalesce(cass.t_fact_Скидки.Сценарий_важного_товара, -1) Сценарий_важного_товара
 FROM            cass.t_fact_Скидки INNER JOIN
                          cass.t_dim_Кассы with (nolock) ON cass.t_fact_Скидки.Код_кассы = cass.t_dim_Кассы.Код_кассы INNER JOIN
                          cass.t_fact_Детализация_чеков ON cass.t_fact_Скидки.Составной_код_позиции = cass.t_fact_Детализация_чеков.Составной_код_позиции LEFT OUTER JOIN
