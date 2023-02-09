@@ -488,7 +488,7 @@
     <Build Include="cass\Stored Procedures\p_Загрузка_смены_из_Cheques.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="rprt_cw\Tables\t_fact_Распричинивание_потерь.sql" />
-    <Build Include="rprt_cw\Tables\t_Факты_потерь.sql" />
+    <Build Include="rprt_cw\Tables\t_fact_Факты_потерь.sql" />
     <Build Include="cass\Tables\t_dim_Типы_касс.sql" />
     <Build Include="dbo\Tables\t_fact_Поставщики_холдинга.sql" />
     <Build Include="dbo\Stored Procedures\p_Формирование_таблицы_поставщиков_холдинга.sql" />
@@ -499,6 +499,7 @@
       <QuotedIdentifier>On</QuotedIdentifier>
       <AnsiNulls>On</AnsiNulls>
     </Build>
+    <Build Include="rprt_cw\Tables\t_fact_Приказы_Излишний_объем.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
