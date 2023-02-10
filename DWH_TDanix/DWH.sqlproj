@@ -505,6 +505,7 @@
     <Build Include="rprt_cw\Tables\t_fact_Приказы_Излишний_объем.sql" />
     <Build Include="dbo\Tables\t_dim_Сценарии_важного_товара.sql" />
     <Build Include="dbo\Views\v_dim_Сценарии_важного_товара.sql" />
+    <Build Include="td\Views\v_fact_Остатки.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
