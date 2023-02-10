@@ -7,7 +7,7 @@
 ) on [FACTS]
 go
 
-create clustered index [ix_cl_Дата] on [dbo].[t_fact_Поставщики_холдинга] ([дата] asc) on [FACTS]
+create nonclustered index [ix_uncl_Дата] on [dbo].[t_fact_Поставщики_холдинга] ([дата]) on [FACTS]
 go
 
 create nonclustered index [ix_uncl_Код_магазина] on [dbo].[t_fact_Поставщики_холдинга] ([Код_магазина]) on [FACTS]
