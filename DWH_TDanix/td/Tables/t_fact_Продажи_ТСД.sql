@@ -10,7 +10,7 @@
 	[Количество_чеков] int not null,
 	[Поставщик_холдинга] NVARCHAR(100) NULL, 
     [Важный_товар] BIT NULL, 
-    [Сценарий_важного_товара] NVARCHAR(64) NULL
+    [Сценарий_важного_товара] INT NULL
 )
 GO
 Create clustered index [ix_cl_Дата] on [td].[t_fact_Продажи_ТСД] (Дата) on [FACTS]

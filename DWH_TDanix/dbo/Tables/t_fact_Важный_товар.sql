@@ -4,7 +4,7 @@
 	[Начало_действия] date not null,
 	[Конец_действия] date not null,
 	[Код_товара] bigint not null,
-	[Сценарий] nvarchar(64) not null
+	[Сценарий] INT null
 ) on [FACTS]
 go
 

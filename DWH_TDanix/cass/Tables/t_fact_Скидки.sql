@@ -7,8 +7,8 @@
 	[Дата_время_применения_скидки] [datetime] NOT NULL,
 	[Объект_скидки] [bit] NOT NULL,
 	[Номер_скидки] [int] NOT NULL,
-	[Режим_скидки] [int] NOT NULL,
-	[Тип_скидки] [int] NOT NULL,
+	[Режим_скидки] [TINYINT] NULL,
+	[Тип_скидки] [TINYINT] NULL,
 	[Ставка_скидки] [decimal](13, 2) NOT NULL,
 	[Сумма_скидки] [decimal](14, 2) NOT NULL,
 	[Сумма_чека] [decimal](14, 2) NOT NULL,
@@ -20,7 +20,7 @@
     CONSTRAINT [FK_t_fact_Скидки_t_fact_Детализация_чеков] FOREIGN KEY ([Составной_код_позиции]) REFERENCES [cass].[t_fact_Детализация_чеков] ([Составной_код_позиции]) ON DELETE CASCADE, 
     [Поставщик_холдинга] NVARCHAR(100) NULL, 
     [Важный_товар] BIT NULL, 
-    [Сценарий_важного_товара] NVARCHAR(64) NULL
+    [Сценарий_важного_товара] INT NULL
 ) ON [FACTS];
 
 

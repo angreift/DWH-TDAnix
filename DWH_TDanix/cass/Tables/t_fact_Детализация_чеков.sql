@@ -26,7 +26,7 @@
     [Составной_код_смены] NVARCHAR(20) NOT NULL, 
     [Поставщик_холдинга] NVARCHAR(100) NULL, 
     [Важный_товар] BIT NULL, 
-    [Сценарий_важного_товара] NVARCHAR(64) NULL, 
+    [Сценарий_важного_товара] INT NULL, 
     CONSTRAINT [PK_t_fact_Детализация_чеков] PRIMARY KEY NONCLUSTERED ([Составной_код_позиции] ASC) ON [FACTS],
     CONSTRAINT [FK_t_fact_Детализация_чеков_t_fact_Чеки] FOREIGN KEY ([Составной_код_документа]) REFERENCES [cass].[t_fact_Чеки] ([Составной_код_документа]) ON DELETE CASCADE
 ) ON [FACTS];
