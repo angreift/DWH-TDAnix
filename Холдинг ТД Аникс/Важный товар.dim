@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="00978036-3b04-4d33-a30e-0d81b1b15ec1" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="70af4142-14c1-40a3-b6c9-b1877fc61613" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Важный товар</ID>
   <Name>Важный товар</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3089" scrolltop="-7624" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="17859" y="21405" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3089" scrolltop="-9551" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11113" y="21405" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -19,18 +19,7 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="x_dim_Важный_товар" left="-1819" top="-2627" logicalid="4" controlid="1" masterid="0" hint1="0" hint2="0" width="3228" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="000e00009c0c0000af050000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="x_dim_Важный_товар" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="v_dim_Сценарии_важного_товара" left="-2652" top="-7329" logicalid="5" controlid="2" masterid="0" hint1="0" hint2="0" width="4895" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="v_dim_Сценарии_важного_товара" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4895" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="000e00001f130000fe080000" />
             </control>
@@ -40,24 +29,6 @@
               </ddsxmlobj>
             </layoutobject>
             <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="-604" top="-5327" logicalid="6" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[v_dim_Сценарии_важного_товара-x_dim_Важный_товар]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="4" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="-205" y="-2627" />
-              <point x="-205" y="-5027" />
-            </connector>
           </ddscontrol>
         </dds>
       </Value>
@@ -80,15 +51,15 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-7624</Value>
+      <Value>-9551</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>-2652</Value>
+      <Value>20</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>-7329</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -98,8 +69,8 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
       <Value>
         <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
-          <Shapes NodeWidth="128">
-            <Shape Id="Код Сценария" Expanded="true">
+          <Shapes NodeWidth="117">
+            <Shape Id="Код Сценария" Expanded="false">
               <Attributes>
                 <Attribute Id="Код Сценария" />
               </Attributes>
@@ -109,7 +80,7 @@
               <Attributes>
                 <Attribute Id="Важный Товар" />
               </Attributes>
-              <Position x="185" y="20" />
+              <Position x="171" y="20" />
             </Shape>
           </Shapes>
         </DiagramLayout>
@@ -118,60 +89,66 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a758af25-b4c4-4367-8a30-730821a18e4b">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5fa81c3e-b939-4f21-94d3-2d56c7da0063">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
-  <UnknownMember>Hidden</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="413a94c4-439c-4da8-805f-743b67e013d1">
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="19d465d1-34da-4fe9-9ad4-d0a914aa313f">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="916e38b1-d8f8-4289-8cc5-8edef3f8d07b">
+    <Attribute dwd:design-time-name="bedcea71-8f90-4877-b695-d68bde137578">
       <ID>Код Сценария</ID>
       <Name>Сценарий</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c3fe0d06-3c23-47af-a4e6-607f63b3a50f">
+        <KeyColumn dwd:design-time-name="6c907359-f666-4e1f-b987-492f6074e9be">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47be8c6c-889b-429f-b991-392a4cfae655">
+            <TableID>dbo_v_dim_Сценарии_важного_товара</TableID>
+            <ColumnID>Важный_товар</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="54089de4-9cde-442c-88ca-257257e96df4">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="cdff1bdf-57dd-4695-aa9f-e9427ebd2bd8">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a179fe44-166c-4528-b7bf-91bd58d2cd85">
             <TableID>dbo_v_dim_Сценарии_важного_товара</TableID>
             <ColumnID>Код_сценария</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="1afbeb42-10a5-4c14-aa16-6d05257f3203">
+      <NameColumn dwd:design-time-name="1cdf872d-c9a7-4d27-9327-501ee639ce45">
         <DataType>WChar</DataType>
         <DataSize>64</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="083cf092-a2cc-4eea-8068-206bab486769">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="84cc32f0-16fe-418f-892f-aaeb4bed6a26">
           <TableID>dbo_v_dim_Сценарии_важного_товара</TableID>
           <ColumnID>Сценарий_важного_товара</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="8703f3a3-f1a1-409b-9356-9a92c0a68162">
+        <AttributeRelationship dwd:design-time-name="7d7b2e15-65e0-4ae4-bbd5-a576d5501640">
           <AttributeID>Важный Товар</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Важный товар</Name>
         </AttributeRelationship>
       </AttributeRelationships>
-      <OrderBy>Key</OrderBy>
       <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="9275204d-fef5-4b3f-94e3-bbcf83bf67c8">
+    <Attribute dwd:design-time-name="12324c17-8363-4a1e-86ed-88d549dfee2c">
       <ID>Важный Товар</ID>
       <Name>Важный товар</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9d01b953-fc0b-492d-93d7-6ed487d5cd81">
+        <KeyColumn dwd:design-time-name="e063ea26-5ddf-4f8c-afa2-db65b671ed97">
           <DataType>Boolean</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="12e70fc8-8005-4145-bd0a-e7fe4dcd1282">
-            <TableID>x_dim_Важный_товар</TableID>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="33a49a05-bf27-4f32-b691-c0b753cee64d">
+            <TableID>dbo_v_dim_Сценарии_важного_товара</TableID>
             <ColumnID>Важный_товар</ColumnID>
           </Source>
         </KeyColumn>
@@ -183,16 +160,16 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="a8abc627-0974-42ba-a6a5-d0a451158d73">
+    <Hierarchy dwd:design-time-name="80a87b5b-a107-4460-9f11-16572dfef429">
       <ID>Иерархия</ID>
-      <Name>Важный товар и сценарий</Name>
+      <Name>Важный товар со сценарием</Name>
       <Levels>
-        <Level dwd:design-time-name="d7602b76-1d39-4927-87d3-dc0c5277591f">
+        <Level dwd:design-time-name="17ed9927-abc1-45bf-84cd-656d8ee14fdd">
           <ID>Важный товар</ID>
           <Name>Важный товар</Name>
           <SourceAttributeID>Важный Товар</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="cc12b5fb-47f8-4145-a771-703bf49e3e2f">
+        <Level dwd:design-time-name="fdfdfc5f-b99e-4857-896d-96c643ec9eb7">
           <ID>Сценарий</ID>
           <Name>Сценарий</Name>
           <SourceAttributeID>Код Сценария</SourceAttributeID>
