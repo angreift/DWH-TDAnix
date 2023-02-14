@@ -16269,25 +16269,692 @@ WHERE [td].[v_fact_Товародвижение].[Дата] &gt;= '20240101' and
     </MeasureGroup>
     <MeasureGroup>
       <ID>f Fact Остатки</ID>
-      <Partitions>
-        <Partition dwd:design-time-name="980690f2-2593-4a6a-be81-9da78980306e">
-          <ID>Остатки_товара_2022_01</ID>
-          <Name>Остатки_товара_2022_01</Name>
-          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-          <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="5186f810-63bc-48bd-9e4e-2450bdcf8163">
-            <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+            <Partitions>
+                <Partition>
+                    <ID>Остатки_товара_2022_01</ID>
+                    <Name>Остатки_товара_2022_01</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
 FROM [td].[v_fact_Остатки]
 WHERE Дата &gt;= '20220101' and Дата &lt; '20220201'</QueryDefinition>
-          </Source>
-          <StorageMode>Molap</StorageMode>
-          <CurrentStorageMode>Molap</CurrentStorageMode>
-          <ProcessingMode>Regular</ProcessingMode>
-        </Partition>
-      </Partitions>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_02</ID>
+                    <Name>Остатки_товара_2022_02</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220201' and Дата &lt; '20220301'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_03</ID>
+                    <Name>Остатки_товара_2022_03</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220301' and Дата &lt; '20220401'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_04</ID>
+                    <Name>Остатки_товара_2022_04</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220401' and Дата &lt; '20220501'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_05</ID>
+                    <Name>Остатки_товара_2022_05</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220501' and Дата &lt; '20220601'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_06</ID>
+                    <Name>Остатки_товара_2022_06</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220601' and Дата &lt; '20220701'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_07</ID>
+                    <Name>Остатки_товара_2022_07</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220701' and Дата &lt; '20220801'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_08</ID>
+                    <Name>Остатки_товара_2022_08</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220801' and Дата &lt; '20220901'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_09</ID>
+                    <Name>Остатки_товара_2022_09</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20220901' and Дата &lt; '20221001'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_10</ID>
+                    <Name>Остатки_товара_2022_10</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20221001' and Дата &lt; '20221101'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_11</ID>
+                    <Name>Остатки_товара_2022_11</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20221101' and Дата &lt; '20221201'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2022_12</ID>
+                    <Name>Остатки_товара_2022_12</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20221201' and Дата &lt; '20230101'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_01</ID>
+                    <Name>Остатки_товара_2023_01</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230101' and Дата &lt; '20230201'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_02</ID>
+                    <Name>Остатки_товара_2023_02</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230201' and Дата &lt; '20230301'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_03</ID>
+                    <Name>Остатки_товара_2023_03</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230301' and Дата &lt; '20230401'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_04</ID>
+                    <Name>Остатки_товара_2023_04</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230401' and Дата &lt; '20230501'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_05</ID>
+                    <Name>Остатки_товара_2023_05</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230501' and Дата &lt; '20230601'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_06</ID>
+                    <Name>Остатки_товара_2023_06</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230601' and Дата &lt; '20230701'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_07</ID>
+                    <Name>Остатки_товара_2023_07</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230701' and Дата &lt; '20230801'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_08</ID>
+                    <Name>Остатки_товара_2023_08</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230801' and Дата &lt; '20230901'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_09</ID>
+                    <Name>Остатки_товара_2023_09</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20230901' and Дата &lt; '20231001'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_10</ID>
+                    <Name>Остатки_товара_2023_10</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20231001' and Дата &lt; '20231101'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_11</ID>
+                    <Name>Остатки_товара_2023_11</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20231101' and Дата &lt; '20231201'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2023_12</ID>
+                    <Name>Остатки_товара_2023_12</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20231201' and Дата &lt; '20240101'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_01</ID>
+                    <Name>Остатки_товара_2024_01</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240101' and Дата &lt; '20240201'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_02</ID>
+                    <Name>Остатки_товара_2024_02</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240201' and Дата &lt; '20240301'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_03</ID>
+                    <Name>Остатки_товара_2024_03</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240301' and Дата &lt; '20240401'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_04</ID>
+                    <Name>Остатки_товара_2024_04</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240401' and Дата &lt; '20240501'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_05</ID>
+                    <Name>Остатки_товара_2024_05</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240501' and Дата &lt; '20240601'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_06</ID>
+                    <Name>Остатки_товара_2024_06</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240601' and Дата &lt; '20240701'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_07</ID>
+                    <Name>Остатки_товара_2024_07</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240701' and Дата &lt; '20240801'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_08</ID>
+                    <Name>Остатки_товара_2024_08</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240801' and Дата &lt; '20240901'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_09</ID>
+                    <Name>Остатки_товара_2024_09</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20240901' and Дата &lt; '20241001'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_10</ID>
+                    <Name>Остатки_товара_2024_10</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20241001' and Дата &lt; '20241101'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_11</ID>
+                    <Name>Остатки_товара_2024_11</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20241101' and Дата &lt; '20241201'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+                <Partition>
+                    <ID>Остатки_товара_2024_12</ID>
+                    <Name>Остатки_товара_2024_12</Name>
+                    <Source xsi:type="QueryBinding">
+                        <DataSourceID>DWH</DataSourceID>
+                        <QueryDefinition>SELECT [td].[v_fact_Остатки].[Дата],[td].[v_fact_Остатки].[Код_магазина],[td].[v_fact_Остатки].[Код_склада_в_магазине],[td].[v_fact_Остатки].[Код_товара],[td].[v_fact_Остатки].[Сумма],[td].[v_fact_Остатки].[Сумма_закупа],[td].[v_fact_Остатки].[Сумма_закупа_со_склада],[td].[v_fact_Остатки].[Остаток],[td].[v_fact_Остатки].[Поставщик_холдинга],[td].[v_fact_Остатки].[Важный_товар],[td].[v_fact_Остатки].[Сумма_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_на_начало_дня],[td].[v_fact_Остатки].[Сумма_закупа_со_склада_на_начало_дня],[td].[v_fact_Остатки].[Остаток_на_начало_дня],[td].[v_fact_Остатки].[Сценарий_важного_товара],[td].[v_fact_Остатки].[Признак],[td].[v_fact_Остатки].[Код_поставщика]
+FROM [td].[v_fact_Остатки]
+WHERE Дата &gt;= '20241201' and Дата &lt; '20250101'</QueryDefinition>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                </Partition>
+            </Partitions>
     </MeasureGroup>
     <MeasureGroup>
       <ID>v Fact Продажи ТСД</ID>
