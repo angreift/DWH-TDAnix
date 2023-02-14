@@ -12,7 +12,6 @@ BEGIN
 	declare @dateStart      datetime;
 	declare @dateEnd        datetime;
 	declare @letter_text    nvarchar(max);
-	declare @dateSQL2000    nchar(8);
 	declare @letter_subject nvarchar(255);
 	declare @n              int;
 
@@ -20,7 +19,6 @@ BEGIN
 	set @dateStart2000 = dateadd(year, 2000, @dateStart);
 	set @dateEnd       = dateadd(day, 6, DATEADD(second, -1, DATEADD(DAY, 1, @dateStart)));
 	set @dateEnd2000   = dateadd(year, 2000, @dateEnd);
-	set @dateSQL2000   = format(@dateEnd, 'yyyyMMdd');
 
 		-- Проверим разницу между РСФ и хранилищем DWH
 
@@ -68,7 +66,7 @@ BEGIN
 				left join DWH.cass.t_dim_Кассы as Кассы on Кассы.[Код_кассы] = Чеки.[Код_кассы]
 				left join DWH.dbo.t_dim_Магазины as Магазины on Кассы.[Код_магазина] = Магазины.[Код]
 				where Чеки.[Дата_закрытия_чека] between @dateStart and @dateEnd and Магазины.[Группа] = 'Розница                                 '
-				group by Чеки.[Дата_закрытия_чека], Магазины.[Код], Магазины.[Наименование]
+				group by Чеки.[Дата_закрытия_чека], Магазины.[Код]
 			) Чеки on t.Код = Чеки.КодМагазина and d = Чеки.Дата
 			left join (
 				SELECT 
