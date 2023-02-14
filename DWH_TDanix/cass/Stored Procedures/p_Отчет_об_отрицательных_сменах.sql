@@ -8,7 +8,7 @@
 CREATE PROCEDURE [cass].[p_Отчет_об_отрицательных_сменах]
 AS
 BEGIN
-	set nocount on
+	set nocount on;
 	declare @letter_text    nvarchar(max),
 			@letter_subject nvarchar(255);
 	set @letter_text = '';
@@ -39,13 +39,13 @@ BEGIN
 		Смены.Дата_время_окончания_смены is not null and 
 		Смены.Сумма_выручки < 0 and 
 		Смены.Дата_начала_смены between dateadd(day, -2, cast(getdate() as date)) and dateadd(day, -1, cast(getdate() as date))
-	order by [Дата_начала_смены] desc
+	order by [Дата_начала_смены] desc;
 
 
 	if (select count(*) from @buff_table) > 0
 		begin
 		
-			set @letter_text = @letter_text + 'За предыдущие сутки имеются смены с отрицательной выручкой:   ' + char(10) + '   ' + char(10);
+			set @letter_text = @letter_text + 'Имеются смены с отрицательной выручкой:   ' + char(10) + '   ' + char(10);
 
 			set @letter_text = @letter_text + (
 				select
@@ -74,7 +74,7 @@ BEGIN
 			set @letter_subject = 'Отчёт об отрицательных сменах';
 			exec msdb.dbo.sp_send_dbmail 
 				@profile_name ='service-account@anixtd.ru'
-				,@recipients = 'olap-problem@anixtd.ru,prog_rozn@tdanix.ru'
+				,@recipients = 'olap-problem@anixtd.ru;prog_rozn@tdanix.ru'
 				,@body = @letter_text
 				,@subject = @letter_subject
 
