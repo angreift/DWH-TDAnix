@@ -32,7 +32,7 @@ AS BEGIN
 		inner join 
 			dh6600 Док on ДокС.IDDoc = Док.IDDoc
 		inner join 
-			_1SJourn Жур on Жур.IDDoc = Док.IDDoc-- and Жур.Closed &1 = 1
+			_1SJourn Жур on Жур.IDDoc = Док.IDDoc and Жур.Closed &1 = 1
 		join 
 			sc11 СпрТ on ДокС.sp6605 = СпрТ.ID
 		left join 
