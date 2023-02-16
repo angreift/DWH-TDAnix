@@ -136,6 +136,8 @@
     <Folder Include="rprt_cw" />
     <Folder Include="rprt_cw\Tables" />
     <Folder Include="Scripts\" />
+    <Folder Include="rprt_cw\Views" />
+    <Folder Include="rprt_cw\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="cass\Tables\t_raw_Сторнированные_позиции.sql">
@@ -506,6 +508,8 @@
     <Build Include="dbo\Tables\t_dim_Сценарии_важного_товара.sql" />
     <Build Include="dbo\Views\v_dim_Сценарии_важного_товара.sql" />
     <Build Include="td\Views\v_fact_Остатки.sql" />
+    <Build Include="rprt_cw\Views\v_fact_Распричинивание_Потерь.sql" />
+    <Build Include="rprt_cw\Stored Procedures\p_Загрузка_Фактов_потерь_Приказов_излишний_объем.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
