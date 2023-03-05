@@ -195,7 +195,7 @@ BEGIN
 			select
 				code,
 				login,
-				name,
+				coalesce(name, ''(Имя кассира не задано)'') name,
 				locked,
 				rank,
 				inn
