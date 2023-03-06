@@ -1,14 +1,4 @@
-﻿USE [DWH]
-GO
-
-/****** Object:  View [rprt_cw].[v_fact_Распричинивание_потерь]    Script Date: 03.03.2023 10:30:20 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE VIEW [rprt_cw].[v_fact_Распричинивание_потерь]
+﻿CREATE VIEW [rprt_cw].[v_fact_Распричинивание_потерь]
 AS
 SELECT        rprt_cw.t_fact_Распричинивание_потерь.Дата, dbo.t_dim_Магазины.Код AS Код_магазина, dbo.t_dim_Магазины.Наименование AS Магазин, dbo.t_dim_Товары.Код_товара, dbo.t_dim_Товары.Наименование AS Товар, 
                          rprt_cw.t_fact_Факты_потерь.Сумма, rprt_cw.t_fact_Факты_потерь.Количество, rprt_cw.t_dim_Причины_потерь.Причина, rprt_cw.t_dim_Причины_потерь.Подпричина, 
