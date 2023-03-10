@@ -9,7 +9,6 @@ declare @date as datetime
 set @date = dateadd(d,-7,getdate())
 set @dateChar = format(@Date, 'yyyyMMdd')
     
-delete from td.t_fact_Компенсация_от_поставщиков where Дата>=@datechar -- удаление данных за неделю
 
 declare @str varchar(MAX)
 
@@ -55,7 +54,10 @@ LEFT JOIN  dh6211 as kompenc_Шапка (NoLock)
 left join [SC36] klienti on klienti.id=kompenc.SP6207
 '')'
 
-exec(@str)
+begin tran
+	delete from td.t_fact_Компенсация_от_поставщиков where Дата>=@dateChar 
+	exec(@str);
+commit tran
 
 END
 GO
