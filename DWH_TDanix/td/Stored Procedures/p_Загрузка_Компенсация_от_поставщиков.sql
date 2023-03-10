@@ -4,12 +4,10 @@ AS
 BEGIN
 
 declare @dateChar as char(8)
-declare @dateint as int
 declare @date as datetime
 
 set @date = dateadd(d,-7,getdate())
-set @dateint = datepart(yyyy,convert(datetime,@date,120))*10000+datepart(mm,convert(datetime,@date,120))*100+datepart(dd,convert(datetime,@date,120))
-set @dateChar = CAST(@dateint as CHAR(8))--'20180813'
+set @dateChar = format(@Date, 'yyyyMMdd')
     
 delete from td.t_fact_Компенсация_от_поставщиков where Дата>=@datechar -- удаление данных за неделю
 
