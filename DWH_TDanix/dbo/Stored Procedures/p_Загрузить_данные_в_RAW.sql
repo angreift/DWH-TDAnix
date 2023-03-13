@@ -21,5 +21,13 @@ AS BEGIN
 	
 	exec sp_executesql @SQL, @ParamDef, @Version = @Version, @SubCode = @SubCode, @DateExec = @DateExec, @TimeStamp = @TimeStamp,
 					   @DateStart = @DateStart, @DateEnd = @DateEnd, @Data = @Data, @EndFlag = @EndFlag;
+
+	-- Логгирование данных (будет отключено позднее)
+	insert into [td].[t_raw_log] (
+		[Дата_время], [Data], [Version], [SubCode], [DateExec], [TimeStamp], [DateStart], [DateEnd], [EndFlag], [TableName]
+	) values (
+		getDate(), @Data, @Version, @SubCode, @DateExec, @TimeStamp, @DateStart, @DateEnd, @EndFlag, @Table
+	)
+
 END
 GO

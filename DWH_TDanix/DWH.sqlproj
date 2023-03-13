@@ -519,6 +519,7 @@
     <Build Include="cass\Views\v_fact_Кросс_продажи.sql" />
     <Build Include="td\Tables\t_fact_Компенсация_от_поставщиков.sql" />
     <Build Include="td\Stored Procedures\p_Загрузка_Компенсация_от_поставщиков.sql" />
+    <Build Include="td\Tables\t_raw_log.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
