@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{6E5C794C-2F32-479F-AC7B-E9A0F1FABB02}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{D66718DB-A064-474E-9672-F612326847BA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -1761,7 +1761,7 @@ left join
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы RSC_Приход"
-                  DTS:ThreadHint="9">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -2849,7 +2849,7 @@ where  dateadd(yyyy,-2000,   РегистрНТ._Period) between @dateN and @dat
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы RSC Незаказанный товар по причинам"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="8">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3269,7 +3269,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Статусы не заказывать"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="8">
+                  DTS:ThreadHint="9">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3320,7 +3320,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3861,7 +3861,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3910,7 +3910,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3939,6 +3939,269 @@ where
                       bufferTempStoragePath=""
                       version="1">
                       <components>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                          description="Extracts data from a relational database by using a .NET provider."
+                          name="DWH"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the SQL statement used by the component to extract data."
+                              expressionType="Notify"
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
+declare @date as date
+declare @dateN as date
+
+set @date = convert(varchar(16), dateadd(day, -1, getdate()), 112)
+set @date = CASE 
+  WHEN DATEPART(weekday, @date) = 1 THEN @date 
+  WHEN DATEPART(weekday, @date) = 2 THEN dateadd(day, + 6, @date) 
+  WHEN DATEPART(weekday, @date) = 3 THEN dateadd(day, + 5, @date) 
+  WHEN DATEPART(weekday, @date) = 4 THEN dateadd(day, + 4, @date) 
+  WHEN DATEPART(weekday, @date) = 5 THEN dateadd(day, + 3, @date) 
+  WHEN DATEPART(weekday, @date) = 6 THEN dateadd(day, + 2, @date) 
+  WHEN DATEPART(weekday, @date) = 7 THEN dateadd(day, + 1, @date)
+END
+set @dateN = dateadd(dd, -6, @date)
+
+select
+	t.Дата,
+	t.Код_магазина,
+	t.Код_поставщика,
+	t.Код_товара,
+	t.Признак,
+	case when t.Признак = 3 then 1 else 0 end Топ,
+	case when t.Код_поставщика = 1682 then 1 else 0 end ВидПоставки,
+	t2.Признак ВидАсс2н
+from
+	td.v_fact_Товарная_матрица t
+right join
+	dbo.t_dim_Товары tov on tov.Код_товара = t.Код_товара and 
+	                        tov.Код_группы not in (3830,42,999999999,999999,34826,62962,10608,6306) and
+	                        (tov.Код_группы  in (3061,16937,25892,60030,60032,153204,155885,156082) or (t.Код_поставщика &lt;&gt; 8793))
+right join
+	dbo.t_dim_Магазины m on t.Код_магазина = m.Код and m.Группа = 'Розница'
+right join
+	td.v_fact_Товарная_матрица t2 on t2.Дата = dateAdd(day, -13, t.Дата) and
+	                                 t2.Код_магазина = t.Код_магазина and
+									 t2.Код_товара   = t.Код_товара and
+									 t2.Признак in (2, 3, 4, 6, 9)
+Where
+	t.Дата between @dateN and @date and
+	t.Признак in (2, 3, 4, 6, 9)  and
+                   tov.Торговый_зал=1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                              name="AllowImplicitStringConversion">true</property>
+                            <property
+                              dataType="System.String"
+                              description="The Destination database table name."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specify the mode to retrieve external column information"
+                              name="AccessMode"
+                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.DWH]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.DWH]"
+                              description="Managed connection manager"
+                              name="IDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output]"
+                              name="ADO NET Source Output">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_магазина]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Код_магазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_магазина]"
+                                  name="Код_магазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_поставщика]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Код_поставщика]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_поставщика]"
+                                  name="Код_поставщика"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_товара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Код_товара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_товара]"
+                                  name="Код_товара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Признак]"
+                                  dataType="ui1"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Признак]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Признак]"
+                                  name="Признак"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Топ]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Топ]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Топ]"
+                                  name="Топ"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
+                                  name="ВидПоставки"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]"
+                                  dataType="ui1"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс2н]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]"
+                                  name="ВидАсс2н"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Код_магазина]"
+                                  dataType="i4"
+                                  name="Код_магазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Код_поставщика]"
+                                  dataType="i4"
+                                  name="Код_поставщика" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Код_товара]"
+                                  dataType="i8"
+                                  name="Код_товара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Признак]"
+                                  dataType="ui1"
+                                  name="Признак" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[Топ]"
+                                  dataType="i4"
+                                  name="Топ" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
+                                  dataType="i4"
+                                  name="ВидПоставки" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс2н]"
+                                  dataType="ui1"
+                                  name="ВидАсс2н" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output]"
+                              isErrorOut="true"
+                              name="ADO NET Source Error Output">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Код_магазина]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Код_магазина]"
+                                  name="Код_магазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Код_поставщика]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Код_поставщика]"
+                                  name="Код_поставщика" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Код_товара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Код_товара]"
+                                  name="Код_товара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Признак]"
+                                  dataType="ui1"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Признак]"
+                                  name="Признак" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Топ]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[Топ]"
+                                  name="Топ" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
+                                  name="ВидПоставки" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ВидАсс2н]"
+                                  dataType="ui1"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ВидАсс2н]"
+                                  name="ВидАсс2н" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
                         <component
                           refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица"
                           componentClassID="Microsoft.ManagedComponentHost"
@@ -3993,49 +4256,49 @@ where
                                   cachedDataType="dbTimeStamp"
                                   cachedName="Дата"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Дата]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_товара]"
                                   cachedDataType="i8"
                                   cachedName="Код_товара"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_товара]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_товара]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_поставщика]"
                                   cachedDataType="i4"
                                   cachedName="Код_поставщика"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_поставщика]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_поставщика]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Код_магазина]"
                                   cachedDataType="i4"
                                   cachedName="Код_магазина"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_магазина]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Код_магазина]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Топ]"
                                   cachedDataType="i4"
                                   cachedName="Топ"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Топ]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Топ]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
                                   cachedDataType="i4"
                                   cachedName="ВидПоставки"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс2н]"
                                   cachedDataType="ui1"
                                   cachedName="ВидАсс2н"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидАсс2н]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Признак]"
                                   cachedDataType="ui1"
                                   cachedName="Признак"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Признак]" />
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[Признак]" />
                               </inputColumns>
                               <externalMetadataColumns
                                 isUsed="True">
@@ -4099,275 +4362,13 @@ where
                             </output>
                           </outputs>
                         </component>
-                        <component
-                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС"
-                          componentClassID="Microsoft.ManagedComponentHost"
-                          contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                          description="Extracts data from a relational database by using a .NET provider."
-                          name="ОТБРС"
-                          usesDispositions="true"
-                          version="4">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the SQL statement used by the component to extract data."
-                              expressionType="Notify"
-                              name="SqlCommand"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
-declare @date as date
-declare @dateN as date
-
-set @date = convert(varchar(16), dateadd(day, -1, getdate()), 112)
-set @date = CASE 
-  WHEN DATEPART(weekday, @date) = 1 THEN @date 
-  WHEN DATEPART(weekday, @date) = 2 THEN dateadd(day, + 6, @date) 
-  WHEN DATEPART(weekday, @date) = 3 THEN dateadd(day, + 5, @date) 
-  WHEN DATEPART(weekday, @date) = 4 THEN dateadd(day, + 4, @date) 
-  WHEN DATEPART(weekday, @date) = 5 THEN dateadd(day, + 3, @date) 
-  WHEN DATEPART(weekday, @date) = 6 THEN dateadd(day, + 2, @date) 
-  WHEN DATEPART(weekday, @date) = 7 THEN dateadd(day, + 1, @date)
-END
-set @dateN = dateadd(dd, -6, @date)
-
-select
-	t.Дата,
-	t.Код_магазина,
-	t.Код_поставщика,
-	t.Код_товара,
-	t.Признак,
-	case when t.Признак = 3 then 1 else 0 end Топ,
-	case when t.Код_поставщика = 1682 then 1 else 0 end ВидПоставки,
-	t2.Признак ВидАсс2н
-from
-	td.v_fact_Товарная_матрица t
-right join
-	dbo.t_dim_Товары tov on tov.Код_товара = t.Код_товара and 
-	                        tov.Код_группы not in (3830,42,999999999,999999,34826,62962,10608,6306) and
-	                        (tov.Код_группы  in (3061,16937,25892,60030,60032,153204,155885,156082) or (t.Код_поставщика &lt;&gt; 8793))
-right join
-	dbo.t_dim_Магазины m on t.Код_магазина = m.Код and m.Группа = 'Розница'
-right join
-	td.v_fact_Товарная_матрица t2 on t2.Дата = dateAdd(day, -13, t.Дата) and
-	                                 t2.Код_магазина = t.Код_магазина and
-									 t2.Код_товара   = t.Код_товара and
-									 t2.Признак in (2, 3, 4, 6, 9)
-Where
-	t.Дата between @dateN and @date and
-	t.Признак in (2, 3, 4, 6, 9)</property>
-                            <property
-                              dataType="System.Int32"
-                              description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                              name="CommandTimeout">0</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
-                              name="AllowImplicitStringConversion">true</property>
-                            <property
-                              dataType="System.String"
-                              description="The Destination database table name."
-                              expressionType="Notify"
-                              name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specify the mode to retrieve external column information"
-                              name="AccessMode"
-                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
-                            <property
-                              dataType="System.String"
-                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
-                          </properties>
-                          <connections>
-                            <connection
-                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Connections[IDbConnection]"
-                              connectionManagerID="Package.ConnectionManagers[s19-olap.DWH]"
-                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.DWH]"
-                              description="Managed connection manager"
-                              name="IDbConnection" />
-                          </connections>
-                          <outputs>
-                            <output
-                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output]"
-                              name="ADO NET Source Output">
-                              <outputColumns>
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]"
-                                  dataType="dbTimeStamp"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Дата]"
-                                  name="Дата"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_магазина]"
-                                  dataType="i4"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_магазина]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_магазина]"
-                                  name="Код_магазина"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_поставщика]"
-                                  dataType="i4"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_поставщика]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_поставщика]"
-                                  name="Код_поставщика"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_товара]"
-                                  dataType="i8"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_товара]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Код_товара]"
-                                  name="Код_товара"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Признак]"
-                                  dataType="ui1"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Признак]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Признак]"
-                                  name="Признак"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Топ]"
-                                  dataType="i4"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Топ]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[Топ]"
-                                  name="Топ"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
-                                  dataType="i4"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
-                                  name="ВидПоставки"
-                                  truncationRowDisposition="FailComponent" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидАсс2н]"
-                                  dataType="ui1"
-                                  errorOrTruncationOperation="Преобразование"
-                                  errorRowDisposition="FailComponent"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс2н]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].Columns[ВидАсс2н]"
-                                  name="ВидАсс2н"
-                                  truncationRowDisposition="FailComponent" />
-                              </outputColumns>
-                              <externalMetadataColumns
-                                isUsed="True">
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
-                                  dataType="dbTimeStamp"
-                                  name="Дата" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_магазина]"
-                                  dataType="i4"
-                                  name="Код_магазина" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_поставщика]"
-                                  dataType="i4"
-                                  name="Код_поставщика" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Код_товара]"
-                                  dataType="i8"
-                                  name="Код_товара" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Признак]"
-                                  dataType="ui1"
-                                  name="Признак" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[Топ]"
-                                  dataType="i4"
-                                  name="Топ" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
-                                  dataType="i4"
-                                  name="ВидПоставки" />
-                                <externalMetadataColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс2н]"
-                                  dataType="ui1"
-                                  name="ВидАсс2н" />
-                              </externalMetadataColumns>
-                            </output>
-                            <output
-                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output]"
-                              isErrorOut="true"
-                              name="ADO NET Source Error Output">
-                              <outputColumns>
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Дата]"
-                                  dataType="dbTimeStamp"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Дата]"
-                                  name="Дата" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_магазина]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_магазина]"
-                                  name="Код_магазина" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_поставщика]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_поставщика]"
-                                  name="Код_поставщика" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_товара]"
-                                  dataType="i8"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Код_товара]"
-                                  name="Код_товара" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Признак]"
-                                  dataType="ui1"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Признак]"
-                                  name="Признак" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Топ]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[Топ]"
-                                  name="Топ" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
-                                  name="ВидПоставки" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ВидАсс2н]"
-                                  dataType="ui1"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ВидАсс2н]"
-                                  name="ВидАсс2н" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                                  name="ErrorCode"
-                                  specialFlags="1" />
-                                <outputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                                  dataType="i4"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                                  name="ErrorColumn"
-                                  specialFlags="2" />
-                              </outputColumns>
-                              <externalMetadataColumns />
-                            </output>
-                          </outputs>
-                        </component>
                       </components>
                       <paths>
                         <path
                           refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате).Paths[ADO NET Source Output]"
                           endId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]"
                           name="ADO NET Source Output"
-                          startId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС.Outputs[ADO NET Source Output]" />
+                          startId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH.Outputs[ADO NET Source Output]" />
                       </paths>
                     </pipeline>
                   </DTS:ObjectData>
@@ -4689,7 +4690,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5249,7 +5250,7 @@ select * from @buff_остатки as Остатки</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5291,7 +5292,7 @@ select * from @buff_остатки as Остатки</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6068,7 +6069,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6380,7 +6381,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -22514,6 +22515,43 @@ Left Join
           Id="Package\КПТ\DWH Продажи"
           TopLeft="782,12.75" />
         <NodeLayout
+          Size="184,42"
+          Id="Package\КПТ\RSC\RSC Приход\Очистка таблицы RSC_Приход"
+          TopLeft="11,4" />
+        <NodeLayout
+          Size="175,44"
+          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)"
+          TopLeft="22,95" />
+        <EdgeLayout
+          Id="Package\КПТ\RSC\RSC Приход.PrecedenceConstraints[Constraint]"
+          TopLeft="106.25,46">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260,194"
+          Size="260,237"
+          Id="Package\КПТ\RSC\RSC Приход"
+          TopLeft="589,21" />
+        <NodeLayout
           Size="220,54"
           Id="Package\КПТ\RSC\Незаказанный товар по причинам\Загрузка незаказанного товара по причинам из RSC (ОТБОР ПО ДАТЕ)"
           TopLeft="25.2122641509436,101.528301886792" />
@@ -22587,43 +22625,6 @@ Left Join
           Size="285,196"
           Id="Package\КПТ\RSC\Статусы не заказывать"
           TopLeft="293.75,11.75" />
-        <NodeLayout
-          Size="184,42"
-          Id="Package\КПТ\RSC\RSC Приход\Очистка таблицы RSC_Приход"
-          TopLeft="11,4" />
-        <NodeLayout
-          Size="175,44"
-          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)"
-          TopLeft="22,95" />
-        <EdgeLayout
-          Id="Package\КПТ\RSC\RSC Приход.PrecedenceConstraints[Constraint]"
-          TopLeft="106.25,46">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="0,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="260,194"
-          Size="260,237"
-          Id="Package\КПТ\RSC\RSC Приход"
-          TopLeft="589,21" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -23936,7 +23937,7 @@ Left Join
     design-time-name="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="222,44"
           Id="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)\s8-olap-test OLAP_продажи"
@@ -23976,7 +23977,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23994,7 +23997,7 @@ Left Join
     design-time-name="Package\КПТ\DWH Продажи\Среднедневные OLAP (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="103,42"
           Id="Package\КПТ\DWH Продажи\Среднедневные OLAP (ОТБОР ПО ДАТЕ)\DWH"
@@ -24034,7 +24037,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24052,7 +24057,7 @@ Left Join
     design-time-name="Package\КПТ\DWH Продажи\Среднедневные по дням недели (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="103,42"
           Id="Package\КПТ\DWH Продажи\Среднедневные по дням недели (ОТБОР ПО ДАТЕ)\DWH"
@@ -24092,7 +24097,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24106,6 +24113,50 @@ Left Join
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_приход"
+          TopLeft="5.5,156.254716981132" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)\RSC"
+          TopLeft="9.5,5.5" />
+        <EdgeLayout
+          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ).Paths[ADO NET Source Output]"
+          TopLeft="77.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-4,106.830188679245"
+              Start="0,0"
+              End="-4,99.3301886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3962264150943" />
+                  <mssgle:LineSegment
+                    End="-4,53.3962264150943" />
+                  <mssgle:LineSegment
+                    End="-4,99.3301886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\КПТ\RSC\Незаказанный товар по причинам\Загрузка незаказанного товара по причинам из RSC (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
@@ -24249,7 +24300,7 @@ Left Join
           TopLeft="50.4433962264151,129.311320754717" />
         <NodeLayout
           Size="136,44"
-          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС"
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате).Paths[ADO NET Source Output]"
@@ -24289,7 +24340,7 @@ Left Join
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\ОТБРС">
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24344,7 +24395,7 @@ Left Join
     design-time-name="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="103,42"
           Id="Package\КПТ\ОТБРС\Загрузка остатков\Остатки DWH (ОТБОР ПО ДАТЕ)\DWH"
@@ -24384,7 +24435,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24482,7 +24535,7 @@ Left Join
     design-time-name="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\ОТБРС"
@@ -24514,7 +24567,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24572,7 +24627,7 @@ Left Join
     design-time-name="Package\КПТ\Свод_ступень_обработки_1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="263,44"
           Id="Package\КПТ\Свод_ступень_обработки_1\Преобразование типов"
@@ -24608,7 +24663,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24634,7 +24691,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25640,7 +25699,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка переоценки из ОТБРС (отбор по дате)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="274,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка переоценки из ОТБРС (отбор по дате)\s8-olap-test ФактПереоценки"
@@ -25672,7 +25731,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25690,7 +25751,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка потерь из ОТБРС (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка потерь из ОТБРС (ОТБОР ПО ДАТЕ)\ОТБРС"
@@ -25722,7 +25783,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25740,7 +25803,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка приказов из ОТБРС (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка приказов из ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_приказы"
@@ -25772,7 +25835,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25902,7 +25967,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Заполнение таблицы Нулевые остатки временный&quot;\ОТБРС_Остатки"
@@ -25934,7 +25999,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25956,49 +26023,5 @@ Left Join
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="136,44"
-          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)\RSC"
-          TopLeft="9.5,5.5" />
-        <NodeLayout
-          Size="136,44"
-          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_приход"
-          TopLeft="5.5,156.254716981132" />
-        <EdgeLayout
-          Id="Package\КПТ\RSC\RSC Приход\Приход RSC (ОТБОР ПО ДАТЕ).Paths[ADO NET Source Output]"
-          TopLeft="77.3867924528302,49.4245283018868">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-4,106.830188679245"
-              Start="0,0"
-              End="-4,99.3301886792453">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.3962264150943" />
-                  <mssgle:LineSegment
-                    End="-4,53.3962264150943" />
-                  <mssgle:LineSegment
-                    End="-4,99.3301886792453" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
