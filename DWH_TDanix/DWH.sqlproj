@@ -522,6 +522,7 @@
     <Build Include="td\Tables\t_raw_log.sql" />
     <Build Include="cass\Views\v_fact_Скидочные_карты_в_чеках.sql" />
     <PostDeploy Include="dbo\Views\v_dim_numbers.sql" />
+    <Build Include="td\Views\v_fact_Компенсация_от_поставщиков.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
