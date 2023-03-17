@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{D66718DB-A064-474E-9672-F612326847BA}">
+  DTS:VersionBuild="112"
+  DTS:VersionGUID="{52753F13-D209-40FD-9FD9-0812D9F2B4A6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -16510,7 +16510,7 @@ and КодПоставщика &lt;&gt; 8793
                               refId="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_Факт расхожд с поставщиками.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоЗаказано]"
                               dataType="numeric"
                               name="КоличествоЗаказано"
-                              precision="8"
+                              precision="10"
                               scale="3" />
                             <externalMetadataColumn
                               refId="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_Факт расхожд с поставщиками.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоПриход]"
@@ -16522,7 +16522,7 @@ and КодПоставщика &lt;&gt; 8793
                               refId="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_Факт расхожд с поставщиками.Inputs[ADO NET Destination Input].ExternalColumns[Цена]"
                               dataType="numeric"
                               name="Цена"
-                              precision="8"
+                              precision="14"
                               scale="2" />
                             <externalMetadataColumn
                               refId="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_Факт расхожд с поставщиками.Inputs[ADO NET Destination Input].ExternalColumns[ОтклонениеВЧасах]"
@@ -25375,7 +25375,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="493,44"
           Id="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_Факт расхожд с поставщиками"
@@ -25407,14 +25407,20 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений по заказу СТ из РСЦ (ОТБОР ПО ДАТЕ)\s8-olap-test RSC_Факт расхожд с поставщиками">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\КПТ по причинам (сбор данных)\RSC\Загрузка расхождений с Прайд из RSC (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
