@@ -23749,426 +23749,450 @@ WHERE [rprt_cw].[v_fact_Распричинивание_потерь].[Дата] 
     <MeasureGroup>
       <ID>t Fact Компенсация От Поставщиков</ID>
       <Partitions>
-        <Partition dwd:design-time-name="553abedb-d01c-431d-a105-27f4a1261a3c">
+        <Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_01</ID>
           <Name>Компенсация_2022_01</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="4a3f7733-f6dd-4997-943a-3dad43067619">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220101 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220201</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220101' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220201'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="2aadfe16-8d53-4561-a2aa-484e358919bc">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_02</ID>
           <Name>Компенсация_2022_02</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="2672f2b8-c9cf-4449-a922-ae6447d00f66">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220201 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220301</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220201' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220301'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="d9ecb1be-d42c-4232-94fc-98d97eadcfd3">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_03</ID>
           <Name>Компенсация_2022_03</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="7f8b2ab7-4d4f-47a6-a9b5-18d7c4699f49">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220301 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220401</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220301' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220401'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="534250f5-d88d-4f2c-b25f-1c640d8b36ce">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_04</ID>
           <Name>Компенсация_2022_04</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="79ae8b6a-2bbc-4b61-bd1a-ecc3df2dbeaa">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220401 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220501</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220401' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220501'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="4f24defc-2129-4beb-8282-e15480fa1b9d">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_05</ID>
           <Name>Компенсация_2022_05</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="247d9b81-19e5-4361-a496-3e8bc5ffe296">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220501 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220601</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220501' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220601'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="b429e18f-97e2-4de8-b724-6f7b70d82ac6">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_06</ID>
           <Name>Компенсация_2022_06</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="9c1abcb5-5b97-4a31-a46b-2c724756a76f">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220601 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220701</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220601' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220701'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="0349f95c-3d8c-492c-876d-dcea30481f82">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_07</ID>
           <Name>Компенсация_2022_07</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="200fba9d-494c-4380-8677-1cc2e4256082">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220701 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220801</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220701' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220801'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="55f60fbd-fcb9-4c4e-9ea9-e95481b06e19">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_08</ID>
           <Name>Компенсация_2022_08</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="ee9624d0-7639-48a4-8354-20c07c0d75e3">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220801 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20220901</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220801' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20220901'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="7183708f-1c53-4210-a855-95d1ccaf883b">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_09</ID>
           <Name>Компенсация_2022_09</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="b2b5e818-f7ec-4a9c-b288-4099ba4e8bee">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20220901 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20221001</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20220901' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20221001'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="c6a1e942-a847-4e76-a4bc-69e1bdc4105a">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_10</ID>
           <Name>Компенсация_2022_10</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="2d8e0b15-6e3e-4c89-a5b4-80c3fdc8b886">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20221001 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20221101</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20221001' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20221101'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="cf234bb9-f418-47b2-88d3-ff6936779d9e">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_11</ID>
           <Name>Компенсация_2022_11</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="306f6135-670b-4259-9f36-dabd40b73e20">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20221101 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20221201</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20221101' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20221201'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="bf733c72-d119-4c02-8c21-36cb49671232">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2022_12</ID>
           <Name>Компенсация_2022_12</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="046e2e21-faad-4e0f-9fb5-06423376a03b">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20221201 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230101</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20221201' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230101'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="b6009f8c-2067-4f8e-b4f9-e43b37307852">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_01</ID>
           <Name>Компенсация_2023_01</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="614fcc77-9114-4818-a657-0e6da11509b4">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230101 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230201</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230101' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230201'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="47ab53fe-a33c-465d-8f31-5d78ffb0bb9c">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_02</ID>
           <Name>Компенсация_2023_02</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="47c34ede-ceaa-4080-b894-0fa0ea4794e8">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230201 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230301</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230201' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230301'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="0edc7ab2-b633-4e9b-82a3-a4fd8774419c">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_03</ID>
           <Name>Компенсация_2023_03</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="428e00f2-d891-4024-a53d-7f88e8b3a56e">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230301 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230401</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230301' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230401'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="e816902e-8eb9-4f2e-9a17-31e56f270ca2">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_04</ID>
           <Name>Компенсация_2023_04</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="13b3de1c-5cc6-4056-a25f-3aa0c1871151">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230401 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230501</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230401' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230501'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="f24b0712-2da9-4fc4-a6ab-b7259ec1dd64">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_05</ID>
           <Name>Компенсация_2023_05</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="24021a38-3982-4850-9ac8-5cd72c9b2313">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230501 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230601</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230501' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230601'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="c2a6315e-29bf-43a1-bfb5-7651bdfea135">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_06</ID>
           <Name>Компенсация_2023_06</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="00e51cd2-d9da-47a4-a102-e21a2a3b9bd0">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230601 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230701</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230601' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230701'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="e719de39-2bc7-4126-8a25-0b0a5365dd13">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_07</ID>
           <Name>Компенсация_2023_07</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="f29c83a3-3799-4046-b1c4-543f7940bf31">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230701 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230801</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230701' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230801'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="e8504782-19aa-4221-899c-421bfba9d694">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_08</ID>
           <Name>Компенсация_2023_08</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="a88f1a9f-50b1-4204-80e0-4855fe51255f">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230801 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20230901</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230801' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20230901'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="34d503cb-6c53-4ac7-880f-04d67a944409">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_09</ID>
           <Name>Компенсация_2023_09</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="9aee58d9-cb81-4836-8b3d-bc4f5217e5db">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20230901 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20231001</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20230901' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20231001'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="9de7c61f-8139-4d35-9a2d-ad2762ca3351">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_10</ID>
           <Name>Компенсация_2023_10</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="04808107-8501-40b3-a4d9-c5a16c1bfa27">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20231001 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20231101</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20231001' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20231101'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="8956ea1c-4bda-4aeb-b902-e490b65b6908">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_11</ID>
           <Name>Компенсация_2023_11</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="3c974944-2f59-4857-ae8e-91ba917702e9">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20231101 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20231201</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20231101' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20231201'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="91ff289d-067c-47c2-a65e-861ddf4bcbf8">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2023_12</ID>
           <Name>Компенсация_2023_12</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="6dddb0cd-f84d-4cc7-9ba0-0d49c9a9d991">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20231201 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20240101</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20231201' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20240101'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-        <Partition dwd:design-time-name="401d7c72-4cb4-4632-87cf-5a888a4993b0">
+      
+<Partition dwd:design-time-name="98106556-bd67-4afe-b471-45ee5f4932cb">
           <ID>Компенсация_2024_01</ID>
           <Name>Компенсация_2024_01</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="5acbe170-e8e5-458e-a8e4-edd4efb30967">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="0aeaef1f-912f-4bb8-a48f-3a2921fbf250">
             <DataSourceID>DWH</DataSourceID>
-            <QueryDefinition>SELECT [td].[t_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[t_fact_Компенсация_от_поставщиков].[Код_товара],[td].[t_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[t_fact_Компенсация_от_поставщиков].[Дата],[td].[t_fact_Компенсация_от_поставщиков].[Сумма]
-FROM [td].[t_fact_Компенсация_от_поставщиков]
-WHERE [td].[t_fact_Компенсация_от_поставщиков].[Дата]&gt;=20240101 and [td].[t_fact_Компенсация_от_поставщиков].[Дата]&lt;20240201</QueryDefinition>
+            <QueryDefinition>SELECT [td].[v_fact_Компенсация_от_поставщиков].[Код_магазина],[td].[v_fact_Компенсация_от_поставщиков].[Код_товара],[td].[v_fact_Компенсация_от_поставщиков].[Код_поставщика],[td].[v_fact_Компенсация_от_поставщиков].[Дата],[td].[v_fact_Компенсация_от_поставщиков].[Сумма]
+FROM [td].[v_fact_Компенсация_от_поставщиков]
+WHERE [td].[v_fact_Компенсация_от_поставщиков].[Дата]&gt;='20240101' and [td].[v_fact_Компенсация_от_поставщиков].[Дата]&lt;'20240201'</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
