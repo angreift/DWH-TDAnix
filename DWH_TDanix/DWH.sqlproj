@@ -139,6 +139,10 @@
     <Folder Include="rprt_cw\Views" />
     <Folder Include="rprt_cw\Stored Procedures" />
     <Folder Include="cass\Functions" />
+    <Folder Include="plan" />
+    <Folder Include="plan\Tables" />
+    <Folder Include="plan\Views" />
+    <Folder Include="plan\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="cass\Tables\t_raw_Сторнированные_позиции.sql">
@@ -523,11 +527,32 @@
     <Build Include="cass\Views\v_fact_Скидочные_карты_в_чеках.sql" />
     <PostDeploy Include="dbo\Views\v_dim_numbers.sql" />
     <Build Include="td\Views\v_fact_Компенсация_от_поставщиков.sql" />
+    <Build Include="Security\plan.sql" />
+    <Build Include="Security\DWH_plan_owner.sql" />
+    <Build Include="Security\DWH_plan_owner_1.sql" />
+    <Build Include="plan\Tables\t_dim_Показатели_планирования.sql" />
+    <Build Include="plan\Views\v_dim_Показатели_планирования.sql" />
+    <Build Include="plan\Tables\t_fact_Плановые_показатели_по_группам.sql" />
+    <Build Include="plan\Views\v_fact_Плановые_показатели_по_группам.sql" />
+    <Build Include="plan\Stored Procedures\p_Загрузка_плановых_показателей_по_группам.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="plan\Tables\t_dim_Показатели_для_сравнительного_анализа.sql" />
+    <Build Include="plan\Tables\t_raw_Показатели_для_сравнительного_анализа.sql" />
+    <Build Include="plan\Stored Procedures\p_Загрузка_справочника_Показатели_для_сравнительного_анализа.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
     <None Include="Security\DWH_rprt_cw_owner_1.sql" />
     <None Include="Security\rprt_cw_owner.sql" />
+    <Build Include="plan\Stored Procedures\p_Загрузка_справочника_Показатели_планирования.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DWH.refactorlog" />
