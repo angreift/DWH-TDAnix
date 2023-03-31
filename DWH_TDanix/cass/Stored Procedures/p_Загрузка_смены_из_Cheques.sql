@@ -39,8 +39,8 @@ select
 	case when (s.SUM_RESULT-SUM_DISCOUNT)<0 then SUM_RESULT*-1 else SUM_RESULT end,CHEQUE_POSITION, SUM_RESULT, 0,0,0,0, case when s.SUM_RESULT < 0 then 1 else 0 end, 
 	concat('x', CHEQUE_POSITION, '~', s.CHEQUE_ID),concat('x', s.CHEQUE_ID), concat(@КодКассы, '~x'),
 	concat('x', format(@Дата, 'yyMMdd'), '~', @КодКассы)
-from [olap-rozn].dbo.sales s left join [olap-rozn].dbo.CHEQUES c on s.CHEQUE_ID = c.CHEQUE_ID 
-where c.POS = @КодКассы and cast(c.DATE_TIME_END as date) = @Дата and s.SUM_RESULT is not null and s.QUANTITY is not null and s.QUANTITY <> 0
+from [olap-rozn].dbo.sales s join [olap-rozn].dbo.CHEQUES c on s.CHEQUE_ID = c.CHEQUE_ID 
+where (c.POS = @КодКассы and cast(c.DATE_TIME_END as date) = @Дата) and s.SUM_RESULT is not null and s.QUANTITY is not null and s.QUANTITY <> 0
 
 insert into cass.t_fact_Скидки ([Код_кассы],[ИД_скидки],[Код_товара],[Номер_позиции],[Дата_применения_скидки],[Дата_время_применения_скидки]
 	,[Объект_скидки],[Номер_скидки],[Режим_скидки],[Тип_скидки],[Ставка_скидки],[Сумма_скидки],[Сумма_чека],[Номер_дисконтной_карты]
@@ -57,7 +57,7 @@ where c.POS = @КодКассы and cast(c.DATE_TIME_END as date) = @Дата
 -- Сразу очистка от дублей
 
 delete from cass.t_fact_Чеки where Составной_код_документа in (
-select Составной_код_документа from(select dense_rank() over (partition by Номер_чека order by [Составной_код_документа]) [rank], * 
+select Составной_код_документа from(select dense_rank() over (partition by Номер_чека, Дата_время_закрытия_чека order by [Составной_код_документа]) [rank], * 
 from cass.t_fact_Чеки where Код_кассы = @КодКассы and Дата_закрытия_чека = @Дата) a 
 where [rank] >= 2)
 
