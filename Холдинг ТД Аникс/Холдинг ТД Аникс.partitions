@@ -23491,7 +23491,7 @@ WHERE [Дата_добавления_позиции] &gt;= '20231225' and [Да�
       <ID>v Fact Распричинивание Потерь</ID>
       <Partitions>
         <Partition dwd:design-time-name="1d6de477-77e2-49a9-8d10-b630a64d0b29">
-          <ID>v Fact Распричинивание Потерь</ID>
+          <ID>Распричинивание_потерь_2023_01</ID>
           <Name>Распричинивание_потерь_2023_01</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
@@ -23508,7 +23508,7 @@ WHERE [rprt_cw].[v_fact_Распричинивание_потерь].[Дата] 
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
         <Partition dwd:design-time-name="b4ec2ecb-398a-4f61-a848-9f113220a62b">
-          <ID>Распричинивание_потерь</ID>
+          <ID>Распричинивание_потерь_2023_02</ID>
           <Name>Распричинивание_потерь_2023_02</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
