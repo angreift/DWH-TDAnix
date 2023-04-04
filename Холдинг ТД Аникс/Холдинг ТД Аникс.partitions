@@ -26300,5 +26300,71 @@ WHERE [cass].[v_fact_Скидочные_карты_в_чеках].[Дата_пр
                 </Partition>
       </Partitions>
     </MeasureGroup>
+    <MeasureGroup>
+      <ID>v Fact Плановые Показатели По Группам</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4120c66e-7620-4618-a658-bef11cc8728e">
+          <ID>Плановые_показатели_по_группам_до_2023</ID>
+          <Name>Плановые_показатели_по_группам_до_2023</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="62e3b282-8e0e-49a6-87f9-444abfef779a">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [plan].[v_fact_Плановые_показатели_по_группам].[Дата],[plan].[v_fact_Плановые_показатели_по_группам].[Код_магазина],[plan].[v_fact_Плановые_показатели_по_группам].[Код_группы],[plan].[v_fact_Плановые_показатели_по_группам].[Код_показателя_планирования],[plan].[v_fact_Плановые_показатели_по_группам].[Значение]
+FROM [plan].[v_fact_Плановые_показатели_по_группам]
+WHERE Дата &lt; '20230101'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>v Fact Планы СА По Группам</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7ed3583b-4e20-489d-b92c-f4fc54615343">
+          <ID>Планы_СА_по_группам_до_2023</ID>
+          <Name>Планы_СА_по_группам_до_2023</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="46554f39-d9e9-499c-89c5-1c3a4d14fbf9">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [plan].[v_fact_Планы_СА_по_группам].[Дата],[plan].[v_fact_Планы_СА_по_группам].[Код_магазина],[plan].[v_fact_Планы_СА_по_группам].[Код_показателя_для_сравнительного_анализа],[plan].[v_fact_Планы_СА_по_группам].[Значение]
+FROM [plan].[v_fact_Планы_СА_по_группам]
+WHERE Дата &lt; '20230101'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>v Fact Планы СА По Магазинам</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0afa815d-ab5c-495a-ac27-d22cfb49aaa7">
+          <ID>Планы_СА_по_магазинам_до_2023</ID>
+          <Name>Планы_СА_по_магазинам_до_2023</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="2c910bd3-f91b-4900-bc4e-fa71f9dd6b37">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [plan].[v_fact_Планы_СА_по_магазинам].[Дата],[plan].[v_fact_Планы_СА_по_магазинам].[Код_магазина],[plan].[v_fact_Планы_СА_по_магазинам].[Товарооборот],[plan].[v_fact_Планы_СА_по_магазинам].[Количество_чеков],[plan].[v_fact_Планы_СА_по_магазинам].[Валовый_доход],[plan].[v_fact_Планы_СА_по_магазинам].[Товарооборот_СТМ],[plan].[v_fact_Планы_СА_по_магазинам].[Производительность],[plan].[v_fact_Планы_СА_по_магазинам].[Потребление_ЭЭ_без_ГВ_и_субаренды],[plan].[v_fact_Планы_СА_по_магазинам].[Потери],[plan].[v_fact_Планы_СА_по_магазинам].[Производительность_ГВ]
+FROM [plan].[v_fact_Планы_СА_по_магазинам]
+WHERE Дата &lt; '20230101'</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+	  </MeasureGroup>
   </MeasureGroups>
 </Cube>
