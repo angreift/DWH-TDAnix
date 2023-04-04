@@ -556,6 +556,11 @@
     <Build Include="plan\Views\v_dim_Показатели_для_сравнительного_анализа.sql" />
     <Build Include="plan\Views\v_fact_Планы_СА_по_магазинам.sql" />
     <Build Include="plan\Views\v_fact_Планы_СА_по_группам.sql" />
+    <Build Include="dbo\Tables\t_raw_Мониторинг_печати_ценников.sql" />
+    <Build Include="dbo\Tables\t_fact_Мониторинг_печати_ценников.sql" />
+    <Build Include="dbo\Tables\t_dim_Тип_печати_ценников.sql" />
+    <Build Include="dbo\Views\v_fact_Мониторинг_печати_ценников.sql" />
+    <Build Include="dbo\Stored Procedures\p_Загрузка_Мониторинга_печати_ценников.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
