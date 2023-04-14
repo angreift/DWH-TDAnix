@@ -27,7 +27,7 @@ BEGIN
 		Поставщики.[SP44] as [ИНН],
 		Поставщики.[SP2160] as [КПП]
 	from [Rozn].[rozn].[dbo].[SC36] as Поставщики
-	where Поставщики.[ISFOLDER] = 2 and Поставщики.[PARENTID] = '  12EE   '; -- Внтренний ид группы "Поставщики поставщиков"
+	where Поставщики.code in (select distinct Поставщик_холдинга from t_fact_Поставщики_холдинга where Поставщик_холдинга is not null)
 
 	-- 3. Слияние таблиц
 	merge
@@ -51,6 +51,5 @@ BEGIN
 				#dwh_temp_поставщики_холдинга.КПП
 			);
 END;
-GO
 
 
