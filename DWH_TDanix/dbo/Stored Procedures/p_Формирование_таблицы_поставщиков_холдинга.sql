@@ -54,7 +54,7 @@ AS BEGIN
 						AND (Дата <= cass.t_fact_Детализация_чеков.Дата_добавления_позиции)
             ORDER BY Дата DESC)
 	from cass.t_fact_Детализация_чеков join cass.t_dim_Кассы on cass.t_fact_Детализация_чеков.Код_кассы = cass.t_dim_Кассы.Код_кассы
-	where cass.t_fact_Детализация_чеков.Дата_добавления_позиции >= @DateStart and cass.t_fact_Детализация_чеков.Дата_добавления_позиции >= @DateEnd
+	where cass.t_fact_Детализация_чеков.Дата_добавления_позиции >= @DateStart and cass.t_fact_Детализация_чеков.Дата_добавления_позиции <= @DateEnd
 
 	-- Обновляем cass.t_fact_Скидки
 	update cass.t_fact_Скидки
