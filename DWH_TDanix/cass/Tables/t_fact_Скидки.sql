@@ -18,9 +18,9 @@
 	[Составной_код_позиции] [nvarchar](20) NOT NULL,
 	[Составной_код_кассира] [nvarchar](20) NOT NULL
     CONSTRAINT [FK_t_fact_Скидки_t_fact_Детализация_чеков] FOREIGN KEY ([Составной_код_позиции]) REFERENCES [cass].[t_fact_Детализация_чеков] ([Составной_код_позиции]) ON DELETE CASCADE, 
-    [Поставщик_холдинга] NVARCHAR(100) NULL, 
     [Важный_товар] BIT NULL, 
-    [Сценарий_важного_товара] INT NULL
+    [Сценарий_важного_товара] INT NULL,
+	[Поставщик_холдинга] bigint NULL
 ) ON [FACTS];
 
 

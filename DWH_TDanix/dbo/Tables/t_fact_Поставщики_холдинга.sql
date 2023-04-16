@@ -3,7 +3,7 @@
 	[Дата] date not null,
 	[Код_магазина] int not null,
 	[Код_товара] bigint not null,
-	[Поставщик_холдинга] NVARCHAR(100) null
+	[Поставщик_холдинга] bigint null
 ) on [FACTS]
 go
 
