@@ -10,9 +10,9 @@
     [СуммаЗакупа] DECIMAL(14, 2) NOT NULL,
     [СуммаЗакупаСоСклада] DECIMAL(14, 2) NOT NULL, 
     [Количество] DECIMAL(14, 3) NOT NULL, 
-    [Поставщик_холдинга] NVARCHAR(100) NULL, 
     [Важный_товар] BIT NULL, 
-    [Сценарий_важного_товара] INT NULL
+    [Сценарий_важного_товара] INT NULL,
+    [Поставщик_холдинга] bigint NULL
 )
 
 GO

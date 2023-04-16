@@ -566,6 +566,8 @@
     <Build Include="dbo\Views\v_fact_LFL.sql" />
     <Build Include="dbo\Stored Procedures\p_Формирование_таблицы_LFL.sql" />
     <Build Include="dbo\Stored Procedures\p_Загрузка_регистра_LFL_из_RSC.sql" />
+    <Build Include="dbo\Tables\t_fact_Условный_вес_единицы_изделия.sql" />
+    <Build Include="dbo\Stored Procedures\p_Условный_вес_единицы_изделия.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
