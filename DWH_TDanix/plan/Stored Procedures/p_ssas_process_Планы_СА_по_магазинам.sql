@@ -4,11 +4,22 @@ BEGIN
 	SET NOCOUNT ON;
 	SET DATEFIRST 1;
 
-	declare @command varchar(max), @currDate datetime, @lastDate date, @nextDate date;
+	declare @command nvarchar(max);
+	declare @currDate datetime, @prevDate datetime, @nextDate datetime;
+	declare @prevPartitionName nvarchar(10), @currPartitionName nvarchar(10), @nextPartitionName nvarchar(10);
 
 	set @currDate = getDate();
-	set @lastDate = dateadd(month, -1, @currDate);
-	set @nextDate = dateadd(month,  1, @currDate);
+	set @currDate = dateAdd(day, (datePart(dw, @currDate) - 1) * -1, @currDate);
+	set @currPartitionName = cast(datepart(year, @currDate) as nvarchar) + '_' + 
+	                         right('0' + cast(datepart(month, @currDate) as nvarchar), 2) ;
+
+	set @prevDate = dateAdd(day, -7, @currDate);
+	set @prevPartitionName = cast(datepart(year, @prevDate) as nvarchar) + '_' + 
+	                         right('0' + cast(datepart(month, @prevDate) as nvarchar), 2);
+
+	set @nextDate = dateAdd(day, 7, @currDate);
+	set @nextPartitionName = cast(datepart(year, @nextDate) as nvarchar) + '_' + 
+	                         right('0' + cast(datepart(month, @nextDate) as nvarchar), 2) ;
 
 	set @command = '
 <Batch xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
@@ -18,7 +29,7 @@ BEGIN
         <DatabaseID>Холдинг ТД Аникс</DatabaseID>
         <CubeID>Холдинг ТД Аникс</CubeID>
         <MeasureGroupID>v Fact Планы СА По Магазинам</MeasureGroupID>
-        <PartitionID>Планы_СА_по_магазинам_' + format(@currDate, 'yyyy') + '_' + format(@currDate, 'MM') + '</PartitionID>
+        <PartitionID>Планы_СА_по_магазинам_%prevPartitionName%</PartitionID>
 			</Object>
 				<Type>ProcessFull</Type>
 			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
@@ -28,7 +39,7 @@ BEGIN
         <DatabaseID>Холдинг ТД Аникс</DatabaseID>
         <CubeID>Холдинг ТД Аникс</CubeID>
         <MeasureGroupID>v Fact Планы СА По Магазинам</MeasureGroupID>
-        <PartitionID>Планы_СА_по_магазинам_' + format(@currDate, 'yyyy') + '_' + format(@lastDate, 'MM') + '</PartitionID>
+        <PartitionID>Планы_СА_по_магазинам_%currPartitionName%</PartitionID>
 			</Object>
 			<Type>ProcessFull</Type>
 			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
@@ -38,7 +49,7 @@ BEGIN
         <DatabaseID>Холдинг ТД Аникс</DatabaseID>
         <CubeID>Холдинг ТД Аникс</CubeID>
         <MeasureGroupID>v Fact Планы СА По Магазинам</MeasureGroupID>
-        <PartitionID>Планы_СА_по_магазинам_' + format(@currDate, 'yyyy') + '_' + format(@nextDate, 'MM') + '</PartitionID>
+        <PartitionID>Планы_СА_по_магазинам_%nextPartitionName%</PartitionID>
 			</Object>
 			<Type>ProcessFull</Type>
 			<WriteBackTableCreation>UseExisting</WriteBackTableCreation>
@@ -46,6 +57,10 @@ BEGIN
 	</Parallel>
 </Batch>
 ';
+	set @command = replace(@command, '%prevPartitionName%', @prevPartitionName);
+	set @command = replace(@command, '%currPartitionName%', @currPartitionName);
+	set @command = replace(@command, '%nextPartitionName%', @nextPartitionName);
+
 	print(
 		concat(
 			'Начинается выполнение SSAS команды на сервере SSAS_S19-OLAP. Текст команды: ', char(13), @command
