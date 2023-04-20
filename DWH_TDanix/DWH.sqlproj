@@ -568,6 +568,11 @@
     <Build Include="dbo\Stored Procedures\p_Загрузка_регистра_LFL_из_RSC.sql" />
     <Build Include="dbo\Tables\t_fact_Условный_вес_единицы_изделия.sql" />
     <Build Include="dbo\Stored Procedures\p_Условный_вес_единицы_изделия.sql" />
+    <Build Include="dbo\Stored Procedures\p_ssas_process_LFL.sql" />
+    <Build Include="rprt_cw\Stored Procedures\p_ssas_process_Распричинивание_потерь.sql" />
+    <Build Include="plan\Stored Procedures\p_ssas_process_Плановые_показатели_по_группам.sql" />
+    <Build Include="plan\Stored Procedures\p_ssas_process_Планы_СА_по_группам.sql" />
+    <Build Include="plan\Stored Procedures\p_ssas_process_Планы_СА_по_магазинам.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Security\DWH_rprt_cw_owner.sql" />
