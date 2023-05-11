@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{52753F13-D209-40FD-9FD9-0812D9F2B4A6}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{6698669C-6E04-4CDB-8799-B9B8F134627F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3320,7 +3320,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3861,7 +3861,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3910,7 +3910,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4690,7 +4690,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5250,7 +5250,7 @@ select * from @buff_остатки as Остатки</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -5292,7 +5292,7 @@ select * from @buff_остатки as Остатки</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6069,7 +6069,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6381,7 +6381,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -15291,7 +15291,7 @@ Left JOIN Свод_временный3 Свод (nolock) ON Свод.Дата = 
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы Увеличение средневных продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -15765,7 +15765,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Определение причин Этап 3 Приоритеты причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16171,7 +16171,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод временный 3"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16190,7 +16190,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_Временный1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16209,7 +16209,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_временный2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16228,7 +16228,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить строки из карты причин падения КПТ (ОТБОР ПО ДАТЕ)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -19586,7 +19586,7 @@ SELECT
 ,[Zakaz] Заказано
 ,[Correct] Корректировка
 FROM [rozn].[dbo].[CorrectAvtozakaz]
-WHERE [DateCorr]  between @dateN and @date</property>
+WHERE [DateCorr]  between @dateN and @date and correct&lt;zakaz</property>
                         <property
                           dataType="System.Int32"
                           description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
@@ -24332,7 +24332,7 @@ Left Join
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица">
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24340,7 +24340,7 @@ Left Join
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH">
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\s8-oalp-test ОТБРС_Матрица">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -25653,7 +25653,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка корректировок заказа (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка корректировок заказа (ОТБОР ПО ДАТЕ)\ОТБРС"
@@ -25685,9 +25685,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
