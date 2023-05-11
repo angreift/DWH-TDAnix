@@ -34,7 +34,8 @@ BEGIN
 		Наименование_Группы           varchar(55) not null,
 		Код_Подгруппы                 bigint      null,
 		Наименование_Подгруппы        varchar(55) null,
-		Торговый_зал				  bit         null
+		Торговый_зал				  bit         null,
+		Производитель				  varchar(60) null
 );
 	
 	-- 2. Загрузка из serv-term
@@ -65,8 +66,9 @@ BEGIN
 			Наименование_Группы,
 			Код_Подгруппы,
 			Наименование_Подгруппы,
-			Торговый_зал
-	)select distinct  
+			Торговый_зал,
+			Производитель
+	)select distinct 
 		Товары.CODE    as Код_товара,
 		
 		Менеджер.Descr  as Менеджер_группы, 
@@ -114,7 +116,8 @@ BEGIN
 				then Товары_3.DESCR
 				else NULL
 			end as varchar(55)) as Наименование_Подгруппы,
-			Товары.SP3095 as Торговый_зал
+			Товары.SP3095 as Торговый_зал,
+			Производители.DESCR as Производитель
 		from 
 			[Rozn].[rozn].[dbo].[SC11]   as Товары   (nolock)
 		left join 
@@ -148,6 +151,7 @@ BEGIN
 				and Группы.ismark=0 
 		left join
 			[Rozn].[rozn].[dbo].[SC5815] as Категории (nolock) on Категории.id=Группы.parentext
+		left join [Rozn].[rozn].[dbo].SC1337 Производители (nolock) on Производители.id=Товары.SP1343
 			where 
 			Товары.ISFOLDER = 2 and Товары.[PARENTID] is not null and cast(Товары.CODE as bigint) between 1 and     999999998;
 
@@ -187,7 +191,8 @@ BEGIN
 		dbo.t_dim_Товары.Код_Подгруппы                 = #dwh_temp_товары.Код_Подгруппы,
 		dbo.t_dim_Товары.Наименование_Подгруппы        = #dwh_temp_товары.Наименование_Подгруппы,
 		dbo.t_dim_Товары.Менеджер_группы			   = #dwh_temp_товары.Менеджер_группы,
-		dbo.t_dim_Товары.Торговый_зал				   = #dwh_temp_товары.Торговый_зал
+		dbo.t_dim_Товары.Торговый_зал				   = #dwh_temp_товары.Торговый_зал,
+		dbo.t_dim_Товары.Производитель				   = #dwh_temp_товары.Производитель
 	when 
 		not matched
 	then 
@@ -217,6 +222,7 @@ BEGIN
 			#dwh_temp_товары.Код_Подгруппы,
 			#dwh_temp_товары.Наименование_Подгруппы,
 			#dwh_temp_товары.Менеджер_группы,
-			#dwh_temp_товары.Торговый_зал
+			#dwh_temp_товары.Торговый_зал,
+			#dwh_temp_товары.Производитель
 		);
 END
