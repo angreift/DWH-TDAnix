@@ -1,4 +1,4 @@
-﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d16dbe08-78ed-4f0e-8016-1d6c915822a6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b4ea3c07-76b6-4529-9fbe-02271b3a9775" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DWH</ID>
   <Name>DWH</Name>
   <CreatedTimestamp>2022-09-05T03:41:58.303333Z</CreatedTimestamp>
@@ -27,7 +27,7 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="280" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="94264" scrolltop="35108" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="80" x="24712" y="17648" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="280" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="87028" scrolltop="45107" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="80" x="24712" y="17648" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -2401,8 +2401,8 @@
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>94264</DiagramViewPortLeft>
-            <DiagramViewPortTop>35108</DiagramViewPortTop>
+            <DiagramViewPortLeft>87028</DiagramViewPortLeft>
+            <DiagramViewPortTop>45107</DiagramViewPortTop>
             <DiagramBoundingLeft>0</DiagramBoundingLeft>
             <DiagramBoundingTop>0</DiagramBoundingTop>
             <DiagramZoom>80</DiagramZoom>
@@ -3813,7 +3813,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Производитель" msprop:DbColumnName="Производитель" msprop:design-time-name="b6a4be60-1fd7-43e8-a42e-00cdab4d94ed" minOccurs="0">
+                  <xs:element name="Производитель" msprop:design-time-name="b6a4be60-1fd7-43e8-a42e-00cdab4d94ed" msprop:DbColumnName="Производитель" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="60" />
@@ -4969,11 +4969,12 @@
                   </xs:element>
                   <xs:element name="Цена" msprop:design-time-name="a0b25a14-5d0b-4284-85a8-408c096f8bdd" msprop:DbColumnName="Цена" msprop:FriendlyName="Цена" type="xs:decimal" />
                   <xs:element name="Количество" msprop:design-time-name="4bfb1016-a048-4dae-a321-38cdefab800f" msprop:DbColumnName="Количество" msprop:FriendlyName="Количество" type="xs:decimal" />
-                  <xs:element name="Сумма" msprop:design-time-name="e3a9e9f1-466c-4568-b293-61f3bb3a5dfa" msprop:DbColumnName="Сумма" msprop:FriendlyName="Сумма" type="xs:decimal" />
                   <xs:element name="Количество_чеков" msprop:design-time-name="ce2be049-1e07-4dff-9c5c-9b983bb3542f" msprop:DbColumnName="Количество_чеков" msprop:FriendlyName="Количество_чеков" type="xs:int" />
                   <xs:element name="Поставщик_холдинга" msprop:design-time-name="3b3c044e-59f5-4e70-acb1-ac9686e70dab" msprop:DbColumnName="Поставщик_холдинга" type="xs:long" minOccurs="0" />
                   <xs:element name="Важный_товар" msprop:design-time-name="09b1f0bd-cbb7-4635-ba89-4945fbf5d749" msprop:DbColumnName="Важный_товар" type="xs:boolean" minOccurs="0" />
                   <xs:element name="Сценарий_важного_товара" msprop:design-time-name="ad4e9a4e-70b6-4f5a-86ed-96f9e8566566" msprop:DbColumnName="Сценарий_важного_товара" type="xs:int" minOccurs="0" />
+                  <xs:element name="Сумма_без_скидки" msprop:DbColumnName="Сумма_без_скидки" msprop:design-time-name="06b1bccb-5b3a-4684-aa5d-0b5c2cece7e3" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Сумма_со_скидкой" msprop:DbColumnName="Сумма_со_скидкой" msprop:design-time-name="750cf136-750c-4855-9c5b-e4c83b56627e" type="xs:decimal" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
