@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\kma1860"
   DTS:DTSID="{5F04560D-A468-44A5-A84A-8359F5C6CE51}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="1049"
   DTS:ObjectName="1822"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{F50542C5-DE28-411E-8D63-9E441AEFEBBA}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{2B9A9A80-EDE7-44EF-9B92-B6CBF9DC1275}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -98,7 +98,7 @@
                   description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select Товары.Кодзоныотгрузки,
 	cast(dateadd(day, -1, getdate()) as date) Дата,
 	Товары.КодТовара, 
 	Остатки.Остаток, 
@@ -111,28 +111,28 @@
 	case when Продажи.Продажи is null or Продажи.Продажи = 0 then null else cast( Переоценка.СуммаПереоценки / Продажи.Продажи * 100 as numeric(18,3)) end ПереоценкаПроц
 	from
 ( --Список товаров из всех источников, отображаем минимальную инфу, которую удалось получить
-select distinct КодТовара from [1822_avg_bal]
+select distinct КодЗоныОтгрузки,КодТовара from [1822_avg_bal]
 union
-select distinct КодТовара from [1822_avg_sales]
+select distinct КодЗоныОтгрузки,КодТовара from [1822_avg_sales]
 union
-select distinct КодТовара from [1822_balance_value]
+select distinct КодЗоныОтгрузки,КодТовара from [1822_balance_value]
 union
-select distinct КодТовара from [1822_sales]
+select distinct КодЗоныОтгрузки,КодТовара from [1822_sales]
 union
-select distinct КодТовара from [1822_sum_loses] 
+select distinct КодЗоныОтгрузки,КодТовара from [1822_sum_loses] 
 union
-select distinct КодТовара from [1822_sum_reval] 
+select distinct КодЗоныОтгрузки,КодТовара from [1822_sum_reval] 
 union
-select distinct КодТовара from [1822_balance]
+select distinct КодЗоныОтгрузки,КодТовара from [1822_balance]
 ) Товары
 
-left join [1822_balance] Остатки on Товары.КодТовара = Остатки.КодТовара
-left join [1822_balance_value] ОстаткиРуб on Товары.КодТовара = ОстаткиРуб.КодТовара
-left join [1822_avg_bal] СредниеОстатки on Товары.КодТовара = СредниеОстатки.КодТовара
-left join [1822_avg_sales] СредниеПродажи on Товары.КодТовара = СредниеПродажи.КодТовара
-left join [1822_sum_loses] Потери on Товары.КодТовара = Потери.КодТовара
-left join [1822_sales] Продажи on Товары.КодТовара = Продажи.КодТовара
-left join [1822_sum_reval] Переоценка on Товары.КодТовара = Переоценка.КодТовара
+left join [1822_balance] Остатки on Товары.КодТовара = Остатки.КодТовара and Товары.КодЗоныОтгрузки=Остатки.КодЗоныОтгрузки
+left join [1822_balance_value] ОстаткиРуб on Товары.КодТовара = ОстаткиРуб.КодТовара and Товары.КодЗоныОтгрузки=ОстаткиРуб.КодЗоныОтгрузки
+left join [1822_avg_bal] СредниеОстатки on Товары.КодТовара = СредниеОстатки.КодТовара and Товары.КодЗоныОтгрузки=СредниеОстатки.КодЗоныОтгрузки
+left join [1822_avg_sales] СредниеПродажи on Товары.КодТовара = СредниеПродажи.КодТовара and Товары.КодЗоныОтгрузки=СредниеПродажи.КодЗоныОтгрузки
+left join [1822_sum_loses] Потери on Товары.КодТовара = Потери.КодТовара and Товары.КодЗоныОтгрузки=Потери.КодЗоныОтгрузки
+left join [1822_sales] Продажи on Товары.КодТовара = Продажи.КодТовара and Товары.КодЗоныОтгрузки=Продажи.КодЗоныОтгрузки
+left join [1822_sum_reval] Переоценка on Товары.КодТовара = Переоценка.КодТовара and Переоценка.КодЗоныОтгрузки=Остатки.КодЗоныОтгрузки
 
 where Товары.КодТовара &gt; 0</property>
                 <property
@@ -171,6 +171,15 @@ where Товары.КодТовара &gt; 0</property>
                   refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET]"
                   name="Вывод источника ADO NET">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].Columns[Кодзоныотгрузки]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].ExternalColumns[Кодзоныотгрузки]"
+                      lineageId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].Columns[Кодзоныотгрузки]"
+                      name="Кодзоныотгрузки"
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].Columns[Дата]"
                       dataType="dbDate"
@@ -270,6 +279,10 @@ where Товары.КодТовара &gt; 0</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
+                      refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].ExternalColumns[Кодзоныотгрузки]"
+                      dataType="ui1"
+                      name="Кодзоныотгрузки" />
+                    <externalMetadataColumn
                       refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].ExternalColumns[Дата]"
                       dataType="dbDate"
                       name="Дата" />
@@ -326,6 +339,11 @@ where Товары.КодТовара &gt; 0</property>
                   isErrorOut="true"
                   name="Вывод ошибок источника ADO NET">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод ошибок источника ADO NET].Columns[Кодзоныотгрузки]"
+                      dataType="ui1"
+                      lineageId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод ошибок источника ADO NET].Columns[Кодзоныотгрузки]"
+                      name="Кодзоныотгрузки" />
                     <outputColumn
                       refId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод ошибок источника ADO NET].Columns[Дата]"
                       dataType="dbDate"
@@ -452,6 +470,12 @@ where Товары.КодТовара &gt; 0</property>
                   name="Вход назначения ADO NET">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Загрузка фактов\Факт.Inputs[Вход назначения ADO NET].Columns[Кодзоныотгрузки]"
+                      cachedDataType="ui1"
+                      cachedName="Кодзоныотгрузки"
+                      externalMetadataColumnId="Package\Загрузка фактов\Факт.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                      lineageId="Package\Загрузка фактов\Сбор данных.Outputs[Вывод источника ADO NET].Columns[Кодзоныотгрузки]" />
+                    <inputColumn
                       refId="Package\Загрузка фактов\Факт.Inputs[Вход назначения ADO NET].Columns[Дата]"
                       cachedDataType="dbDate"
                       cachedName="Дата"
@@ -572,6 +596,10 @@ where Товары.КодТовара &gt; 0</property>
                       name="ПереоценкаПроц"
                       precision="18"
                       scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Загрузка фактов\Факт.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                      dataType="ui1"
+                      name="КодЗоныОтгрузки" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -659,7 +687,7 @@ where Товары.КодТовара &gt; 0</property>
                           description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT КодЗоныОтгрузки,
 	Остатки.Код,
 	sum(Остатки.Остаток) Остаток
 FROM (
@@ -671,6 +699,7 @@ FROM (
 		Остаток as Остаток
 	FROM [td].[f_Срез_остатков_на_дату](cast(dateadd(day, -1, getdate()) as date)) as Остатки
   ) as Остатки
+  join dbo.v_dim_Магазины mag on mag.Код=Остатки.КодМагазина
 where КодМагазина in (
 		SELECT [Код]
 		FROM [DWH].[dbo].[t_dim_Магазины]
@@ -678,7 +707,7 @@ where КодМагазина in (
 			and Дата_открытия &lt; GETDATE()
 			and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
 	)
-group by Код</property>
+group by Остатки.Код, КодЗоныОтгрузки</property>
                         <property
                           dataType="System.Int32"
                           description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
@@ -716,6 +745,15 @@ group by Код</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[Код]"
                               dataType="i8"
                               errorOrTruncationOperation="Преобразование"
@@ -739,6 +777,10 @@ group by Код</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[Код]"
                               dataType="i8"
                               name="Код" />
@@ -755,6 +797,11 @@ group by Код</property>
                           isErrorOut="true"
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
+                            <outputColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
                             <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[Код]"
                               dataType="i8"
@@ -834,6 +881,12 @@ group by Код</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Остаток]"
                               cachedDataType="numeric"
                               cachedName="Остаток"
@@ -860,6 +913,10 @@ group by Код</property>
                               name="Остаток"
                               precision="18"
                               scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -927,94 +984,18 @@ group by Код</property>
                           description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @StartDate DATE, @EndDate DATE, @Дата DATE
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @StartDate DATE, @EndDate DATE
 SET @StartDate = dateadd(day, -14, getdate())
 SET @EndDate = dateadd(day, -1, getdate())
-set @Дата = @StartDate
 
-declare @buff_остатки_на_периуд table (
-	Дата    date              not null,
-	Код_магазина     int      not null,
-	Код_склада_в_магазине int not null,
-	Код_товара int            not null,
-	Остаток numeric(18, 3)    not null
-);
+select КодЗоныОтгрузки, код_товара, avg(остаток) остаток
+from td.f_Срез_остатков_на_период (@StartDate,@EndDate) o
+		 join dbo.v_dim_Магазины as Магазины on Магазины.Код = o.Код_магазина
 
-declare @tmp_1822_Остатки table (
-	Дата    date           NOT NULL,
-	Код     int            NOT NULL,
-	Остаток numeric(18, 3) NOT NULL
-);
-
-while @Дата &lt;= @EndDate begin
-	insert into
-		@buff_остатки_на_периуд
-	select 
-		Дата, Код_магазина, Код_склада_в_магазине, Код_товара, Остаток
-	from (
-		select 
-			@Дата Дата,
-			Код_магазина,
-			Код_склада_в_магазине,
-			Код_товара, 
-			sum(Остаток) Остаток
-		from (
-			select
-				ib_f.Код_магазина,
-				ib_f.Код_склада_в_магазине,
-				ib_f.Код_товара,
-				ib.Остаток
-			from td.t_fact_Начальные_остатки ib
-			right join (
-				select
-					max(ib_f.Дата) Дата,
-					ib_f.Код_Товара,
-					ib_f.Код_магазина,
-					ib_f.Код_склада_в_магазине
-				from
-					td.t_fact_Начальные_остатки ib_f
-				where
-					ib_f.Дата = dateadd(day, -1, dateFromParts(year(@Дата), month(@Дата), 1))
-				group by 
-					ib_f.Код_товара, ib_f.Код_магазина, ib_f.Код_склада_в_магазине
-				) ib_f on ib.Дата = ib_f.Дата and ib.Код_товара = ib_f.Код_товара and ib.Код_магазина = ib_f.Код_магазина and ib.Код_склада_в_магазине = ib_f.Код_склада_в_магазине
-			) о
-		left join dbo.t_dim_Магазины as Магазины on Магазины.Код = о.Код_магазина
-
-		where Код_магазина in (
-			SELECT [Код]
-			FROM [DWH].[dbo].[t_dim_Магазины]
-			where Группа = 'Розница                                 '
+		where Группа = 'Розница'
 				and Дата_открытия &lt; GETDATE()
 				and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
-		) and Код_магазина &gt; 0
-
-		group by Код_магазина, Код_склада_в_магазине, Код_товара
-	) о;
-	set @Дата = dateAdd(day, 1, @Дата);
-End
-
-insert into @tmp_1822_Остатки
-SELECT
-	Остатки.Дата,
-	Остатки.Код_товара as Код,
-	sum(Остатки.Остаток) Остаток
-FROM @buff_остатки_на_периуд as Остатки
-group by Остатки.Дата, Остатки.Код_товара
-
-
-Select
-	К.Код,
-	avg(о.остаток) as остаток
-from (
-	SELECT DATEADD(DAY,number,@StartDate) [Date]
-	FROM master..spt_values
-	WHERE type = 'P'
-	AND DATEADD(DAY,number,@StartDate) &lt;= @EndDate
-) calendar
-cross join (select distinct Код from @tmp_1822_Остатки) к
-left join @tmp_1822_Остатки о on Date = о.Дата and к.код = о.код
-group by к.Код</property>
+		group by КодЗоныОтгрузки, Код_товара</property>
                         <property
                           dataType="System.Int32"
                           description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
@@ -1052,13 +1033,22 @@ group by к.Код</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[Код]"
-                              dataType="i4"
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
                               errorOrTruncationOperation="Преобразование"
                               errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[Код]"
-                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[Код]"
-                              name="Код"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[код_товара]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[код_товара]"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[код_товара]"
+                              name="код_товара"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[остаток]"
@@ -1075,9 +1065,13 @@ group by к.Код</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
-                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[Код]"
-                              dataType="i4"
-                              name="Код" />
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[код_товара]"
+                              dataType="i8"
+                              name="код_товара" />
                             <externalMetadataColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[остаток]"
                               dataType="numeric"
@@ -1092,10 +1086,15 @@ group by к.Код</property>
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[Код]"
-                              dataType="i4"
-                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[Код]"
-                              name="Код" />
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
+                            <outputColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[код_товара]"
+                              dataType="i8"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[код_товара]"
+                              name="код_товара" />
                             <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[остаток]"
                               dataType="numeric"
@@ -1170,6 +1169,12 @@ group by к.Код</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[остаток]"
                               cachedDataType="numeric"
                               cachedName="остаток"
@@ -1178,11 +1183,11 @@ group by к.Код</property>
                               externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[Остаток]"
                               lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[остаток]" />
                             <inputColumn
-                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Код]"
-                              cachedDataType="i4"
-                              cachedName="Код"
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].Columns[код_товара]"
+                              cachedDataType="i8"
+                              cachedName="код_товара"
                               externalMetadataColumnId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодТовара]"
-                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[Код]" />
+                              lineageId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[код_товара]" />
                           </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -1196,6 +1201,10 @@ group by к.Код</property>
                               name="Остаток"
                               precision="18"
                               scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка средних остатков из DWH\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -1347,7 +1356,7 @@ where Группа = 'Розница                                 ' and
 	  Дата_открытия &lt; GETDATE() and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
 
 
-select 
+select КодЗоныОтгрузки,
 	Остатки.Код_товара as КодТовара,
 	sum(Остатки.ОстатокРуб) as ОстатокРуб
 from 
@@ -1380,7 +1389,8 @@ where
 	товародвиж.Дата &gt; @startdate and 
 	товародвиж.Дата &lt;= @enddate
 group by Код_магазина, Код_товара) as Остатки
-group by Остатки.Код_товара</property>
+join dbo.v_dim_Магазины mag on mag.Код = Остатки.Код_магазина
+group by Остатки.Код_товара,КодЗоныОтгрузки</property>
                         <property
                           dataType="System.Int32"
                           description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
@@ -1418,6 +1428,15 @@ group by Остатки.Код_товара</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
+                              refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
                               dataType="i8"
                               errorOrTruncationOperation="Преобразование"
@@ -1441,6 +1460,10 @@ group by Остатки.Код_товара</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
                               dataType="i8"
                               name="КодТовара" />
@@ -1457,6 +1480,11 @@ group by Остатки.Код_товара</property>
                           isErrorOut="true"
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
+                            <outputColumn
+                              refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
                             <outputColumn
                               refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
                               dataType="i8"
@@ -1536,6 +1564,12 @@ group by Остатки.Код_товара</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].Columns[КодТовара]"
                               cachedDataType="i8"
                               cachedName="КодТовара"
@@ -1562,6 +1596,10 @@ group by Остатки.Код_товара</property>
                               name="Стоимость"
                               precision="18"
                               scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Остатки на основе товародвижения\Загрузка стоимости остатков из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -1705,6 +1743,13 @@ group by Остатки.Код_товара</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\s19-stroage-sql.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="numeric"
+                              cachedName="КодЗоныОтгрузки"
+                              cachedPrecision="2"
+                              externalMetadataColumnId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\s19-stroage-sql.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\s19-stroage-sql.Inputs[Вход назначения ADO NET].Columns[КодТовара]"
                               cachedDataType="wstr"
                               cachedLength="10"
@@ -1732,6 +1777,10 @@ group by Остатки.Код_товара</property>
                               name="СуммаПереоценки"
                               precision="18"
                               scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\s19-stroage-sql.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -1782,11 +1831,11 @@ set @curDate = dateAdd(day, -1, getdate());
 set @dateStart = CAST(DATEPART(YEAR, @curDate ) AS CHAR(4)) + RIGHT('0' + LTRIM(RTRIM(CAST(DATEPART(MONTH, @curDate ) AS CHAR(2)))), 2) + RIGHT('0' + LTRIM(RTRIM(CAST(DATEPART(DAY, @curDate ) AS CHAR(2)))), 2);
 set @dateEnd   = CAST(DATEPART(YEAR, @curDate ) AS CHAR(4)) + RIGHT('0' + LTRIM(RTRIM(CAST(DATEPART(MONTH, @curDate ) AS CHAR(2)))), 2) + RIGHT('0' + LTRIM(RTRIM(CAST(DATEPART(DAY, @curDate ) AS CHAR(2)))), 2) + 'Z';
 
-select
+select КодЗоныОтгрузки,
 КодТовара,
 cast(sum(СуммаРазницы) as numeric(18,2)) as СуммаПереоценки
 from (
-SELECT
+SELECT  СпрКлиенты.SP2435 КодЗоныОтгрузки,
     СпрТов.Code КодТовара,
     SUM(ДокС.sp5382 * -1) as СуммаРазницы
 FROM
@@ -1795,15 +1844,17 @@ INNER JOIN
     dh5384 as Док ON Док.IDDoc = ДокС.IDDoc AND
                                   Док.sp5375 in ('    1B   ', '    1Q   ') AND
 												Док.sp5389 in (select id from sc36 СпрКлиенты (nolock) where СпрКлиенты.parentid = '     1   ' and СпрКлиенты.SP2843 &lt; getdate() and (СпрКлиенты.SP4571 is null or СпрКлиенты.SP4571 &lt; getdate()))
+INNER JOIN sc36 as СпрКлиенты (nolock) on СпрКлиенты.id=Док.sp5389
 INNER JOIN
     _1SJourn as Жур (nolock) ON Жур.IDDoc = ДокС.IDDoc And
                        Жур.Date_Time_IDDoc BETWEEN @dateStart AND @dateEnd AND
                        Жур.Closed &amp; 1 = 1
 left join sc11 СпрТов (nolock) on ДокС.sp5378 = СпрТов.ID 
 GROUP BY
-    СпрТов.Code
+    СпрТов.Code,
+	СпрКлиенты.SP2435
 union all
-SELECT
+SELECT СпрКлиенты.SP2435 КодЗоныОтгрузки,
     СпрТов.Code КодТовара,
     SUM(ДокС1.sp5872 * ДокС1.sp5864 * ДокС1.sp5862 / 100) as СуммаРазницы
 FROM
@@ -1811,15 +1862,16 @@ FROM
 INNER JOIN
     dh5866 as Док1 ON Док1.IDDoc = ДокС1.IDDoc AND
 												Док1.sp5858 in (select id from sc36 СпрКлиенты (nolock) where СпрКлиенты.parentid = '     1   ' and СпрКлиенты.SP2843 &lt; getdate() and (СпрКлиенты.SP4571 is null or СпрКлиенты.SP4571 &lt; getdate()))
-INNER JOIN
-    _1SJourn as Жур (nolock) ON Жур.IDDoc = ДокС1.IDDoc And
+INNER JOIN sc36 as СпрКлиенты (nolock) on СпрКлиенты.id=Док1.sp5858
+ inner join   _1SJourn as Жур (nolock) ON Жур.IDDoc = ДокС1.IDDoc And
                        Жур.Date_Time_IDDoc BETWEEN @dateStart AND @dateEnd
 left join sc11 СпрТов (nolock) on ДокС1.sp5859 = СпрТов.ID 
 GROUP BY
     СпрТов.Code
+	,СпрКлиенты.SP2435
 ) a
 where КодТовара is not null
-group by КодТовара</property>
+group by КодТовара,КодЗоныОтгрузки</property>
                         <property
                           dataType="System.Int32"
                           description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
@@ -1857,6 +1909,16 @@ group by КодТовара</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
+                              refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              precision="2"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
                               dataType="wstr"
                               errorOrTruncationOperation="Преобразование"
@@ -1881,6 +1943,11 @@ group by КодТовара</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="numeric"
+                              name="КодЗоныОтгрузки"
+                              precision="2" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
                               dataType="wstr"
                               length="10"
@@ -1898,6 +1965,12 @@ group by КодТовара</property>
                           isErrorOut="true"
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
+                            <outputColumn
+                              refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="numeric"
+                              lineageId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              precision="2" />
                             <outputColumn
                               refId="Package\Подготовка данных\Переоценка\Загрузка суммы переоценки из ОТБРС\ОТБРС.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
                               dataType="wstr"
@@ -2011,10 +2084,11 @@ group by КодТовара</property>
 set @curdate = dateadd(day, -1, getdate());
 
 
-SELECT 
+SELECT КодЗоныОтгрузки,
 	Товародвижение.Код_товара as КодТовара,
 	sum(Товародвижение.Сумма * -1) as Сумма
 FROM DWH.td.t_fact_Товародвижение as Товародвижение
+join dbo.v_dim_Магазины mag on mag.Код=Товародвижение.Код_магазина
 where 
 	Товародвижение.Дата = @curdate and 
 	Товародвижение.Код_причины in (19, 17, 42, 70, 175, 39, 10, 21, 143, 26, 12, 32, 13, 9, 81) and 
@@ -2025,7 +2099,7 @@ where
 			and Дата_открытия &lt; GETDATE()
 			and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
 	)
-group by Товародвижение.Код_товара
+group by Товародвижение.Код_товара,КодЗоныОтгрузки
 order by Товародвижение.Код_товара</property>
                         <property
                           dataType="System.Int32"
@@ -2064,6 +2138,15 @@ order by Товародвижение.Код_товара</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
+                              refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
                               dataType="i8"
                               errorOrTruncationOperation="Преобразование"
@@ -2087,6 +2170,10 @@ order by Товародвижение.Код_товара</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
                               dataType="i8"
                               name="КодТовара" />
@@ -2103,6 +2190,11 @@ order by Товародвижение.Код_товара</property>
                           isErrorOut="true"
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
+                            <outputColumn
+                              refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
                             <outputColumn
                               refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
                               dataType="i8"
@@ -2182,6 +2274,12 @@ order by Товародвижение.Код_товара</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].Columns[КодТовара]"
                               cachedDataType="i8"
                               cachedName="КодТовара"
@@ -2208,6 +2306,10 @@ order by Товародвижение.Код_товара</property>
                               name="СуммаПотерь"
                               precision="18"
                               scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Потери\Загрузка суммы потерь из DWH\s19-storage-sql.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -2315,11 +2417,12 @@ order by Товародвижение.Код_товара</property>
                           description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
                           expressionType="Notify"
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT КодЗоныОтгрузки,
 	Продажи.Код_товара as GOODS_ID,
 	sum(Продажи.Итоговая_сумма_после_применения_скидок) as Продажи
-FROM [DWH].[cass].[t_fact_Детализация_чеков] as Продажи
+FROM [DWH].[cass].[v_fact_Детализация_чеков] as Продажи
 left join [DWH].[cass].[t_dim_Кассы] as Кассы on Кассы.Код_кассы = Продажи.Код_кассы
+join dbo.v_dim_Магазины mag on mag.Код=Продажи.Код_магазина
 where 
 	Продажи.Дата_добавления_позиции between cast(DATEADD(DAY, -1, GETDATE()) AS date) and CAST(GETDATE() as date) and 
 	Кассы.Код_магазина in (
@@ -2329,7 +2432,7 @@ where
 			and Дата_открытия &lt; GETDATE()
 			and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
 	)
-group by Продажи.Код_товара</property>
+group by Продажи.Код_товара, КодЗоныОтгрузки</property>
                         <property
                           dataType="System.Int32"
                           description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
@@ -2367,6 +2470,15 @@ group by Продажи.Код_товара</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].Columns[GOODS_ID]"
                               dataType="i8"
                               errorOrTruncationOperation="Преобразование"
@@ -2390,6 +2502,10 @@ group by Продажи.Код_товара</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[GOODS_ID]"
                               dataType="i8"
                               name="GOODS_ID" />
@@ -2406,6 +2522,11 @@ group by Продажи.Код_товара</property>
                           isErrorOut="true"
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
+                            <outputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
                             <outputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[GOODS_ID]"
                               dataType="i8"
@@ -2485,6 +2606,12 @@ group by Продажи.Код_товара</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\ERP_reports.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Продажи]"
                               cachedDataType="numeric"
                               cachedName="Продажи"
@@ -2511,6 +2638,10 @@ group by Продажи.Код_товара</property>
                               name="Продажи"
                               precision="18"
                               scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка дневных продаж\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -2583,10 +2714,12 @@ SET @StartDate = dateadd(day, -14, getdate())
 SET @EndDate = GETDATE()
 SELECT 
 	Продажи.Дата_добавления_позиции as Дата,
+	КодЗоныОтгрузки,
 	Продажи.Код_товара as GOODS_ID,
 	sum(Продажи.Количество) as Продажи
-FROM [DWH].[cass].[t_fact_Детализация_чеков] as Продажи
+FROM [DWH].[cass].[v_fact_Детализация_чеков] as Продажи
 left join [DWH].[cass].[t_dim_Кассы] as Кассы on Кассы.Код_кассы = Продажи.Код_кассы
+join dbo.v_dim_Магазины mag on mag.Код=Продажи.Код_магазина
 where 
 	Продажи.Дата_добавления_позиции between @StartDate and @EndDate and 
 	Кассы.Код_магазина in (
@@ -2596,7 +2729,7 @@ where
 			and Дата_открытия &lt; GETDATE()
 			and (Дата_конца_реконструкции is null or Дата_конца_реконструкции &lt; GETDATE())
 	)
-group by Продажи.Дата_добавления_позиции, Продажи.Код_товара</property>
+group by Продажи.Дата_добавления_позиции, Продажи.Код_товара, КодЗоныОтгрузки</property>
                         <property
                           dataType="System.Int32"
                           description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
@@ -2643,6 +2776,15 @@ group by Продажи.Дата_добавления_позиции, Прода
                               name="Дата"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[GOODS_ID]"
                               dataType="i8"
                               errorOrTruncationOperation="Преобразование"
@@ -2670,6 +2812,10 @@ group by Продажи.Дата_добавления_позиции, Прода
                               dataType="dbDate"
                               name="Дата" />
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].ExternalColumns[GOODS_ID]"
                               dataType="i8"
                               name="GOODS_ID" />
@@ -2691,6 +2837,11 @@ group by Продажи.Дата_добавления_позиции, Прода
                               dataType="dbDate"
                               lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[Дата]"
                               name="Дата" />
+                            <outputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
                             <outputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод ошибок источника ADO NET].Columns[GOODS_ID]"
                               dataType="i8"
@@ -2770,6 +2921,18 @@ group by Продажи.Дата_добавления_позиции, Прода
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Дата]"
+                              cachedDataType="dbDate"
+                              cachedName="Дата"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[Дата]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[Дата]" />
+                            <inputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Продажи]"
                               cachedDataType="numeric"
                               cachedName="Продажи"
@@ -2783,12 +2946,6 @@ group by Продажи.Дата_добавления_позиции, Прода
                               cachedName="GOODS_ID"
                               externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодТоварв]"
                               lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[GOODS_ID]" />
-                            <inputColumn
-                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].Columns[Дата]"
-                              cachedDataType="dbDate"
-                              cachedName="Дата"
-                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[Дата]"
-                              lineageId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\DWH.Outputs[Вывод источника ADO NET].Columns[Дата]" />
                           </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -2806,6 +2963,10 @@ group by Продажи.Дата_добавления_позиции, Прода
                               name="Продажи"
                               precision="18"
                               scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Загрузка продаж за 14 дней для расчета средних\ERP_reports.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -2876,14 +3037,14 @@ group by Продажи.Дата_добавления_позиции, Прода
                           UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @StartDate DATE, @EndDate DATE
 SET @StartDate = dateadd(day, -14, getdate())
 SET @EndDate = dateadd(day, -1, getdate())
-Select К.КодТоварв, avg(case when о.Продажи is null then 0 else о.Продажи end) Продажи from (
+Select к.КодЗоныОтгрузки, К.КодТоварв, avg(case when о.Продажи is null then 0 else о.Продажи end) Продажи from (
 SELECT DATEADD(DAY,number,@StartDate) [Date]
 FROM master..spt_values
 WHERE type = 'P'
 AND DATEADD(DAY,number,@StartDate) &lt;= @EndDate) calendar
-cross join (select distinct КодТоварв from [dbo].[1822_tmp_sales]) к
+cross join (select distinct КодЗоныОтгрузки,КодТоварв from [dbo].[1822_tmp_sales]) к
 left join [dbo].[1822_tmp_sales] о on Date = о.Дата and к.КодТоварв = о.КодТоварв
-group by к.КодТоварв
+group by к.КодТоварв,к.КодзоныОтгрузки
 order by КодТоварв</property>
                         <property
                           dataType="System.Int32"
@@ -2922,6 +3083,15 @@ order by КодТоварв</property>
                           name="Вывод источника ADO NET">
                           <outputColumns>
                             <outputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].Columns[КодТоварв]"
                               dataType="i8"
                               errorOrTruncationOperation="Преобразование"
@@ -2945,6 +3115,10 @@ order by КодТоварв</property>
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
+                            <externalMetadataColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].ExternalColumns[КодТоварв]"
                               dataType="i8"
                               name="КодТоварв" />
@@ -2961,6 +3135,11 @@ order by КодТоварв</property>
                           isErrorOut="true"
                           name="Вывод ошибок источника ADO NET">
                           <outputColumns>
+                            <outputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод ошибок источника ADO NET].Columns[КодЗоныОтгрузки]"
+                              name="КодЗоныОтгрузки" />
                             <outputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод ошибок источника ADO NET].Columns[КодТоварв]"
                               dataType="i8"
@@ -3040,6 +3219,12 @@ order by КодТоварв</property>
                           name="Вход назначения ADO NET">
                           <inputColumns>
                             <inputColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Средние продажи.Inputs[Вход назначения ADO NET].Columns[КодЗоныОтгрузки]"
+                              cachedDataType="ui1"
+                              cachedName="КодЗоныОтгрузки"
+                              externalMetadataColumnId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Средние продажи.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              lineageId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица.Outputs[Вывод источника ADO NET].Columns[КодЗоныОтгрузки]" />
+                            <inputColumn
                               refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Средние продажи.Inputs[Вход назначения ADO NET].Columns[Продажи]"
                               cachedDataType="numeric"
                               cachedName="Продажи"
@@ -3066,6 +3251,10 @@ order by КодТоварв</property>
                               name="Продажи"
                               precision="18"
                               scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Средние продажи.Inputs[Вход назначения ADO NET].ExternalColumns[КодЗоныОтгрузки]"
+                              dataType="ui1"
+                              name="КодЗоныОтгрузки" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -3209,12 +3398,12 @@ order by КодТоварв</property>
       DTS:To="Package\Загрузка фактов" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
-<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
-<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -3615,6 +3804,14 @@ order by КодТоварв</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Загрузка фактов\Сбор данных">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Подготовка данных\Остатки на основе среза из DWH\Загрузка остатков из DWH">
     <LayoutInfo>
@@ -4059,5 +4256,13 @@ order by КодТоварв</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Подготовка данных\Продажи из DWH\Определение средних продаж за 14 дней\Временная таблица">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
