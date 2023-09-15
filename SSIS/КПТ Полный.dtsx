@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ по причинам"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="116"
-  DTS:VersionGUID="{D65C063A-CCBC-4FFA-B09F-71B42593EBD6}">
+  DTS:VersionBuild="122"
+  DTS:VersionGUID="{460BABEA-9BF3-4DD1-9E89-C35F70B70D47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -1761,7 +1761,7 @@ left join
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы RSC_Приход"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -2849,7 +2849,7 @@ where  dateadd(yyyy,-2000,   РегистрНТ._Period) between @dateN and @dat
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы RSC Незаказанный товар по причинам"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3269,7 +3269,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Статусы не заказывать"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3320,7 +3320,7 @@ and ЗаказПоставщикуСтроки._Fld2983&gt;0</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3861,7 +3861,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="7">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3910,7 +3910,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="8">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4053,7 +4053,7 @@ c1721_vv.objid = спрТоварМатрица.ID and
 (c1721_vv.date &lt;= @date)
 order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
 ) IN ('2','3','4','6','9') -- Имеет признак действующего ассортимента
-	and(
+		and(
 		(
 select top 1
 cast(c1721_vv.value as numeric(1, 0))
@@ -4064,7 +4064,7 @@ c1721_vv.id = 1721 and
 c1721_vv.objid = спрТоварМатрица.ID and
 (c1721_vv.date &lt;= @date2N)
 order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
-) IN ('2','3','4','6','9') and спрМагазины.SP2843&lt; @date2N)
+) IN ('2','3','4','6','9') )
   -- Имел признак действующего ассортимента 2 недели назад
 ) mdata
 cross join dbo.GetTblDate(@dateN, @date) Календарь
@@ -5344,7 +5344,7 @@ select * from @buff_остатки as Остатки</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы остатков"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="8">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6163,7 +6163,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="10">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6475,7 +6475,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="10">
+                  DTS:ThreadHint="7">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -9841,7 +9841,7 @@ WHERE
           DTS:LocaleID="-1"
           DTS:ObjectName="Удалить свод за период"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -15385,7 +15385,7 @@ Left JOIN Свод_временный3 Свод (nolock) ON Свод.Дата = 
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблицы Увеличение средневных продаж"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -15859,7 +15859,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Определение причин Этап 3 Приоритеты причин"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -16303,7 +16303,7 @@ and КодПоставщика &lt;&gt; 8793
           DTS:LocaleID="-1"
           DTS:ObjectName="Очистка таблицы Свод_временный2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -20859,7 +20859,7 @@ WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate)
 WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)
 END
 
-set @dateN = dateadd(dd, -60, @date)
+set @dateN = dateadd(dd, -90, @date)
 
 select
 	Журнал.DocNo НомерДокумента,
@@ -22794,23 +22794,35 @@ Left Join
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\s8-oalp-test Очистка таблицы ОТБРС_Матрица"
           TopLeft="7,5.5" />
         <NodeLayout
-          Size="193,44"
+          Size="298,42"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)"
           TopLeft="6.75,81.792452830189" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка матрицы.PrecedenceConstraints[Constraint]"
-          TopLeft="103.125,56.5">
+          TopLeft="103,56.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.292452830189"
+              EndConnector="52.75,25.292452830189"
               Start="0,0"
-              End="0,17.792452830189">
+              End="52.75,17.792452830189">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.792452830189" />
+                    End="0,8.6462264150945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.6462264150945"
+                    Point2="0,12.6462264150945"
+                    Point3="4,12.6462264150945" />
+                  <mssgle:LineSegment
+                    End="48.75,12.6462264150945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.75,12.6462264150945"
+                    Point2="52.75,12.6462264150945"
+                    Point3="52.75,16.6462264150945" />
+                  <mssgle:LineSegment
+                    End="52.75,17.792452830189" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22822,8 +22834,8 @@ Left Join
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="213,140"
-          Size="213,183"
+          PanelSize="310,179"
+          Size="310,222"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы"
           TopLeft="270,6.25" />
         <NodeLayout
@@ -23295,8 +23307,8 @@ Left Join
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="533,393"
-          Size="533,436"
+          PanelSize="533,434"
+          Size="533,477"
           Id="Package\КПТ по причинам (определение причин)\Определение причин"
           TopLeft="33.925052410902,220.194444444444" />
         <NodeLayout
@@ -23399,26 +23411,26 @@ Left Join
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="135.596436058701,23.8647798742136"
+              EndConnector="135.596436058701,23.864779874213"
               Start="0,0"
-              End="135.596436058701,16.3647798742136">
+              End="135.596436058701,16.364779874213">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.93238993710679" />
+                    End="0,7.93238993710651" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.93238993710679"
-                    Point2="0,11.9323899371068"
-                    Point3="4,11.9323899371068" />
+                    Point1="0,7.93238993710651"
+                    Point2="0,11.9323899371065"
+                    Point3="4,11.9323899371065" />
                   <mssgle:LineSegment
-                    End="131.596436058701,11.9323899371068" />
+                    End="131.596436058701,11.9323899371065" />
                   <mssgle:CubicBezierSegment
-                    Point1="131.596436058701,11.9323899371068"
-                    Point2="135.596436058701,11.9323899371068"
-                    Point3="135.596436058701,15.9323899371068" />
+                    Point1="131.596436058701,11.9323899371065"
+                    Point2="135.596436058701,11.9323899371065"
+                    Point3="135.596436058701,15.9323899371065" />
                   <mssgle:LineSegment
-                    End="135.596436058701,16.3647798742136" />
+                    End="135.596436058701,16.364779874213" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23429,30 +23441,30 @@ Left Join
         </EdgeLayout>
         <EdgeLayout
           Id="Package\КПТ по причинам (определение причин).PrecedenceConstraints[Constraint 4]"
-          TopLeft="566.925052410902,438.194444444444">
+          TopLeft="566.925052410902,458.694444444444">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="28.3034591194946,-191.554507337526"
+              EndConnector="28.303459119495,-212.054507337525"
               Start="0,0"
-              End="20.8034591194946,-191.554507337526">
+              End="20.803459119495,-212.054507337525">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="10.1517295597473,0" />
+                    End="10.1517295597475,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.1517295597473,0"
-                    Point2="14.1517295597473,0"
-                    Point3="14.1517295597473,-4" />
+                    Point1="10.1517295597475,0"
+                    Point2="14.1517295597475,0"
+                    Point3="14.1517295597475,-4" />
                   <mssgle:LineSegment
-                    End="14.1517295597473,-187.554507337526" />
+                    End="14.1517295597475,-208.054507337525" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.1517295597473,-187.554507337526"
-                    Point2="14.1517295597473,-191.554507337526"
-                    Point3="18.1517295597473,-191.554507337526" />
+                    Point1="14.1517295597475,-208.054507337525"
+                    Point2="14.1517295597475,-212.054507337525"
+                    Point3="18.1517295597475,-212.054507337525" />
                   <mssgle:LineSegment
-                    End="20.8034591194946,-191.554507337526" />
+                    End="20.803459119495,-212.054507337525" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23564,8 +23576,8 @@ Left Join
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="948,666"
-          Size="948,709"
+          PanelSize="948,752"
+          Size="948,795"
           Id="Package\КПТ по причинам (определение причин)"
           TopLeft="3167.5,401" />
         <NodeLayout
@@ -23932,13 +23944,13 @@ Left Join
           TopLeft="4176,669" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="4115.5,755.5">
+          TopLeft="4115.5,798.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="60.5,-16.5"
+              EndConnector="60.5,-59.5"
               Start="0,0"
-              End="53,-16.5">
+              End="53,-59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -23949,13 +23961,13 @@ Left Join
                     Point2="30.25,0"
                     Point3="30.25,-4" />
                   <mssgle:LineSegment
-                    End="30.25,-12.5" />
+                    End="30.25,-55.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="30.25,-12.5"
-                    Point2="30.25,-16.5"
-                    Point3="34.25,-16.5" />
+                    Point1="30.25,-55.5"
+                    Point2="30.25,-59.5"
+                    Point3="34.25,-59.5" />
                   <mssgle:LineSegment
-                    End="53,-16.5" />
+                    End="53,-59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24000,18 +24012,30 @@ Left Join
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 27]"
-          TopLeft="3129.25,756.75">
+          TopLeft="3129.25,758">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.25,0"
+              EndConnector="38.25,40.5"
               Start="0,0"
-              End="30.75,0">
+              End="30.75,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="30.75,0" />
+                    End="15.125,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.125,0"
+                    Point2="19.125,0"
+                    Point3="19.125,4" />
+                  <mssgle:LineSegment
+                    End="19.125,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.125,36.5"
+                    Point2="19.125,40.5"
+                    Point3="23.125,40.5" />
+                  <mssgle:LineSegment
+                    End="30.75,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24031,7 +24055,7 @@ Left Join
     design-time-name="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="222,44"
           Id="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)\s8-olap-test OLAP_продажи"
@@ -24071,9 +24095,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24395,25 +24417,33 @@ Left Join
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате)\DWH"
-          TopLeft="5.5,5.5" />
+          TopLeft="5.5,4.5" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из ОТБРС (отбор по дате).Paths[ADO NET Source Output]"
-          TopLeft="73.3867924528302,49.4245283018868">
+          TopLeft="73.5,48.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="88.377358490566,79.8867924528302"
+              EndConnector="88.4433962264151,80.811320754717"
               Start="0,0"
-              End="88.377358490566,72.3867924528302">
+              End="88.4433962264151,73.311320754717">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.9245283018868" />
+                    End="0,36.4056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.4056603773585"
+                    Point2="0,40.4056603773585"
+                    Point3="4,40.4056603773585" />
                   <mssgle:LineSegment
-                    End="88.377358490566,39.9245283018868" />
+                    End="84.4433962264151,40.4056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.4433962264151,40.4056603773585"
+                    Point2="88.4433962264151,40.4056603773585"
+                    Point3="88.4433962264151,44.4056603773585" />
                   <mssgle:LineSegment
-                    End="88.377358490566,72.3867924528302" />
+                    End="88.4433962264151,73.311320754717" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24633,7 +24663,7 @@ Left Join
     design-time-name="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\ОТБРС"
@@ -24665,7 +24695,9 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24815,13 +24847,13 @@ Left Join
     design-time-name="Package\КПТ по причинам (определение причин)\Заполнение карты причин падения КПТ">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="252.603773584906,43.9622641509434"
+          Size="253,44"
           Id="Package\КПТ по причинам (определение причин)\Заполнение карты причин падения КПТ\_Свод временный"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="333.471698113208,43.9622641509434"
+          Size="333,44"
           Id="Package\КПТ по причинам (определение причин)\Заполнение карты причин падения КПТ\_Карта причин падения КПТ"
           TopLeft="13.4622641509434,212.179245283019" />
         <EdgeLayout
@@ -24847,9 +24879,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25023,13 +25053,13 @@ Left Join
     design-time-name="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 2 Приказы">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="208.641509433963,43.9245283018868"
+          Size="209,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 2 Приказы\_Свод_временный1"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="135.773584905661,43.9245283018868"
+          Size="136,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 2 Приказы\_Свод_временный2"
           TopLeft="74.3679245283019,173.235849056604" />
         <EdgeLayout
@@ -25055,9 +25085,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25067,13 +25095,13 @@ Left Join
     design-time-name="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 3 График заказа">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="200.679245283019,43.9245283018868"
+          Size="201,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 3 График заказа\_Свод_временный1"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="226.641509433963,43.9245283018868"
+          Size="227,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 3 График заказа\_Свод_временный2"
           TopLeft="62.4056603773585,134.330188679245" />
         <EdgeLayout
@@ -25099,9 +25127,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25155,13 +25181,13 @@ Left Join
     design-time-name="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 5 Причины заказа">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="246.603773584906,43.9245283018868"
+          Size="247,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 5 Причины заказа\_Свод_временный1"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="188.716981132076,43.9245283018868"
+          Size="189,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин\Определение причин Этап 2 5 Причины заказа\Свод_временный_2"
           TopLeft="18.4811320754717,171.235849056604" />
         <EdgeLayout
@@ -25187,9 +25213,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25375,7 +25399,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (определение причин)\Определение причин Этап 1 (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин Этап 1 (ОТБОР ПО ДАТЕ)\_Свод"
@@ -25407,9 +25431,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25427,7 +25449,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (определение причин)\Определение причин Этап 4 Распределение КПТ">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="370,44"
           Id="Package\КПТ по причинам (определение причин)\Определение причин Этап 4 Распределение КПТ\_Свод временный приоритеты"
@@ -25459,9 +25481,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25907,7 +25927,7 @@ Left Join
     design-time-name="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка приказов из ОТБРС (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ по причинам (сбор данных)\ОТБРС\Загрузка приказов из ОТБРС (ОТБОР ПО ДАТЕ)\s8-olap-test ОТБРС_приказы"
@@ -25939,9 +25959,7 @@ Left Join
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
