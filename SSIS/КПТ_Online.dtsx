@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ Утренний"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="125"
-  DTS:VersionGUID="{0B494680-FB83-40FC-9DA9-D408EF98F538}">
+  DTS:VersionBuild="134"
+  DTS:VersionGUID="{190D7357-733C-4AAA-A922-6237D0753A3D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1562,7 +1562,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1571,6 +1571,540 @@ where
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
                       SQLTask:TimeOut="30"
                       SQLTask:SqlStatementSource="truncate table dbo.ОТБРС_Матрица" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Data Flow Task"
+                  DTS:DTSID="{47ac9e9e-f880-409d-8f3a-79fd90c73de0}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Загрузка матрицы  Признак 5 (отбор по дате) 1"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:LoggingOptions
+                    DTS:FilterKind="0" />
+                  <DTS:ObjectData>
+                    <pipeline
+                      BLOBTempStoragePath=""
+                      bufferTempStoragePath=""
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                          description="Extracts data from a relational database by using a .NET provider."
+                          name="DWH"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the SQL statement used by the component to extract data."
+                              expressionType="Notify"
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
+declare @date as datetime
+declare @dateN as datetime
+declare @date2N as datetime
+set @date = convert(varchar(16), dateadd(day, -1, getdate()), 112)
+set @date = CASE 
+  WHEN DATEPART(weekday, @date) = 1 THEN @date 
+  WHEN DATEPART(weekday, @date) = 2 THEN dateadd(day, + 6, @date) 
+  WHEN DATEPART(weekday, @date) = 3 THEN dateadd(day, + 5, @date) 
+  WHEN DATEPART(weekday, @date) = 4 THEN dateadd(day, + 4, @date) 
+  WHEN DATEPART(weekday, @date) = 5 THEN dateadd(day, + 3, @date) 
+  WHEN DATEPART(weekday, @date) = 6 THEN dateadd(day, + 2, @date) 
+  WHEN DATEPART(weekday, @date) = 7 THEN dateadd(day, + 1, @date)
+END
+set @dateN = dateadd(dd, -6, @date)
+set @date2N = dateadd(dd, -13, @date)
+Select
+	Календарь.val Дата,
+	КодТовара,
+	КодПоставщика,
+	КодМагазина,
+	case 
+		when
+			ВидАсс = 3
+		then
+			1
+		else
+			0
+	end ТОП,
+	ВидАсс,
+	ВидАсс2н,
+	ВидПоставки
+From
+(
+	Select
+		cast(спрТовары.Code as bigint) КодТовара,
+		cast(спрПоставщики.Code as bigint) КодПоставщика,
+		cast(спрМагазины.Code as bigint) КодМагазина,
+		(
+select top 1
+cast(c1721_vv.value as numeric(1, 0))
+from
+_1sconst as c1721_vv (nolock)
+where
+c1721_vv.id = 1721 and
+c1721_vv.objid = спрТоварМатрица.ID and
+(c1721_vv.date &lt;= @date)
+order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
+) ВидАсс,
+		(
+select top 1
+cast(c1721_vv.value as numeric(1, 0))
+from
+_1sconst as c1721_vv (nolock)
+where
+c1721_vv.id = 1721 and
+c1721_vv.objid = спрТоварМатрица.ID and
+(c1721_vv.date &lt;= @date2N)
+order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
+) ВидАсс2н,
+case when СпрТТ.Code is null then 0 else 
+cast(СпрТТ.Code as bigint) end СпрТТ,
+case when СпрТТТ.Code is null then 0 else
+cast(СпрТТТ.Code as bigint) end СпрТТТ,
+		case
+			when 
+				cast(спрПоставщики.Code as bigint) = 1682
+			then
+				1
+			else
+				0
+		end ВидПоставки
+	From
+		sc1725 СпрТоварМатрица (NoLock)
+	Left Join
+		sc11 спрТовары (NoLock) On спрТовары.ID = спрТоварМатрица.ParentExt
+	Left Join
+		sc1718 спрАссМатрицы (NoLock) On спрАссМатрицы.ID = спрТоварМатрица.sp3600 
+	Left Join
+		sc36 спрМагазины (NoLock) On спрМагазины.ID = спрАссМатрицы.sp1746 
+	Left Join
+		sc36 СпрПоставщики (NoLock) On СпрПоставщики.ID = СпрТоварМатрица.sp1816 
+	Left Join
+		sc11 СпрТТ (NoLock) ON спрТовары.ParentID = СпрТТ.ID  
+	Left join
+		sc11 СпрТТТ (NoLock) ON СпрТТ.ParentID = СпрТТТ.ID  
+	Where
+		спрМагазины.ParentId = '     1   ' -- Магазин находится в группе розница
+	and
+		(
+select top 1
+cast(c1721_vv.value as numeric(1, 0))
+from
+_1sconst as c1721_vv (nolock)
+where
+c1721_vv.id = 1721 and
+c1721_vv.objid = спрТоварМатрица.ID and
+(c1721_vv.date &lt;= @date)
+order by c1721_vv.date desc, c1721_vv.time desc, c1721_vv.docid desc, c1721_vv.row_id desc
+) IN ('5') -- Имеет признак действующего ассортимента
+		
+) mdata
+cross join dbo.GetTblDate(@dateN, @date) Календарь
+where
+		СпрТТ not in (3830,42,999999999,999999,34826,62962,10608,6306)
+	and
+		СпрТТТ  not in (3830,42,999999999,999999,34826,62962,10608,6306)
+
+	and 
+	(
+	(
+		СпрТТ  in (3061,16937,25892,60030,60032,153204,155885,156082 )
+	or
+		СпрТТТ  in (3061,16937,25892,60030,60032,153204,155885,156082 )
+		) or (КодПоставщика &lt;&gt; 8793)
+	)</property>
+                            <property
+                              dataType="System.Int32"
+                              description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                              name="AllowImplicitStringConversion">true</property>
+                            <property
+                              dataType="System.String"
+                              description="The Destination database table name."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specify the mode to retrieve external column information"
+                              name="AccessMode"
+                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[serv-term.rozn.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[serv-term.rozn.reader ADO .net]"
+                              description="Managed connection manager"
+                              name="IDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output]"
+                              name="ADO NET Source Output">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодТовара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодТовара]"
+                                  name="КодТовара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодПоставщика]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодПоставщика]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодПоставщика]"
+                                  name="КодПоставщика"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодМагазина]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодМагазина]"
+                                  name="КодМагазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ТОП]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ТОП]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ТОП]"
+                                  name="ТОП"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс]"
+                                  name="ВидАсс"
+                                  precision="1"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс2н]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]"
+                                  name="ВидАсс2н"
+                                  precision="1"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
+                                  name="ВидПоставки"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодПоставщика]"
+                                  dataType="i8"
+                                  name="КодПоставщика" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
+                                  dataType="i8"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ТОП]"
+                                  dataType="i4"
+                                  name="ТОП" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс]"
+                                  dataType="numeric"
+                                  name="ВидАсс"
+                                  precision="1" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс2н]"
+                                  dataType="numeric"
+                                  name="ВидАсс2н"
+                                  precision="1" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
+                                  dataType="i4"
+                                  name="ВидПоставки" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output]"
+                              isErrorOut="true"
+                              name="ADO NET Source Error Output">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
+                                  name="КодТовара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[КодПоставщика]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[КодПоставщика]"
+                                  name="КодПоставщика" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
+                                  name="КодМагазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ТОП]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ТОП]"
+                                  name="ТОП" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ВидАсс]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ВидАсс]"
+                                  name="ВидАсс"
+                                  precision="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ВидАсс2н]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ВидАсс2н]"
+                                  name="ВидАсс2н"
+                                  precision="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
+                                  name="ВидПоставки" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Writes to a database using ADO.NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                          description="Writes to a database using ADO.NET provider."
+                          name="s8-oalp-test ОТБРС_Матрица"
+                          usesDispositions="true"
+                          version="2">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The Destination database table name."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ОТБРС_Матрица"</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                              expressionType="Notify"
+                              name="BatchSize">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                              expressionType="Notify"
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                              expressionType="Notify"
+                              name="UseBulkInsertWhenPossible">true</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              description="Managed connection manager"
+                              name="IDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="ADO NET Destination Input">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[Дата]"
+                                  cachedDataType="dbTimeStamp"
+                                  cachedName="Дата"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[Дата]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[КодТовара]"
+                                  cachedDataType="i8"
+                                  cachedName="КодТовара"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодТовара]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[КодПоставщика]"
+                                  cachedDataType="i8"
+                                  cachedName="КодПоставщика"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодПоставщика]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[КодМагазина]"
+                                  cachedDataType="i8"
+                                  cachedName="КодМагазина"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[КодМагазина]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ТОП]"
+                                  cachedDataType="i4"
+                                  cachedName="ТОП"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ТОП]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
+                                  cachedDataType="i4"
+                                  cachedName="ВидПоставки"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс2н]"
+                                  cachedDataType="numeric"
+                                  cachedName="ВидАсс2н"
+                                  cachedPrecision="1"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс]"
+                                  cachedDataType="numeric"
+                                  cachedName="ВидАсс"
+                                  cachedPrecision="1"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
+                                  dataType="i8"
+                                  name="КодПоставщика" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                                  dataType="i8"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
+                                  dataType="bool"
+                                  name="ТОП" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
+                                  dataType="ui1"
+                                  name="ВидАсс" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
+                                  dataType="ui1"
+                                  name="ВидАсс14денейНазад" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                                  dataType="bool"
+                                  name="ВидПоставки" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="ADO NET Destination Error Output"
+                              synchronousInputId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1.Paths[ADO NET Source Output]"
+                          endId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input]"
+                          name="ADO NET Source Output"
+                          startId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output]" />
+                      </paths>
+                    </pipeline>
                   </DTS:ObjectData>
                 </DTS:Executable>
                 <DTS:Executable
@@ -2119,6 +2653,22 @@ where
                     </pipeline>
                   </DTS:ObjectData>
                 </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка матрицы\Задача &quot;Выполнение SQL&quot;"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Задача &quot;Выполнение SQL&quot;"
+                  DTS:DTSID="{26FEB462-16DD-40B2-B9F5-919EAB102074}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Задача &quot;Выполнение SQL&quot;"
+                  DTS:ThreadHint="2">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A9C0910-30E2-4287-9B51-ABD08498C0E8}"
+                      SQLTask:SqlStatementSource="&#xA;  delete [KPT].[dbo].[ОТБРС_Матрица] FROM [KPT].[dbo].[ОТБРС_Матрица] matr&#xA;  where matr.Кодтовара not in (select КодТовара &#xA;&#x9;from&#xA;&#x9;t_fact_Важный_товар vt &#xA;&#x9;where vt.КодМагазина=matr.КодМагазина and vt.ДатаНачала&lt;=matr.Дата and vt.ДатаКонца&gt;=matr.Дата)  and ВидАсс=5 " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  </DTS:ObjectData>
+                </DTS:Executable>
               </DTS:Executables>
               <DTS:PrecedenceConstraints>
                 <DTS:PrecedenceConstraint
@@ -2129,6 +2679,22 @@ where
                   DTS:LogicalAnd="True"
                   DTS:ObjectName="Constraint"
                   DTS:To="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка матрицы.PrecedenceConstraints[Constraint 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{04E14333-65C4-44E6-89A3-F82C4068DC01}"
+                  DTS:From="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 1"
+                  DTS:To="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка матрицы.PrecedenceConstraints[Constraint 2]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{36B3A3E2-ADCA-4DF8-B15B-78CC2DFAF5DF}"
+                  DTS:From="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint 2"
+                  DTS:To="Package\КПТ\ОТБРС\Загрузка матрицы\Задача &quot;Выполнение SQL&quot;" />
               </DTS:PrecedenceConstraints>
             </DTS:Executable>
             <DTS:Executable
@@ -3255,7 +3821,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3567,7 +4133,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3595,6 +4161,440 @@ where
                   DTS:LogicalAnd="True"
                   DTS:ObjectName="Constraint 1"
                   DTS:To="Package\КПТ\ОТБРС\Звгрузка поставщиков\Слияние таблиц поставщики" />
+              </DTS:PrecedenceConstraints>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности"
+              DTS:CreationName="STOCK:SEQUENCE"
+              DTS:Description="Контейнер последовательности"
+              DTS:DTSID="{0EC77115-0EDF-48AC-938C-D796505EBE0F}"
+              DTS:ExecutableType="STOCK:SEQUENCE"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Контейнер последовательности">
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Задача потока данных"
+                  DTS:DTSID="{3C268CAC-EBFE-4715-A1C5-64951F0732D8}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Загрузка Остатков важный"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Потребляет данные из SQL Server, OLE DB, ODBC или Oracle с помощью соответствующего поставщика данных .NET. Используйте инструкцию Transact-SQL для определения результирующего набора. Пример: извлечение данных из SQL Server с помощью поставщика данных .NET Framework для SQL Server.Корпорация Майкрософт (Microsoft Corporation). Microsoft SQL Server © Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support4"
+                          description="Потребляет данные из SQL Server, OLE DB, ODBC или Oracle с помощью соответствующего поставщика данных .NET. Используйте инструкцию Transact-SQL для определения результирующего набора. Пример: извлечение данных из SQL Server с помощью поставщика данных .NET Framework для SQL Server."
+                          name="Источник - ADO NET"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
+                              expressionType="Notify"
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
+
+declare @date as datetime
+declare @dateN as datetime
+declare @curdate as datetime
+declare @Дата date;
+
+set @curdate = convert(varchar(16), dateadd(day, -1, getdate()), 112)
+
+set @date = CASE 
+WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
+WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)
+END
+
+set @dateN = dateadd(dd, -6, @date)
+
+Select ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_код_SNU КодТовара,sum(ost.КоличествоОстаток) КоличествоОстаток, sum(КоличествоПриход) КоличествоПриход
+from dbo.t_fact_Остатки_по_часам ost (nolock)
+join dbo.t_fact_Важный_товар vt on vt.ДатаНачала&lt;=ost.Дата and vt.ДатаКонца&gt;=ost.Дата and ost.КодМагазина=vt.КодМагазина and ost.КодТовара=vt.Основной_код_SNU
+where Дата between @dateN and @date
+group by ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_код_SNU</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
+                              name="CommandTimeout">30</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, будут ли внешние столбцы с типом, отличным от строкового, в выходных столбцах неявно преобразовываться в строки."
+                              name="AllowImplicitStringConversion">true</property>
+                            <property
+                              dataType="System.String"
+                              description="Имя таблицы базы данных-источника."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Укажите режим получения данных о внешних столбцах"
+                              name="AccessMode"
+                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              description="Диспетчер управляемых соединений"
+                              name="IDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET]"
+                              name="Вывод источника ADO NET">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Дата]"
+                                  dataType="dbDate"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Час]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Час]"
+                                  name="Час"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодМагазина]"
+                                  name="КодМагазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
+                                  name="КодТовара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КоличествоОстаток]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КоличествоОстаток]"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КоличествоПриход]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КоличествоПриход]"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Дата]"
+                                  dataType="dbDate"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET]"
+                              isErrorOut="true"
+                              name="Вывод ошибок источника ADO NET">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Дата]"
+                                  dataType="dbDate"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Час]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Час]"
+                                  name="Час" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодМагазина]"
+                                  name="КодМагазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
+                                  name="КодТовара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КоличествоОстаток]"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КоличествоПриход]"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Загружает данные в базы данных, поддерживающие ADO.NET, в которых используются таблицы или представления. Загружает данные в новую или существующую таблицу. Пример: использование поставщика ADO.NET для ODBC, чтобы загрузить данные в назначение ODBC.Корпорация Майкрософт (Microsoft Corporation). Microsoft SQL Server © Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support2"
+                          description="Загружает данные в базы данных, поддерживающие ADO.NET, в которых используются таблицы или представления. Загружает данные в новую или существующую таблицу. Пример: использование поставщика ADO.NET для ODBC, чтобы загрузить данные в назначение ODBC."
+                          name="Назначение ADO NET"
+                          usesDispositions="true"
+                          version="2">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Имя таблицы в целевой базе данных."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."t_temp_Остатки_по_часам_ВТ"</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Укажите число строк в пакете. Значение по умолчанию - 0, при котором размер совпадает с внутренним буфером служб SSIS. "
+                              expressionType="Notify"
+                              name="BatchSize">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания для выполнения команды (в секундах). Значение 0 указывает на бесконечное время работы. "
+                              expressionType="Notify"
+                              name="CommandTimeout">30</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, нужно ли использовать интерфейс SqlBulkCopy для повышения производительности операций массовой вставки. Этот интерфейс поддерживается не всеми поставщиками."
+                              expressionType="Notify"
+                              name="UseBulkInsertWhenPossible">true</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              description="Диспетчер управляемых соединений"
+                              name="IDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET]"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="Вход назначения ADO NET">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[Дата]"
+                                  cachedDataType="dbDate"
+                                  cachedName="Дата"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Дата]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[Час]"
+                                  cachedDataType="i4"
+                                  cachedName="Час"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Час]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[КодМагазина]"
+                                  cachedDataType="i4"
+                                  cachedName="КодМагазина"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодМагазина]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[КодТовара]"
+                                  cachedDataType="i8"
+                                  cachedName="КодТовара"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодТовара]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[КоличествоОстаток]"
+                                  cachedDataType="numeric"
+                                  cachedName="КоличествоОстаток"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КоличествоОстаток]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КоличествоОстаток]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[КоличествоПриход]"
+                                  cachedDataType="numeric"
+                                  cachedName="КоличествоПриход"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КоличествоПриход]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КоличествоПриход]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Дата]"
+                                  dataType="dbTimeStamp"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  name="КоличествоОстаток"
+                                  precision="12"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  name="КоличествоПриход"
+                                  precision="12"
+                                  scale="3" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Вывод ошибок назначения ADO NET"
+                              synchronousInputId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный.Paths[Вывод источника ADO NET]"
+                          endId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET.Inputs[Вход назначения ADO NET]"
+                          name="Вывод источника ADO NET"
+                          startId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET.Outputs[Вывод источника ADO NET]" />
+                      </paths>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Задача &quot;Выполнение SQL&quot;"
+                  DTS:DTSID="{C6937F95-D965-475C-A8F4-EEE458764E9D}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Очистка остатков от шляпы"
+                  DTS:ThreadHint="6">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A9C0910-30E2-4287-9B51-ABD08498C0E8}"
+                      SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=convert(varchar(16), dateadd(day, -1, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete ost from t_fact_Остатки_по_часам as ost&#xA;join (select дата,час,кодмагазина from t_fact_Остатки_по_часам where Дата between @dateN and @date&#x9;group by Дата,час,КодМагазина&#xA;&#x9;having  sum (КоличествоОстаток)=0) as del on ost.Дата=del.Дата and ost.час=del.Час and ost.КодМагазина=del.КодМагазина&#xA;&#x9;&#xA;truncate table [dbo].[t_temp_Остатки_по_часам_ВТ]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{D8950173-1908-42E2-A2B3-6767ABBAC457}"
+                  DTS:From="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный" />
               </DTS:PrecedenceConstraints>
             </DTS:Executable>
           </DTS:Executables>
@@ -4446,6 +5446,842 @@ WHERE
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
+              DTS:refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{ed12a039-1fca-4792-9779-a8844503b09c}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Свод_ступень_обработки_2"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="Extracts data from a relational database by using a .NET provider."
+                      name="Все источники"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement used by the component to extract data."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--Неделя отчета
+                  set datefirst 7
+declare @dateBegin as datetime
+declare @dateEnd as datetime
+declare @curdate as datetime
+set @curdate=convert(varchar(16), dateadd(day, -1, getdate()), 112)
+set @dateEnd =CASE 
+WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
+WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)
+END
+set @dateBegin = dateadd(dd, -6, @dateEnd)
+
+--Запрос
+select
+	ОТБРС_Матрица.Дата,
+cast(ОстаткиЧАС.Час as tinyint) Час,
+	ОТБРС_Матрица.КодТовара,    
+	ОТБРС_Матрица.КодПоставщика,
+	ОТБРС_Матрица.КодМагазина,
+                ОТБРС_Матрица.ВидАсс,
+                ОТБРС_Матрица.ВидАсс14денейНазад,
+	ОТБРС_Матрица.ТОП,
+                ОТБРС_Матрица.ВидПоставки,
+	ОстаткиЧАС.КоличествоОстаток,
+ОстаткиЧАС.КоличествоПриход,
+	OLAP_ПродажиЗаПериод.Количество ПродажиШТ,
+	OLAP_ПродажиЗаПериод.Сумма ПродажиРуб,
+
+--vvvvvvvvvvvvvvvv--КПТ по остаткам--vvvvvvvvvvvvvvvv--
+case when ОТБРС_Матрица.КодТовара not  in 
+(select Товары.код Код
+	from
+	dbo.Товары as Товары (nolock)
+left join
+	dbo.Товары as ПодГруппы (nolock)
+		on Товары.родитель = подГруппы.код
+left join
+	dbo.Товары as Группы (nolock)
+on подгруппы.родитель = Группы.код		
+	where товары.код in (select Список.КодГруппы from СписокГруппСобственногоПроизводства Список (nolock)) or
+	подгруппы.код in (select Список.КодГруппы from СписокГруппСобственногоПроизводства Список (nolock)) or
+	группы.код in (select Список.КодГруппы from СписокГруппСобственногоПроизводства Список (nolock)))
+	
+then
+cast(case
+		when (ОстаткиЧАС.КоличествоОстаток+ОстаткиЧАС.КоличествоПриход-coalesce(OLAP_ПродажиЗаПериод.Количество,0 )) &gt; 0 then 1 else 0 end
+ as decimal(10,2))
+ else NULL end  КПТ
+------------------------------------------------	
+
+
+
+from
+	ОТБРС_Матрица (nolock)
+
+
+left join
+	t_temp_Остатки_по_часам_ВТ ОстаткиЧАС (nolock)
+		on ОстаткиЧАС .Дата = ОТБРС_Матрица.Дата
+		and ОстаткиЧАС .КодТовара = ОТБРС_Матрица.КодТовара
+		and ОстаткиЧАС .КодМагазина = ОТБРС_Матрица.КодМагазина
+
+left join
+	(select
+		OLAP_Продажи.ДатаПродажи,
+OLAP_Продажи.ЧасПродажи,
+		OLAP_Продажи.КодТовара,
+		OLAP_Продажи.КодМагазина,
+		sum(OLAP_Продажи.Количество) Количество,
+		sum(OLAP_Продажи.Сумма) Сумма
+	from t_fact_Продажи_по_Часам OLAP_Продажи (nolock)
+	group by
+		OLAP_Продажи.ДатаПродажи,
+OLAP_Продажи.ЧасПродажи,
+		OLAP_Продажи.КодТовара,
+		OLAP_Продажи.КодМагазина
+	) OLAP_ПродажиЗаПериод
+		on OLAP_ПродажиЗаПериод.ДатаПродажи = ОТБРС_Матрица.Дата
+		and OLAP_ПродажиЗаПериод.КодТовара = ОТБРС_Матрица.КодТовара
+		and OLAP_ПродажиЗаПериод.КодМагазина = ОТБРС_Матрица.КодМагазина
+and OLAP_продажизапериод.часпродажи=ОстаткиЧас.час
+
+left join
+	Магазины (nolock) on Магазины.Код = ОТБРС_Матрица.КодМагазина
+
+left join
+	dbo.Товары as спрТовары  (nolock) ON спрТовары.Код=ОТБРС_Матрица.КодТовара
+
+
+WHERE
+-- отсеиваем следующие магазины:
+ Магазины.Код NOT IN (
+						SELECT 
+								МагазиныНаРеконструкции.[Код]
+   
+						FROM [Магазины] МагазиныНаРеконструкции (nolock)
+						WHERE ОТБРС_Матрица.Дата&lt;МагазиныНаРеконструкции.[ДатаОткрытия] OR (МагазиныНаРеконструкции.[ДатаОткрытия]&lt;'1900-01-01') --Товар в матрице, но магазин еще не открыт
+						or (ОТБРС_Матрица.Дата&gt;=МагазиныНаРеконструкции.[ДатаНачалаРеконструкции] and ОТБРС_Матрица.Дата&lt;=МагазиныНаРеконструкции.[ДатаКонцаРеконструкции]) --Товар в матрице, но магазин еще на реконструкции
+						
+						)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                          name="AllowImplicitStringConversion">true</property>
+                        <property
+                          dataType="System.String"
+                          description="The Destination database table name."
+                          expressionType="Notify"
+                          name="TableOrViewName"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specify the mode to retrieve external column information"
+                          name="AccessMode"
+                          typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Connections[IDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                          connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                          description="Managed connection manager"
+                          name="IDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output]"
+                          name="ADO NET Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Дата]"
+                              dataType="dbDate"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Дата]"
+                              name="Дата"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Час]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Час]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Час]"
+                              name="Час"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодТовара]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодТовара]"
+                              name="КодТовара"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодПоставщика]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КодПоставщика]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодПоставщика]"
+                              name="КодПоставщика"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодМагазина]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодМагазина]"
+                              name="КодМагазина"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс]"
+                              name="ВидАсс"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс14денейНазад]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс14денейНазад]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс14денейНазад]"
+                              name="ВидАсс14денейНазад"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ТОП]"
+                              dataType="bool"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ТОП]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ТОП]"
+                              name="ТОП"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
+                              dataType="bool"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидПоставки]"
+                              name="ВидПоставки"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КоличествоОстаток]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КоличествоОстаток]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КоличествоОстаток]"
+                              name="КоличествоОстаток"
+                              precision="12"
+                              scale="3"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КоличествоПриход]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КоличествоПриход]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КоличествоПриход]"
+                              name="КоличествоПриход"
+                              precision="12"
+                              scale="3"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ПродажиШТ]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ПродажиШТ]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ПродажиШТ]"
+                              name="ПродажиШТ"
+                              precision="38"
+                              scale="5"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ПродажиРуб]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ПродажиРуб]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ПродажиРуб]"
+                              name="ПродажиРуб"
+                              precision="38"
+                              scale="5"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КПТ]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КПТ]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КПТ]"
+                              name="КПТ"
+                              precision="10"
+                              scale="2"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Дата]"
+                              dataType="dbDate"
+                              name="Дата" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Час]"
+                              dataType="ui1"
+                              name="Час" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КодТовара]"
+                              dataType="i8"
+                              name="КодТовара" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КодПоставщика]"
+                              dataType="i8"
+                              name="КодПоставщика" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КодМагазина]"
+                              dataType="i8"
+                              name="КодМагазина" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс]"
+                              dataType="ui1"
+                              name="ВидАсс" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ВидАсс14денейНазад]"
+                              dataType="ui1"
+                              name="ВидАсс14денейНазад" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ТОП]"
+                              dataType="bool"
+                              name="ТОП" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ВидПоставки]"
+                              dataType="bool"
+                              name="ВидПоставки" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КоличествоОстаток]"
+                              dataType="numeric"
+                              name="КоличествоОстаток"
+                              precision="12"
+                              scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КоличествоПриход]"
+                              dataType="numeric"
+                              name="КоличествоПриход"
+                              precision="12"
+                              scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ПродажиШТ]"
+                              dataType="numeric"
+                              name="ПродажиШТ"
+                              precision="38"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[ПродажиРуб]"
+                              dataType="numeric"
+                              name="ПродажиРуб"
+                              precision="38"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КПТ]"
+                              dataType="numeric"
+                              name="КПТ"
+                              precision="10"
+                              scale="2" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output]"
+                          isErrorOut="true"
+                          name="ADO NET Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                              dataType="dbDate"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Дата]"
+                              name="Дата" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Час]"
+                              dataType="ui1"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Час]"
+                              name="Час" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
+                              dataType="i8"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КодТовара]"
+                              name="КодТовара" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КодПоставщика]"
+                              dataType="i8"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КодПоставщика]"
+                              name="КодПоставщика" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
+                              dataType="i8"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КодМагазина]"
+                              name="КодМагазина" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ВидАсс]"
+                              dataType="ui1"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ВидАсс]"
+                              name="ВидАсс" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ВидАсс14денейНазад]"
+                              dataType="ui1"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ВидАсс14денейНазад]"
+                              name="ВидАсс14денейНазад" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ТОП]"
+                              dataType="bool"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ТОП]"
+                              name="ТОП" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
+                              dataType="bool"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ВидПоставки]"
+                              name="ВидПоставки" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КоличествоОстаток]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КоличествоОстаток]"
+                              name="КоличествоОстаток"
+                              precision="12"
+                              scale="3" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КоличествоПриход]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КоличествоПриход]"
+                              name="КоличествоПриход"
+                              precision="12"
+                              scale="3" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ПродажиШТ]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ПродажиШТ]"
+                              name="ПродажиШТ"
+                              precision="38"
+                              scale="5" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ПродажиРуб]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ПродажиРуб]"
+                              name="ПродажиРуб"
+                              precision="38"
+                              scale="5" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КПТ]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КПТ]"
+                              name="КПТ"
+                              precision="10"
+                              scale="2" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="Преобразование типов"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Inputs[Data Conversion Input].Columns[ВидПоставки]"
+                              cachedDataType="bool"
+                              cachedName="ВидПоставки"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Inputs[Data Conversion Input].Columns[Час]"
+                              cachedDataType="ui1"
+                              cachedName="Час"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Час]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output].Columns[Copy of ВидПоставки]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output].Columns[Copy of ВидПоставки]"
+                              name="Copy of ВидПоставки"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидПоставки]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output].Columns[Copy of Час]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output].Columns[Copy of Час]"
+                              name="Copy of Час"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Указывает входной столбец, служащий источником данных для преобразования."
+                                  name="SourceInputColumnLineageID">#{Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Час]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="Writes to a database using ADO.NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Writes to a database using ADO.NET provider."
+                      name="Свод_ступень_обработки_1"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The Destination database table name."
+                          expressionType="Notify"
+                          name="TableOrViewName"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."t_fact_КПТ_по_часам_ВТ"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                          expressionType="Notify"
+                          name="BatchSize">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                          expressionType="Notify"
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                          expressionType="Notify"
+                          name="UseBulkInsertWhenPossible">true</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Connections[IDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                          connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                          description="Managed connection manager"
+                          name="IDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input]"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="ADO NET Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[Дата]"
+                              cachedDataType="dbDate"
+                              cachedName="Дата"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Дата]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[Час]"
+                              cachedDataType="ui1"
+                              cachedName="Час"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[Час]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Час]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[КодТовара]"
+                              cachedDataType="i8"
+                              cachedName="КодТовара"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодТовара]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[КодПоставщика]"
+                              cachedDataType="i8"
+                              cachedName="КодПоставщика"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодПоставщика]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[КодМагазина]"
+                              cachedDataType="i8"
+                              cachedName="КодМагазина"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КодМагазина]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[ВидАсс]"
+                              cachedDataType="ui1"
+                              cachedName="ВидАсс"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[ТОП]"
+                              cachedDataType="bool"
+                              cachedName="ТОП"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ТОП]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[КоличествоОстаток]"
+                              cachedDataType="numeric"
+                              cachedName="КоличествоОстаток"
+                              cachedPrecision="12"
+                              cachedScale="3"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоОстаток]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КоличествоОстаток]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[КоличествоПриход]"
+                              cachedDataType="numeric"
+                              cachedName="КоличествоПриход"
+                              cachedPrecision="12"
+                              cachedScale="3"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоПриход]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КоличествоПриход]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[ПродажиШТ]"
+                              cachedDataType="numeric"
+                              cachedName="ПродажиШТ"
+                              cachedPrecision="38"
+                              cachedScale="5"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиШТ]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ПродажиШТ]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[ПродажиРуб]"
+                              cachedDataType="numeric"
+                              cachedName="ПродажиРуб"
+                              cachedPrecision="38"
+                              cachedScale="5"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиРуб]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ПродажиРуб]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[КПТ]"
+                              cachedDataType="numeric"
+                              cachedName="КПТ"
+                              cachedPrecision="10"
+                              cachedScale="2"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КПТ]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КПТ]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[ВидАсс14денейНазад]"
+                              cachedDataType="ui1"
+                              cachedName="ВидАсс14денейНазад"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14днейНазад]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс14денейНазад]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[Copy of ВидПоставки]"
+                              cachedDataType="i2"
+                              cachedName="Copy of ВидПоставки"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output].Columns[Copy of ВидПоставки]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[Дата]"
+                              dataType="dbTimeStamp"
+                              name="Дата" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[Час]"
+                              dataType="ui1"
+                              name="Час" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодТовара]"
+                              dataType="i8"
+                              name="КодТовара" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодПоставщика]"
+                              dataType="i8"
+                              name="КодПоставщика" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КодМагазина]"
+                              dataType="i8"
+                              name="КодМагазина" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
+                              dataType="bool"
+                              name="ТОП" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоПриход]"
+                              dataType="numeric"
+                              name="КоличествоПриход"
+                              precision="18"
+                              scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КоличествоОстаток]"
+                              dataType="numeric"
+                              name="КоличествоОстаток"
+                              precision="18"
+                              scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиШТ]"
+                              dataType="numeric"
+                              name="ПродажиШТ"
+                              precision="18"
+                              scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиРуб]"
+                              dataType="numeric"
+                              name="ПродажиРуб"
+                              precision="18"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
+                              dataType="ui1"
+                              name="ВидАсс" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14днейНазад]"
+                              dataType="ui1"
+                              name="ВидАсс14днейНазад" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                              dataType="i2"
+                              name="ВидПоставки" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КПТ]"
+                              dataType="ui1"
+                              name="КПТ" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Outputs[ADO NET Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="ADO NET Destination Error Output"
+                          synchronousInputId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2.Paths[ADO NET Source Output]"
+                      endId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Inputs[Data Conversion Input]"
+                      name="ADO NET Source Output"
+                      startId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output]" />
+                    <path
+                      refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2.Paths[Data Conversion Output]"
+                      endId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input]"
+                      name="Data Conversion Output"
+                      startId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов.Outputs[Data Conversion Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
               DTS:refId="Package\КПТ\Формирование КПТ Онлайн\Удалить свод за период"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
@@ -4461,11 +6297,19 @@ WHERE
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
-                  SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=convert(varchar(16), dateadd(day, -1, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_часам&#xA;where&#xA;&#x9;Дата between @dateN and @date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=convert(varchar(16), dateadd(day, -1, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_часам&#xA;where&#xA;&#x9;Дата between @dateN and @date;&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_ЧАСАМ_ВТ&#xA;where&#xA;&#x9;Дата between @dateN and @date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
           <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\КПТ\Формирование КПТ Онлайн.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{D8F644DD-5D8A-49C7-AAD3-1995100B3D53}"
+              DTS:From="Package\КПТ\Формирование КПТ Онлайн\Удалить свод за период"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2" />
             <DTS:PrecedenceConstraint
               DTS:refId="Package\КПТ\Формирование КПТ Онлайн.PrecedenceConstraints[Constraint 3]"
               DTS:CreationName=""
@@ -4618,7 +6462,7 @@ WHERE
           PanelSize="300,161"
           Size="300,204"
           Id="Package\КПТ\DWH Продажи"
-          TopLeft="772,8.75" />
+          TopLeft="1194,8.75" />
         <NodeLayout
           Size="187,72"
           Id="Package\КПТ\ОТБРС\Загрузка магазинов\s8-oalp-test Очистка таблицы Магазины_temp_load"
@@ -4709,25 +6553,89 @@ WHERE
         <NodeLayout
           Size="192,51"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\s8-oalp-test Очистка таблицы ОТБРС_Матрица"
-          TopLeft="7,5.5" />
+          TopLeft="28.25,5.5" />
+        <NodeLayout
+          Size="202,49"
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1"
+          TopLeft="32.25,153" />
         <NodeLayout
           Size="184,42"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)"
-          TopLeft="6.75,81.792452830189" />
+          TopLeft="28,80.792452830189" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Задача &quot;Выполнение SQL&quot;"
+          TopLeft="36,245" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка матрицы.PrecedenceConstraints[Constraint]"
-          TopLeft="100.875,56.5">
+          TopLeft="122.125,56.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.292452830189"
+              EndConnector="0,24.292452830189"
               Start="0,0"
-              End="0,17.792452830189">
+              End="0,16.792452830189">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.792452830189" />
+                    End="0,16.792452830189" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы.PrecedenceConstraints[Constraint 1]"
+          TopLeft="120,122.792452830189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.25,30.207547169811"
+              Start="0,0"
+              End="13.25,22.707547169811">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.1037735849055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.1037735849055"
+                    Point2="0,15.1037735849055"
+                    Point3="4,15.1037735849055" />
+                  <mssgle:LineSegment
+                    End="9.25,15.1037735849055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.25,15.1037735849055"
+                    Point2="13.25,15.1037735849055"
+                    Point3="13.25,19.1037735849055" />
+                  <mssgle:LineSegment
+                    End="13.25,22.707547169811" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы.PrecedenceConstraints[Constraint 2]"
+          TopLeft="136.625,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4739,10 +6647,10 @@ WHERE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="219,146"
-          Size="219,189"
+          PanelSize="338,351"
+          Size="338,394"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы"
-          TopLeft="24,256.25" />
+          TopLeft="7,373.25" />
         <NodeLayout
           Size="182,62"
           Id="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС"
@@ -4779,7 +6687,7 @@ WHERE
           PanelSize="207,185"
           Size="207,228"
           Id="Package\КПТ\ОТБРС\Загрузка МК"
-          TopLeft="493.5,202.75" />
+          TopLeft="709.5,6.75" />
         <NodeLayout
           Size="187,44"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\s8-oalp-test Очистка таблицы Товары"
@@ -4880,35 +6788,40 @@ WHERE
           Size="242,244"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков"
           TopLeft="15.5,4.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="741,500"
-          Size="741,543"
-          Id="Package\КПТ\ОТБРС"
-          TopLeft="11.5,10" />
         <NodeLayout
-          Size="228,77"
-          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_1"
-          TopLeft="22.5,97.5" />
+          Size="216,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
+          TopLeft="99,20" />
         <NodeLayout
-          Size="188,44"
-          Id="Package\КПТ\Формирование КПТ Онлайн\Удалить свод за период"
-          TopLeft="35.0707547169791,11.38679245283" />
+          Size="212,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный"
+          TopLeft="111,123" />
         <EdgeLayout
-          Id="Package\КПТ\Формирование КПТ Онлайн.PrecedenceConstraints[Constraint 3]"
-          TopLeft="132.78537735849,55.38679245283">
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Constraint]"
+          TopLeft="207,62">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.11320754717"
+              EndConnector="10,61"
               Start="0,0"
-              End="0,34.61320754717">
+              End="10,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.61320754717" />
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="6,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,30.5"
+                    Point2="10,30.5"
+                    Point3="10,34.5" />
+                  <mssgle:LineSegment
+                    End="10,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4920,36 +6833,130 @@ WHERE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="276,210"
-          Size="276,253"
-          Id="Package\КПТ\Формирование КПТ Онлайн"
-          TopLeft="786,263" />
+          PanelSize="432,324"
+          Size="432,367"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности"
+          TopLeft="525,379" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1093,822"
+          Size="1093,865"
+          Id="Package\КПТ\ОТБРС"
+          TopLeft="11.5,10" />
+        <NodeLayout
+          Size="228,77"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_1"
+          TopLeft="6.5,170.5" />
+        <NodeLayout
+          Size="188,44"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Удалить свод за период"
+          TopLeft="35.0707547169791,11.38679245283" />
         <EdgeLayout
-          Id="Package\КПТ.PrecedenceConstraints[Constraint]"
-          TopLeft="752.5,281.5">
+          Id="Package\КПТ\Формирование КПТ Онлайн.PrecedenceConstraints[Constraint 3]"
+          TopLeft="99.0707547169791,55.38679245283">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33.5,108"
+              EndConnector="21.4292452830209,115.11320754717"
               Start="0,0"
-              End="26,108">
+              End="21.4292452830209,107.61320754717">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="12.75,0" />
+                    End="0,42.6281347026511" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.75,0"
-                    Point2="16.75,0"
-                    Point3="16.75,4" />
+                    Point1="0,42.6281347026511"
+                    Point2="0,46.6281347026511"
+                    Point3="4,46.6281347026511" />
                   <mssgle:LineSegment
-                    End="16.75,104" />
+                    End="17.4292452830209,46.6281347026511" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.75,104"
-                    Point2="16.75,108"
-                    Point3="20.75,108" />
+                    Point1="17.4292452830209,46.6281347026511"
+                    Point2="21.4292452830209,46.6281347026511"
+                    Point3="21.4292452830209,50.6281347026511" />
                   <mssgle:LineSegment
-                    End="26,108" />
+                    End="21.4292452830209,107.61320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215,42"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2"
+          TopLeft="243,207" />
+        <EdgeLayout
+          Id="Package\КПТ\Формирование КПТ Онлайн.PrecedenceConstraints[Constraint]"
+          TopLeft="159.070754716979,55.38679245283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191.429245283021,151.61320754717"
+              Start="0,0"
+              End="191.429245283021,144.11320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.4129448292334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.4129448292334"
+                    Point2="0,61.4129448292334"
+                    Point3="4,61.4129448292334" />
+                  <mssgle:LineSegment
+                    End="187.429245283021,61.4129448292334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187.429245283021,61.4129448292334"
+                    Point2="191.429245283021,61.4129448292334"
+                    Point3="191.429245283021,65.4129448292334" />
+                  <mssgle:LineSegment
+                    End="191.429245283021,144.11320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="463,376"
+          Size="463,419"
+          Id="Package\КПТ\Формирование КПТ Онлайн"
+          TopLeft="1277,279" />
+        <EdgeLayout
+          Id="Package\КПТ.PrecedenceConstraints[Constraint]"
+          TopLeft="1104.5,442.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="172.5,46"
+              Start="0,0"
+              End="165,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="82.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.25,0"
+                    Point2="86.25,0"
+                    Point3="86.25,4" />
+                  <mssgle:LineSegment
+                    End="86.25,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.25,42"
+                    Point2="86.25,46"
+                    Point3="90.25,46" />
+                  <mssgle:LineSegment
+                    End="165,46" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4960,18 +6967,30 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\КПТ.PrecedenceConstraints[Constraint 1]"
-          TopLeft="923,212.75">
+          TopLeft="1344,212.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.25"
+              EndConnector="164.5,66.25"
               Start="0,0"
-              End="0,42.75">
+              End="164.5,58.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.75" />
+                    End="0,29.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.125"
+                    Point2="0,33.125"
+                    Point3="4,33.125" />
+                  <mssgle:LineSegment
+                    End="160.5,33.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160.5,33.125"
+                    Point2="164.5,33.125"
+                    Point3="164.5,37.125" />
+                  <mssgle:LineSegment
+                    End="164.5,58.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4983,10 +7002,10 @@ WHERE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1078,590"
-          Size="1078,633"
+          PanelSize="1788,962"
+          Size="1788,1005"
           Id="Package\КПТ"
-          TopLeft="22.75,6.5" />
+          TopLeft="85.75,6.5" />
         <NodeLayout
           Size="188,42"
           Id="Package\Расчет измерений куба КПТ\Обработка измерений"
@@ -4997,33 +7016,33 @@ WHERE
           PanelSize="240,91"
           Size="240,134"
           Id="Package\Расчет измерений куба КПТ"
-          TopLeft="1158,265" />
+          TopLeft="2354,360" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1100.75,323">
+          TopLeft="1873.75,509">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57.25,9"
+              EndConnector="480.25,-82"
               Start="0,0"
-              End="49.75,9">
+              End="472.75,-82">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="24.625,0" />
+                    End="236.125,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="24.625,0"
-                    Point2="28.625,0"
-                    Point3="28.625,4" />
+                    Point1="236.125,0"
+                    Point2="240.125,0"
+                    Point3="240.125,-4" />
                   <mssgle:LineSegment
-                    End="28.625,5" />
+                    End="240.125,-78" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.625,5"
-                    Point2="28.625,9"
-                    Point3="32.625,9" />
+                    Point1="240.125,-78"
+                    Point2="240.125,-82"
+                    Point3="244.125,-82" />
                   <mssgle:LineSegment
-                    End="49.75,9" />
+                    End="472.75,-82" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5043,7 +7062,7 @@ WHERE
     design-time-name="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="212,42"
           Id="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)\s8-olap-test OLAP_продажи"
@@ -5083,7 +7102,9 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5109,7 +7130,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Загрузка магазинов\Загрузка магазинов из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="241,42"
           Id="Package\КПТ\ОТБРС\Загрузка магазинов\Загрузка магазинов из ОТБРС\s8-olap-test Магазины_temp_load"
@@ -5149,7 +7170,9 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5165,6 +7188,66 @@ WHERE
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\ОТБРС\Загрузка магазинов\Загрузка магазинов из ОТБРС\ОТБРС">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="223,44"
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица"
+          TopLeft="50.4433962264151,129.311320754717" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1.Paths[ADO NET Source Output]"
+          TopLeft="57,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.943396226415,81.811320754717"
+              Start="0,0"
+              End="104.943396226415,74.311320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.9056603773585"
+                    Point2="0,40.9056603773585"
+                    Point3="4,40.9056603773585" />
+                  <mssgle:LineSegment
+                    End="100.943396226415,40.9056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.943396226415,40.9056603773585"
+                    Point2="104.943396226415,40.9056603773585"
+                    Point3="104.943396226415,44.9056603773585" />
+                  <mssgle:LineSegment
+                    End="104.943396226415,74.311320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5285,7 +7368,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\Конвертация типов"
@@ -5321,7 +7404,9 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5347,7 +7432,9 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5415,7 +7502,7 @@ WHERE
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_1\Свод_ступень_обработки_1"
           TopLeft="27.4622641509434,219.160377358491" />
         <NodeLayout
-          Size="136,44"
+          Size="150,42"
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_1\Все источники"
           TopLeft="14.4811320754717,5.5" />
         <NodeLayout
@@ -5446,22 +7533,30 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_1.Paths[ADO NET Source Output]"
-          TopLeft="82.3679245283019,49.4245283018868">
+          TopLeft="89.4811320754717,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54.4150943396226,58.9056603773585"
+              EndConnector="47.5188679245283,60.830188679245"
               Start="0,0"
-              End="54.4150943396226,51.4056603773585">
+              End="47.5188679245283,53.330188679245">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.4339622641509" />
+                    End="0,26.4150943396225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.4150943396225"
+                    Point2="0,30.4150943396225"
+                    Point3="4,30.4150943396225" />
                   <mssgle:LineSegment
-                    End="54.4150943396226,29.4339622641509" />
+                    End="43.5188679245283,30.4150943396225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.5188679245283,30.4150943396225"
+                    Point2="47.5188679245283,30.4150943396225"
+                    Point3="47.5188679245283,34.4150943396225" />
                   <mssgle:LineSegment
-                    End="54.4150943396226,51.4056603773585" />
+                    End="47.5188679245283,53.330188679245" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5483,6 +7578,164 @@ WHERE
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_1\Все источники">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET"
+          TopLeft="232,113" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET"
+          TopLeft="457,327" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный.Paths[Вывод источника ADO NET]"
+          TopLeft="321.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228,172"
+              Start="0,0"
+              End="228,164.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82"
+                    Point2="0,86"
+                    Point3="4,86" />
+                  <mssgle:LineSegment
+                    End="224,86" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224,86"
+                    Point2="228,86"
+                    Point3="228,90" />
+                  <mssgle:LineSegment
+                    End="228,164.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Источник - ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1"
+          TopLeft="27.4622641509434,219.160377358491" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники"
+          TopLeft="13.4811320754717,8.5" />
+        <NodeLayout
+          Size="263,44"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов"
+          TopLeft="5.5,108.330188679245" />
+        <EdgeLayout
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2.Paths[Data Conversion Output]"
+          TopLeft="135.981132075472,152.330188679245">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.830188679246"
+              Start="0,0"
+              End="0,59.330188679246">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.330188679246" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2.Paths[ADO NET Source Output]"
+          TopLeft="81.4811320754717,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.5188679245283,55.830188679245"
+              Start="0,0"
+              End="55.5188679245283,48.330188679245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9150943396225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9150943396225"
+                    Point2="0,27.9150943396225"
+                    Point3="4,27.9150943396225" />
+                  <mssgle:LineSegment
+                    End="51.5188679245283,27.9150943396225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.5188679245283,27.9150943396225"
+                    Point2="55.5188679245283,27.9150943396225"
+                    Point3="55.5188679245283,31.9150943396225" />
+                  <mssgle:LineSegment
+                    End="55.5188679245283,48.330188679245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
