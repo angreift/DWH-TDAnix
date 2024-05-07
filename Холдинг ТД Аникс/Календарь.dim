@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="590cb103-d6ca-4562-bce4-4e64e593a4be" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="9c059b00-89e9-410d-af7f-2208838cab8d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Календарь</ID>
   <Name>Календарь</Name>
   <CreatedTimestamp>2022-09-05T03:41:58.31Z</CreatedTimestamp>
@@ -8,9 +8,9 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2096" scrolltop="-8678" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="20664" y="23971" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2096" scrolltop="-8678" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11060" y="22066" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
-              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+              <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
             <mouseicon>
               <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -136,11 +136,11 @@
   </Annotations>
   <LastProcessed>2022-09-05T07:39:39.87Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="c1fa38e5-72f4-4316-9908-28786636c8a2">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="91e07108-13c4-41fb-81db-377729391932">
     <DataSourceViewID>DWH</DataSourceViewID>
   </Source>
   <Type>Time</Type>
-  <ErrorConfiguration dwd:design-time-name="8d7ab23d-cf0b-42c1-918c-451d8762f5de">
+  <ErrorConfiguration dwd:design-time-name="083e23ad-5135-4f83-a826-d0b70d481342">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
@@ -150,56 +150,56 @@
   <Collation>Cyrillic_General_CI_AS</Collation>
   <UnknownMemberName>Unknown</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="74be2518-3f6c-41a7-8bdd-433a187f5e79">
+    <Attribute dwd:design-time-name="5ee20f75-e88a-4933-a9e0-1e41a9d52c8c">
       <ID>ИД Дата</ID>
       <Name>День</Name>
       <Type>Date</Type>
       <Usage>Key</Usage>
       <EstimatedCount>8767</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="fc48770f-78f6-40e1-b4c4-f99dd9951718">
+        <KeyColumn dwd:design-time-name="c20be7d8-8c76-4577-ac7f-c079d39e356f">
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="68306402-a888-4c1b-8c82-23d5fa22bf44">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="418d5f71-ee53-489e-9ba8-f2288600c6b8">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_дата</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="7bdb4ce7-2756-4551-9b2c-73e1f4cdf552">
+      <NameColumn dwd:design-time-name="958b0eca-8458-4913-99a0-ed5eff87467d">
         <DataType>WChar</DataType>
         <DataSize>10</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="bc09eaae-5734-46d4-a640-d77058cf3421">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="46ad0dd8-0259-464b-9bae-aed11f4c039f">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>День_месяц_год_кратко</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="242a3671-9fa5-4593-9bd7-10d5dff16036">
+        <AttributeRelationship dwd:design-time-name="6a1a78b3-7025-4d9f-9a34-a962676011be">
           <AttributeID>ИД Дата 1</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
-          <Name>День (Полный)</Name>
+          <Name>День_Полный</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="44c83647-55d7-4db3-940b-deea0614108e">
+        <AttributeRelationship dwd:design-time-name="8caa3957-fee6-4399-a112-66eddacf5544">
           <AttributeID>ИД Месяц</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Месяц</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="3fb308c9-58d7-4d40-a0ca-1fe74941f9c9">
+        <AttributeRelationship dwd:design-time-name="b1337389-58f6-4f38-b378-7beeff1de8e4">
           <AttributeID>ISO Неделя Кратко</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>ISO Неделя</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="d56788b6-d515-4c3b-a9fd-aa25b5b44603">
+        <AttributeRelationship dwd:design-time-name="e740b2ce-473b-4f55-80dd-10080754247c">
           <AttributeID>День Недели Наименование</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>День недели</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="8ed52b6f-6d08-4738-bae6-452a9ae676de">
+        <AttributeRelationship dwd:design-time-name="1b305859-0e5e-4448-96a7-64ffd153dedc">
           <AttributeID>PB Нед</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>PB Нед</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="1f75e2cf-edd8-4bd2-a966-4e294f46fd2e">
+        <AttributeRelationship dwd:design-time-name="4670b513-a579-4cf7-a0b8-d5fc2873bab8">
           <AttributeID>Месяц Наименование</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>PB Месяц</Name>
@@ -210,47 +210,47 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="d4f56baa-b82a-44cb-aa6d-e08744b9b1a6">
+    <Attribute dwd:design-time-name="b0dfc480-56b4-4019-99bb-84e5aeb39574">
       <ID>ИД Месяц</ID>
       <Name>Месяц</Name>
       <Type>MonthOfYear</Type>
       <EstimatedCount>289</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ad92bdb1-25af-418c-b777-8a33e7a511e2">
+        <KeyColumn dwd:design-time-name="58fe3232-38b3-4978-a73c-bf1dc7c44c2a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="323325c6-a629-4f16-8027-8e9fcc6ea13b">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="52c05d76-193f-4564-8b70-2eb4323f5148">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_год</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="89d6d8ba-d7a9-44b2-bfab-555435ec11e4">
+        <KeyColumn dwd:design-time-name="fd06c66f-193f-4325-83ab-e271db594891">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c39a672c-1937-4d19-ac47-be02daf085a5">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cd95bca3-c4cc-476f-b280-1d2341d6bc4a">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_месяц</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="22ad000d-99b2-4858-a029-8757d3556a55">
+      <NameColumn dwd:design-time-name="e595a72a-36da-45e8-a0eb-187135c892d7">
         <DataType>WChar</DataType>
         <DataSize>7</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="4e11006e-603d-444e-8162-30fe8f79ab8e">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2c69a47e-158d-42db-9006-79a867d2067d">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>Месяц_год_кратко</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="4bf679d9-6b96-4f01-be52-dd96e557a619">
+        <AttributeRelationship dwd:design-time-name="e8cd7c44-4f8e-4df8-b9e3-b87db7836aca">
           <AttributeID>ИД Месяц 1</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
-          <Name>Месяц (Полный)</Name>
+          <Name>Месяц_Полный</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="9966f42b-d27b-4130-9783-532557d4d891">
+        <AttributeRelationship dwd:design-time-name="dc639d0b-2da5-4a40-a8c4-736b168df1e6">
           <AttributeID>ИД Квартал</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Квартал</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="ce8b2c35-7057-4fd9-b7d2-65fb2315c946">
+        <AttributeRelationship dwd:design-time-name="8fc9f993-cb12-47d0-97d6-42ee03c3103e">
           <AttributeID>Год Месяц</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Год Месяц</Name>
@@ -260,70 +260,70 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="c020a0e8-806f-46c0-8a94-ba02a31773f9">
+    <Attribute dwd:design-time-name="1190ced7-42ae-456d-89f7-8097d31948dd">
       <ID>ИД Год</ID>
       <Name>Год</Name>
       <Type>Years</Type>
       <EstimatedCount>25</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="dee1a161-09d2-48e1-b00a-4115dabe3cf0">
+        <KeyColumn dwd:design-time-name="4dda7262-0f9c-417f-9025-9e8aad72b456">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1edffab3-3790-4cd0-a7c1-0eef3066866e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8e22368c-3773-4585-b410-2c834a26b2d6">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_год</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="682b28c9-695e-4c4f-b286-3feb6a81624e">
+      <NameColumn dwd:design-time-name="63216101-6658-489b-9483-cc778c0f7fab">
         <DataType>WChar</DataType>
         <DataSize>32</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="bf89d839-a25c-4063-a4c2-3c821223472b">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="00b3e8b3-9b2a-4a3c-8283-c23c939aa24c">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>ИД_год</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="0b81f6e6-59f4-4a45-b572-8d8a42075af2">
+        <AttributeRelationship dwd:design-time-name="537a1e75-104e-40f2-858f-27f7649e9d65">
           <AttributeID>ИД Год 1</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
-          <Name>Год (Полный)</Name>
+          <Name>Год_Полный</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="eac6ec41-ca16-4270-abff-4a6c49e33336">
+    <Attribute dwd:design-time-name="c3609fae-09be-4fbe-a2b1-f2a44df24b0b">
       <ID>ИД Квартал</ID>
       <Name>Квартал</Name>
       <Type>QuarterOfYear</Type>
       <EstimatedCount>97</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="2650f596-838c-4dcd-ba68-0ce1d35f4c0f">
+        <KeyColumn dwd:design-time-name="c745cd17-320f-416e-82c8-12cbfba37fc3">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e1d316b6-6375-45fe-aa3c-825c64195597">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b159124-1fb2-47ee-bf3b-db2f88f9c875">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_год</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="a7994410-b24f-48ff-aba9-4dc9ed769297">
+        <KeyColumn dwd:design-time-name="d639457e-b177-4bf4-afbe-3c1e16ab4b1e">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="475df698-9d90-4499-b206-23c5909995d7">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e8b9f029-d861-41d3-bc50-84167c7e5de6">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_квартал</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="c5992ab9-b70d-44fd-ae13-c0da90bcf270">
+      <NameColumn dwd:design-time-name="45fe34e5-0a32-4351-8942-1c4328154c4d">
         <DataType>WChar</DataType>
         <DataSize>66</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="d9cfa63f-1f1e-4b55-be00-5aa93496d666">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b6160def-ce2b-4066-96f2-9c6051d6fd2d">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>К-Г</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="8e3eeab2-fa92-4bbd-b827-f9c7d0fe2c22">
+        <AttributeRelationship dwd:design-time-name="f4c8ef71-6b5e-4011-b3ed-d02b600b35b4">
           <AttributeID>ИД Год</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Год</Name>
@@ -333,24 +333,24 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="6502229f-5050-4557-96b0-765c04a18470">
+    <Attribute dwd:design-time-name="3ac0debe-727a-414d-ba70-2f659c6f7ac5">
       <ID>ИД Год 1</ID>
-      <Name>Год (Полный)</Name>
+      <Name>Год_Полный</Name>
       <Type>Years</Type>
       <EstimatedCount>25</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="57ef54dc-cd6c-40fa-a5b3-938ef6b9d04c">
+        <KeyColumn dwd:design-time-name="48489e61-a3d6-40ad-b5a6-94595cbbc3ff">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c38e3695-de2a-4769-8550-62f1170c7bbe">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a8be23e7-3094-46d0-aecc-caf75d0b4b10">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_год</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="9c982090-c82f-40f9-99e8-5478a72678e9">
+      <NameColumn dwd:design-time-name="82520f2c-af77-41e1-87f1-f9f51076095a">
         <DataType>WChar</DataType>
         <DataSize>8</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="48898b55-917c-4eaa-97e3-1de68818a4f6">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f3c088b1-847b-415a-9b46-48e642fa7b95">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>Год_наименование</ColumnID>
         </Source>
@@ -361,31 +361,31 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a418e611-1dcb-4a36-ac94-6c41666769e8">
+    <Attribute dwd:design-time-name="45450a7e-ca41-4e8c-ab5e-cc762198c4ff">
       <ID>ИД Месяц 1</ID>
-      <Name>Месяц (Полный)</Name>
+      <Name>Месяц_Полный</Name>
       <Type>MonthOfYear</Type>
       <EstimatedCount>289</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="33b21f24-8deb-4bac-9e87-025024aa2038">
+        <KeyColumn dwd:design-time-name="ba703d0b-8227-4468-9a41-5823d571cabc">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b60eb9b9-ad39-4534-b07f-c6a8b3a9a605">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fd201ce5-9590-4619-8275-c6c688dd741c">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_год</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="5ecea7d8-e130-4d38-92a1-ba996a941b13">
+        <KeyColumn dwd:design-time-name="0915609e-a577-4811-8cff-2637bb3d3862">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="f56b2881-a18e-41a2-8987-6741c7e2d921">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="19ad7e1f-8fa4-4725-97e6-1f4c607fc554">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_месяц</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="a6c377e1-0134-444c-a1b8-4f5a8214a53a">
+      <NameColumn dwd:design-time-name="90f8c41e-6bc3-41f0-8237-c1473afba37b">
         <DataType>WChar</DataType>
         <DataSize>18</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="10935ebf-4e35-49b1-b9dd-ddff98db8a8f">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6aed6cb0-0a93-40bb-bf3d-924ad4f872e8">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>Месяц_год_наименование</ColumnID>
         </Source>
@@ -396,24 +396,24 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="965f3812-ea11-4e28-bb03-8c070aaf4af5">
+    <Attribute dwd:design-time-name="eb263425-7653-41a3-8137-51b8406b5a92">
       <ID>ИД Дата 1</ID>
-      <Name>День (Полный)</Name>
+      <Name>День_Полный</Name>
       <Type>Date</Type>
       <EstimatedCount>8767</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="998e788b-c015-420a-8979-a0d770c5390d">
+        <KeyColumn dwd:design-time-name="57776af0-2fb6-43c8-b3d2-4acbfef60227">
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="14f57c36-de70-4a51-952c-575c1b8aa494">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0dbac8cc-5fb9-4b8e-a423-c1f7c5e62540">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_дата</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="c9f46a54-2b7c-4594-bb32-37187d0385bd">
+      <NameColumn dwd:design-time-name="4732dcc2-f7e5-43e1-80ba-f28fc896724e">
         <DataType>WChar</DataType>
         <DataSize>21</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="f3f3f860-d31a-4e33-8a83-a007deaeca59">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="07df60dd-d04d-4ace-ab2c-33d24da603c8">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>День_месяц_год_наименование</ColumnID>
         </Source>
@@ -424,31 +424,31 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="c78265b3-1211-4a69-8d86-e81fcde0be95">
+    <Attribute dwd:design-time-name="36e575d8-f8dd-4db0-a7d3-155cb0d83bce">
       <ID>ISO Неделя</ID>
-      <Name>ISO Неделя (Полный)</Name>
+      <Name>ISO Неделя_Полный</Name>
       <Type>Iso8601Weeks</Type>
       <EstimatedCount>1253</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7a60e082-cff2-45f5-bf8a-345ddca63d51">
+        <KeyColumn dwd:design-time-name="bbcb6d7f-f471-475d-9843-b8b48b5d4651">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b1899c7-fc33-4d80-918f-489c03c48364">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eb5cae6b-5963-4f92-8e2e-8b90b2688e17">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ISO_год</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="0f513e2b-caf3-4b8d-95c5-6de9a7d6375a">
+        <KeyColumn dwd:design-time-name="d0ed7635-299e-49e7-a960-b0f08eb36c0b">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="f49d6b50-fc82-4067-907a-7ee8fcc4638f">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ba1875c1-9bc1-4ddd-862e-c545f913fe01">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ISO_неделя</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="68b84f28-6aa2-478e-b382-03003547411b">
+      <NameColumn dwd:design-time-name="171dcdbb-ad03-4668-a4e1-5033a33c4ad1">
         <DataType>WChar</DataType>
         <DataSize>19</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="12b0566e-7734-4b07-b463-e8612bf3fbb9">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="492b159b-bbab-41da-9b45-10c0c17f7e43">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>ISO_неделя_год_наименование</ColumnID>
         </Source>
@@ -459,24 +459,24 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="75e4c26b-b884-4453-a2cf-f79220e3b9d0">
+    <Attribute dwd:design-time-name="4093e8ea-a3e8-4498-8bed-caf2c48473c6">
       <ID>ISO Год</ID>
       <Name>ISO Год</Name>
       <Type>Iso8601Years</Type>
       <EstimatedCount>25</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="319ae903-d90e-41ec-a3d3-d886e350b698">
+        <KeyColumn dwd:design-time-name="2b1b1fec-e841-4546-8639-c1a4a8640237">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="a013e258-8e34-46b5-a716-7d9ebceb53b2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b81d53fc-10e2-416b-8b55-3cab8d2f6856">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ISO_год</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="1669139c-4dc8-47c1-85b7-26448ddee161">
+      <NameColumn dwd:design-time-name="3d3f432a-c3df-4dba-bdaf-110064486c09">
         <DataType>WChar</DataType>
         <DataSize>8</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="fbb753cf-4358-46dd-a036-b2a5fa26236b">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f2394c7e-9b23-4986-972e-dc7a051ec9b5">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>ISO_год_наименование</ColumnID>
         </Source>
@@ -486,41 +486,41 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="ddb6100e-1e9f-4c6b-826b-640e84b9d95d">
+    <Attribute dwd:design-time-name="df83bdd6-b718-4a53-acc8-2f2ae76bdcb2">
       <ID>ISO Неделя Кратко</ID>
       <Name>ISO Неделя</Name>
       <EstimatedCount>1253</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d5cd4d17-a884-4511-85f9-cdb098009f9b">
+        <KeyColumn dwd:design-time-name="d57d2180-da12-46ad-ae3e-5966ed1bc0bc">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="622333e2-ce17-4dc0-85db-42b00d169bc2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="13ebe202-be47-4eef-a34f-9d7fd1e18ed4">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ISO_год</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="43780aca-2b5b-4e99-9152-20447b6d8f3e">
+        <KeyColumn dwd:design-time-name="da8d1bd2-9cf4-43a3-81d6-1860329f185c">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="6fd26650-5625-46ec-a832-a271f20329e4">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2ca63de7-f649-42ac-85b3-00ae7466e117">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ISO_неделя</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="c06c9c60-bb14-4304-86bd-d4d3a2c14127">
+      <NameColumn dwd:design-time-name="2e3940fd-c7aa-4127-8fd3-3de988514f6a">
         <DataType>WChar</DataType>
         <DataSize>16</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="429243e0-190c-442b-a227-2b092e80021c">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cf8dabce-cb8d-446c-ad74-e2b90e4423e6">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>ISO_неделя_кратко</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="388dd1c6-55aa-42d9-b645-5ae99f896724">
+        <AttributeRelationship dwd:design-time-name="6518f2e0-ecac-42a5-8268-e398d343107d">
           <AttributeID>ISO Неделя</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
-          <Name>ISO Неделя (Полный)</Name>
+          <Name>ISO Неделя_Полный</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="bbcffc5e-cacc-46dd-9407-428e78295bf0">
+        <AttributeRelationship dwd:design-time-name="a9e95ef6-0f0b-4b7b-9619-174cb3ec87fc">
           <AttributeID>ISO Год</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>ISO Год</Name>
@@ -531,30 +531,30 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="dcbd06a7-7299-4884-a3df-4b87e350ea3d">
+    <Attribute dwd:design-time-name="975a6ea7-763f-4233-bfcc-345e963d614a">
       <ID>День Недели Наименование</ID>
       <Name>День недели</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="036631bf-cba6-431e-9993-12b9eb4eed87">
+        <KeyColumn dwd:design-time-name="7cddc97f-e8da-4f35-81ab-144ed1817ff9">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="30d26a39-d8b6-49f9-8af0-85f8ae06d42a">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b44785fe-3156-4860-a3eb-cd3f65339ebb">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_день_недели</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="dab60c30-fd87-4883-b1b4-b3cb81b14e33">
+        <KeyColumn dwd:design-time-name="64e45c37-e3f6-404e-9d9c-2a4a38544fd4">
           <DataType>WChar</DataType>
           <DataSize>11</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c4bf4eef-1b36-4f4c-9be1-418320429872">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="096b91ec-d385-49f9-a49c-1b1336d17c53">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>День_недели_наименование</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="4645b793-7d5b-4115-be84-c94733cd6a0c">
+      <NameColumn dwd:design-time-name="4d91b31e-3b28-4292-a48f-2b0d27c7e048">
         <DataType>WChar</DataType>
         <DataSize>11</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="16df6071-180d-4de1-b452-13f9eb1b5398">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5d1ca9ad-c367-4847-bc1b-ddaa73fcb627">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>День_недели_наименование</ColumnID>
         </Source>
@@ -563,14 +563,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a3cc7a8c-fb8b-4187-94c8-8b7bb35feb22">
+    <Attribute dwd:design-time-name="3b5500df-0154-408e-adb1-acdaa23bddbf">
       <ID>Год Месяц</ID>
       <Name>Год Месяц</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b419945c-b28e-4379-991d-917b6f560547">
+        <KeyColumn dwd:design-time-name="8c19fcf0-4cb2-4790-8142-2e9bf700ee31">
           <DataType>WChar</DataType>
           <DataSize>1024</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="4fb2c8c1-35f5-4487-b069-04943f73d39d">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4544b9fe-b3b3-4de9-8cd6-3c4e71da65d5">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>Год_месяц</ColumnID>
           </Source>
@@ -579,30 +579,30 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="e9c8e463-9dd4-426d-b120-c8474c87d328">
+    <Attribute dwd:design-time-name="ac56cced-e595-4573-b710-f1e0c07a2788">
       <ID>PB Нед</ID>
       <Name>PB Нед</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="11d9c509-0ced-4a6a-ae64-9a5ecf9da9d2">
+        <KeyColumn dwd:design-time-name="0cbca0bf-519b-4053-850f-d38e6c5f9e88">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d7dfc3f-ac49-4f1c-a39a-9e7f5ab341bb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f1d1a627-e645-4474-b0e7-683592c3ebd9">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ISO_неделя</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="056633a9-88cd-4e9b-9535-eec99908e19d">
+        <KeyColumn dwd:design-time-name="18710f91-f546-45a4-aa97-dc062d96ecb9">
           <DataType>WChar</DataType>
           <DataSize>33</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="11ee105d-f8c2-4a72-8dc7-c15bc0d0b7df">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5cedbedb-22b1-4cbe-a7d8-3cdc9b218d6a">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>PB_нед</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="a8ae3b03-fe33-4c31-9c34-ce861d5b5098">
+      <NameColumn dwd:design-time-name="bb8afe98-b7d3-4bd6-b4f1-a37ffc438de7">
         <DataType>WChar</DataType>
         <DataSize>33</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="d3e0e799-5686-4c0f-bcba-cdc6fcd6ab45">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="dd2ba476-07a6-4f6e-8501-047ad34bc725">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>PB_нед</ColumnID>
         </Source>
@@ -611,30 +611,30 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="7a70dfc9-7c47-488f-8eb5-a2001b1e890f">
+    <Attribute dwd:design-time-name="7a09cab6-2bc5-45e1-8480-6ef7b739c54e">
       <ID>Месяц Наименование</ID>
       <Name>PB Месяц</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ace78f7b-2943-4275-a010-3f34dfe622d8">
+        <KeyColumn dwd:design-time-name="9c014a36-c466-4bae-9793-ee2eb0039f19">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="a52a43dd-65e0-4a35-b3c8-dd9aa07de0c5">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="53bc8e1b-33fe-4e47-8ea9-e9d6219a57ba">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>ИД_месяц</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="f3516f91-b12b-4c32-bc21-7db4f274c765">
+        <KeyColumn dwd:design-time-name="465a9b5a-3e08-43bf-a287-3de4250e54c1">
           <DataType>WChar</DataType>
           <DataSize>8</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="f23bbc36-7002-4388-815b-5f67da30dcde">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55d02a3a-2ca0-4a53-8b5a-73df1b38262a">
             <TableID>dbo_t_dim_Календарь</TableID>
             <ColumnID>Месяц_наименование</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="cd931e72-fd16-4a6f-a6b7-094535156839">
+      <NameColumn dwd:design-time-name="c80237c6-3fbf-4dd3-966e-826b28935f0f">
         <DataType>WChar</DataType>
         <DataSize>8</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="350e1989-ee6e-48d3-bf5f-cf8f56318b98">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="683ed75f-677e-4845-b6f8-9516ad7d0aa1">
           <TableID>dbo_t_dim_Календарь</TableID>
           <ColumnID>Месяц_наименование</ColumnID>
         </Source>
@@ -645,103 +645,103 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="124fbdf4-a5ad-4c71-a54a-f0e88476629a">
+    <Hierarchy dwd:design-time-name="f6706f53-f4ef-4f17-9617-d86dca994a8e">
       <ID>Иерархия</ID>
       <Name>Год-Квартал-Месяц-День</Name>
       <AllMemberName>За всё время</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="ecba9120-9d38-47f7-bb32-dda31dfd4b1e">
+        <Level dwd:design-time-name="54c67fab-cb5b-46a6-bf81-3a21abbcdf9b">
           <ID>Год</ID>
           <Name>Год</Name>
           <SourceAttributeID>ИД Год</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="46662a80-3bc7-4e05-a9cf-333cc577b3f8">
+        <Level dwd:design-time-name="47d3a286-9db0-4f40-9784-c18e8b82d636">
           <ID>Квартал</ID>
           <Name>Квартал</Name>
           <SourceAttributeID>ИД Квартал</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="474f4536-5cfd-4262-976a-d8d411406bb8">
+        <Level dwd:design-time-name="8615982b-aaf4-4ce4-b06a-e21cf6e0c342">
           <ID>Месяц</ID>
           <Name>Месяц</Name>
           <SourceAttributeID>ИД Месяц</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="6efe27a5-0b55-4649-bf56-40033b2da334">
+        <Level dwd:design-time-name="fa9ebba9-69b0-47a7-8b41-90178d19e4dd">
           <ID>День</ID>
           <Name>День</Name>
           <SourceAttributeID>ИД Дата</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="fb4c1bf5-94db-4860-81d1-c556f84a5f32">
+    <Hierarchy dwd:design-time-name="a5f7f593-c74b-4363-b8ae-8b34790baec6">
       <ID>Иерархия 1</ID>
       <Name>День-Месяц-Год</Name>
       <AllMemberName>За всё время</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="b6b30062-ed6e-4280-b9a2-5e33f6d1cb4a">
+        <Level dwd:design-time-name="06c6e06e-b211-469a-b195-897b424bd6f5">
           <ID>Год</ID>
           <Name>Год</Name>
           <SourceAttributeID>ИД Год</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="7a466f73-19fd-45dd-aeec-f32fe15ad18e">
+        <Level dwd:design-time-name="276ae406-ab35-49ac-bbc0-51ea2cb058ff">
           <ID>Месяц</ID>
           <Name>Месяц</Name>
           <SourceAttributeID>ИД Месяц</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="fa71d7e6-7d86-4e5b-9d3b-b063964d3bdd">
+        <Level dwd:design-time-name="6c1d2154-2981-4fc5-ab9d-e176c865f118">
           <ID>День</ID>
           <Name>День</Name>
           <SourceAttributeID>ИД Дата</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="4caf9899-d10e-42e9-a60e-f799e6cc2c2b">
+    <Hierarchy dwd:design-time-name="84d2c30d-f9c0-41b9-b9fd-930a3294b3b7">
       <ID>Иерархия 4</ID>
       <Name>ISO День-Неделя-Год</Name>
       <Levels>
-        <Level dwd:design-time-name="77ab33f3-aed0-4590-848c-2188fd067ae9">
+        <Level dwd:design-time-name="d69b5cac-77c5-413c-9a4f-4e5ee3dff22b">
           <ID>ISO Год</ID>
           <Name>ISO Год</Name>
           <SourceAttributeID>ISO Год</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="c3352365-3966-469d-98af-6879163f3a32">
+        <Level dwd:design-time-name="0478bda5-69fc-4222-9a8c-6b6d1b30e6ee">
           <ID>ISO Неделя</ID>
           <Name>ISO Неделя</Name>
           <SourceAttributeID>ISO Неделя Кратко</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="14857bbf-e909-4cf7-a418-8fb18723cc74">
+        <Level dwd:design-time-name="f9591771-0c07-44ed-95f6-165134b4e384">
           <ID>День</ID>
           <Name>День</Name>
           <SourceAttributeID>ИД Дата</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="7f75dcf8-28ec-4983-9d4b-e602d5d4782e">
+    <Hierarchy dwd:design-time-name="70c6ace0-e785-492b-a8af-6c220d4c4297">
       <ID>Иерархия 2</ID>
       <Name>Дни недели</Name>
       <Levels>
-        <Level dwd:design-time-name="c05920f6-3164-4e20-931c-1b7d37e2c22a">
+        <Level dwd:design-time-name="484eaac2-1ab1-492e-92da-2afece3943dd">
           <ID>День недели</ID>
           <Name>День недели</Name>
           <SourceAttributeID>День Недели Наименование</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="7cdb0457-2cc5-4e17-9977-0d9c8f7d1a08">
+    <Hierarchy dwd:design-time-name="0538d45a-ad8c-42b5-8df3-b4ed31c785ed">
       <ID>Иерархия 3</ID>
       <Name>Недели без года</Name>
       <Levels>
-        <Level dwd:design-time-name="48d4fb87-b855-4256-9aa4-a401c7ef1d17">
+        <Level dwd:design-time-name="3123283f-e182-436d-9691-9903f0d80009">
           <ID>PB Нед</ID>
           <Name>PB Нед</Name>
           <SourceAttributeID>PB Нед</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="e11bc1d3-5008-41e1-8e69-36287a881c81">
+    <Hierarchy dwd:design-time-name="1a70ecb9-babb-4368-a212-f30a14479044">
       <ID>Иерархия 5</ID>
       <Name>Месяца без года</Name>
       <Levels>
-        <Level dwd:design-time-name="d6e256ea-f986-4435-88d6-88e2bbc369ab">
+        <Level dwd:design-time-name="336ce361-6aca-491d-82e1-0c0d849678b6">
           <ID>PB Месяц</ID>
           <Name>PB Месяц</Name>
           <SourceAttributeID>Месяц Наименование</SourceAttributeID>
@@ -749,12 +749,12 @@
       </Levels>
     </Hierarchy>
   </Hierarchies>
-  <ProactiveCaching dwd:design-time-name="ce81275a-f7ea-4b12-a6b4-0ec171520609">
+  <ProactiveCaching dwd:design-time-name="c87505f3-b235-4385-ae1a-22de217a68c6">
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5e610394-c8ae-4087-ae60-0388394082d0" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9e77a806-f775-4454-9113-2dde03b70154" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
