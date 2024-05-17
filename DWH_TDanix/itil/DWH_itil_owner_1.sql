@@ -1,0 +1,2 @@
+﻿﻿CREATE LOGIN [DWH_itil_owner]
+    WITH PASSWORD = '13151719Gnom!', DEFAULT_LANGUAGE = [русский], CHECK_POLICY = OFF;
