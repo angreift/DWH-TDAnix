@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\kma1860"
   DTS:DTSID="{E7212DAA-2F8B-4354-8146-93937CF5223E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
   DTS:LocaleID="1049"
   DTS:ObjectName="КПТ Утренний"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="138"
-  DTS:VersionGUID="{83278C44-818A-4240-9813-9D8CF57B4F05}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{375768D4-2294-4601-8093-49789C9F6550}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -939,7 +939,7 @@ and mag.Группа in ('Розница', 'РС Закрытие')</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -947,7 +947,7 @@ and mag.Группа in ('Розница', 'РС Закрытие')</property>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
                       SQLTask:TimeOut="30"
-                      SQLTask:SqlStatementSource="truncate table [dbo].[Магазины_temp_load]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="truncate table [kpt].[t_fact_Магазины_temp_load]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
                 <DTS:Executable
@@ -982,7 +982,7 @@ and mag.Группа in ('Розница', 'РС Закрытие')</property>
                               description="The Destination database table name."
                               expressionType="Notify"
                               name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Магазины_temp_load"</property>
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_fact_Магазины_temp_load"</property>
                             <property
                               dataType="System.Int32"
                               description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -1513,14 +1513,14 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
-                      SQLTask:SqlStatementSource="MERGE dbo.Магазины AS Work&#xA;USING dbo.Магазины_temp_load AS Temp&#xA;ON (Work.Код = Temp.Код)&#xA;WHEN NOT MATCHED BY TARGET&#xA;    THEN INSERT(Код, Магазин, Регион, &#xA;&#x9;&#x9;&#x9;&#x9;Куст, Кустовой, ДатаОткрытия, &#xA;&#x9;&#x9;&#x9;&#x9;ДатаЗакрытия, ДатаНачалаРеконструкции, &#xA;&#x9;&#x9;&#x9;&#x9;ДатаКонцаРеконструкции, КатегорияПоПлощади,ЧасовРаботы)&#xA;&#x9;&#x9;VALUES(Temp.Код, Temp.Магазин, Temp.Регион, &#xA;&#x9;&#x9;&#x9;&#x9;Temp.Куст, Temp.Кустовой, Temp.ДатаОткрытия, &#xA;&#x9;&#x9;&#x9;&#x9;Temp.ДатаЗакрытия, Temp.ДатаНачалаРеконструкции, &#xA;&#x9;&#x9;&#x9;&#x9;Temp.ДатаКонцаРеконструкции, Temp.КатегорияПоПлощади,Temp.ЧасовРаботы)&#xA;WHEN MATCHED&#xA;    THEN UPDATE SET &#xA;    Work.Код = Temp.Код, &#xA;    Work.Магазин = Temp.Магазин, &#xA;    Work.Регион = Temp.Регион,&#xA;    Work.Куст = Temp.Куст,&#xA;    Work.Кустовой = Temp.Кустовой,&#xA;    Work.ДатаОткрытия = Temp.ДатаОткрытия,&#xA;    Work.ДатаЗакрытия = Temp.ДатаЗакрытия,&#xA;    Work.ДатаНачалаРеконструкции = Temp.ДатаНачалаРеконструкции,&#xA;    Work.ДатаКонцаРеконструкции = Temp.ДатаКонцаРеконструкции,&#xA;    Work.КатегорияПоПлощади = Temp.КатегорияПоПлощади,&#xA;Work.ЧасовРаботы = Temp.ЧасовРаботы&#x9;;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="MERGE [kpt].[t_fact_Магазины] AS Work&#xA;USING [kpt].[t_fact_Магазины_temp_load] AS Temp&#xA;ON (Work.Код = Temp.Код)&#xA;WHEN NOT MATCHED BY TARGET&#xA;    THEN INSERT(Код, Магазин, Регион, &#xA;&#x9;&#x9;&#x9;&#x9;Куст, Кустовой, ДатаОткрытия, &#xA;&#x9;&#x9;&#x9;&#x9;ДатаЗакрытия, ДатаНачалаРеконструкции, &#xA;&#x9;&#x9;&#x9;&#x9;ДатаКонцаРеконструкции, КатегорияПоПлощади,ЧасовРаботы)&#xA;&#x9;&#x9;VALUES(Temp.Код, Temp.Магазин, Temp.Регион, &#xA;&#x9;&#x9;&#x9;&#x9;Temp.Куст, Temp.Кустовой, Temp.ДатаОткрытия, &#xA;&#x9;&#x9;&#x9;&#x9;Temp.ДатаЗакрытия, Temp.ДатаНачалаРеконструкции, &#xA;&#x9;&#x9;&#x9;&#x9;Temp.ДатаКонцаРеконструкции, Temp.КатегорияПоПлощади,Temp.ЧасовРаботы)&#xA;WHEN MATCHED&#xA;    THEN UPDATE SET &#xA;    Work.Код = Temp.Код, &#xA;    Work.Магазин = Temp.Магазин, &#xA;    Work.Регион = Temp.Регион,&#xA;    Work.Куст = Temp.Куст,&#xA;    Work.Кустовой = Temp.Кустовой,&#xA;    Work.ДатаОткрытия = Temp.ДатаОткрытия,&#xA;    Work.ДатаЗакрытия = Temp.ДатаЗакрытия,&#xA;    Work.ДатаНачалаРеконструкции = Temp.ДатаНачалаРеконструкции,&#xA;    Work.ДатаКонцаРеконструкции = Temp.ДатаКонцаРеконструкции,&#xA;    Work.КатегорияПоПлощади = Temp.КатегорияПоПлощади,&#xA;Work.ЧасовРаботы = Temp.ЧасовРаботы&#x9;;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
               </DTS:Executables>
@@ -1562,7 +1562,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1570,7 +1570,7 @@ where
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
                       SQLTask:TimeOut="30"
-                      SQLTask:SqlStatementSource="truncate table dbo.ОТБРС_Матрица" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="truncate table [kpt].[t_fact_ОТБРС_Матрица]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
                 <DTS:Executable
@@ -1948,7 +1948,7 @@ where
                               description="The Destination database table name."
                               expressionType="Notify"
                               name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ОТБРС_Матрица"</property>
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_fact_ОТБРС_Матрица"</property>
                             <property
                               dataType="System.Int32"
                               description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -2014,25 +2014,18 @@ where
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ТОП]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
-                                  cachedDataType="i4"
-                                  cachedName="ВидПоставки"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
-                                <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс2н]"
-                                  cachedDataType="numeric"
-                                  cachedName="ВидАсс2н"
-                                  cachedPrecision="1"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]" />
-                                <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс]"
                                   cachedDataType="numeric"
                                   cachedName="ВидАсс"
                                   cachedPrecision="1"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
+                                  cachedDataType="i4"
+                                  cachedName="ВидПоставки"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
                               </inputColumns>
                               <externalMetadataColumns
                                 isUsed="True">
@@ -2494,7 +2487,7 @@ where
                               description="The Destination database table name."
                               expressionType="Notify"
                               name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ОТБРС_Матрица"</property>
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_fact_ОТБРС_Матрица"</property>
                             <property
                               dataType="System.Int32"
                               description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -2560,25 +2553,18 @@ where
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ТОП]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ТОП]" />
                                 <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
-                                  cachedDataType="i4"
-                                  cachedName="ВидПоставки"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
-                                <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс2н]"
-                                  cachedDataType="numeric"
-                                  cachedName="ВидАсс2н"
-                                  cachedPrecision="1"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14денейНазад]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс2н]" />
-                                <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидАсс]"
                                   cachedDataType="numeric"
                                   cachedName="ВидАсс"
                                   cachedPrecision="1"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидАсс]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].Columns[ВидПоставки]"
+                                  cachedDataType="i4"
+                                  cachedName="ВидПоставки"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица.Inputs[ADO NET Destination Input].ExternalColumns[ВидПоставки]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\DWH.Outputs[ADO NET Source Output].Columns[ВидПоставки]" />
                               </inputColumns>
                               <externalMetadataColumns
                                 isUsed="True">
@@ -2661,12 +2647,12 @@ where
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Задача &quot;Выполнение SQL&quot;"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{0A9C0910-30E2-4287-9B51-ABD08498C0E8}"
-                      SQLTask:SqlStatementSource="&#xA;  delete [KPT].[dbo].[ОТБРС_Матрица] FROM [KPT].[dbo].[ОТБРС_Матрица] matr&#xA;  where matr.Кодтовара not in (select КодТовара &#xA;&#x9;from&#xA;&#x9;t_fact_Важный_товар vt &#xA;&#x9;where vt.КодМагазина=matr.КодМагазина and vt.ДатаНачала&lt;=matr.Дата and vt.ДатаКонца&gt;=matr.Дата)  and ВидАсс=5 " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="&#xA;  delete [kpt].[t_fact_ОТБРС_Матрица] FROM [kpt].[t_fact_ОТБРС_Матрица] matr&#xA;  where matr.Кодтовара not in (select КодТовара &#xA;&#x9;from&#xA;&#x9;t_fact_Важный_товар vt &#xA;&#x9;where vt.КодМагазина=matr.КодМагазина and vt.ДатаНачала&lt;=matr.Дата and vt.ДатаКонца&gt;=matr.Дата)  and ВидАсс=5 " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
               </DTS:Executables>
@@ -2739,7 +2725,7 @@ where
                               description="The Destination database table name."
                               expressionType="Notify"
                               name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."МаркетинговыйКлассификатор"</property>
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_fact_МаркетинговыйКлассификатор"</property>
                             <property
                               dataType="System.Int32"
                               description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -3002,7 +2988,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3010,7 +2996,7 @@ FROM         SC5650 (nolock)</property>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
                       SQLTask:TimeOut="30"
-                      SQLTask:SqlStatementSource="truncate table [dbo].[МаркетинговыйКлассификатор];&#xA;insert into МаркетинговыйКлассификатор(id, Код, Наименование)&#xA; values('      999', '    0', 'Не заполнено')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="truncate table [kpt].[t_fact_МаркетинговыйКлассификатор];&#xA;insert into [kpt].[t_fact_МаркетинговыйКлассификатор](id, Код, Наименование)&#xA; values('      999', '    0', 'Не заполнено')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
               </DTS:Executables>
@@ -3044,7 +3030,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3052,7 +3038,7 @@ FROM         SC5650 (nolock)</property>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
                       SQLTask:TimeOut="30"
-                      SQLTask:SqlStatementSource="truncate table [dbo].[Товары]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="truncate table [kpt].[t_fact_Товары]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
                 <DTS:Executable
@@ -3087,7 +3073,7 @@ FROM         SC5650 (nolock)</property>
                               description="The Destination database table name."
                               expressionType="Notify"
                               name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Товары"</property>
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_fact_Товары"</property>
                             <property
                               dataType="System.Int32"
                               description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -3196,13 +3182,6 @@ FROM         SC5650 (nolock)</property>
                                   cachedPrecision="2"
                                   externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\s8-olap-test Товары.Inputs[ADO NET Destination Input].ExternalColumns[ПорогПродажДляРасчетаКоэффПродаж]"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\ОТБРС.Outputs[ADO NET Source Output].Columns[ПорогПродажДляРасчетаКоэффПродаж]" />
-                                <inputColumn
-                                  refId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\s8-olap-test Товары.Inputs[ADO NET Destination Input].Columns[MarketClass_ID]"
-                                  cachedDataType="wstr"
-                                  cachedLength="9"
-                                  cachedName="MarketClass_ID"
-                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\s8-olap-test Товары.Inputs[ADO NET Destination Input].ExternalColumns[МаркетинговыйКлассификатор]"
-                                  lineageId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\ОТБРС.Outputs[ADO NET Source Output].Columns[MarketClass_ID]" />
                                 <inputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\s8-olap-test Товары.Inputs[ADO NET Destination Input].Columns[Copy of СвежийТовар]"
                                   cachedDataType="ui1"
@@ -3328,7 +3307,7 @@ FROM         SC5650 (nolock)</property>
                                 <outputColumn
                                   refId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\Конвертация типов.Outputs[Data Conversion Output].Columns[Copy of СвежийТовар]"
                                   dataType="ui1"
-                                  errorOrTruncationOperation="Conversion"
+                                  errorOrTruncationOperation="Преобразование"
                                   errorRowDisposition="FailComponent"
                                   lineageId="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\Конвертация типов.Outputs[Data Conversion Output].Columns[Copy of СвежийТовар]"
                                   name="Copy of СвежийТовар"
@@ -3337,11 +3316,11 @@ FROM         SC5650 (nolock)</property>
                                     <property
                                       containsID="true"
                                       dataType="System.Int32"
-                                      description="Specifies the input column used as the source of data for the conversion."
+                                      description="Указывает входной столбец, служащий источником данных для преобразования."
                                       name="SourceInputColumnLineageID">#{Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\ОТБРС.Outputs[ADO NET Source Output].Columns[СвежийТовар]}</property>
                                     <property
                                       dataType="System.Boolean"
-                                      description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                      description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
                                       name="FastParse">false</property>
                                   </properties>
                                 </outputColumn>
@@ -3821,7 +3800,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3829,7 +3808,7 @@ WHERE Товары.isFolder=1</property>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
                       SQLTask:TimeOut="30"
-                      SQLTask:SqlStatementSource="truncate table [dbo].[Поставщики_temp_load]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="truncate table [kpt].[t_fact_Поставщики_temp_load]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
                 <DTS:Executable
@@ -3864,7 +3843,7 @@ WHERE Товары.isFolder=1</property>
                               description="The Destination database table name."
                               expressionType="Notify"
                               name="TableOrViewName"
-                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Поставщики_temp_load"</property>
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_fact_Поставщики_temp_load"</property>
                             <property
                               dataType="System.Int32"
                               description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -4133,14 +4112,14 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
-                      SQLTask:SqlStatementSource="MERGE dbo.Поставщики AS Work&#xA;USING dbo.Поставщики_temp_load AS Temp&#xA;ON (Work.Код = Temp.Код)&#xA;WHEN NOT MATCHED BY TARGET&#xA;    THEN INSERT(Код, Поставщик, ИДПоставщика) VALUES(Temp.Код, Temp.Поставщик, Temp.ИДПоставщика)&#xA;WHEN MATCHED&#xA;    THEN UPDATE SET Work.Код = Temp.Код, Work.Поставщик = Temp.Поставщик, Work.ИДПоставщика = Temp.ИДПоставщика;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="MERGE [kpt].[t_fact_Поставщики] AS Work&#xA;USING [kpt].[t_fact_Поставщики_temp_load] AS Temp&#xA;ON (Work.Код = Temp.Код)&#xA;WHEN NOT MATCHED BY TARGET&#xA;    THEN INSERT(Код, Поставщик, ИДПоставщика) VALUES(Temp.Код, Temp.Поставщик, Temp.ИДПоставщика)&#xA;WHEN MATCHED&#xA;    THEN UPDATE SET Work.Код = Temp.Код, Work.Поставщик = Temp.Поставщик, Work.ИДПоставщика = Temp.ИДПоставщика;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
               </DTS:Executables>
@@ -4577,7 +4556,7 @@ group by ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка остатков от шляпы"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -4699,16 +4678,16 @@ cast(case
 
 
 from
-	ОТБРС_Матрица (nolock)
+	[kpt].[t_fact_ОТБРС_Матрица]  as ОТБРС_Матрица (nolock)
 
 
-left join
+inner join
 	t_fact_Остатки_по_часам ОстаткиЧАС (nolock)
 		on ОстаткиЧАС .Дата = ОТБРС_Матрица.Дата
 		and ОстаткиЧАС .КодТовара = ОТБРС_Матрица.КодТовара
 		and ОстаткиЧАС .КодМагазина = ОТБРС_Матрица.КодМагазина
 
-left join
+left  join
 	(select
 		OLAP_Продажи.ДатаПродажи,
 OLAP_Продажи.ЧасПродажи,
@@ -4729,10 +4708,10 @@ OLAP_Продажи.ЧасПродажи,
 and OLAP_продажизапериод.часпродажи=ОстаткиЧас.час
 
 left join
-	Магазины (nolock) on Магазины.Код = ОТБРС_Матрица.КодМагазина
+	[kpt].[t_fact_Магазины] as магазины (nolock) on Магазины.Код = ОТБРС_Матрица.КодМагазина
 
 left join
-	dbo.Товары as спрТовары  (nolock) ON спрТовары.Код=ОТБРС_Матрица.КодТовара
+	[kpt].[t_fact_Товары] as спрТовары  (nolock) ON спрТовары.Код=ОТБРС_Матрица.КодТовара
 
 
 WHERE
@@ -4741,7 +4720,7 @@ WHERE
 						SELECT 
 								МагазиныНаРеконструкции.[Код]
    
-						FROM [Магазины] МагазиныНаРеконструкции (nolock)
+						FROM [kpt].[t_fact_Магазины] МагазиныНаРеконструкции (nolock)
 						WHERE ОТБРС_Матрица.Дата&lt;МагазиныНаРеконструкции.[ДатаОткрытия] OR (МагазиныНаРеконструкции.[ДатаОткрытия]&lt;'1900-01-01') --Товар в матрице, но магазин еще не открыт
 						or (ОТБРС_Матрица.Дата&gt;=МагазиныНаРеконструкции.[ДатаНачалаРеконструкции] and ОТБРС_Матрица.Дата&lt;=МагазиныНаРеконструкции.[ДатаКонцаРеконструкции]) --Товар в матрице, но магазин еще на реконструкции
 						
@@ -5535,10 +5514,10 @@ cast(case
 
 
 from
-	ОТБРС_Матрица (nolock)
+	[kpt].[t_fact_ОТБРС_Матрица] as ОТБРС_матрица (nolock)
 
 
-left join
+inner join
 	t_temp_Остатки_по_часам_ВТ ОстаткиЧАС (nolock)
 		on ОстаткиЧАС .Дата = ОТБРС_Матрица.Дата
 		and ОстаткиЧАС .КодТовара = ОТБРС_Матрица.КодТовара
@@ -5565,10 +5544,10 @@ OLAP_Продажи.ЧасПродажи,
 and OLAP_продажизапериод.часпродажи=ОстаткиЧас.час
 
 left join
-	Магазины (nolock) on Магазины.Код = ОТБРС_Матрица.КодМагазина
+	[kpt].[t_fact_Магазины] as Магазины (nolock) on Магазины.Код = ОТБРС_Матрица.КодМагазина
 
 left join
-	dbo.Товары as спрТовары  (nolock) ON спрТовары.Код=ОТБРС_Матрица.КодТовара
+	[kpt].[t_fact_Товары] as спрТовары  (nolock) ON спрТовары.Код=ОТБРС_Матрица.КодТовара
 
 
 WHERE
@@ -6403,12 +6382,12 @@ WHERE
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -7062,7 +7041,7 @@ WHERE
     design-time-name="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="212,42"
           Id="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)\s8-olap-test OLAP_продажи"
@@ -7102,9 +7081,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7250,11 +7227,19 @@ WHERE
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы  Признак 5 (отбор по дате) 1\s8-oalp-test ОТБРС_Матрица">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="223,44"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\Загрузка матрицы из DWH (отбор по дате)\s8-oalp-test ОТБРС_Матрица"
@@ -7294,9 +7279,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7322,7 +7305,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС\ОТБРС"
@@ -7354,25 +7337,31 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС\s8-olap-test Маркетинговый классификатор">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\Конвертация типов"
           TopLeft="194.216981132075,80.4056603773585" />
         <NodeLayout
-          Size="188,44"
+          Size="174,42"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\s8-olap-test Товары"
           TopLeft="13.5,155.27358490566" />
         <NodeLayout
@@ -7381,30 +7370,36 @@ WHERE
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС.Paths[Data Conversion Output]"
-          TopLeft="262.103773584906,124.330188679245">
+          TopLeft="262.216981132075,124.405660377359">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-154.792452830189,30.9433962264151"
+              EndConnector="-161.716981132075,30.8679245283015"
               Start="0,0"
-              End="-154.792452830189,23.4433962264151">
+              End="-161.716981132075,23.3679245283015">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.4716981132076" />
+                    End="0,11.4339622641507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4339622641507"
+                    Point2="0,15.4339622641507"
+                    Point3="-4,15.4339622641507" />
                   <mssgle:LineSegment
-                    End="-154.792452830189,15.4716981132076" />
+                    End="-157.716981132075,15.4339622641507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-157.716981132075,15.4339622641507"
+                    Point2="-161.716981132075,15.4339622641507"
+                    Point3="-161.716981132075,19.4339622641507" />
                   <mssgle:LineSegment
-                    End="-154.792452830189,23.4433962264151" />
+                    End="-161.716981132075,23.3679245283015" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7430,19 +7425,25 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\s8-olap-test Товары">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\ОТБРС"
@@ -7474,9 +7475,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
