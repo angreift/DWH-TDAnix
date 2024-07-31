@@ -12,8 +12,8 @@
   DTS:ObjectName="КПТ Утренний"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="150"
-  DTS:VersionGUID="{8B172699-E6D5-469A-B879-49452760A446}">
+  DTS:VersionBuild="154"
+  DTS:VersionGUID="{52AF22EF-7BC9-45B8-B2EC-3C419D0C0A3F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Очистка таблиц"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:LoggingOptions
                 DTS:FilterKind="0" />
@@ -939,7 +939,7 @@ and mag.Группа in ('Розница', 'РС Закрытие')</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1513,7 +1513,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1562,7 +1562,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -2647,7 +2647,7 @@ where
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Задача &quot;Выполнение SQL&quot;"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -2988,7 +2988,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3009,6 +3009,445 @@ FROM         SC5650 (nolock)</property>
                   DTS:LogicalAnd="True"
                   DTS:ObjectName="Constraint"
                   DTS:To="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС" />
+              </DTS:PrecedenceConstraints>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД"
+              DTS:CreationName="STOCK:SEQUENCE"
+              DTS:Description="Контейнер последовательности"
+              DTS:DTSID="{9faaf5d8-4dd4-48ae-85bd-387cee2ed8c3}"
+              DTS:ExecutableType="STOCK:SEQUENCE"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Загрузка продаж ТСД">
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Задача потока данных"
+                  DTS:DTSID="{8c993b9a-296e-4c57-b11a-70352c479116}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Загрузка ПродажТСД"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Потребляет данные из SQL Server, OLE DB, ODBC или Oracle с помощью соответствующего поставщика данных .NET. Используйте инструкцию Transact-SQL для определения результирующего набора. Пример: извлечение данных из SQL Server с помощью поставщика данных .NET Framework для SQL Server.Корпорация Майкрософт (Microsoft Corporation). Microsoft SQL Server © Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support4"
+                          description="Потребляет данные из SQL Server, OLE DB, ODBC или Oracle с помощью соответствующего поставщика данных .NET. Используйте инструкцию Transact-SQL для определения результирующего набора. Пример: извлечение данных из SQL Server с помощью поставщика данных .NET Framework для SQL Server."
+                          name="Источник - ADO NET"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Задает инструкцию SQL, используемую компонентом для извлечения данных."
+                              expressionType="Notify"
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">set datefirst 7
+
+declare @date as datetime
+declare @dateN as datetime
+declare @curdate as datetime
+declare @Дата date;
+
+set @curdate = convert(varchar(16), dateadd(day, -2, getdate()), 112)
+
+set @date = CASE 
+WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
+WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) 
+WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)
+END
+
+set @dateN = dateadd(dd, -6, @date)
+
+Select tsd.Дата, 12 Час, tsd.Код_магазина КодМагазина,vt.Основной_код_SNU КодТовара,sum(tsd.Количество) Количество, sum(Сумма_со_скидкой) Сумма_со_скидкой
+from dwh.td.t_fact_Продажи_ТСД tsd (nolock)
+join dbo.t_fact_Важный_товар vt on vt.ДатаНачала&lt;=tsd.Дата and vt.ДатаКонца&gt;=tsd.Дата and tsd.Код_Магазина=vt.КодМагазина and tsd.Код_Товара=vt.КодТовара
+where Дата between @dateN and @date and vt.Кодтовара not in
+      (select distinct  Код from  [kpt].[t_fact_ГруппыИсключения_ВТ] exc
+                  join [kpt].[t_fact_Товары] tov on exc.КодГруппы=tov.Код_Группы_Уровень_1
+				  join kpt.t_fact_ОТБРС_Матрица matr on matr.Дата&gt;=exc.ДатаНачала and matr.Дата&lt;=exc.ДатаКонца and matr.КодМагазина=exc.КодМагазина and matr.КодТовара=tov.Код
+           where vt.ДатаНачала=exc.ДатаНачала and vt.ДатаКонца=exc.датаконца and vt.КодМагазина=exc.КодМагазина and ВидАсс in (5,7))
+		   
+group by tsd.Дата,tsd.Код_Магазина,vt.Основной_код_SNU</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания команды, в секундах. Значение 0 означает неограниченное время ожидания."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, будут ли внешние столбцы с типом, отличным от строкового, в выходных столбцах неявно преобразовываться в строки."
+                              name="AllowImplicitStringConversion">true</property>
+                            <property
+                              dataType="System.String"
+                              description="Имя таблицы базы данных-источника."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Укажите режим получения данных о внешних столбцах"
+                              name="AccessMode"
+                              typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              description="Диспетчер управляемых соединений"
+                              name="IDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET]"
+                              name="Вывод источника ADO NET">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Дата]"
+                                  dataType="dbDate"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Час]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Час]"
+                                  name="Час"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодМагазина]"
+                                  name="КодМагазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодТовара]"
+                                  name="КодТовара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Количество]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Количество]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Количество]"
+                                  name="Количество"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Сумма_со_скидкой]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Сумма_со_скидкой]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Сумма_со_скидкой]"
+                                  name="Сумма_со_скидкой"
+                                  precision="38"
+                                  scale="2"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Дата]"
+                                  dataType="dbDate"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Количество]"
+                                  dataType="numeric"
+                                  name="Количество"
+                                  precision="38"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].ExternalColumns[Сумма_со_скидкой]"
+                                  dataType="numeric"
+                                  name="Сумма_со_скидкой"
+                                  precision="38"
+                                  scale="2" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET]"
+                              isErrorOut="true"
+                              name="Вывод ошибок источника ADO NET">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Дата]"
+                                  dataType="dbDate"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Час]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Час]"
+                                  name="Час" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодМагазина]"
+                                  name="КодМагазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[КодТовара]"
+                                  name="КодТовара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Количество]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Количество]"
+                                  name="Количество"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Сумма_со_скидкой]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[Сумма_со_скидкой]"
+                                  name="Сумма_со_скидкой"
+                                  precision="38"
+                                  scale="2" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод ошибок источника ADO NET].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET"
+                          componentClassID="Microsoft.ManagedComponentHost"
+                          contactInfo="Загружает данные в базы данных, поддерживающие ADO.NET, в которых используются таблицы или представления. Загружает данные в новую или существующую таблицу. Пример: использование поставщика ADO.NET для ODBC, чтобы загрузить данные в назначение ODBC.Корпорация Майкрософт (Microsoft Corporation). Microsoft SQL Server © Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support2"
+                          description="Загружает данные в базы данных, поддерживающие ADO.NET, в которых используются таблицы или представления. Загружает данные в новую или существующую таблицу. Пример: использование поставщика ADO.NET для ODBC, чтобы загрузить данные в назначение ODBC."
+                          name="Назначение ADO NET"
+                          usesDispositions="true"
+                          version="2">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Имя таблицы в целевой базе данных."
+                              expressionType="Notify"
+                              name="TableOrViewName"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"kpt"."t_temp_Продажи_ТСД"</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Укажите число строк в пакете. Значение по умолчанию - 0, при котором размер совпадает с внутренним буфером служб SSIS. "
+                              expressionType="Notify"
+                              name="BatchSize">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания для выполнения команды (в секундах). Значение 0 указывает на бесконечное время работы. "
+                              expressionType="Notify"
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, нужно ли использовать интерфейс SqlBulkCopy для повышения производительности операций массовой вставки. Этот интерфейс поддерживается не всеми поставщиками."
+                              expressionType="Notify"
+                              name="UseBulkInsertWhenPossible">true</property>
+                            <property
+                              dataType="System.String"
+                              name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Connections[IDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT.reader ADO .net]"
+                              description="Диспетчер управляемых соединений"
+                              name="IDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET]"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="Вход назначения ADO NET">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[Дата]"
+                                  cachedDataType="dbDate"
+                                  cachedName="Дата"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Дата]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[Час]"
+                                  cachedDataType="i4"
+                                  cachedName="Час"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Час]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[Количество]"
+                                  cachedDataType="numeric"
+                                  cachedName="Количество"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Количество]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Количество]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[Сумма_со_скидкой]"
+                                  cachedDataType="numeric"
+                                  cachedName="Сумма_со_скидкой"
+                                  cachedPrecision="38"
+                                  cachedScale="2"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Сумма_со_скидкой]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[Сумма_со_скидкой]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[КодМагазина]"
+                                  cachedDataType="i4"
+                                  cachedName="КодМагазина"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Код_магазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодМагазина]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].Columns[КодТовара]"
+                                  cachedDataType="i8"
+                                  cachedName="КодТовара"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Код_товара]"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET].Columns[КодТовара]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[дата]"
+                                  dataType="dbTimeStamp"
+                                  name="дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Час]"
+                                  dataType="ui1"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Код_магазина]"
+                                  dataType="i4"
+                                  name="Код_магазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Код_товара]"
+                                  dataType="i8"
+                                  name="Код_товара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Количество]"
+                                  dataType="numeric"
+                                  name="Количество"
+                                  precision="10"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET].ExternalColumns[Сумма_со_скидкой]"
+                                  dataType="numeric"
+                                  name="Сумма_со_скидкой"
+                                  precision="10"
+                                  scale="2" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Вывод ошибок назначения ADO NET"
+                              synchronousInputId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Outputs[Вывод ошибок назначения ADO NET].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД.Paths[Вывод источника ADO NET]"
+                          endId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET.Inputs[Вход назначения ADO NET]"
+                          name="Вывод источника ADO NET"
+                          startId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET.Outputs[Вывод источника ADO NET]" />
+                      </paths>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Задача &quot;Выполнение SQL&quot;"
+                  DTS:DTSID="{033d1b79-8998-4365-8427-532432907b2a}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Очистка таблицы Продажи ТСД"
+                  DTS:ThreadHint="6">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{0A9C0910-30E2-4287-9B51-ABD08498C0E8}"
+                      SQLTask:SqlStatementSource="truncate table kpt.t_temp_Продажи_ТСД " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\КПТ\ОТБРС\Загрузка продаж ТСД.PrecedenceConstraints[Constraint]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{5016aab1-84a6-4372-93f8-3704c68df66b}"
+                  DTS:From="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Constraint"
+                  DTS:To="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД" />
               </DTS:PrecedenceConstraints>
             </DTS:Executable>
             <DTS:Executable
@@ -4561,7 +5000,7 @@ group by ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка остатков от шляпы"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -5493,6 +5932,8 @@ cast(ОстаткиЧАС.Час as tinyint) Час,
 ОстаткиЧАС.КоличествоПриход,
 	OLAP_ПродажиЗаПериод.Количество ПродажиШТ,
 	OLAP_ПродажиЗаПериод.Сумма ПродажиРуб,
+	ТСД.Количество,
+	ТСД.Сумма_со_скидкой,
 
 --vvvvvvvvvvvvvvvv--КПТ по остаткам--vvvvvvvvvvvvvvvv--
 case when ОТБРС_Матрица.КодТовара not  in 
@@ -5527,6 +5968,13 @@ inner join
 		on ОстаткиЧАС .Дата = ОТБРС_Матрица.Дата
 		and ОстаткиЧАС .КодТовара = ОТБРС_Матрица.КодТовара
 		and ОстаткиЧАС .КодМагазина = ОТБРС_Матрица.КодМагазина
+
+left join
+	kpt.t_temp_Продажи_ТСД as ТСД
+		on ТСД.Дата = ОТБРС_Матрица.Дата
+		and ТСД.Код_Товара = ОТБРС_Матрица.КодТовара
+		and ТСД.Код_Магазина = ОТБРС_Матрица.КодМагазина
+and ТСД.Час=ОстаткиЧас.час
 
 left join
 	(select
@@ -5728,6 +6176,28 @@ WHERE
                               scale="5"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Количество]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Количество]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Количество]"
+                              name="Количество"
+                              precision="10"
+                              scale="3"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Сумма_со_скидкой]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Преобразование"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Сумма_со_скидкой]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Сумма_со_скидкой]"
+                              name="Сумма_со_скидкой"
+                              precision="10"
+                              scale="2"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
                               refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[КПТ]"
                               dataType="numeric"
                               errorOrTruncationOperation="Преобразование"
@@ -5801,6 +6271,18 @@ WHERE
                               name="ПродажиРуб"
                               precision="38"
                               scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Количество]"
+                              dataType="numeric"
+                              name="Количество"
+                              precision="10"
+                              scale="3" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[Сумма_со_скидкой]"
+                              dataType="numeric"
+                              name="Сумма_со_скидкой"
+                              precision="10"
+                              scale="2" />
                             <externalMetadataColumn
                               refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].ExternalColumns[КПТ]"
                               dataType="numeric"
@@ -5887,6 +6369,20 @@ WHERE
                               name="ПродажиРуб"
                               precision="38"
                               scale="5" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Количество]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Количество]"
+                              name="Количество"
+                              precision="10"
+                              scale="3" />
+                            <outputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Сумма_со_скидкой]"
+                              dataType="numeric"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[Сумма_со_скидкой]"
+                              name="Сумма_со_скидкой"
+                              precision="10"
+                              scale="2" />
                             <outputColumn
                               refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Error Output].Columns[КПТ]"
                               dataType="numeric"
@@ -6149,6 +6645,22 @@ WHERE
                               externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ВидАсс14днейНазад]"
                               lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[ВидАсс14денейНазад]" />
                             <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[Сумма_со_скидкой]"
+                              cachedDataType="numeric"
+                              cachedName="Сумма_со_скидкой"
+                              cachedPrecision="10"
+                              cachedScale="2"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиТСД_РУБ]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Сумма_со_скидкой]" />
+                            <inputColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[Количество]"
+                              cachedDataType="numeric"
+                              cachedName="Количество"
+                              cachedPrecision="10"
+                              cachedScale="3"
+                              externalMetadataColumnId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиТСД_ШТ]"
+                              lineageId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники.Outputs[ADO NET Source Output].Columns[Количество]" />
+                            <inputColumn
                               refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].Columns[Copy of ВидПоставки]"
                               cachedDataType="i2"
                               cachedName="Copy of ВидПоставки"
@@ -6221,6 +6733,18 @@ WHERE
                               refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[КПТ]"
                               dataType="ui1"
                               name="КПТ" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиТСД_РУБ]"
+                              dataType="numeric"
+                              name="ПродажиТСД_РУБ"
+                              precision="10"
+                              scale="2" />
+                            <externalMetadataColumn
+                              refId="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1.Inputs[ADO NET Destination Input].ExternalColumns[ПродажиТСД_ШТ]"
+                              dataType="numeric"
+                              name="ПродажиТСД_ШТ"
+                              precision="10"
+                              scale="3" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -6775,37 +7299,25 @@ WHERE
         <NodeLayout
           Size="212,42"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный"
-          TopLeft="111,123" />
+          TopLeft="17.6666666666666,90.7777777777777" />
         <NodeLayout
           Size="216,42"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
-          TopLeft="99,20" />
+          TopLeft="14.5555555555553,20" />
         <EdgeLayout
           Id="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Constraint]"
-          TopLeft="207,62">
+          TopLeft="123.111111111111,62">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10,61"
+              EndConnector="0,28.7777777777777"
               Start="0,0"
-              End="10,53.5">
+              End="0,21.2777777777777">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="4,30.5" />
-                  <mssgle:LineSegment
-                    End="6,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6,30.5"
-                    Point2="10,30.5"
-                    Point3="10,34.5" />
-                  <mssgle:LineSegment
-                    End="10,53.5" />
+                    End="0,21.2777777777777" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6817,10 +7329,59 @@ WHERE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="432,324"
-          Size="432,367"
+          PanelSize="236,194"
+          Size="236,237"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности"
-          TopLeft="525,379" />
+          TopLeft="389.444444444444,362.333333333333" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД"
+          TopLeft="17.6666666666666,90.7777777777777" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
+          TopLeft="14.5555555555553,20" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД.PrecedenceConstraints[Constraint]"
+          TopLeft="122.555555555555,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.3888888888887,28.7777777777777"
+              Start="0,0"
+              End="-13.3888888888887,21.2777777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3888888888889"
+                    Point2="0,14.3888888888889"
+                    Point3="-4,14.3888888888889" />
+                  <mssgle:LineSegment
+                    End="-9.3888888888887,14.3888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.3888888888887,14.3888888888889"
+                    Point2="-13.3888888888887,14.3888888888889"
+                    Point3="-13.3888888888887,18.3888888888889" />
+                  <mssgle:LineSegment
+                    End="-13.3888888888887,21.2777777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="236,194"
+          Size="236,237"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД"
+          TopLeft="725.333333333333,341.333333333333" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -7510,7 +8071,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="185,42"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный\Назначение ADO NET"
@@ -7550,9 +8111,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7670,7 +8229,7 @@ WHERE
     design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="215,42"
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1"
@@ -7702,9 +8261,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7738,9 +8295,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7756,6 +8311,72 @@ WHERE
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET"
+          TopLeft="232,113" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET"
+          TopLeft="457,327" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД.Paths[Вывод источника ADO NET]"
+          TopLeft="321.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228,172"
+              Start="0,0"
+              End="228,164.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82"
+                    Point2="0,86"
+                    Point3="4,86" />
+                  <mssgle:LineSegment
+                    End="224,86" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224,86"
+                    Point2="228,86"
+                    Point3="228,90" />
+                  <mssgle:LineSegment
+                    End="228,164.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
