@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\kma1860"
   DTS:DTSID="{E7212DAA-2F8B-4354-8146-93937CF5223E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
   DTS:LocaleID="1049"
   DTS:ObjectName="КПТ Утренний"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="154"
-  DTS:VersionGUID="{52AF22EF-7BC9-45B8-B2EC-3C419D0C0A3F}">
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{F6055672-ACBC-4E08-BCF3-92025E8D512C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -939,7 +939,7 @@ and mag.Группа in ('Розница', 'РС Закрытие')</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Магазины_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1513,7 +1513,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц магазины"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="2">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1562,7 +1562,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -2647,7 +2647,7 @@ where
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Задача &quot;Выполнение SQL&quot;"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="5">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3430,7 +3430,7 @@ group by tsd.Дата,tsd.Код_Магазина,vt.Основной_код_SNU
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Продажи ТСД"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="2">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3469,7 +3469,7 @@ group by tsd.Дата,tsd.Код_Магазина,vt.Основной_код_SNU
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4239,7 +4239,7 @@ WHERE Товары.isFolder=1</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Поставщики_temp_load"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4551,7 +4551,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Слияние таблиц поставщики"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="5">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -6911,12 +6911,12 @@ WHERE
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -7057,7 +7057,7 @@ WHERE
           PanelSize="224,273"
           Size="224,316"
           Id="Package\КПТ\ОТБРС\Загрузка магазинов"
-          TopLeft="262.783018867926,4.5" />
+          TopLeft="266.116352201259,4.5" />
         <NodeLayout
           Size="192,51"
           Id="Package\КПТ\ОТБРС\Загрузка матрицы\s8-oalp-test Очистка таблицы ОТБРС_Матрица"
@@ -7197,6 +7197,55 @@ WHERE
           Id="Package\КПТ\ОТБРС\Загрузка МК"
           TopLeft="709.5,6.75" />
         <NodeLayout
+          Size="183,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД"
+          TopLeft="17.6666666666666,90.7777777777777" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
+          TopLeft="14.5555555555553,20" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД.PrecedenceConstraints[Constraint]"
+          TopLeft="122.555555555555,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.3888888888887,28.7777777777777"
+              Start="0,0"
+              End="-13.3888888888887,21.2777777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3888888888889"
+                    Point2="0,14.3888888888889"
+                    Point3="-4,14.3888888888889" />
+                  <mssgle:LineSegment
+                    End="-9.3888888888887,14.3888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.3888888888887,14.3888888888889"
+                    Point2="-13.3888888888887,14.3888888888889"
+                    Point3="-13.3888888888887,18.3888888888889" />
+                  <mssgle:LineSegment
+                    End="-13.3888888888887,21.2777777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="236,194"
+          Size="236,237"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД"
+          TopLeft="725.333333333333,341.333333333333" />
+        <NodeLayout
           Size="187,44"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\s8-oalp-test Очистка таблицы Товары"
           TopLeft="11.6698113207543,9.19811320754729" />
@@ -7333,55 +7382,6 @@ WHERE
           Size="236,237"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности"
           TopLeft="389.444444444444,362.333333333333" />
-        <NodeLayout
-          Size="183,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД"
-          TopLeft="17.6666666666666,90.7777777777777" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
-          TopLeft="14.5555555555553,20" />
-        <EdgeLayout
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД.PrecedenceConstraints[Constraint]"
-          TopLeft="122.555555555555,62">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13.3888888888887,28.7777777777777"
-              Start="0,0"
-              End="-13.3888888888887,21.2777777777777">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.3888888888889" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.3888888888889"
-                    Point2="0,14.3888888888889"
-                    Point3="-4,14.3888888888889" />
-                  <mssgle:LineSegment
-                    End="-9.3888888888887,14.3888888888889" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.3888888888887,14.3888888888889"
-                    Point2="-13.3888888888887,14.3888888888889"
-                    Point3="-13.3888888888887,18.3888888888889" />
-                  <mssgle:LineSegment
-                    End="-13.3888888888887,21.2777777777777" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="236,194"
-          Size="236,237"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД"
-          TopLeft="725.333333333333,341.333333333333" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -7924,6 +7924,72 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET"
+          TopLeft="232,113" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET"
+          TopLeft="457,327" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД.Paths[Вывод источника ADO NET]"
+          TopLeft="321.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228,172"
+              Start="0,0"
+              End="228,164.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82"
+                    Point2="0,86"
+                    Point3="4,86" />
+                  <mssgle:LineSegment
+                    End="224,86" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224,86"
+                    Point2="228,86"
+                    Point3="228,90" />
+                  <mssgle:LineSegment
+                    End="228,164.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС">
     <LayoutInfo>
       <GraphLayout
@@ -8311,72 +8377,6 @@ WHERE
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="179,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET"
-          TopLeft="232,113" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET"
-          TopLeft="457,327" />
-        <EdgeLayout
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД.Paths[Вывод источника ADO NET]"
-          TopLeft="321.5,155">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="228,172"
-              Start="0,0"
-              End="228,164.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,82" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,82"
-                    Point2="0,86"
-                    Point3="4,86" />
-                  <mssgle:LineSegment
-                    End="224,86" />
-                  <mssgle:CubicBezierSegment
-                    Point1="224,86"
-                    Point2="228,86"
-                    Point3="228,90" />
-                  <mssgle:LineSegment
-                    End="228,164.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
