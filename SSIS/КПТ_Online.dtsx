@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\kma1860"
   DTS:DTSID="{E7212DAA-2F8B-4354-8146-93937CF5223E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
   DTS:LocaleID="1049"
   DTS:ObjectName="КПТ Утренний"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="154"
-  DTS:VersionGUID="{52AF22EF-7BC9-45B8-B2EC-3C419D0C0A3F}">
+  DTS:VersionBuild="180"
+  DTS:VersionGUID="{B084566B-585C-4D1E-9C20-47B0028A63D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -49,6 +49,18 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=s19-olap;Initial Catalog=DWH;Integrated Security=True;Application Name=SSIS-КПТ Утренний-{D60F8A75-D388-44E8-AF68-64BA091C78D0}s19-olap.DWH;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[s19-olap.KPT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5BFC9FE3-4968-4A69-ABBD-AABFB51B6632}"
+      DTS:ObjectName="s19-olap.KPT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=s19-olap;Initial Catalog=KPT;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -525,7 +537,7 @@ declare @date as datetime
 declare @dateN as datetime
 declare @curdate as datetime
 
-set @curdate=convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @curdate= convert(varchar(16), dateadd(day, -2, getdate()), 112)
 
 set @date =CASE 
 WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
@@ -1562,7 +1574,7 @@ where
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы ОТБРС_Матрица"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -1609,7 +1621,7 @@ where
 declare @date as datetime
 declare @dateN as datetime
 declare @date2N as datetime
-set @date = convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @date =  convert(varchar(16), dateadd(day, -2, getdate()), 112)
 set @date = CASE 
   WHEN DATEPART(weekday, @date) = 1 THEN @date 
   WHEN DATEPART(weekday, @date) = 2 THEN dateadd(day, + 6, @date) 
@@ -2136,7 +2148,7 @@ where
 declare @date as datetime
 declare @dateN as datetime
 declare @date2N as datetime
-set @date = convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @date =  convert(varchar(16), dateadd(day, -2, getdate()), 112)
 set @date = CASE 
   WHEN DATEPART(weekday, @date) = 1 THEN @date 
   WHEN DATEPART(weekday, @date) = 2 THEN dateadd(day, + 6, @date) 
@@ -2647,7 +2659,7 @@ where
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Задача &quot;Выполнение SQL&quot;"
-                  DTS:ThreadHint="3">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -2988,7 +3000,7 @@ FROM         SC5650 (nolock)</property>
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы маркетинговый классфикатор и добавление значения &quot;Не заполнено&quot;"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="3">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -3056,7 +3068,7 @@ declare @dateN as datetime
 declare @curdate as datetime
 declare @Дата date;
 
-set @curdate = convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @curdate =  convert(varchar(16), dateadd(day, -2, getdate()), 112)
 
 set @date = CASE 
 WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
@@ -3430,7 +3442,7 @@ group by tsd.Дата,tsd.Код_Магазина,vt.Основной_код_SNU
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка таблицы Продажи ТСД"
-                  DTS:ThreadHint="6">
+                  DTS:ThreadHint="1">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -3469,7 +3481,7 @@ group by tsd.Дата,tsd.Код_Магазина,vt.Основной_код_SNU
                   DTS:LocaleID="-1"
                   DTS:ObjectName="s8-oalp-test Очистка таблицы Товары"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="4">
+                  DTS:ThreadHint="6">
                   <DTS:Variables />
                   <DTS:LoggingOptions
                     DTS:FilterKind="0" />
@@ -4626,7 +4638,7 @@ declare @dateN as datetime
 declare @curdate as datetime
 declare @Дата date;
 
-set @curdate = convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @curdate =  convert(varchar(16), dateadd(day, -2, getdate()), 112)
 
 set @date = CASE 
 WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
@@ -4641,7 +4653,7 @@ END
 set @dateN = dateadd(dd, -6, @date)
 
 Select ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_код_SNU КодТовара,sum(ost.КоличествоОстаток) КоличествоОстаток, sum(КоличествоПриход) КоличествоПриход
-from dbo.t_fact_Остатки_по_часам ost (nolock)
+from dbo.t_temp_Остатки_по_часам_ВТ_Главный_код ost (nolock)
 join dbo.t_fact_Важный_товар vt on vt.ДатаНачала&lt;=ost.Дата and vt.ДатаКонца&gt;=ost.Дата and ost.КодМагазина=vt.КодМагазина and ost.КодТовара=vt.КодТовара
 where Дата between @dateN and @date and vt.Кодтовара not in
       (select distinct  Код from  [kpt].[t_fact_ГруппыИсключения_ВТ] exc
@@ -4993,6 +5005,888 @@ group by ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_
                   </DTS:ObjectData>
                 </DTS:Executable>
                 <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Задача потока данных"
+                  DTS:DTSID="{FF8D3FEB-2B2A-4F78-8090-7FCCD361856C}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Загрузка остатков Главный_код"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;"
+                          componentClassID="Microsoft.OLEDBSource"
+                          contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+                          description="Источник &quot;OLE DB&quot;"
+                          name="Источник &quot;OLE DB&quot;"
+                          usesDispositions="true"
+                          version="7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowset"></property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Команда SQL для выполнения."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SET DATEFIRST 7;
+
+DECLARE @date AS datetime;
+DECLARE @dateN AS datetime;
+DECLARE @curdate AS datetime;
+
+SET @curdate = CONVERT(varchar(16), DATEADD(day, -2, GETDATE()), 112);
+
+SET @date = CASE
+    WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate
+    WHEN DATEPART(weekday, @curdate) = 2 THEN DATEADD(day, +6, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 3 THEN DATEADD(day, +5, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 4 THEN DATEADD(day, +4, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 5 THEN DATEADD(day, +3, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 6 THEN DATEADD(day, +2, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 7 THEN DATEADD(day, +1, @curdate)
+END;
+SET @dateN = DATEADD(dd, -6, @date);
+
+SELECT 
+	ost.Дата,
+    ost.КодМагазина,
+    ost.Час,
+    t.Главный_код
+      AS КодТовара,
+    SUM(ost.КоличествоОстаток) AS КоличествоОстаток,
+    SUM(ost.КоличествоПриход) AS КоличествоПриход
+FROM
+    dbo.t_temp_Остатки_по_часам_ВТ_первый_сорт ost (nolock)
+JOIN
+    [KPT].[dbo].[v_dim_Товары] t ON ost.КодТовара = t.Код
+WHERE
+ ost.Дата BETWEEN @dateN AND @date
+GROUP BY
+    ost.Дата,
+    ost.КодМагазина,
+    ost.Час,
+    t.Главный_код;</property>
+                            <property
+                              dataType="System.String"
+                              description="Переменная, содержащая команду SQL для выполнения."
+                              name="SqlCommandVariable"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                              name="DefaultCodePage">1251</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает используемый режим доступа к базе данных."
+                              name="AccessMode"
+                              typeConverter="AccessMode">2</property>
+                            <property
+                              dataType="System.String"
+                              description="Сопоставления между параметрами в команде SQL и переменными."
+                              name="ParameterMapping"></property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT]"
+                              description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                              name="OleDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;]"
+                              name="Выход источника &quot;OLE DB&quot;">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  dataType="dbDate"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  name="КодМагазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Час]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Час]"
+                                  name="Час"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  name="КодТовара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  dataType="dbDate"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                              isErrorOut="true"
+                              name="Вывод ошибок источника &quot;OLE DB&quot;">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  dataType="dbDate"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  name="КодМагазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Час]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Час]"
+                                  name="Час" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  name="КодТовара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;"
+                          componentClassID="Microsoft.OLEDBDestination"
+                          contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+                          description="Назначение &quot;OLE DB&quot;"
+                          name="Назначение &quot;OLE DB&quot;"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowset">[dbo].[t_temp_Остатки_по_часам_ВТ_Главный_код]</property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Команда SQL для выполнения."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                              name="DefaultCodePage">1251</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает используемый режим доступа к базе данных."
+                              name="AccessMode"
+                              typeConverter="AccessMode">3</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                              name="FastLoadKeepIdentity">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                              name="FastLoadKeepNulls">false</property>
+                            <property
+                              dataType="System.String"
+                              description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                              name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                              name="FastLoadMaxInsertCommitSize">2147483647</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT]"
+                              description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                              name="OleDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                              errorOrTruncationOperation="Вставить"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="Вход назначения &quot;OLE DB&quot;">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Дата]"
+                                  cachedDataType="dbDate"
+                                  cachedName="Дата"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Дата]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  cachedDataType="i4"
+                                  cachedName="КодМагазина"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодМагазина]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Час]"
+                                  cachedDataType="i4"
+                                  cachedName="Час"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Час]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  cachedDataType="i8"
+                                  cachedName="КодТовара"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодТовара]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  cachedDataType="numeric"
+                                  cachedName="КоличествоОстаток"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  cachedDataType="numeric"
+                                  cachedName="КоличествоПриход"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоПриход]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  dataType="dbDate"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  name="КоличествоОстаток"
+                                  precision="12"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  name="КоличествоПриход"
+                                  precision="12"
+                                  scale="3" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                              synchronousInputId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код.Paths[Выход источника &quot;OLE DB&quot;]"
+                          endId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                          name="Выход источника &quot;OLE DB&quot;"
+                          startId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;]" />
+                      </paths>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Задача потока данных"
+                  DTS:DTSID="{58D26E2F-F970-45D9-949D-CCA2531AC638}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Загрузка остатков первый сорт"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;"
+                          componentClassID="Microsoft.OLEDBSource"
+                          contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+                          description="Источник &quot;OLE DB&quot;"
+                          name="Источник &quot;OLE DB&quot;"
+                          usesDispositions="true"
+                          version="7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowset"></property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Команда SQL для выполнения."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SET DATEFIRST 7;
+
+DECLARE @date AS datetime;
+DECLARE @dateN AS datetime;
+DECLARE @curdate AS datetime;
+
+SET @curdate =    CONVERT(varchar(16), DATEADD(day, -2, GETDATE()), 112);
+
+SET @date = CASE
+    WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate
+    WHEN DATEPART(weekday, @curdate) = 2 THEN DATEADD(day, +6, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 3 THEN DATEADD(day, +5, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 4 THEN DATEADD(day, +4, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 5 THEN DATEADD(day, +3, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 6 THEN DATEADD(day, +2, @curdate)
+    WHEN DATEPART(weekday, @curdate) = 7 THEN DATEADD(day, +1, @curdate)
+END;
+SET @dateN = DATEADD(dd, -6, @date);
+
+SELECT 
+ost.Дата,
+    ost.КодМагазина,
+    ost.Час,
+    t.Товар_первого_сорта
+      AS КодТовара,
+    SUM(ost.КоличествоОстаток) AS КоличествоОстаток,
+    SUM(ost.КоличествоПриход) AS КоличествоПриход
+FROM
+    dbo.t_fact_Остатки_по_часам ost (nolock)
+JOIN
+    [KPT].[dbo].[v_dim_Товары] t ON ost.КодТовара = t.Код
+WHERE
+ ost.Дата BETWEEN @dateN AND @date
+GROUP BY
+    ost.Дата,
+    ost.КодМагазина,
+    ost.Час,
+    t.Товар_первого_сорта;</property>
+                            <property
+                              dataType="System.String"
+                              description="Переменная, содержащая команду SQL для выполнения."
+                              name="SqlCommandVariable"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                              name="DefaultCodePage">1251</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает используемый режим доступа к базе данных."
+                              name="AccessMode"
+                              typeConverter="AccessMode">2</property>
+                            <property
+                              dataType="System.String"
+                              description="Сопоставления между параметрами в команде SQL и переменными."
+                              name="ParameterMapping"></property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT]"
+                              description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                              name="OleDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;]"
+                              name="Выход источника &quot;OLE DB&quot;">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  dataType="dbDate"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  name="Дата"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  name="КодМагазина"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Час]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Час]"
+                                  name="Час"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  dataType="i8"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  name="КодТовара"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  errorOrTruncationOperation="Преобразование"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  dataType="dbDate"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                              isErrorOut="true"
+                              name="Вывод ошибок источника &quot;OLE DB&quot;">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  dataType="dbDate"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Дата]"
+                                  name="Дата" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  name="КодМагазина" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Час]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Час]"
+                                  name="Час" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  dataType="i8"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  name="КодТовара" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  name="КоличествоОстаток"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  name="КоличествоПриход"
+                                  precision="38"
+                                  scale="3" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;"
+                          componentClassID="Microsoft.OLEDBDestination"
+                          contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+                          description="Назначение &quot;OLE DB&quot;"
+                          name="Назначение &quot;OLE DB&quot;"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowset">[dbo].[t_temp_Остатки_по_часам_ВТ_первый_сорт]</property>
+                            <property
+                              dataType="System.String"
+                              description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Команда SQL для выполнения."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                              name="DefaultCodePage">1251</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Указывает используемый режим доступа к базе данных."
+                              name="AccessMode"
+                              typeConverter="AccessMode">3</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                              name="FastLoadKeepIdentity">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                              name="FastLoadKeepNulls">false</property>
+                            <property
+                              dataType="System.String"
+                              description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                              name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                              name="FastLoadMaxInsertCommitSize">2147483647</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[s19-olap.KPT]"
+                              connectionManagerRefId="Package.ConnectionManagers[s19-olap.KPT]"
+                              description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                              name="OleDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                              errorOrTruncationOperation="Вставить"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="Вход назначения &quot;OLE DB&quot;">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Дата]"
+                                  cachedDataType="dbDate"
+                                  cachedName="Дата"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Дата]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КодМагазина]"
+                                  cachedDataType="i4"
+                                  cachedName="КодМагазина"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодМагазина]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Час]"
+                                  cachedDataType="i4"
+                                  cachedName="Час"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Час]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КодТовара]"
+                                  cachedDataType="i8"
+                                  cachedName="КодТовара"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КодТовара]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КоличествоОстаток]"
+                                  cachedDataType="numeric"
+                                  cachedName="КоличествоОстаток"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоОстаток]" />
+                                <inputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[КоличествоПриход]"
+                                  cachedDataType="numeric"
+                                  cachedName="КоличествоПриход"
+                                  cachedPrecision="38"
+                                  cachedScale="3"
+                                  externalMetadataColumnId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[КоличествоПриход]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Дата]"
+                                  dataType="dbDate"
+                                  name="Дата" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодМагазина]"
+                                  dataType="i4"
+                                  name="КодМагазина" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Час]"
+                                  dataType="i4"
+                                  name="Час" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КодТовара]"
+                                  dataType="i8"
+                                  name="КодТовара" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоОстаток]"
+                                  dataType="numeric"
+                                  name="КоличествоОстаток"
+                                  precision="12"
+                                  scale="3" />
+                                <externalMetadataColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[КоличествоПриход]"
+                                  dataType="numeric"
+                                  name="КоличествоПриход"
+                                  precision="12"
+                                  scale="3" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                              synchronousInputId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт.Paths[Выход источника &quot;OLE DB&quot;]"
+                          endId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                          name="Выход источника &quot;OLE DB&quot;"
+                          startId="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;]" />
+                      </paths>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
                   DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
                   DTS:CreationName="Microsoft.ExecuteSQLTask"
                   DTS:Description="Задача &quot;Выполнение SQL&quot;"
@@ -5000,23 +5894,39 @@ group by ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Очистка остатков от шляпы"
-                  DTS:ThreadHint="0">
+                  DTS:ThreadHint="4">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
                       SQLTask:Connection="{0A9C0910-30E2-4287-9B51-ABD08498C0E8}"
-                      SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=convert(varchar(16), dateadd(day, -2, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete ost from t_fact_Остатки_по_часам as ost&#xA;join (select дата,час,кодмагазина from t_fact_Остатки_по_часам where Дата between @dateN and @date&#x9;group by Дата,час,КодМагазина&#xA;&#x9;having  sum (КоличествоОстаток)=0) as del on ost.Дата=del.Дата and ost.час=del.Час and ost.КодМагазина=del.КодМагазина&#xA;&#x9;&#xA;truncate table [dbo].[t_temp_Остатки_по_часам_ВТ]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                      SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=  convert(varchar(16), dateadd(day, -2, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete ost from t_fact_Остатки_по_часам as ost&#xA;join (select дата,час,кодмагазина from t_fact_Остатки_по_часам &#xA;&#x9;where Дата  between @dateN and @date group by Дата,час,КодМагазина&#xA;&#x9;having  sum (КоличествоОстаток)=0) as del on ost.Дата=del.Дата and ost.час=del.Час and ost.КодМагазина=del.КодМагазина&#xA;&#x9;&#xA;truncate table [dbo].[t_temp_Остатки_по_часам_ВТ]&#xA;truncate table [dbo].t_temp_Остатки_по_часам_ВТ_первый_сорт&#xA;truncate table [dbo].t_temp_Остатки_по_часам_ВТ_Главный_код" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
               </DTS:Executables>
               <DTS:PrecedenceConstraints>
                 <DTS:PrecedenceConstraint
-                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Constraint]"
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Ограничение]"
                   DTS:CreationName=""
-                  DTS:DTSID="{D8950173-1908-42E2-A2B3-6767ABBAC457}"
+                  DTS:DTSID="{38333770-67F9-4E91-A29F-ECF912B2A213}"
                   DTS:From="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
                   DTS:LogicalAnd="True"
-                  DTS:ObjectName="Constraint"
+                  DTS:ObjectName="Ограничение"
+                  DTS:To="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Ограничение 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{5BB5607C-FEE3-40BC-B246-259AB00BA475}"
+                  DTS:From="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Ограничение 1"
+                  DTS:To="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Ограничение 2]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{6D914CC9-8263-4EB9-A80C-D8F2CFA3766E}"
+                  DTS:From="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Ограничение 2"
                   DTS:To="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный" />
               </DTS:PrecedenceConstraints>
             </DTS:Executable>
@@ -5069,7 +5979,7 @@ group by ost.Дата,ost.Час,ost.КодМагазина,vt.Основной_
 declare @dateBegin as datetime
 declare @dateEnd as datetime
 declare @curdate as datetime
-set @curdate=convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @curdate= convert(varchar(16), dateadd(day, -2, getdate()), 112)
 set @dateEnd =CASE 
 WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
 WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
@@ -5905,7 +6815,7 @@ WHERE
 declare @dateBegin as datetime
 declare @dateEnd as datetime
 declare @curdate as datetime
-set @curdate=convert(varchar(16), dateadd(day, -2, getdate()), 112)
+set @curdate= convert(varchar(16), dateadd(day, -2, getdate()), 112)
 set @dateEnd =CASE 
 WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate 
 WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) 
@@ -6805,7 +7715,7 @@ WHERE
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{CD278E12-79DA-401D-8D60-C39A84DA3CBE}"
-                  SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=convert(varchar(16), dateadd(day, -2, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_часам&#xA;where&#xA;&#x9;Дата between @dateN and @date;&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_ЧАСАМ_ВТ&#xA;where&#xA;&#x9;Дата between @dateN and @date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="set datefirst 7&#xA;&#xA;declare @date as datetime&#xA;declare @dateN as datetime&#xA;declare @curdate as datetime&#xA;&#xA;set @curdate=    convert(varchar(16), dateadd(day, -2, getdate()), 112)&#xA;&#xA;set @date =CASE &#xA;WHEN DATEPART(weekday, @curdate) = 1 THEN @curdate &#xA;WHEN DATEPART(weekday, @curdate) = 2 THEN dateadd(day, + 6, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 3 THEN dateadd(day, + 5, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 4 THEN dateadd(day, + 4, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 5 THEN dateadd(day, + 3, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 6 THEN dateadd(day, + 2, @curdate) &#xA;WHEN DATEPART(weekday, @curdate) = 7 THEN dateadd(day, + 1, @curdate)&#xA;END&#xA;set @dateN = dateadd(dd, -6, @date)&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_часам&#xA;where&#xA;&#x9;Дата between @dateN and @date;&#xA;&#xA;delete &#xA;from &#xA;&#x9;t_fact_КПТ_по_ЧАСАМ_ВТ&#xA;where&#xA;&#x9;Дата between @dateN and @date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
@@ -6911,12 +7821,12 @@ WHERE
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -7197,6 +8107,55 @@ WHERE
           Id="Package\КПТ\ОТБРС\Загрузка МК"
           TopLeft="709.5,6.75" />
         <NodeLayout
+          Size="183,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД"
+          TopLeft="17.6666666666666,90.7777777777777" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
+          TopLeft="14.5555555555553,20" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД.PrecedenceConstraints[Constraint]"
+          TopLeft="122.555555555555,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.3888888888887,28.7777777777777"
+              Start="0,0"
+              End="-13.3888888888887,21.2777777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3888888888889"
+                    Point2="0,14.3888888888889"
+                    Point3="-4,14.3888888888889" />
+                  <mssgle:LineSegment
+                    End="-9.3888888888887,14.3888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.3888888888887,14.3888888888889"
+                    Point2="-13.3888888888887,14.3888888888889"
+                    Point3="-13.3888888888887,18.3888888888889" />
+                  <mssgle:LineSegment
+                    End="-13.3888888888887,21.2777777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="236,194"
+          Size="236,237"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД"
+          TopLeft="775.333333333333,342.761904761905" />
+        <NodeLayout
           Size="187,44"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\s8-oalp-test Очистка таблицы Товары"
           TopLeft="11.6698113207543,9.19811320754729" />
@@ -7299,74 +8258,113 @@ WHERE
         <NodeLayout
           Size="212,42"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка Остатков важный"
-          TopLeft="17.6666666666666,90.7777777777777" />
+          TopLeft="34.3333333333335,274.18253968254" />
         <NodeLayout
           Size="216,42"
           Id="Package\КПТ\ОТБРС\Контейнер последовательности\Очистка остатков от шляпы"
           TopLeft="14.5555555555553,20" />
-        <EdgeLayout
-          Id="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Constraint]"
-          TopLeft="123.111111111111,62">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.7777777777777"
-              Start="0,0"
-              End="0,21.2777777777777">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.2777777777777" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="236,194"
-          Size="236,237"
-          Id="Package\КПТ\ОТБРС\Контейнер последовательности"
-          TopLeft="389.444444444444,362.333333333333" />
         <NodeLayout
-          Size="183,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД"
-          TopLeft="17.6666666666666,90.7777777777777" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Очистка таблицы Продажи ТСД"
-          TopLeft="14.5555555555553,20" />
+          Size="233,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт"
+          TopLeft="54.2727272727273,100.272727272728" />
         <EdgeLayout
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД.PrecedenceConstraints[Constraint]"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Ограничение]"
           TopLeft="122.555555555555,62">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.3888888888887,28.7777777777777"
+              EndConnector="48.217171717172,38.2727272727276"
               Start="0,0"
-              End="-13.3888888888887,21.2777777777777">
+              End="48.217171717172,30.7727272727276">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.3888888888889" />
+                    End="0,15.1363636363638" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.3888888888889"
-                    Point2="0,14.3888888888889"
-                    Point3="-4,14.3888888888889" />
+                    Point1="0,15.1363636363638"
+                    Point2="0,19.1363636363638"
+                    Point3="4,19.1363636363638" />
                   <mssgle:LineSegment
-                    End="-9.3888888888887,14.3888888888889" />
+                    End="44.217171717172,19.1363636363638" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9.3888888888887,14.3888888888889"
-                    Point2="-13.3888888888887,14.3888888888889"
-                    Point3="-13.3888888888887,18.3888888888889" />
+                    Point1="44.217171717172,19.1363636363638"
+                    Point2="48.217171717172,19.1363636363638"
+                    Point3="48.217171717172,23.1363636363638" />
                   <mssgle:LineSegment
-                    End="-13.3888888888887,21.2777777777777" />
+                    End="48.217171717172,30.7727272727276" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="236,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код"
+          TopLeft="80.6363636363636,191.181818181818" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Ограничение 1]"
+          TopLeft="170.772727272727,142.272727272728">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.8636363636364,48.9090909090907"
+              Start="0,0"
+              End="27.8636363636364,41.4090909090907">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4545454545453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4545454545453"
+                    Point2="0,24.4545454545453"
+                    Point3="4,24.4545454545453" />
+                  <mssgle:LineSegment
+                    End="23.8636363636364,24.4545454545453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.8636363636364,24.4545454545453"
+                    Point2="27.8636363636364,24.4545454545453"
+                    Point3="27.8636363636364,28.4545454545453" />
+                  <mssgle:LineSegment
+                    End="27.8636363636364,41.4090909090907" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности.PrecedenceConstraints[Ограничение 2]"
+          TopLeft="198.636363636364,233.181818181818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.3030303030301,41.0007215007213"
+              Start="0,0"
+              End="-58.3030303030301,33.5007215007213">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5003607503606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5003607503606"
+                    Point2="0,20.5003607503606"
+                    Point3="-4,20.5003607503606" />
+                  <mssgle:LineSegment
+                    End="-54.3030303030301,20.5003607503606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.3030303030301,20.5003607503606"
+                    Point2="-58.3030303030301,20.5003607503606"
+                    Point3="-58.3030303030301,24.5003607503606" />
+                  <mssgle:LineSegment
+                    End="-58.3030303030301,33.5007215007213" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7378,15 +8376,15 @@ WHERE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="236,194"
-          Size="236,237"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД"
-          TopLeft="725.333333333333,341.333333333333" />
+          PanelSize="381,455"
+          Size="381,498"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности"
+          TopLeft="374.89898989899,362.333333333333" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1093,822"
-          Size="1093,865"
+          PanelSize="1093,919"
+          Size="1093,962"
           Id="Package\КПТ\ОТБРС"
           TopLeft="11.5,10" />
         <NodeLayout
@@ -7478,30 +8476,18 @@ WHERE
           TopLeft="1277,279" />
         <EdgeLayout
           Id="Package\КПТ.PrecedenceConstraints[Constraint]"
-          TopLeft="1104.5,442.5">
+          TopLeft="1104.5,489.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="172.5,46"
+              EndConnector="172.5,0"
               Start="0,0"
-              End="165,46">
+              End="165,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="82.25,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="82.25,0"
-                    Point2="86.25,0"
-                    Point3="86.25,4" />
-                  <mssgle:LineSegment
-                    End="86.25,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="86.25,42"
-                    Point2="86.25,46"
-                    Point3="90.25,46" />
-                  <mssgle:LineSegment
-                    End="165,46" />
+                    End="165,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7547,8 +8533,8 @@ WHERE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1788,962"
-          Size="1788,1005"
+          PanelSize="1788,1027"
+          Size="1788,1070"
           Id="Package\КПТ"
           TopLeft="85.75,6.5" />
         <NodeLayout
@@ -7564,13 +8550,13 @@ WHERE
           TopLeft="2354,360" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1873.75,509">
+          TopLeft="1873.75,541.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="480.25,-82"
+              EndConnector="480.25,-114.5"
               Start="0,0"
-              End="472.75,-82">
+              End="472.75,-114.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7581,13 +8567,13 @@ WHERE
                     Point2="240.125,0"
                     Point3="240.125,-4" />
                   <mssgle:LineSegment
-                    End="240.125,-78" />
+                    End="240.125,-110.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="240.125,-78"
-                    Point2="240.125,-82"
-                    Point3="244.125,-82" />
+                    Point1="240.125,-110.5"
+                    Point2="240.125,-114.5"
+                    Point3="244.125,-114.5" />
                   <mssgle:LineSegment
-                    End="472.75,-82" />
+                    End="472.75,-114.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7607,7 +8593,7 @@ WHERE
     design-time-name="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="212,42"
           Id="Package\КПТ\DWH Продажи\Продажи OLAP (ОТБОР ПО ДАТЕ)\s8-olap-test OLAP_продажи"
@@ -7647,9 +8633,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7675,7 +8659,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Загрузка магазинов\Загрузка магазинов из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="241,42"
           Id="Package\КПТ\ОТБРС\Загрузка магазинов\Загрузка магазинов из ОТБРС\s8-olap-test Магазины_temp_load"
@@ -7715,9 +8699,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7875,7 +8857,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка МК\Загрузка маркетингового классификатора из ОТБРС\ОТБРС"
@@ -7907,9 +8889,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7924,10 +8904,76 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET"
+          TopLeft="457,327" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET"
+          TopLeft="232,113" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД.Paths[Вывод источника ADO NET]"
+          TopLeft="321.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228,172"
+              Start="0,0"
+              End="228,164.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82"
+                    Point2="0,86"
+                    Point3="4,86" />
+                  <mssgle:LineSegment
+                    End="224,86" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224,86"
+                    Point2="228,86"
+                    Point3="228,90" />
+                  <mssgle:LineSegment
+                    End="228,164.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Загрузка товаров\Загрузка товаров из ОТБРС\ОТБРС"
@@ -7971,9 +9017,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7999,9 +9043,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8019,7 +9061,7 @@ WHERE
     design-time-name="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
           Id="Package\КПТ\ОТБРС\Звгрузка поставщиков\Загрузка поставщиков из ОТБРС\ОТБРС"
@@ -8051,9 +9093,7 @@ WHERE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8231,6 +9271,10 @@ WHERE
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="263,44"
+          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов"
+          TopLeft="5.5,108.330188679245" />
+        <NodeLayout
           Size="215,42"
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Свод_ступень_обработки_1"
           TopLeft="27.4622641509434,219.160377358491" />
@@ -8238,10 +9282,6 @@ WHERE
           Size="136,44"
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Все источники"
           TopLeft="13.4811320754717,8.5" />
-        <NodeLayout
-          Size="263,44"
-          Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2\Преобразование типов"
-          TopLeft="5.5,108.330188679245" />
         <EdgeLayout
           Id="Package\КПТ\Формирование КПТ Онлайн\Свод_ступень_обработки_2.Paths[Data Conversion Output]"
           TopLeft="135.981132075472,152.330188679245">
@@ -8318,44 +9358,44 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД">
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="179,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET"
-          TopLeft="232,113" />
+          Size="173,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;"
+          TopLeft="247,88" />
         <NodeLayout
           Size="185,42"
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET"
-          TopLeft="457,327" />
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;"
+          TopLeft="376,254" />
         <EdgeLayout
-          Id="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД.Paths[Вывод источника ADO NET]"
-          TopLeft="321.5,155">
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="333.5,130">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="228,172"
+              EndConnector="135,124"
               Start="0,0"
-              End="228,164.5">
+              End="135,116.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,82" />
+                    End="0,58" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,82"
-                    Point2="0,86"
-                    Point3="4,86" />
+                    Point1="0,58"
+                    Point2="0,62"
+                    Point3="4,62" />
                   <mssgle:LineSegment
-                    End="224,86" />
+                    End="131,62" />
                   <mssgle:CubicBezierSegment
-                    Point1="224,86"
-                    Point2="228,86"
-                    Point3="228,90" />
+                    Point1="131,62"
+                    Point2="135,62"
+                    Point3="135,66" />
                   <mssgle:LineSegment
-                    End="228,164.5" />
+                    End="135,116.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8368,7 +9408,7 @@ WHERE
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Источник - ADO NET">
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Источник &quot;OLE DB&quot;">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8376,10 +9416,86 @@ WHERE
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\КПТ\ОТБРС\Загрузка продаж ТСД\Загрузка ПродажТСД\Назначение ADO NET">
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков первый сорт\Назначение &quot;OLE DB&quot;">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;"
+          TopLeft="213,79" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;"
+          TopLeft="286,220" />
+        <EdgeLayout
+          Id="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="299.5,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,99"
+              Start="0,0"
+              End="79,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="4,49.5" />
+                  <mssgle:LineSegment
+                    End="75,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75,49.5"
+                    Point2="79,49.5"
+                    Point3="79,53.5" />
+                  <mssgle:LineSegment
+                    End="79,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Источник &quot;OLE DB&quot;">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\КПТ\ОТБРС\Контейнер последовательности\Загрузка остатков Главный_код\Назначение &quot;OLE DB&quot;">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
