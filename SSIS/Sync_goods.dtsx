@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\agk503"
   DTS:DTSID="{B0DEFE04-3847-4465-9CF3-FCDF1170D846}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
   DTS:LocaleID="1049"
   DTS:ObjectName="Sync_goods"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{0019B98E-88CA-4553-B8B8-F481384C161A}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{5357592B-7CC1-482D-895D-5F4954A1F0A0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2028,340 +2028,6 @@ FROM         SC1202 (nolock)</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\ОТБРС &gt; ВидыУпаковок"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{C9E0EAFE-F1B9-4D28-AA83-BBB5BFA5FB55}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="ОТБРС &gt; ВидыУпаковок"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          BLOBTempStoragePath=""
-          bufferTempStoragePath=""
-          version="1">
-          <components>
-            <component
-              refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[ВидыУпаковок]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[S8-OLAP-TEST.olap-rozn]"
-                  connectionManagerRefId="Package.ConnectionManagers[S8-OLAP-TEST.olap-rozn]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="9"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[ID]" />
-                    <inputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Код]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="5"
-                      cachedName="Код"
-                      externalMetadataColumnId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Код]"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[Код]" />
-                    <inputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Наименование]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="25"
-                      cachedName="Наименование"
-                      externalMetadataColumnId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Наименование]"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[Наименование]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      name="id" />
-                    <externalMetadataColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Код]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      name="Код" />
-                    <externalMetadataColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Наименование]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      name="Наименование" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="ОТБРС"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     ID, CODE AS Код, DESCR AS Наименование
-FROM     
-    SC1341 WITH (nolock)</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1251</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SERV-TERM.rozn2006.sa]"
-                  connectionManagerRefId="Package.ConnectionManagers[SERV-TERM.rozn2006.sa]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[ID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      length="9"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[ID]"
-                      name="ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[Код]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].ExternalColumns[Код]"
-                      length="5"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[Код]"
-                      name="Код"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[Наименование]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].ExternalColumns[Наименование]"
-                      length="25"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].Columns[Наименование]"
-                      name="Наименование"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].ExternalColumns[Код]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      name="Код" />
-                    <externalMetadataColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output].ExternalColumns[Наименование]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      name="Наименование" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[ID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[ID]"
-                      name="ID" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[Код]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[Код]"
-                      name="Код" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[Наименование]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[Наименование]"
-                      name="Наименование" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\ОТБРС &gt; ВидыУпаковок.Paths[OLE DB Source Output]"
-              endId="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\ОТБРС &gt; Города"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -4003,7 +3669,7 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Очистка Категории Товаров"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4037,7 +3703,7 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Очистка таблицы ВидыУпаковок"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4088,7 +3754,7 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Очистка таблицы производители"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4105,7 +3771,7 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Очистка таблицы Регионы"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4156,7 +3822,7 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Смена родителя для СПАР"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4217,22 +3883,6 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Синхронизация" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
-      DTS:CreationName=""
-      DTS:DTSID="{AA7B9D90-F0C5-49C1-8FBF-731032D2FFF4}"
-      DTS:From="Package\Очистка таблицы ВидыУпаковок"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 10"
-      DTS:To="Package\ОТБРС &gt; ВидыУпаковок" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
-      DTS:CreationName=""
-      DTS:DTSID="{6302E5F4-8B9C-4B60-9E7C-B42D3A2CA4E7}"
-      DTS:From="Package\ОТБРС &gt; ВидыУпаковок"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 11"
-      DTS:To="Package\Очистка таблицы города" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
       DTS:CreationName=""
@@ -4355,12 +4005,12 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:To="Package\Очистка таблицы ВидыУпаковок" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -4386,10 +4036,6 @@ FROM         SC2400 WITH (nolock)</property>
           Size="171,44"
           Id="Package\Не заполнено"
           TopLeft="71.6132075471698,893.72641509434" />
-        <NodeLayout
-          Size="193,44"
-          Id="Package\ОТБРС &gt; ВидыУпаковок"
-          TopLeft="290.292452830189,491.990566037736" />
         <NodeLayout
           Size="157,44"
           Id="Package\ОТБРС &gt; Города"
@@ -4498,58 +4144,6 @@ FROM         SC2400 WITH (nolock)</property>
                     End="0.452830188679258,10.9811320754717" />
                   <mssgle:LineSegment
                     End="0.452830188679258,14.4622641509434" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="359.27358490566,463.009433962264">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.3584905660377,28.9811320754717"
-              Start="0,0"
-              End="27.3584905660377,21.4811320754717">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.4905660377358" />
-                  <mssgle:LineSegment
-                    End="27.3584905660377,14.4905660377358" />
-                  <mssgle:LineSegment
-                    End="27.3584905660377,21.4811320754717" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="386.632075471698,535.915094339623">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-29.4716981132076,22.0377358490566"
-              Start="0,0"
-              End="-29.4716981132076,14.5377358490566">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.0188679245283" />
-                  <mssgle:LineSegment
-                    End="-29.4716981132076,11.0188679245283" />
-                  <mssgle:LineSegment
-                    End="-29.4716981132076,14.5377358490566" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5074,42 +4668,6 @@ FROM         SC2400 WITH (nolock)</property>
           TopLeft="NaN,NaN" />
         <EdgeLayout
           Id="Package\Категории Товара.Paths[OLE DB Source Output]"
-          TopLeft="NaN,NaN">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="{assembly:Null}"
-              Start="0,0"
-              End="0,0">
-              <mssgle:Curve.Segments>
-                <assembly:Null />
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\ОТБРС &gt; ВидыУпаковок">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="NaN,NaN"
-          Id="Package\ОТБРС &gt; ВидыУпаковок\ОТБРС"
-          TopLeft="NaN,NaN" />
-        <NodeLayout
-          Size="NaN,NaN"
-          Id="Package\ОТБРС &gt; ВидыУпаковок\OLE DB Destination"
-          TopLeft="NaN,NaN" />
-        <EdgeLayout
-          Id="Package\ОТБРС &gt; ВидыУпаковок.Paths[OLE DB Source Output]"
           TopLeft="NaN,NaN">
           <EdgeLayout.Curve>
             <mssgle:Curve
