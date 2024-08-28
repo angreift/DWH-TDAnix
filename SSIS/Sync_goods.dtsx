@@ -7,13 +7,13 @@
   DTS:CreatorName="TDANIX\agk503"
   DTS:DTSID="{B0DEFE04-3847-4465-9CF3-FCDF1170D846}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
   DTS:LocaleID="1049"
   DTS:ObjectName="Sync_goods"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{0019B98E-88CA-4553-B8B8-F481384C161A}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{304F7B10-2B13-445F-9F4F-5DD740635A01}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4355,12 +4355,12 @@ FROM         SC2400 WITH (nolock)</property>
       DTS:To="Package\Очистка таблицы ВидыУпаковок" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -4417,7 +4417,7 @@ FROM         SC2400 WITH (nolock)</property>
         <NodeLayout
           Size="136,44"
           Id="Package\Очистка таблицы ВидыУпаковок"
-          TopLeft="291.38679245283,419.084905660377" />
+          TopLeft="384.38679245283,421.084905660377" />
         <NodeLayout
           Size="136,44"
           Id="Package\Очистка таблицы города"
@@ -4508,22 +4508,30 @@ FROM         SC2400 WITH (nolock)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="359.27358490566,463.009433962264">
+          TopLeft="452.38679245283,465.084905660377">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.3584905660377,28.9811320754717"
+              EndConnector="-65.594339622641,26.905660377359"
               Start="0,0"
-              End="27.3584905660377,21.4811320754717">
+              End="-65.594339622641,19.405660377359">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.4905660377358" />
+                    End="0,9.45283018867951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.45283018867951"
+                    Point2="0,13.4528301886795"
+                    Point3="-4,13.4528301886795" />
                   <mssgle:LineSegment
-                    End="27.3584905660377,14.4905660377358" />
+                    End="-61.594339622641,13.4528301886795" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.594339622641,13.4528301886795"
+                    Point2="-65.594339622641,13.4528301886795"
+                    Point3="-65.594339622641,17.4528301886795" />
                   <mssgle:LineSegment
-                    End="27.3584905660377,21.4811320754717" />
+                    End="-65.594339622641,19.405660377359" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4924,22 +4932,24 @@ FROM         SC2400 WITH (nolock)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="383.764150943396,399.122641509434">
+          TopLeft="477.405660377358,377.198113207547">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-45.2452830188679,19.9622641509434"
+              EndConnector="-25.018867924528,43.88679245283"
               Start="0,0"
-              End="-45.2452830188679,12.4622641509434">
+              End="-25.018867924528,36.38679245283">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.9622641509434" />
+                    End="-21.018867924528,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.018867924528,0"
+                    Point2="-25.018867924528,0"
+                    Point3="-25.018867924528,4" />
                   <mssgle:LineSegment
-                    End="-45.2452830188679,9.9622641509434" />
-                  <mssgle:LineSegment
-                    End="-45.2452830188679,12.4622641509434" />
+                    End="-25.018867924528,36.38679245283" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
