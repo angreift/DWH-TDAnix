@@ -12,8 +12,8 @@
   DTS:ObjectName="Sync_goods"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{F8C8F997-C64D-4C5F-8A93-4A9172C9FC73}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{3DD7B2D4-A686-4853-B2B5-09839CE5F22F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4421,7 +4421,7 @@ FROM         SC2400 WITH (nolock)</property>
         <NodeLayout
           Size="136,44"
           Id="Package\Очистка таблицы города"
-          TopLeft="289.27358490566,557.952830188679" />
+          TopLeft="334.27358490566,557.952830188679" />
         <NodeLayout
           Size="191,44"
           Id="Package\Очистка таблицы Клиенты"
@@ -4542,30 +4542,18 @@ FROM         SC2400 WITH (nolock)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="407.792452830189,531.990566037736">
+          TopLeft="405.033018867925,531.990566037736">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-50.518867924529,25.9622641509429"
+              EndConnector="0,25.9622641509429"
               Start="0,0"
-              End="-50.518867924529,18.4622641509429">
+              End="0,18.4622641509429">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.98113207547146" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.98113207547146"
-                    Point2="0,12.9811320754715"
-                    Point3="-4,12.9811320754715" />
-                  <mssgle:LineSegment
-                    End="-46.518867924529,12.9811320754715" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-46.518867924529,12.9811320754715"
-                    Point2="-50.518867924529,12.9811320754715"
-                    Point3="-50.518867924529,16.9811320754715" />
-                  <mssgle:LineSegment
-                    End="-50.518867924529,18.4622641509429" />
+                    End="0,18.4622641509429" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4576,22 +4564,24 @@ FROM         SC2400 WITH (nolock)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="357.160377358491,601.877358490566">
+          TopLeft="334.27358490566,579.952830188679">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.4905660377358,20"
+              EndConnector="33.5,41.9245283018871"
               Start="0,0"
-              End="10.4905660377358,12.5">
+              End="33.5,34.4245283018871">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.99999999999997" />
+                    End="29.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5,0"
+                    Point2="33.5,0"
+                    Point3="33.5,4" />
                   <mssgle:LineSegment
-                    End="10.4905660377358,9.99999999999997" />
-                  <mssgle:LineSegment
-                    End="10.4905660377358,12.5" />
+                    End="33.5,34.4245283018871" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
