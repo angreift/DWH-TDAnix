@@ -19340,38 +19340,774 @@ FROM [plan].[v_fact_Планы_СА_по_магазинам]
       </Partitions>
     </MeasureGroup>
     <MeasureGroup>
-      <ID>v Fact Верхние Цифры</ID>
+      <ID>v Fact Инфляция Группы</ID>
       <Partitions>
-        <Partition dwd:design-time-name="c4117e8f-a076-492c-9190-de4610c1f289">
-          <ID>v Fact Верхние Цифры</ID>
-          <Name>v Fact Верхние Цифры</Name>
+        <Partition dwd:design-time-name="e6eaa9f1-39b6-4e59-8f62-5c14ecb68e82">
+          <ID>v Fact Инфляция Группы</ID>
+          <Name>Инфляция_группы_2022</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3117936f-5e68-409d-b809-cca944a49988">
-            <DataSourceViewID>DWH</DataSourceViewID>
-            <TableID>dbo_v_fact_Верхние_цифры</TableID>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="fdd911e0-3189-44ae-95e1-29f5b898e19b">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год],[dbo].[v_fact_Инфляция_группы].[Дата]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2022</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-      </Partitions>
-    </MeasureGroup>
-    <MeasureGroup>
-      <ID>v Fact Инфляция Группы</ID>
-      <Partitions>
-        <Partition dwd:design-time-name="e6eaa9f1-39b6-4e59-8f62-5c14ecb68e82">
-          <ID>v Fact Инфляция Группы</ID>
-          <Name>v Fact Инфляция Группы</Name>
+        <Partition dwd:design-time-name="45c69482-24d1-472a-bb8e-fe2d01e885a8">
+          <ID>Инфляция_группы_2023_q1</ID>
+          <Name>Инфляция_группы_2023_q1</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <Annotations>
+            <Annotation>
+              <Name>AggregationPercent</Name>
+              <Value></Value>
+            </Annotation>
+          </Annotations>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="fd57a4ea-57f9-43e7-8099-338aa5b5ace2">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &gt;=1 and [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &lt;14  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="112199bf-08d5-4a83-adec-55a917f90e67">
+          <ID>v Fact Инфляция Группы 1</ID>
+          <Name>Инфляция_группы_2023_q2</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="9520ed4c-10ae-4a59-b912-308a765cd040">
-            <DataSourceViewID>DWH</DataSourceViewID>
-            <TableID>dbo_v_fact_Инфляция_группы</TableID>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f0a1b4ff-49e9-4998-8ae1-cb7d1222c320">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &gt;=14 and [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &lt;27  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="c335b8e8-337a-4744-9878-e367b0999b8d">
+          <ID>Инфляция_группы_2023_q3</ID>
+          <Name>Инфляция_группы_2023_q3</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="9129e8d8-6426-4150-b10e-172e64fe4e15">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &gt;=27 and [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &lt;40  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="e05dc14f-54eb-48b4-99ba-a68aaeb3e678">
+          <ID>Инфляция_группы_2023_q4</ID>
+          <Name>Инфляция_группы_2023_q4</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="3e9c636d-67ad-4a6f-9956-695892a7e442">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &gt;=40 and [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &lt;=52  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="4ac6f7b1-37a7-4b4e-8b67-0f9382d36b7b">
+          <ID>Инфляция_группы_2024_04_01</ID>
+          <Name>Инфляция_группы_2024_04_01</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="9c6cb229-6432-43ad-a2ff-8ef3241f3075">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 14  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="d6108eb3-32be-4292-ac66-87bed56c68f6">
+          <ID>Инфляция_группы_2024_q1</ID>
+          <Name>Инфляция_группы_2024_q1</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8a6b7e87-5f3a-4063-9f8c-6e2cbe58b9fc">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &gt;=1 and [dbo].[v_fact_Инфляция_группы].[ISO_неделя] &lt;14  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="291bc3e7-f0ff-4b7c-bcec-efe34ee529b0">
+          <ID>Инфляция_группы_2024_04_08</ID>
+          <Name>Инфляция_группы_2024_04_08</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d45d75bc-79c0-45e3-acdf-15e91ef47ddc">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 15  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="e4a58bd6-5578-400a-aba1-55c465a47101">
+          <ID>Инфляция_группы_2024_04_15</ID>
+          <Name>Инфляция_группы_2024_04_15</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8ede641c-739a-475b-9869-4bd3a393a858">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 16  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="92cdd533-2daa-40b8-8204-9e6a46f7ea02">
+          <ID>Инфляция_группы_2024_04_22</ID>
+          <Name>Инфляция_группы_2024_04_22</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="038d2ecf-4c29-4e80-9751-bdff13067116">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 17  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="7f08c677-321f-48d0-95d8-3c63d69f3907">
+          <ID>Инфляция_группы_2024_04_29</ID>
+          <Name>Инфляция_группы_2024_04_29</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="76e0bc85-ce28-4b9f-9ef3-071f554b82b4">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 18  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="121c2e3f-48f3-4d28-808e-2cbede16d27a">
+          <ID>Инфляция_группы_2024_05_13</ID>
+          <Name>Инфляция_группы_2024_05_13</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="5fe175fa-9100-4ca7-801d-6bd56f05bd9a">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 20  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="490266bb-160c-473f-90c2-bfc2e3904218">
+          <ID>Инфляция_группы_2024_05_06</ID>
+          <Name>Инфляция_группы_2024_05_06</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="c037ecd1-1545-4cae-9e75-a78eaa3c3b0f">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 19  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="96df00bf-a4e5-47b9-ad45-ef2874029b10">
+          <ID>Инфляция_группы_2024_05_20</ID>
+          <Name>Инфляция_группы_2024_05_20</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8f1d94d9-b6bf-4219-8164-b588c5ca3246">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 21  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="ad156648-1361-4e58-a060-358a2d708549">
+          <ID>Инфляция_группы_2024_05_27</ID>
+          <Name>Инфляция_группы_2024_05_27</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="3c9bc663-38c1-45d3-bb56-49d8512d490c">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 22  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="de877f39-804b-4ac6-9dfb-ab4692656018">
+          <ID>Инфляция_группы_2024_06_03</ID>
+          <Name>Инфляция_группы_2024_06_03</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="9c03413b-d56a-42d0-822d-4fb7bcc0a44e">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 23  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="ad777599-b301-4c91-b7f5-d657ad3708d8">
+          <ID>Инфляция_группы_2024_06_10</ID>
+          <Name>Инфляция_группы_2024_06_10</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="3f1932b0-3d65-43bc-8ea9-5e85e9072a8d">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 24  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="006fc8fc-9173-4860-8d97-61de0ff7de77">
+          <ID>Инфляция_группы_2024_06_17</ID>
+          <Name>Инфляция_группы_2024_06_17</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="22f6e647-633f-45dc-9fd0-9ef4e749b154">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 25  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="d454c8cb-c175-40ab-a49b-9b6709e79f96">
+          <ID>Инфляция_группы_2024_06_24</ID>
+          <Name>Инфляция_группы_2024_06_24</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f67d3dc8-bc82-4ad5-820c-d4d65ff8e84b">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 26  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="619d1f10-378a-4518-9387-fe7e18acd949">
+          <ID>Инфляция_группы_2024_07_01</ID>
+          <Name>Инфляция_группы_2024_07_01</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="a53e362d-bd9b-47ae-b80e-e30b9b5b3d97">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 27  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="0107d66a-ebcd-441e-b58c-9297533fb5c8">
+          <ID>Инфляция_группы_2024_07_08</ID>
+          <Name>Инфляция_группы_2024_07_08</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8cc5dcb8-1596-4e90-b34b-995034efcd89">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 28  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="e4349418-16cf-480b-a011-74c3160b8617">
+          <ID>Инфляция_группы_2024_07_15</ID>
+          <Name>Инфляция_группы_2024_07_15</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="400eec1b-2147-4252-b6d0-f97e9a20aa77">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 29  and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="31af141c-440b-4430-8790-ee928637b86b">
+          <ID>Инфляция_группы_2024_07_22</ID>
+          <Name>Инфляция_группы_2024_07_22</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6e726781-dfc7-4688-af80-bac7058d9e96">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 30 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="37092acd-14f4-448b-adef-7d54ad7b704f">
+          <ID>Инфляция_группы_2024_07_29</ID>
+          <Name>Инфляция_группы_2024_07_29</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="73354acc-45ed-4afb-b521-b80196c6611d">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 31 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="bbf10860-e4da-43e7-bc90-f9e209820f52">
+          <ID>Инфляция_группы_2024_08_05</ID>
+          <Name>Инфляция_группы_2024_08_05</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="bcb70662-1b2c-44b0-bdb8-cd84c7852334">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 32 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="5424beac-7ba3-4f53-82a7-38b0291fcd44">
+          <ID>Инфляция_группы_2024_08_12</ID>
+          <Name>Инфляция_группы_2024_08_12</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8f160b87-f959-4307-b627-56f42f523303">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 33 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="eb748edc-e4c1-42af-8a8d-0b82fafd327f">
+          <ID>Инфляция_группы_2024_08_19</ID>
+          <Name>Инфляция_группы_2024_08_19</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="28f272d7-4776-406b-aba0-72a8f8de357c">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+ WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] =34 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="b8ce6e2a-0b3c-4717-afc3-d722c7974a11">
+          <ID>Инфляция_группы_2024_08_26</ID>
+          <Name>Инфляция_группы_2024_08_26</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="366937b1-ad98-4051-a2db-98d21f7f185e">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] =35 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="891c993f-1d58-4869-a4a7-9022e1c8b8d5">
+          <ID>Инфляция_группы_2024_09_02</ID>
+          <Name>Инфляция_группы_2024_09_02</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="5d0302ef-78b3-44f4-8751-bd870365f7b4">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] =36 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="61be7913-1310-418d-bbff-25c97da79e33">
+          <ID>Инфляция_группы_2024_09_09</ID>
+          <Name>Инфляция_группы_2024_09_09</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="803d643b-8010-4d32-88d9-67a663b8e867">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 37 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="b65a0009-9bd0-41d2-a4c4-4595f103f9d4">
+          <ID>Инфляция_группы_2024_09_16</ID>
+          <Name>Инфляция_группы_2024_09_16</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="38eb8cb0-3084-4bb4-aafa-8f482df02866">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 38 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="8775a6e0-032d-4071-825d-4e9f3343b868">
+          <ID>Инфляция_группы_2024_09_23</ID>
+          <Name>Инфляция_группы_2024_09_23</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="ebe52de9-74ad-4902-ad3f-00d90bc6e194">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 39 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="81760621-869f-47cc-a3c8-499029ffe3ee">
+          <ID>Инфляция_группы_2024_09_30</ID>
+          <Name>Инфляция_группы_2024_09_30</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="757aa4ed-5be6-42a4-b6b1-839f773974b2">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 40 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="eb5755fa-786f-4438-8105-90f08a78728f">
+          <ID>Инфляция_группы_2024_10_07</ID>
+          <Name>Инфляция_группы_2024_10_07</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="a51f8467-4488-468c-86fa-723cd8d69f1f">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 41 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="7e8e0531-d279-43fc-bbea-f88e42af030b">
+          <ID>Инфляция_группы_2024_10_14</ID>
+          <Name>Инфляция_группы_2024_10_14</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f57bf6b3-8169-42f3-b01d-98f7692fd7b3">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 42 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="18efd04d-f922-4b70-88ee-78821c90ac2d">
+          <ID>Инфляция_группы_2024_10_21</ID>
+          <Name>Инфляция_группы_2024_10_21</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="00169d23-ade3-45f8-9dad-508a53c3464c">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 43 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="e969f80a-4453-4bb1-b61f-5d498bc996a0">
+          <ID>Инфляция_группы_2024_10_28</ID>
+          <Name>Инфляция_группы_2024_10_28</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d2a2f015-02b7-4d0f-be78-689c2dbcb6e2">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 44 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="b734e32c-d3cf-46a3-b724-cd2818dd0790">
+          <ID>Инфляция_группы_2024_11_04</ID>
+          <Name>Инфляция_группы_2024_11_04</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6e1abb2c-8fc4-4ea7-94fc-5bf721160290">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 45 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="44049e99-1b20-4175-983b-b8fc7a03779e">
+          <ID>Инфляция_группы_2024_11_11</ID>
+          <Name>Инфляция_группы_2024_11_11</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="848ab7cf-45e8-4645-9340-90c1f4bfe3f2">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 46 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="a4c87e65-564e-4cd7-b69f-77fdbcf6342b">
+          <ID>Инфляция_группы_2024_11_18</ID>
+          <Name>Инфляция_группы_2024_11_18</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="26220338-8327-4e41-8c83-93b5b709cc00">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 47 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="9e427eae-b802-4ea4-b3a7-e2101186ffdf">
+          <ID>Инфляция_группы_2024_11_25</ID>
+          <Name>Инфляция_группы_2024_11_25</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="afa3a33c-f374-4e3b-9c7d-0b908cd9f1d4">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 48 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="5eb70bb7-9c61-480a-905c-c73e7587edd5">
+          <ID>Инфляция_группы_2024_12_02</ID>
+          <Name>Инфляция_группы_2024_12_02</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8f025438-309b-4cef-8baa-770d93b86db5">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 49 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="d53d2bda-b6b6-4285-b24f-8d1f0b915fbc">
+          <ID>Инфляция_группы_2024_12_09</ID>
+          <Name>Инфляция_группы_2024_12_09</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d6170426-7e51-4583-9409-2a75956acc94">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 50 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="b8a5b38a-76b9-44b5-810c-06347c1f9525">
+          <ID>Инфляция_группы</ID>
+          <Name>Инфляция_группы_2024_12_16</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="78c7cb3f-be8a-4047-b82f-ed4d2319b669">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 51 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="7c3aa5f4-5455-4c9a-a35c-e80970d28578">
+          <ID>Инфляция_группы_2024_12_23</ID>
+          <Name>Инфляция_группы_2024_12_23</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="65e1ce81-1f64-48c4-b13f-bcf72a9a5674">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_группы].[Инфляция],[dbo].[v_fact_Инфляция_группы].[Код_группы],[dbo].[v_fact_Инфляция_группы].[Наименование_группы],[dbo].[v_fact_Инфляция_группы].[ISO_неделя],[dbo].[v_fact_Инфляция_группы].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_группы]
+WHERE  [dbo].[v_fact_Инфляция_группы].[ISO_неделя] = 52 and  [dbo].[v_fact_Инфляция_группы].[ISO_год] = 2024</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
@@ -19382,56 +20118,749 @@ FROM [plan].[v_fact_Планы_СА_по_магазинам]
     <MeasureGroup>
       <ID>v Fact Инфляция Общая</ID>
       <Partitions>
-        <Partition dwd:design-time-name="0b6d93f0-1cd9-4ce7-b750-6d616f553794">
-          <ID>v Fact Инфляция Общая</ID>
-          <Name>v Fact Инфляция Общая</Name>
+        <Partition dwd:design-time-name="d662e3dc-f0e0-4cd1-9e82-33aa2c6447f2">
+          <ID>Инфляция_общая_2022</ID>
+          <Name>Инфляция_общая_2022</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="9428a3e0-fae3-4b06-94da-c37b1aca7be1">
-            <DataSourceViewID>DWH</DataSourceViewID>
-            <TableID>dbo_v_fact_Инфляция_Общая</TableID>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6ea4ab13-c5bd-4d35-9298-6d9984dc9f78">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год],[dbo].[v_fact_Инфляция_Общая].[Дата]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE   [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2022</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-      </Partitions>
-    </MeasureGroup>
-    <MeasureGroup>
-      <ID>v Fact Детализация Чеков Test</ID>
-      <Partitions>
-        <Partition dwd:design-time-name="95194ef2-9d8b-4281-bf72-919258719b55">
-          <ID>v Fact Детализация Чеков Test</ID>
-          <Name>v Fact Детализация Чеков Test</Name>
+        <Partition dwd:design-time-name="ee210c48-1284-4f4c-bbbc-95ab0380207a">
+          <ID>Инфляция_общая_2023_q1</ID>
+          <Name>Инфляция_общая_2023_q1</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4644fc41-cd8c-4143-aea3-1465adf1178d">
-            <DataSourceViewID>DWH</DataSourceViewID>
-            <TableID>cass_v_fact_Детализация_чеков_test</TableID>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="341cd82c-4af1-437e-9302-cd3844af2482">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &gt;=1 and  [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &lt;14  and [dbo].[v_fact_Инфляция_Общая].[ISO_год]  = 2023</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
         </Partition>
-      </Partitions>
-    </MeasureGroup>
-    <MeasureGroup>
-      <ID>t Fact Матрица Промо Товаров</ID>
-      <Partitions>
-        <Partition dwd:design-time-name="d65765ca-a9b4-4046-8cbf-97abd954949e">
-          <ID>t Fact Матрица Промо Товаров</ID>
-          <Name>t Fact Матрица Промо Товаров</Name>
+        <Partition dwd:design-time-name="fd8259fe-4532-4a0b-a776-6a37353c7d18">
+          <ID>Инфляция_общая_2023_q2</ID>
+          <Name>Инфляция_общая_2023_q2</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="9e236938-36df-4cb1-b831-125c810d7b64">
-            <DataSourceViewID>DWH</DataSourceViewID>
-            <TableID>dbo_t_fact_Матрица_промо_товаров</TableID>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="852d9f6c-4833-4703-896a-45cf1680a1fc">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &gt;=14 and  [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &lt;27  and [dbo].[v_fact_Инфляция_Общая].[ISO_год]  = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="4f17a7c1-d5c1-4d4a-a1be-11e633b06b36">
+          <ID>Инфляция_общая_2023_q3</ID>
+          <Name>Инфляция_общая_2023_q3</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="a2dfe401-4571-4be0-86a0-5247b77f93db">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &gt;=27 and  [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &lt;40  and [dbo].[v_fact_Инфляция_Общая].[ISO_год]  = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="56773233-a6b5-43db-8e44-aedd5d7365df">
+          <ID>Инфляция_общая_2023_q4</ID>
+          <Name>Инфляция_общая_2023_q4</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="3f2647e6-263a-4419-a410-4b40cfc853a3">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &gt;=40 and  [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &lt;=52  and [dbo].[v_fact_Инфляция_Общая].[ISO_год]  = 2023</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="da930289-6cfe-4889-a1d8-a1a46758ab68">
+          <ID>Инфляция_общая_2024_q1</ID>
+          <Name>Инфляция_общая_2024_q1</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="85e58770-d0bf-4219-9111-e06f09740d2f">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &gt;=1 and  [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] &lt;14  and [dbo].[v_fact_Инфляция_Общая].[ISO_год]  = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="2318258b-b1de-4367-bf19-8368b4932ebb">
+          <ID>Инфляция_общая_2024_04_01</ID>
+          <Name>Инфляция_общая_2024_04_01</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="afff3328-c372-4a35-a480-aca9d40bbe4d">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =14 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="fba653d4-c762-425f-b721-0d15e038725a">
+          <ID>Инфляция_общая_2024_04_08</ID>
+          <Name>Инфляция_общая_2024_04_08</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="1bb06e40-4bda-47f0-9a55-d169bae7ea10">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =15 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="6050087b-2475-4f98-9548-da75f3c1c2f8">
+          <ID>Инфляция_общая_2024_04_15</ID>
+          <Name>Инфляция_общая_2024_04_15</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="b610644d-df65-41d8-a836-40e9731c6d25">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =16 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="d737c54b-8cf7-49bc-ae7e-f6e7396c6e26">
+          <ID>Инфляция_общая_2024_04_22</ID>
+          <Name>Инфляция_общая_2024_04_22</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="80e43006-8e1e-40b6-8f1f-4e8b2727bfe9">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =17 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="94eb14b3-d3a6-4abc-a411-7ff48eedef7a">
+          <ID>Инфляция_общая_2024_04_29</ID>
+          <Name>Инфляция_общая_2024_04_29</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="fa0f9a53-b3bc-4b3d-a04c-8c6f45295176">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =18 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="c832bcc0-916b-4e27-903b-1ce2c69ffd8b">
+          <ID>Инфляция_общая_2024_05_06</ID>
+          <Name>Инфляция_общая_2024_05_06</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6fb3f320-ac58-4710-b468-bb6c5a139dae">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =19 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="9d96451f-9611-408f-8707-76ee95000aa5">
+          <ID>Инфляция_общая_2024_05_13</ID>
+          <Name>Инфляция_общая_2024_05_13</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="81f36516-5eca-4977-a462-afbca6f96859">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =20 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="ccd175f1-c24f-4b80-937b-3ffeab64233d">
+          <ID>Инфляция_общая_2024_05_20</ID>
+          <Name>Инфляция_общая_2024_05_20</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="05dad828-606c-4b11-bc9b-ca7dc1d24930">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =21 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="95a4ae18-6d68-48c9-ad09-35adb30afaed">
+          <ID>Инфляция_общая_2024_05_27</ID>
+          <Name>Инфляция_общая_2024_05_27</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="82d8722b-e272-48ec-b952-e68b5be9542f">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =22 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="e5672f7a-bf81-47bc-89c6-fdc5c67a0ccf">
+          <ID>Инфляция_общая_2024_06_03</ID>
+          <Name>Инфляция_общая_2024_06_03</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8709ce5e-ea12-4262-b998-96999080fca5">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =23 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="0bb45d4c-616d-4321-9e28-18d50ee6cd05">
+          <ID>Инфляция_общая_2024_06_10</ID>
+          <Name>Инфляция_общая_2024_06_10</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="81365e74-c3e0-41df-9e40-737db40084cf">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =24 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="2ba6a56e-cc32-44d2-afab-60ea57dd94cf">
+          <ID>Инфляция_общая_2024_06_17</ID>
+          <Name>Инфляция_общая_2024_06_17</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="3d085d1b-9c08-48e6-9b21-740beb89ca3f">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =25 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="7486383c-18ee-4595-beb3-08dbb099c927">
+          <ID>Инфляция_общая_2024_06_24</ID>
+          <Name>Инфляция_общая_2024_06_24</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="5c4264b7-939f-4140-8042-8c9228bc4ea1">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =26 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="b725373d-84fb-4b24-a92c-ea62cc7315b7">
+          <ID>Инфляция_общая_2024_07_01</ID>
+          <Name>Инфляция_общая_2024_07_01</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="ba741041-4f2c-4abf-bb88-eb6b6bc08051">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =27 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="72724a38-e8b5-433a-8c19-61c73d7d42e9">
+          <ID>Инфляция_общая_2024_07_08</ID>
+          <Name>Инфляция_общая_2024_07_08</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f8b710a3-2b5e-487b-9da7-08baa192c521">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =28 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="3c1aa2cc-b9d5-433c-b17e-1c50e2eb7a38">
+          <ID>Инфляция_общая_2024_07_15</ID>
+          <Name>Инфляция_общая_2024_07_15</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f0cbbb0a-91c4-41f5-99f8-f733d9eec3a1">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =29 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="13674178-2035-4a89-8333-7d2ebac20933">
+          <ID>Инфляция_общая_2024_07_22</ID>
+          <Name>Инфляция_общая_2024_07_22</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="45ffdaa4-647f-42e1-aca4-ed8d7fbb3cc7">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =30 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="ff1c6cd5-061a-4b32-bddf-0b11bef58837">
+          <ID>Инфляция_общая_2024_07_29</ID>
+          <Name>Инфляция_общая_2024_07_29</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d16f66da-f1c9-417c-bbca-7a42051b5dc7">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =31 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="bd3c49fe-1545-416d-883e-97ca6696d91b">
+          <ID>Инфляция_общая_2024_08_05</ID>
+          <Name>Инфляция_общая_2024_08_05</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="c44241c3-d634-41a1-a91c-86754aba8314">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =32 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="5b56ead1-a83a-4610-8bdf-07585cef913a">
+          <ID>Инфляция_общая_2024_08_12</ID>
+          <Name>Инфляция_общая_2024_08_12</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="39dab1b1-8d0e-4591-8daa-2c8d130adab5">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =33 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="6287aeb0-9f8e-4c23-a576-4f468fda2000">
+          <ID>Инфляция_общая_2024_08_19</ID>
+          <Name>Инфляция_общая_2024_08_19</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f8b85f5b-77e4-4df6-9895-28a47bd1c487">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =34 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="1b72092d-895f-46bb-b3bc-1b06aa4962a0">
+          <ID>Инфляция_общая_2024_08_26</ID>
+          <Name>Инфляция_общая_2024_08_26</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="1cf2f244-5305-45c6-8164-6fb0a106b548">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =35 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="cde008ea-bbf2-479d-a5ff-0f0bde2e0fe9">
+          <ID>Инфляция_общая_2024_09_02</ID>
+          <Name>Инфляция_общая_2024_09_02</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="c38d1254-be4b-4fa6-8cb1-a42dca06a6ee">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =36 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="26b25605-0053-4074-bcae-de7a89405468">
+          <ID>Инфляция_общая_2024_09_09</ID>
+          <Name>Инфляция_общая_2024_09_09</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="5f7caf1c-d869-4a86-ac89-a0b62fd77a59">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =37 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="d12c9bc0-3e0d-4a6b-af43-dd2e2d30abba">
+          <ID>Инфляция_общая_2024_09_16</ID>
+          <Name>Инфляция_общая_2024_09_16</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="c8631c3f-b2e0-4eb5-ae72-e29afd527bd6">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =38 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="e3dd4e9a-ffbd-4000-8044-2485a2027112">
+          <ID>Инфляция_общая_2024_09_23</ID>
+          <Name>Инфляция_общая_2024_09_23</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="43bed957-6986-45bc-a206-abc96a6368c7">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =39 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="a664b2fe-f533-4818-8f0a-58a91d38e9b7">
+          <ID>Инфляция_общая_2024_09_30</ID>
+          <Name>Инфляция_общая_2024_09_30</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="a5712775-55cc-4b26-b4ff-6148376fb1c0">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =40 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="1dea7f8c-2bff-4287-9130-20eabfc74029">
+          <ID>Инфляция_общая_2024_10_07</ID>
+          <Name>Инфляция_общая_2024_10_07</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="7e422260-fd19-422e-b26e-ae5e94502f07">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =41 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="d307e260-8733-4932-9391-8a2868c965f8">
+          <ID>Инфляция_общая_2024_10_14</ID>
+          <Name>Инфляция_общая_2024_10_14</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="f60cdefa-00ce-4992-b2f9-a1cb6711cc27">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =42 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="a1390e64-33e9-4d65-8dd3-7d6bd8f09fca">
+          <ID>Инфляция_общая_2024_10_21</ID>
+          <Name>Инфляция_общая_2024_10_21</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="9f72cbc6-ece4-44af-b49b-daf695ead8ff">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =42 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="3df810b3-84e9-4ce6-b298-577e01f880c9">
+          <ID>Инфляция_общая_2024_10_28</ID>
+          <Name>Инфляция_общая_2024_10_28</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="64a17496-aa5b-40ba-ac2b-9810ca556e76">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =43 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="6cc3aa0c-d13b-48b1-a52d-f0cbc65da904">
+          <ID>Инфляция_общая_2024_11_04</ID>
+          <Name>Инфляция_общая_2024_11_04</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="e7939468-afe4-4448-960a-18fb91457c15">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =44 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="0f73cccf-59dc-4783-afce-648fe5dabb38">
+          <ID>Инфляция_общая_2024_11_11</ID>
+          <Name>Инфляция_общая_2024_11_11</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="d7897436-084d-4761-a50a-af83050b6f27">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =45 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="cb47d65b-c7e2-46e4-bfe0-3185fd2c27c4">
+          <ID>Инфляция_общая_2024_11_18</ID>
+          <Name>Инфляция_общая_2024_11_18</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="b33faf07-e0c1-486e-8f21-b7ba6f461956">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =46 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="42aa0cf4-9e87-4751-8527-cfd794315b2e">
+          <ID>Инфляция_Общая_2024_11_25</ID>
+          <Name>Инфляция_Общая_2024_11_25</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="cda589a2-8f2d-4e66-8f0f-a5a666f96d97">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =47 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="c79c0815-cd94-413a-b2f4-0d0b9d33bf32">
+          <ID>Инфляция_Общая_2024_12_02</ID>
+          <Name>Инфляция_Общая_2024_12_02</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="a3826d73-007f-45f7-8043-f43aee1063fc">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =48 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="bb1aad1f-080b-4a28-9bf2-2b448dff07b7">
+          <ID>Инфляция_общая_2024_12_09</ID>
+          <Name>Инфляция_общая_2024_12_09</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="40361d5a-48bf-484c-8cf6-097504a66784">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =49 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="39e2dfa5-03c0-47c2-a872-27e7861a9525">
+          <ID>Инфляция_общая_2024_12_16</ID>
+          <Name>Инфляция_общая_2024_12_16</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="8eb00ddb-4aa6-4c35-83ac-7b58a1ec9b95">
+            <DataSourceID>DWH</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[v_fact_Инфляция_Общая].[Инфляция],[dbo].[v_fact_Инфляция_Общая].[ISO_неделя],[dbo].[v_fact_Инфляция_Общая].[ISO_год]
+FROM [dbo].[v_fact_Инфляция_Общая]
+WHERE [dbo].[v_fact_Инфляция_Общая].[ISO_неделя] =49 and [dbo].[v_fact_Инфляция_Общая].[ISO_год] = 2024</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
