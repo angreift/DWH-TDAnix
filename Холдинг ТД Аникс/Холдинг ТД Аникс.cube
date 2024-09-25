@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="281" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-39741" scrolltop="-51741" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="10" x="33734" y="16087" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="281" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-39741" scrolltop="-51741" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="10" x="33734" y="14261" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -10764,78 +10764,9 @@
       </Dimensions>
       <Partitions />
     </MeasureGroup>
-    <MeasureGroup dwd:design-time-name="0c4f5b49-cc8b-41db-aa75-672194bf28a2">
-      <ID>v Fact Верхние Цифры</ID>
-      <Name>v Fact Верхние Цифры</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-      <State>Unprocessed</State>
-      <Measures>
-        <Measure dwd:design-time-name="cfc021de-7c2c-4ba5-a1e9-7652e62aa43c">
-          <ID>Инфляция</ID>
-          <Name>Инфляция</Name>
-          <Source dwd:design-time-name="deebc1a2-a575-47cf-8bd3-2fef01123d61">
-            <DataType>Double</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="fdcebd23-9143-4f94-bc4e-f6b3ab0c98e8">
-              <TableID>dbo_v_fact_Верхние_цифры</TableID>
-              <ColumnID>Инфляция</ColumnID>
-            </Source>
-          </Source>
-        </Measure>
-      </Measures>
-      <StorageMode>Molap</StorageMode>
-      <ProcessingMode>Regular</ProcessingMode>
-      <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="203d8d4a-1130-4da3-8917-859b2200d02f">
-          <CubeDimensionID>Календарь</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="4562d9e1-7c75-4223-9c05-40cc160189f6">
-              <AttributeID>ISO Неделя Кратко</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e2c55c52-4292-4403-ab3f-52b143a7e662">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4e232fea-24ea-4701-a311-233738756b43">
-                    <TableID>dbo_v_fact_Верхние_цифры</TableID>
-                    <ColumnID>ИД_год</ColumnID>
-                  </Source>
-                </KeyColumn>
-                <KeyColumn dwd:design-time-name="f84745ae-277f-4056-90ef-b148ec5f05ee">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="086280d0-d649-426e-a083-09837fc7319d">
-                    <TableID>dbo_v_fact_Верхние_цифры</TableID>
-                    <ColumnID>ISO_неделя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6833ca48-aef0-449a-8903-8d32c7f24483">
-          <CubeDimensionID>Товар</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="dd766d59-a9b6-4db3-b802-340de43e541f">
-              <AttributeID>Код Группы</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="50555da6-f7d0-4266-97b5-03f90cdf78f7">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="acb1f33c-a05c-45c9-975b-b11942e47994">
-                    <TableID>dbo_v_fact_Верхние_цифры</TableID>
-                    <ColumnID>Код_группы</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-      </Dimensions>
-      <Partitions />
-    </MeasureGroup>
     <MeasureGroup dwd:design-time-name="0fbdf7c3-1420-4be6-bb8f-43a8ddf98a0a">
       <ID>v Fact Инфляция Группы</ID>
-      <Name>v Fact Инфляция Группы</Name>
+      <Name>Инфляция Группы</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
       <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
@@ -10843,7 +10774,7 @@
       <Measures>
         <Measure dwd:design-time-name="629c59d2-1d6a-4e24-ab9a-8f118bd5b22b">
           <ID>Инфляция - v Fact Инфляция Группы</ID>
-          <Name>Инфляция - v Fact Инфляция Группы</Name>
+          <Name>Инфляция Группы</Name>
           <Source dwd:design-time-name="d45e8941-96a2-4faf-a0aa-890997f55d68">
             <DataType>Double</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="6de99e13-ba79-4e90-9312-c0cb36ccdb4f">
@@ -10856,31 +10787,6 @@
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
       <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="79e8aba6-5f6e-4a22-98f3-e2de7e38197f">
-          <CubeDimensionID>Календарь</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="7164b228-d75b-426a-8e01-b9ce1e2f7300">
-              <AttributeID>ISO Неделя Кратко</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="e2bd7d73-3fc7-4e2e-a133-8d1331e429b1">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="45d6ef7b-e07f-4fbc-bece-b66709e64e4b">
-                    <TableID>dbo_v_fact_Инфляция_группы</TableID>
-                    <ColumnID>ISO_год</ColumnID>
-                  </Source>
-                </KeyColumn>
-                <KeyColumn dwd:design-time-name="2f1dc57d-eba9-4184-b1ad-86ff28bd4fd3">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0c22ba12-3dbe-4647-bdb5-a5521b8f8de4">
-                    <TableID>dbo_v_fact_Инфляция_группы</TableID>
-                    <ColumnID>ISO_неделя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="942bf62a-b646-45a7-8fb2-4161c643ae9f">
           <CubeDimensionID>Товар</CubeDimensionID>
           <Attributes>
@@ -10899,12 +10805,37 @@
             </Attribute>
           </Attributes>
         </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f93db92e-0cf3-409c-9255-aa737fed170e">
+          <CubeDimensionID>Календарь</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="8e463054-fcb9-456c-aaf3-89981b36047b">
+              <AttributeID>ISO Неделя Кратко</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="17a824bd-8179-40fb-9fd0-4c0ebc005558">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="76291a24-f196-438a-a6bd-eccc0236cba9">
+                    <TableID>dbo_v_fact_Инфляция_группы</TableID>
+                    <ColumnID>ISO_год</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="0bd5ba4a-b7ba-45ff-b443-990faeede51d">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4c49a388-fb11-44d1-b88f-7b75bec9ef9e">
+                    <TableID>dbo_v_fact_Инфляция_группы</TableID>
+                    <ColumnID>ISO_неделя</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
       </Dimensions>
       <Partitions />
     </MeasureGroup>
     <MeasureGroup dwd:design-time-name="39cca67c-99a2-4690-bb08-e2a0f909598f">
       <ID>v Fact Инфляция Общая</ID>
-      <Name>v Fact Инфляция Общая</Name>
+      <Name>Инфляция Общая</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
       <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
@@ -10912,7 +10843,7 @@
       <Measures>
         <Measure dwd:design-time-name="0e8469dc-d2c3-40bc-89eb-bf4c8d60dd57">
           <ID>Инфляция - v Fact Инфляция Общая</ID>
-          <Name>Инфляция - v Fact Инфляция Общая</Name>
+          <Name>Инфляция Общая</Name>
           <Source dwd:design-time-name="7822c3b5-0d95-402a-abcb-f4e901ca9348">
             <DataType>Double</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="56bf7b21-5d64-4c6d-bf69-756baa05a022">
@@ -10943,166 +10874,6 @@
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="8c29bd76-5c31-4f82-9916-86924ff73dc7">
                     <TableID>dbo_v_fact_Инфляция_Общая</TableID>
                     <ColumnID>ISO_неделя</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-      </Dimensions>
-      <Partitions />
-    </MeasureGroup>
-    <MeasureGroup dwd:design-time-name="7a59225a-7d16-421a-bb4a-cdea22ea9e6e">
-      <ID>v Fact Детализация Чеков Test</ID>
-      <Name>v Fact Детализация Чеков Test</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-      <State>Unprocessed</State>
-      <Measures>
-        <Measure dwd:design-time-name="5761c1f8-4c22-434b-b012-37dd832bfdb4">
-          <ID>Признак Промо</ID>
-          <Name>Признак Промо</Name>
-          <Source dwd:design-time-name="3914abf3-fbb9-42ce-b774-2ef6b204faa5">
-            <DataType>Double</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="75046b2d-cb9a-4bfb-9e39-cf28afadddc5">
-              <TableID>cass_v_fact_Детализация_чеков_test</TableID>
-              <ColumnID>Количество_с_учетом_возвратов</ColumnID>
-            </Source>
-          </Source>
-        </Measure>
-      </Measures>
-      <StorageMode>Molap</StorageMode>
-      <ProcessingMode>Regular</ProcessingMode>
-      <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f6d963dd-1fa0-42f0-987d-407b7188271d">
-          <CubeDimensionID>Календарь</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="37947bcb-c8c8-43f0-a9f5-a96a284ec14d">
-              <AttributeID>ИД Дата</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="29183c96-e423-40f0-992f-820cb6cfe62a">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="86e01d05-9d98-4786-87d7-c1b19a09ee79">
-                    <TableID>cass_v_fact_Детализация_чеков_test</TableID>
-                    <ColumnID>Дата_добавления_позиции</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="28ef97fb-903e-40ec-86f2-b96cbfb2fdad">
-          <CubeDimensionID>Магазин</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="8a2b8c36-3df9-456a-a38c-2c85e0fb18ff">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="2ecaf956-4b27-4c86-aea5-9e89d063d272">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fc03410d-cfd2-4798-a9aa-3c7f13eb6a75">
-                    <TableID>cass_v_fact_Детализация_чеков_test</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b3ef4aa1-6e8c-4deb-a37e-d6086a73af3b">
-          <CubeDimensionID>Товар</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="05548f6d-df53-4b73-bc7c-abe8aad5aced">
-              <AttributeID>Код Товара</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="24de7f3b-0fde-4b49-833b-9f8e3d97c690">
-                  <DataType>BigInt</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="21d5b0d0-3065-465f-a22c-7e6121b256ad">
-                    <TableID>cass_v_fact_Детализация_чеков_test</TableID>
-                    <ColumnID>Код_товара</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6501c7e3-ee4b-4275-90f8-0e85657bc8fc">
-          <CubeDimensionID>Промо</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="a55b2265-93a6-488a-bc69-fe2183623ce6">
-              <AttributeID>Флаг Промо</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="d5c514de-9632-42f8-ba94-bdaec923ab9c">
-                  <DataType>Boolean</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4cc1085c-f900-4737-b730-7a9ee8d204aa">
-                    <TableID>cass_v_fact_Детализация_чеков_test</TableID>
-                    <ColumnID>Признак_промо</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-      </Dimensions>
-      <Partitions />
-    </MeasureGroup>
-    <MeasureGroup dwd:design-time-name="75df3bb8-4a65-420c-8347-29ef0f45c050">
-      <ID>t Fact Матрица Промо Товаров</ID>
-      <Name>t Fact Матрица Промо Товаров</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-      <State>Unprocessed</State>
-      <Measures>
-        <Measure dwd:design-time-name="60f67238-8802-4c9c-be22-5f95f48fdbce">
-          <ID>Флаг Промо</ID>
-          <Name>Флаг Промо</Name>
-          <Source dwd:design-time-name="27bf9ccb-ef6a-4892-a0f6-bccc07ceb684">
-            <DataType>Boolean</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="e324eed6-1d07-4897-b05c-a8d453ad2f56">
-              <TableID>dbo_t_fact_Матрица_промо_товаров</TableID>
-              <ColumnID>Флаг_промо</ColumnID>
-            </Source>
-          </Source>
-        </Measure>
-      </Measures>
-      <StorageMode>Molap</StorageMode>
-      <ProcessingMode>Regular</ProcessingMode>
-      <Dimensions>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b649f915-9530-4e52-9fd1-20d18ba475dd">
-          <CubeDimensionID>Календарь</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="76ab9ef8-d671-4e4f-8113-d4e192e1d453">
-              <AttributeID>ИД Дата</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="7de69532-8847-43f3-b381-b4ef903ca255">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5368bcb6-8631-4fd4-a3c2-670219121ce4">
-                    <TableID>dbo_t_fact_Матрица_промо_товаров</TableID>
-                    <ColumnID>Дата</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c4ac0a1c-9dd4-44e5-9bc6-ab46e726c296">
-          <CubeDimensionID>Магазин</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="ab4a690a-6c8d-499c-adb1-b0c79aa2f12f">
-              <AttributeID>Код</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="d1446aa3-137e-404f-88df-9725c54d1b22">
-                  <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6211ab3c-05fc-4f66-b26b-4df1da8e1cc1">
-                    <TableID>dbo_t_fact_Матрица_промо_товаров</TableID>
-                    <ColumnID>Код_магазина</ColumnID>
                   </Source>
                 </KeyColumn>
               </KeyColumns>
