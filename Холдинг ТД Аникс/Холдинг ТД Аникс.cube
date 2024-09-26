@@ -11160,130 +11160,134 @@
       <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
       <Commands>
         <Command>
-          <Text>CALCULATE;                                                                
+          <Text>CALCULATE;                                                                 
 CREATE MEMBER CURRENTCUBE.MEASURES.UseAsDefaultMeasure
  AS NULL,
-VISIBLE = 0;                                                           
+VISIBLE = 0;                                                            
 
 ALTER CUBE CURRENTCUBE UPDATE DIMENSION Measures,
-DEFAULT_MEMBER = [Measures].UseAsDefaultMeasure;                                                         
+DEFAULT_MEMBER = [Measures].UseAsDefaultMeasure;                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Оборачиваемость дней]
  AS iif(sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Количество ШТ КГ])&lt;&gt;0,
 [Measures].[Средний остаток ШТ КГ]/sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Количество ШТ КГ])*[Measures].[Кол-во дней]*-1, null), 
 FORMAT_STRING = "Standard", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара'; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Оборачиваемость дней от тек.остатка]
+ AS iif(sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Количество ШТ КГ])&lt;&gt;0,
+[Measures].[Остаток на начало дня ШТ КГ]/sum([Вид товародвижения].[Вид товародвижения].&amp;[8], [Measures].[Количество ШТ КГ])*[Measures].[Кол-во дней]*-1, null), 
+VISIBLE = 1  ;                                                                 
 
 CREATE MEMBER CURRENTCUBE.[Measures].[Кража в розничных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[32], [Measures].[Сумма движения товара РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Кража в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[32], [Measures].[Сумма движения товара закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Форс-мажор в розничных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[81], [Measures].[Сумма движения товара РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Переоценка в розничных ценах РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[4], [Measures].[Сумма движения товара РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Переоценка в закупочных ценах РУБ]
  AS sum([Вид товародвижения].[Вид товародвижения].&amp;[4], [Measures].[Сумма движения товара закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Форс-мажор в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[81], [Measures].[Сумма движения товара закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Списания на МОЛ в розничных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[13], [Measures].[Сумма движения товара РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Списания на МОЛ в закупочных ценах РУБ]
  AS Sum([Причина товародвижения].[Причина].&amp;[13], [Measures].[Сумма движения товара закупочная РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[Пенетрация ПРОЦ]
  AS iif(
     ([Measures].[Число чеков по товару ШТ]) = 0, null,
     ( [Measures].[Число чеков по товару ШТ]) / [Measures].[Количество чеков ШТ]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Себестоимость продаж РУБ]
  AS sum({[Вид товародвижения].[Вид товародвижения].&amp;[8],[Вид товародвижения].[Вид товародвижения].&amp;[5]},[Measures].[Сумма движения товара закупочная со склада РУБ])*-1, 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[Потери в розничных ценах РУБ]
  AS sum({[Причина товародвижения].[Категории причин товародвижения].[Категория].&amp;[2].CHILDREN,
 [Причина товародвижения].[Категории причин товародвижения].[Категория].&amp;[16].CHILDREN
 -[Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[43]
 -[Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[56]},
  [Measures].[Сумма движения товара РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[Потери в закупочных ценах РУБ]
  AS sum({[Причина товародвижения].[Категории причин товародвижения].[Категория].&amp;[2].CHILDREN,
 [Причина товародвижения].[Категории причин товародвижения].[Категория].&amp;[16].CHILDREN
 -[Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[43]
 -[Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[56]},
 [Measures].[Сумма движения товара закупочная со склада РУБ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                        
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                         
 																   
 																																	  
 																			 
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний чек по товару РУБ]
  AS iif([Продажи с учетом возвратов и скидок РУБ]=0,null,[Measures].[Продажи с учетом возвратов и скидок РУБ]/[Measures].[Число чеков по товару ШТ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                                                                         
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка РУБ]
  AS [Продажи с учетом возвратов и скидок РУБ] -sum({[Вид товародвижения].[Вид товародвижения].&amp;[8],[Вид товародвижения].[Вид товародвижения].&amp;[5]},[Measures].[Сумма движения товара закупочная со склада РУБ]) * (-1), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                         
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка ПРОЦ]
  AS iif([Продажи с учетом возвратов и скидок РУБ]-[Наценка РУБ]=0,null,[Наценка РУБ]/([Продажи с учетом возвратов и скидок РУБ]-[Наценка РУБ])), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[Цена закупочная]
  AS iif([Measures].[Количество ШТ КГ]=0,null,sum({[Вид товародвижения].[Вид товародвижения].&amp;[8],[Вид товародвижения].[Вид товародвижения].&amp;[5]},[Measures].[Сумма движения товара закупочная со склада РУБ])/sum({[Вид товародвижения].[Вид товародвижения].&amp;[8],[Вид товародвижения].[Вид товародвижения].&amp;[5]},[Measures].[Количество ШТ КГ])), 
 NON_EMPTY_BEHAVIOR = { [Сумма движения товара закупочная со склада РУБ] }, 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[Цена розничная]
  AS iif([Measures].[Количество ШТ КГ]=0,null,[Measures].[Сумма движения товара РУБ]/[Measures].[Количество ШТ КГ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                    
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[Время обслуживания покупателя СЕК]
  AS ([Возврат].[Объект является возвратом].&amp;[False],[Measures].[Длительность чека СЕК])/([Возврат].[Объект является возвратом].&amp;[False],[Measures].[Количество чеков ШТ]), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                                    
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[Время сканирования позиции СЕК]
  AS ([Возврат].[Объект является возвратом].&amp;[False],[Measures].[Длительность чека СЕК])/([Возврат].[Объект является возвратом].&amp;[False],[Measures].[Число позиций ШТ]), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                               
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи 2024 РУБ]
  AS sum([Календарь].[День-Месяц-Год].[Год].&amp;[2024],[Measures].[Продажи с учетом возвратов и скидок РУБ]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI';                                
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI';                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи 2023 РУБ]
  AS sum([Календарь].[День-Месяц-Год].[Год].&amp;[2023],[Measures].[Продажи с учетом возвратов и скидок РУБ]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI';                      
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI';                       
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи 2022 РУБ]
  AS sum([Календарь].[День-Месяц-Год].[Год].&amp;[2022],[Measures].[Продажи с учетом возвратов и скидок РУБ]), 
-VISIBLE = 1;                                    
+VISIBLE = 1;                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[Служ. мера Дт Чеков=Чеки]
  AS iif([Measures].[Продажи с учетом возвратов и скидок РУБ]=[Measures].[Итоговая сумма чека со скидками РУБ],1,0), 
-VISIBLE = 0;                                
+VISIBLE = 0;                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[План 2024]
  AS sum([Календарь].[День-Месяц-Год].[Год].&amp;[2024],[Measures].[Плановое значение]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI';                               
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI';                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Новинки РУБ]
  AS sum([Признак].[Признак].&amp;[4],[Measures].[Продажи с учетом возвратов и скидок РУБ]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                              
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Power BI' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                               
 CREATE MEMBER CURRENTCUBE.[Measures].[Скидка по ТСД РУБ]
  AS [Measures].[Сумма проданного без скидки по ТСД РУБ]-[Measures].[Сумма проданного со скидкой по ТСД РУБ], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Продажи уцененного товара по ТСД';                             
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Продажи уцененного товара по ТСД';                              
 CREATE MEMBER CURRENTCUBE.[Measures].[Полное Сторно Чека]
  AS ([Measures].[Сторнированные позиции].[Сторнирован Полностью], [Сторнированные Чеки Справочник].[bit])=1, 
-VISIBLE = 1;                            
+VISIBLE = 1;                             
 CREATE MEMBER CURRENTCUBE.[Measures].[Число полностью сторнированных чеков]
  AS sum([Чек сторнирован полностью].[Полное сторно].&amp;[True],[Measures].[Число сторнированных чеков]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Сторнированные позиции';                          
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Сторнированные позиции';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[KeySelDate]
  AS format(cdate((existing [Календарь].[День-Месяц-Год].[День]).Item((existing [Календарь].[День-Месяц-Год].[День]).count-1).Properties("key")),"yyyy-MM-ddTHH:mm:ss"), 
-VISIBLE = 0;                          
+VISIBLE = 0;                           
 CREATE MEMBER CURRENTCUBE.[Measures].[KeySelDate60]
  AS iif([Measures].[KeySelDate]="2031-01-01T00:00:00",null,
 format(cdate(
 StrToMember("[Календарь].[День-Месяц-Год].[День].&amp;["+[Measures].[KeySelDate]+"]").lag(60).Properties("key")),
 "yyyy-MM-ddTHH:mm:ss")), 
-VISIBLE = 0;                          
+VISIBLE = 0;                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Непроды РУБ]
  AS iif(
 [Measures].[Остаток ШТ КГ]&gt;0,
@@ -11291,333 +11295,333 @@ iif(sum(StrToMember("[Календарь].[День-Месяц-Год].[День
 :StrToMember("[Календарь].[День-Месяц-Год].[День].&amp;["+[Measures].[KeySelDate]+"]")
 ,[Measures].[Количество проданного с учетом возвратов ШТ КГ])&gt;0
 ,null,[Measures].[Сумма закупа со склада РУБ]),null), 
-VISIBLE = 0;                          
+VISIBLE = 0;                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Непроды шт]
  AS iif([Measures].[Остаток ШТ КГ]&gt;0,
 iif(sum(StrToMember("[Календарь].[День-Месяц-Год].[День].&amp;["+[Measures].[KeySelDate60]+"]")
 :StrToMember("[Календарь].[День-Месяц-Год].[День].&amp;["+[Measures].[KeySelDate]+"]")
 ,[Measures].[Количество проданного с учетом возвратов ШТ КГ])&gt;0
 ,null,[Measures].[Остаток ШТ КГ]),null), 
-VISIBLE = 0;                          
+VISIBLE = 0;                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи Торнадо РУБ]
  AS sum([Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[999],[Measures].[Сумма движения товара РУБ])*-1, 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи Торнадо ШТ]
  AS sum([Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[999],[Measures].[Количество ШТ КГ])*-1, 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Себестоимость Торнадо РУБ]
  AS sum([Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[999],[Measures].[Сумма движения товара закупочная со склада РУБ])*-1, 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                                                                        
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний чек РУБ]
  AS [Measures].[Итоговая сумма чека со скидками РУБ]/[Measures].[Количество чеков ШТ], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                          
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Чеки';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка Торнадо РУБ]
  AS [Measures].[Продажи Торнадо РУБ]-[Measures].[Себестоимость Торнадо РУБ], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Количество проданного с учетом возвратов + Торнадо ШТ КГ]
  AS [Measures].[Количество проданного с учетом возвратов ШТ КГ]+[Measures].[Продажи Торнадо ШТ], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи с учетом возвратов и скидок + Торнадо РУБ ]
  AS [Measures].[Продажи с учетом возвратов и скидок РУБ]+[Measures].[Продажи Торнадо РУБ], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Себестоимость продаж + Торнадо РУБ]
  AS [Measures].[Себестоимость продаж РУБ]+[Measures].[Себестоимость Торнадо РУБ], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка + Торнадо РУБ]
  AS [Measures].[Продажи с учетом возвратов и скидок + Торнадо РУБ ]-[Себестоимость продаж + Торнадо РУБ], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка + Торнадо ПРОЦ]
  AS iif([Продажи с учетом возвратов и скидок + Торнадо РУБ ]-[Наценка + Торнадо РУБ]=0,null,[Наценка + Торнадо РУБ]/([Продажи с учетом возвратов и скидок + Торнадо РУБ ]-[Наценка + Торнадо РУБ])), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                         
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Количество Чеков  Торнадо ШТ]
  AS ([Причина товародвижения].[Категории причин товародвижения].[Причина].&amp;[999],[Количество документов]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                        
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                         
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков по товару ШТ + Торнадо]
  AS [Количество Чеков  Торнадо ШТ]+[Measures].[Число чеков по товару ШТ], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                       
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Торнадо';                        
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка (скидки) РУБ]
  AS [Measures].[Продажи со учетом скидки РУБ]-([Measures].[Цена закупочная]*[Measures].[Количество проданного со скидкой ШТ КГ]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Скидки';                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Скидки';                        
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка (скидки) ПРОЦ]
  AS iif([Measures].[Продажи со учетом скидки РУБ]-([Measures].[Цена закупочная]*[Measures].[Количество проданного со скидкой ШТ КГ])=0,null,[Наценка (скидки) РУБ]/([Measures].[Продажи со учетом скидки РУБ]-[Наценка (скидки) РУБ])), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Скидки';                               
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Скидки';                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Маржинальный доход РУБ]
  AS [Наценка + Торнадо РУБ]+[Потери в закупочных ценах РУБ], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                     
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост продаж к прошлому году РУБ (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])=0,null,[Продажи с учетом возвратов и скидок + Торнадо РУБ ]-sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост продаж к прошлому году ПРОЦ(мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])=0,null,[Продажи с учетом возвратов и скидок + Торнадо РУБ ]/sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост продаж к прошлому году РУБ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])=0,null,[Продажи с учетом возвратов и скидок + Торнадо РУБ ]-sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост продаж к прошлому году ПРОЦ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])=0,null,[Продажи с учетом возвратов и скидок + Торнадо РУБ ]/sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост оборачиваемости к прошлому году ДНЕЙ]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Measures].[Оборачиваемость дней])=0,null,[Measures].[Оборачиваемость дней]-sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Measures].[Оборачиваемость дней])), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост оборачиваемости к прошлому году ПРОЦ]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Measures].[Оборачиваемость дней])=0,null,[Measures].[Оборачиваемость дней]/sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Measures].[Оборачиваемость дней])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Остатки товара';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост маржи к прошлому году РУБ  (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Measures].[Маржинальный доход РУБ])=0,null,[Маржинальный доход РУБ]-sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Маржинальный доход РУБ])), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост маржи к прошлому году ПРОЦ (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Measures].[Маржинальный доход РУБ])=0,null,[Маржинальный доход РУБ]/sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Маржинальный доход РУБ])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост маржи к прошлому году РУБ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Маржинальный доход РУБ])=0,null,[Маржинальный доход РУБ]-sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Маржинальный доход РУБ])), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост маржи к прошлому году ПРОЦ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Маржинальный доход РУБ])=0,null,[Маржинальный доход РУБ]/sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Маржинальный доход РУБ])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Товародвижение';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества чеков к прошлому году ШТ (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])=0,null,[Число чеков по товару ШТ + Торнадо]-sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества чеков к прошлому году ПРОЦ (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])=0,null,[Число чеков по товару ШТ + Торнадо]/sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества чеков к прошлому году ШТ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])=0,null,[Число чеков по товару ШТ + Торнадо]-sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества чеков к прошлому году ПРОЦ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])=0,null,[Число чеков по товару ШТ + Торнадо]/sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост пенетрации к прошлому году (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Пенетрация ПРОЦ])=0,null,[Пенетрация ПРОЦ]-sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Пенетрация ПРОЦ])), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост пенетрации к прошлому году(нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Пенетрация ПРОЦ])=0,null,[Пенетрация ПРОЦ]-sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Пенетрация ПРОЦ])), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества проданного к прошлому году ШТ (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])=0,null,[Количество проданного с учетом возвратов + Торнадо ШТ КГ]-sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества проданного к прошлому году ПРОЦ (мес)]
  AS iif(sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])=0,null,[Количество проданного с учетом возвратов + Торнадо ШТ КГ]/sum(ParallelPeriod([Календарь].[День-Месяц-Год].[Год],1,[Календарь].[День-Месяц-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества проданного к прошлому году ШТ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])=0,null,[Количество проданного с учетом возвратов + Торнадо ШТ КГ]-sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])), 
 FORMAT_STRING = "# ##0,00;-# ##0,00", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                     
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Количества проданного к прошлому году ПРОЦ (нед)]
  AS iif(sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])=0,null,[Количество проданного с учетом возвратов + Торнадо ШТ КГ]/sum(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год],1,[Календарь].[ISO День-Неделя-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ])-1), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Прирост показателей' ,  ASSOCIATED_MEASURE_GROUP = 'Детализация чеков';                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи прошлой недели]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Неделя], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),
         [Measures].[Продажи с учетом возвратов и скидок РУБ]), 
-VISIBLE = 1;                
+VISIBLE = 1;                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи текущей недели]
  AS [Measures].[Продажи с учетом возвратов и скидок РУБ], 
-VISIBLE = 1;     
+VISIBLE = 1;      
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи прошлой недели ШТ]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Неделя], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),
 [Количество проданного с учетом возвратов + Торнадо ШТ КГ]), 
-VISIBLE = 1;     
+VISIBLE = 1;      
 CREATE MEMBER CURRENTCUBE.[Measures].[Продажи текущей недели ШТ]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Количество проданного с учетом возвратов + Торнадо ШТ КГ]), 
-VISIBLE = 1;            
+VISIBLE = 1;             
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост к прошлой неделе]
  AS [Продажи текущей недели]/[Продажи прошлой недели]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;     
+VISIBLE = 1;      
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост к прошлой неделе ШТ]
  AS [Продажи текущей недели ШТ]/[Продажи прошлой недели ШТ]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;                 
+VISIBLE = 1;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Факт   шт]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Количество проданного с учетом возвратов + Торнадо ШТ КГ]), 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Факт год - 1 руб]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),[Продажи с учетом возвратов и скидок + Торнадо РУБ ]), 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Факт  руб]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Продажи с учетом возвратов и скидок + Торнадо РУБ ]), 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Факт  год -1  шт]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),[Количество проданного с учетом возвратов + Торнадо ШТ КГ]), 
-VISIBLE = 1;           
+VISIBLE = 1;            
 CREATE MEMBER CURRENTCUBE.[Measures].[ТО LFL   шт]
  AS sum([LFL].[LFL].&amp;[True],[Факт   шт]), 
-VISIBLE = 1;           
+VISIBLE = 1;            
 CREATE MEMBER CURRENTCUBE.[Measures].[ТО LFL   руб]
  AS sum([LFL].[LFL].&amp;[True],[Факт  руб]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[ТО LFL   руб Остросезон]
  AS SUM([Магазин].[Регионы ВТ].[Регион ВТ].&amp;[Розница]&amp;[остросезонные магазины],[ТО LFL   руб]), 
-VISIBLE = 1;           
+VISIBLE = 1;            
 CREATE MEMBER CURRENTCUBE.[Measures].[ТО LFL  год -1 шт]
  AS sum([LFL].[LFL].&amp;[True],[Факт  год -1  шт]), 
-VISIBLE = 1;           
+VISIBLE = 1;            
 CREATE MEMBER CURRENTCUBE.[Measures].[ТО LFL  год -1 руб]
  AS sum([LFL].[LFL].&amp;[True],[Факт год - 1 руб]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[ТО LFL  год -1 руб Остросезон]
  AS suM([Магазин].[Регионы ВТ].[Регион ВТ].&amp;[Розница]&amp;[остросезонные магазины],[ТО LFL  год -1 руб]), 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL прирост к прошлому году шт]
  AS [ТО LFL   шт]/[ТО LFL  год -1 шт]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL прирост к прошлому году руб]
  AS [ТО LFL   руб]/[ТО LFL  год -1 руб]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост к прошлому году шт]
  AS [Факт   шт]/[Факт  год -1  шт]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост к прошлому году руб]
  AS [Факт  руб]/[Факт год - 1 руб]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL прирост к прошлому году руб-Инфляция]
  AS [LFL прирост к прошлому году руб]-[Measures].[Инфляция по сети], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Остросезонные]
  AS sum([LFL].[LFL].&amp;[True],[Магазин].[Регион ВТ].&amp;[Розница]&amp;[остросезонные магазины]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков год-1]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),[Число чеков по товару ШТ + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков ]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Число чеков по товару ШТ + Торнадо]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков  в день]
  AS [Число чеков ]/7, 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков в день  год -1]
  AS [Число чеков год-1]/7, 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[КП LFL год-1]
  AS sum([LFL].[LFL].&amp;[True],[Число чеков год-1]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[КП LFL год-1 в день]
  AS [КП LFL год-1]/7, 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[КП LFL ]
  AS sum([LFL].[LFL].&amp;[True],[Число чеков ]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[КП LFL  в день]
  AS [КП LFL ]/7, 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL КП прирост]
  AS [КП LFL ]/[КП LFL год-1]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL КП прирост день]
  AS [КП LFL  в день]/[КП LFL год-1 в день]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков прошлой недели]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Неделя], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),
         [Число чеков по товару ШТ + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Число чеков  за неделю]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Число чеков по товару ШТ + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост кол-ва чеков к прошлой неделе]
  AS [Число чеков  за неделю]/[Число чеков прошлой недели]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний Чек год -1]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),[Средний Чек + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний Чек  год]
  AS sum([Календарь].[ISO День-Неделя-Год].[ISO Год].&amp;[2024],[Средний Чек + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний Чек неделя]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Средний Чек + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний Чек прошлая неделя]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Неделя], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),[Средний Чек + Торнадо]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Средний Чек + Торнадо]
  AS [Measures].[Итоговая сумма чека со скидками РУБ]/([Measures].[Количество чеков ШТ]+[Measures].[Количество Чеков  Торнадо ШТ]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL Средний Чек год -1]
  AS sum([LFL].[LFL].&amp;[True],[Средний Чек год -1]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL Средний Чек  год]
  AS sum([LFL].[LFL].&amp;[True],[Средний Чек + Торнадо]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост LFL Средний Чек  к прошлому году]
  AS [LFL Средний Чек  год]/[LFL Средний Чек год -1]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост Средний Чек неделя к неделе]
  AS [Средний Чек неделя]/[Средний Чек прошлая неделя]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост LFL Средний Чек  к прошлому году-Инфляция Общая]
  AS [Прирост LFL Средний Чек  к прошлому году]-[Measures].[Инфляция по сети], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Сумма наценки LFL год -1]
  AS sum([LFL].[LFL].&amp;[True],[Наценка руб год -1]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Сумма наценки LFL год]
  AS sum([LFL].[LFL].&amp;[True],[Наценка руб ]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[LFL прирост к прошлому году  сумма наценки]
  AS [Сумма наценки LFL год]/[Сумма наценки LFL год -1]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка руб год -1]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Год], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),[Наценка РУБ]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка руб ]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,[Наценка РУБ]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост наценки к прошлому году]
  AS [Наценка руб ]/[Наценка руб год -1]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка прошлая неделя]
  AS SUM(ParallelPeriod([Календарь].[ISO День-Неделя-Год].[ISO Неделя], 1, [Календарь].[ISO День-Неделя-Год].CurrentMember),
         [Наценка РУБ]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Наценка неделя]
  AS SUM([Календарь].[ISO День-Неделя-Год].CurrentMember,
         [Наценка РУБ]), 
-VISIBLE = 1;         
+VISIBLE = 1;          
 CREATE MEMBER CURRENTCUBE.[Measures].[Прирост наценки к прошлой неделе]
  AS [Наценка неделя]/[Наценка прошлая неделя]-1, 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[ Регулярные продажи РУБ]
  AS sum([Промо].[Флаг Промо].&amp;[False],[Measures].[Продажи с учетом возвратов и скидок + Торнадо РУБ ]), 
-VISIBLE = 1  ; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[ Регулярные продажи ШТ КГ]
  AS sum([Промо].[Флаг Промо].&amp;[False],[Measures].[Количество проданного с учетом возвратов + Торнадо ШТ КГ]), 
-VISIBLE = 1  ; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[ Промо продажи  РУБ]
  AS sum([Промо].[Флаг Промо].&amp;[True],[Measures].[Продажи с учетом возвратов и скидок + Торнадо РУБ ]), 
-VISIBLE = 1  ; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[ Промо продажи  ШТ КГ]
  AS sum([Промо].[Флаг Промо].&amp;[True],[Measures].[Количество проданного с учетом возвратов + Торнадо ШТ КГ]), 
-VISIBLE = 1  ; </Text>
+VISIBLE = 1; </Text>
         </Command>
       </Commands>
     </MdxScript>
